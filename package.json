@@ -1,0 +1,44 @@
+{
+    "name": "shinhan-tams",
+    "version": "1.0.0",
+    "description": "Shinhan TAMS",
+    "scripts": {
+        "clean:output": "rimraf dist",
+        "start": "npm run clean:output && parcel ./src/*.pug",
+        "build": "npm run clean:output && parcel build ./src/*.pug && node ./postbuild.js",
+        "server": "node ./server.js",
+        "eslint": "eslint ./**/*.js --fix",
+        "stylelint": "stylelint ./**/*.scss"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gwlee-dev/shinhan-tams.git"
+    },
+    "author": "Geonwoo Lee",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gwlee-dev/shinhan-tams/issues"
+    },
+    "homepage": "https://github.com/gwlee-dev/shinhan-tams#readme",
+    "devDependencies": {
+        "@babel/core": "^7.18.10",
+        "@parcel/namer-default": "^2.7.0",
+        "@parcel/transformer-pug": "^2.7.0",
+        "@parcel/transformer-sass": "^2.7.0",
+        "@prettier/plugin-pug": "^2.2.0",
+        "bootstrap": "^5.2.0",
+        "bootstrap-icons": "^1.9.1",
+        "eslint": "^8.21.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-config-standard": "^17.0.0",
+        "lodash.escaperegexp": "^4.1.2",
+        "parcel": "^2.7.0",
+        "prettier": "^2.7.1",
+        "replace-in-file": "^6.3.5",
+        "rimraf": "^3.0.2",
+        "static-server": "^2.2.1",
+        "stylelint": "^14.9.1",
+        "stylelint-config-prettier-scss": "^0.0.1",
+        "stylelint-config-recommended-scss": "^7.0.0"
+    }
+}

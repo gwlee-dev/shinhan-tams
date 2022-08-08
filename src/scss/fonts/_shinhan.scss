@@ -1,0 +1,32 @@
+@font-face {
+    font-family: "OneShinhan";
+    src: local("OneShinhan Bold"), local("OneShinhan-Bold"),
+        url("../font/OneShinhan-Bold.woff2") format("woff2"),
+        url("../font/OneShinhan-Bold.woff") format("woff"),
+        url("../font/OneShinhan-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OneShinhan";
+    src: local("OneShinhan Medium"), local("OneShinhan-Medium"),
+        url("../font/OneShinhan-Medium.woff2") format("woff2"),
+        url("../font/OneShinhan-Medium.woff") format("woff"),
+        url("../font/OneShinhan-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "OneShinhan";
+    src: local("OneShinhan Light"), local("OneShinhan-Light"),
+        url("../font/OneShinhan-Light.woff2") format("woff2"),
+        url("../font/OneShinhan-Light.woff") format("woff"),
+        url("../font/OneShinhan-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
