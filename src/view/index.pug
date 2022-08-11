@@ -1,0 +1,44 @@
+extends layout/base
+
+block settings
+    - var title = "메인";
+
+block contents
+    .bg-tone.py-5
+        .container
+            .row.g-5.align-items-center
+                .col-auto.border-end
+                    span.h4 공지사항
+                .col
+                    a.plain-link.row.g-4
+                        .col-auto
+                            span.fw-bold 공지사항 기능 추가 안내
+                        .col 안녕하세요~ 공지사항 기능이 추가되었습니다~~!!~!
+    .container.mt-5
+        .vstack.gap-5
+            .d-flex
+                h4.m-0.me-4 김신한(admin)님
+                .hstack.gap-3.mb-n1
+                    a.text-decoration-none 비밀번호 변경
+                    a.text-decoration-none 관리자 설정
+            .row.row-cols-4
+                .col 
+                    .rounded-3.bg-light.bg-opacity-75
+                        .p-5.pt-4.vstack.align-items-center
+                            img.img-fluid(src="../img/main/status.png")
+                            h5 테스트 현황 관리
+                .col 
+                    .rounded-3.bg-light.bg-opacity-75
+                        .p-5.pt-4.vstack.align-items-center
+                            img.img-fluid(src="../img/main/case.png")
+                            h5 테스트 케이스 관리
+                .col 
+                    .rounded-3.bg-light.bg-opacity-75
+                        .p-5.pt-4.vstack.align-items-center
+                            img.img-fluid(src="../img/main/fault.png")
+                            h5 결함 관리
+                .col 
+                    .rounded-3.bg-light.bg-opacity-75
+                        .p-5.pt-4.vstack.align-items-center
+                            img.img-fluid(src="../img/main/report.png")
+                            h5 보고서 관리

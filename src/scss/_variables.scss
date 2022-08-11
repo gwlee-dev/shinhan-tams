@@ -1,3 +1,29 @@
 $prefix: gr-;
-$font-family-sans-serif: "OneShinhan", "Apple Color Emoji", "Segoe UI Emoji",
+$enable-negative-margins: true;
+// type
+$font-family-shinhan: "OneShinhan", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", sans-serif;
+$font-family-card: "ShinhanCard", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+$font-family-sans-serif: Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", sans-serif;
+
+$headings-font-family: $font-family-shinhan;
+
+// color
+$primary: #4868e1;
+$secondary: #595959;
+$info: #00b4f0;
+$dark: #0b1966;
+$light: #f6f6f6;
+$purple: #8c91ff;
+$tone: #f4f7fc;
+
+// form
+$btn-border-width: 0.125rem;
+$form-check-input-width: 1.625em;
+$form-check-input-border-radius: 50%;
+$form-switch-width: 3.25em;
+$form-check-margin-bottom: 0.5rem;

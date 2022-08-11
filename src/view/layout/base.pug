@@ -1,0 +1,19 @@
+block settings
+
+doctype html
+html.h-100(lang="ko")
+    head
+        include meta
+        if title === "메인"
+            title= "TAMS"
+        else
+            title= `TAMS | ${nodes.find((x) => x.title === title)}`
+    body.d-flex.flex-column.h-100
+        header.fixed-top
+            include ../mixin/navbar
+            +navbar
+        main.flex-shrink-0 
+            block contents
+        include footer
+        script(src="../js/app.js", type="module")
+        block scripts

@@ -1,1 +1,11 @@
-@import "shinhan";
+@import "OneShinhan";
+@import "ShinhanCard";
+@import "~node_modules/pretendard/dist/web/static/pretendard.css";
+
+.ff-shinhan {
+    font-family: $font-family-shinhan;
+}
+
+.ff-card {
+    font-family: $font-family-shinhan;
+}

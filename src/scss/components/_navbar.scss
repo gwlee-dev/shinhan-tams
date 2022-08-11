@@ -1,0 +1,32 @@
+.navbar {
+    font-family: $font-family-shinhan;
+}
+.csr-list {
+    @include list-unstyled();
+    font-size: 0.8125rem;
+    .csr-list-item {
+        &:not(:last-child)::after {
+            content: "|";
+            opacity: 0.35;
+            margin: 0 0.5rem;
+        }
+    }
+}
+.user-panel {
+    > * {
+        &:not(:last-child)::after {
+            content: "|";
+            opacity: 0.35;
+            margin: 0 0.5rem;
+        }
+    }
+}
+.plain-link {
+    @include transition($nav-link-transition);
+    color: $text-muted;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color: var(--#{$prefix}nav-link-hover-color);
+    }
+}

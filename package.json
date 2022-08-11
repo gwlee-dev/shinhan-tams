@@ -4,8 +4,8 @@
     "description": "Shinhan TAMS",
     "scripts": {
         "clean:output": "rimraf dist",
-        "start": "npm run clean:output && parcel ./src/*.pug",
-        "build": "npm run clean:output && parcel build ./src/*.pug && node ./postbuild.js",
+        "start": "npm run clean:output && parcel ./src/view/index.pug",
+        "build": "npm run clean:output && parcel build ./src/view/index.pug && node ./postbuild.js",
         "server": "node ./server.js",
         "eslint": "eslint ./**/*.js --fix",
         "stylelint": "stylelint ./**/*.scss"
@@ -33,9 +33,11 @@
         "eslint-config-standard": "^17.0.0",
         "lodash.escaperegexp": "^4.1.2",
         "parcel": "^2.7.0",
+        "pretendard": "^1.3.5",
         "prettier": "^2.7.1",
         "replace-in-file": "^6.3.5",
         "rimraf": "^3.0.2",
+        "sharp": "^0.29.3",
         "static-server": "^2.2.1",
         "stylelint": "^14.9.1",
         "stylelint-config-prettier-scss": "^0.0.1",

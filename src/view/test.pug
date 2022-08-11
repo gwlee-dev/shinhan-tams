@@ -1,0 +1,165 @@
+extends layout/base
+
+block settings
+    - var title = "메인";
+
+block contents
+    .container
+        h1 신한 TAMS
+        p.lead
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            code.small.ps-2= siteName
+        p
+            | Back to
+            |
+            | minus the navbar.
+
+        .row.g-4
+            .col-2
+                .form-check
+                    input#flexCheckDefault.form-check-input(
+                        type="checkbox",
+                        value=""
+                    )
+                    label.form-check-label(for="flexCheckDefault") Default checkbox
+                .form-check
+                    input#flexCheckChecked.form-check-input(
+                        type="checkbox",
+                        value="",
+                        checked=""
+                    )
+                    label.form-check-label(for="flexCheckChecked") Checked checkbox
+            .col-2
+                .form-check
+                    input#flexRadioDefault1.form-check-input(
+                        type="radio",
+                        name="flexRadioDefault"
+                    )
+                    label.form-check-label(for="flexRadioDefault1")
+                        | Default radio
+                .form-check
+                    input#flexRadioDefault2.form-check-input(
+                        type="radio",
+                        name="flexRadioDefault",
+                        checked=""
+                    )
+                    label.form-check-label(for="flexRadioDefault2")
+                        | Default checked radio
+            .col-8
+                .bg-light.h-100.w-100.rounded-3.p-4
+                    .fs-2.ff-shinhan Shinhan 신한카드 1234567890 나랏말싸미
+                    .fs-2.ff-card.fw-bold Shinhan 신한카드 1234567890 나랏말싸미
+                    .fs-2.ff-card Shinhan 신한카드 1234567890 나랏말싸미
+                    .fs-2 Shinhan 신한카드 1234567890 나랏말싸미
+            .col-2
+                p.text-primary .text-primary
+                p.text-secondary .text-secondary
+                p.text-success .text-success
+                p.text-danger .text-danger
+                p.text-warning.bg-dark .text-warning
+                p.text-info.bg-dark .text-info
+                p.text-light.bg-dark .text-light
+                p.text-dark .text-dark
+                p.text-body .text-body
+                p.text-muted .text-muted
+                p.text-white.bg-dark .text-white
+                p.text-black-50 .text-black-50
+                p.text-white-50.bg-dark .text-white-50
+            .col-2
+                a.d-block.link-primary(href="#") Primary link
+                a.d-block.link-secondary(href="#") Secondary link
+                a.d-block.link-success(href="#") Success link
+                a.d-block.link-danger(href="#") Danger link
+                a.d-block.link-warning(href="#") Warning link
+                a.d-block.link-info(href="#") Info link
+                a.d-block.link-light(href="#") Light link
+                a.d-block.link-dark(href="#") Dark link
+            .col-8.vstack.gap-3
+                .hstack.gap-1
+                    button.btn.btn-primary(type="button") Primary
+                    button.btn.btn-secondary(type="button") Secondary
+                    button.btn.btn-success(type="button") Success
+                    button.btn.btn-danger(type="button") Danger
+                    button.btn.btn-warning(type="button") Warning
+                    button.btn.btn-info(type="button") Info
+                    button.btn.btn-light(type="button") Light
+                    button.btn.btn-dark(type="button") Dark
+                .hstack.gap-1
+                    button.btn.btn-outline-primary(type="button") Primary
+                    button.btn.btn-outline-secondary(type="button") Secondary
+                    button.btn.btn-outline-success(type="button") Success
+                    button.btn.btn-outline-danger(type="button") Danger
+                    button.btn.btn-outline-warning(type="button") Warning
+                    button.btn.btn-outline-info(type="button") Info
+                    button.btn.btn-outline-light(type="button") Light
+                    button.btn.btn-outline-dark(type="button") Dark
+                .hstack.gap-1
+                    button.btn.btn-primary(type="button", disabled="") Primary button
+                    button.btn.btn-secondary(type="button", disabled="") Button
+                    button.btn.btn-outline-primary(type="button", disabled="") Primary button
+                    button.btn.btn-outline-secondary(
+                        type="button",
+                        disabled=""
+                    ) Button
+                .wrap
+                    .form-check.form-switch
+                        input#flexSwitchCheckDefault.form-check-input(
+                            type="checkbox",
+                            role="switch"
+                        )
+                        label.form-check-label(for="flexSwitchCheckDefault") Default switch checkbox input
+                    .form-check.form-switch
+                        input#flexSwitchCheckChecked.form-check-input(
+                            type="checkbox",
+                            role="switch",
+                            checked=""
+                        )
+                        label.form-check-label(for="flexSwitchCheckChecked") Checked switch checkbox input
+                    .form-check.form-switch
+                        input#flexSwitchCheckDisabled.form-check-input(
+                            type="checkbox",
+                            role="switch",
+                            disabled=""
+                        )
+                        label.form-check-label(for="flexSwitchCheckDisabled") Disabled switch checkbox input
+                    .form-check.form-switch
+                        input#flexSwitchCheckCheckedDisabled.form-check-input(
+                            type="checkbox",
+                            role="switch",
+                            checked="",
+                            disabled=""
+                        )
+                        label.form-check-label(
+                            for="flexSwitchCheckCheckedDisabled"
+                        ) Disabled checked switch checkbox input
+                label.form-label(for="customRange1") Example range
+                    input#customRange1.form-range(type="range")
+                .row
+                    .col
+                        .card
+                            .card-body
+                                h5.card-title 카드 제목
+                                h6.card-subtitle.mb-2.text-muted 카드 부제목
+                                p.card-text
+                                    | Some quick example text to build on the card title and make up the bulk of the card's content.
+                                a.card-link(href="#") Card link
+                                a.card-link(href="#") Another link
+                    .col 
+                        .modal.d-block.position-relative(tabindex="-1")
+                            .modal-dialog.m-0
+                                .modal-content
+                                    .modal-header
+                                        h5.modal-title 모달 제목
+                                        button.btn-close(
+                                            type="button",
+                                            data-bs-dismiss="modal",
+                                            aria-label="Close"
+                                        )
+                                    .modal-body
+                                        p Modal body text goes here.
+                                    .modal-footer
+                                        button.btn.btn-secondary(
+                                            type="button",
+                                            data-bs-dismiss="modal"
+                                        ) 닫기
+                                        button.btn.btn-primary(type="button") 저장

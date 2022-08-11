@@ -1,5 +1,139 @@
 {
     "locals": {
-        "siteName": "Shinhan"
+        "siteName": "Shinhan",
+        "nodes": [
+            {
+                "title": "테스트 설계",
+                // "href": "./design_req.pug",
+                "nodes": [
+                    {
+                        "title": "테스트 요청현황",
+                        // "href": "./design_test.pug"
+                    },
+                    {
+                        "title": "스크립트 관리",
+                        // "href": "./design_script.pug"
+                    },
+                    {
+                        "title": "스크립트 노드 관리",
+                        // "href": "./design_node.pug"
+                    },
+                    {
+                        "title": "케이스 관리",
+                        // "href": "./design_case.pug"
+                    },
+                    {
+                        "title": "데이터셋 관리",
+                        // "href": "./design_dataset.pug"
+                    }
+                ]
+            },
+            {
+                "title": "테스트 실행",
+                // "href": "./execute_launch.pug",
+                "nodes": [
+                    {
+                        "title": "케이스 실행",
+                        // "href": "./execute_case.pug"
+                    },
+                    {
+                        "title": "예약실행 관리",
+                        // "href": "./execute_schedule.pug"
+                    },
+                    {
+                        "title": "실시간 모니터링",
+                        // "href": "./execute_monitoring.pug"
+                    }
+                ]
+            },
+            {
+                "title": "결함 관리",
+                // "href": "./fault_management.pug",
+                "nodes": [
+                    {
+                        "title": "테스트 케이스 실행",
+                        // "href": "./fault_case.pug"
+                    },
+                    {
+                        "title": "결함 관리 현황",
+                        // "href": "./fault_status.pug"
+                    },
+                    {
+                        "title": "테스트 제외건 조회",
+                        // "href": "./fault_exclude.pug"
+                    },
+                    {
+                        "title": "자동화 수행 이력",
+                        // "href": "./fault_log.pug"
+                    }
+                ]
+            },
+            {
+                "title": "보고서 관리",
+                // "href": "./report_gen.pug",
+                "nodes": [
+                    {
+                        "title": "보고서 생성",
+                        // "href": "./report_gen.pug"
+                    }
+                ]
+            },
+            {
+                "title": "사용자 관리",
+                // "href": "./user_management.pug",
+                "nodes": [
+                    {
+                        "title": "사용자 관리",
+                        // "href": "./user_management.pug"
+                    },
+                    {
+                        "title": "PC IP 등록",
+                        // "href": "./user_ip.pug"
+                    }
+                ]
+            },
+        ],
+        "csrList": [
+            {
+                "name": "CSR등록",
+                "value": "1053"
+            },
+            {
+                "name": "개선반려",
+                "value": "1"
+            },
+            {
+                "name": "결함반려",
+                "value": "3"
+            },
+            {
+                "name": "접수대기/회수",
+                "value": "0"
+            },
+            {
+                "name": "배정",
+                "value": "8"
+            },
+            {
+                "name": "제외이행후",
+                "value": "0"
+            },
+            {
+                "name": "검증",
+                "value": "4"
+            },
+            {
+                "name": "승인대기",
+                "value": "0"
+            },
+            {
+                "name": "반려",
+                "value": "0"
+            },
+            {
+                "name": "제외",
+                "value": "0"
+            },
+        ]
     }
 }
