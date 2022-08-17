@@ -30,24 +30,6 @@
                 ]
             },
             {
-                "title": "테스트 실행",
-                "id": "execute-launch",
-                "nodes": [
-                    {
-                        "title": "케이스 실행",
-                        "id": "execute-case"
-                    },
-                    {
-                        "title": "예약실행 관리",
-                        "id": "execute-schedule"
-                    },
-                    {
-                        "title": "실시간 모니터링",
-                        "id": "execute-monitoring"
-                    }
-                ]
-            },
-            {
                 "title": "결함 관리",
                 "id": "fault-management",
                 "nodes": [
@@ -91,6 +73,28 @@
                         "title": "PC IP 등록",
                         "id": "user-ip"
                     }
+                ]
+            },
+            {
+                "title": "환경 설정",
+                "id": "setting",
+                "nodes": [
+                    {
+                        "title": "테스트 자동화 관리",
+                        "id": "setting-automation"
+                    },
+                    {
+                        "title": "공지사항 관리",
+                        "id": "setting-notice"
+                    },
+                    {
+                        "title": "이메일 호스트 관리",
+                        "id": "setting-email"
+                    },
+                    {
+                        "title": "버전 정보",
+                        "id": "setting-version"
+                    },
                 ]
             },
         ],

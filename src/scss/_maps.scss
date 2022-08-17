@@ -39,3 +39,6 @@ $spacers: map-merge(
         6: $spacer * 6,
     )
 );
+
+// pagination
+$pagination-border-radius: $border-radius-pill;

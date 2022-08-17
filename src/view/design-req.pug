@@ -1,5 +1,6 @@
 extends layout/base
-include mixin/selector
+include mixin/form
+include mixin/pagination
 
 block head
     - var title = "테스트 요청 현황";
@@ -18,7 +19,7 @@ block contents
                 .col #[+input("CSR 번호")]
                 .col-auto.align-self-end #[button.btn.btn-primary 검색]
 
-    .container.pt-5.pb-6.flex-grow-1.d-flex.flex-column
+    .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column
         .table-responsive
             table#design_req.table.table-sm.table-hover.w-100
                 thead
@@ -78,5 +79,6 @@ block contents
                         td 진행중
                         td 2022-08-16
                         td 이거눙이
+        +pagination
 block scripts
     script(src="../js/datepicker.js", type="module") 

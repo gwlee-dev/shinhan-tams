@@ -1,0 +1,24 @@
+.expand-button,
+.contract-button {
+    display: flex;
+    gap: 0.5rem;
+    font-size: $font-size-base;
+    &::before {
+        display: block;
+        transform: rotate(90deg);
+        font-family: bootstrap-icons;
+        content: "\F275";
+    }
+    &::after {
+        content: "넓게";
+    }
+}
+
+.expanded {
+    &::after {
+        content: "좁게";
+    }
+    &::before {
+        content: "\F273";
+    }
+}

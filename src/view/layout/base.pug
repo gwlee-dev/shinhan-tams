@@ -3,8 +3,8 @@ html.h-100(lang="ko")
     head
         include meta
         block head
-        if title !== "메인"
-            title= `TAMS ${title}`
+        if title
+            title= `TAMS | ${title}`
         else
             title TAMS
     body.d-flex.flex-column.h-100
@@ -12,9 +12,11 @@ html.h-100(lang="ko")
             include ../mixin/navbar
             +navbar
         main.flex-grow-1.vstack
-            if title !== "메인"
-                .container
+            a.position-fixed.bottom-0(href="./test.pug") 테스트페이지
+            if title
+                .container.hstack
                     h5.my-4= title
+                    //- span.expand-button.plain-link.ms-auto(role="button")
             block contents
         include footer
         script(src="../js/app.js", type="module")

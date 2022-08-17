@@ -1,0 +1,18 @@
+.pagination-pill {
+    --#{$prefix}pagination-bg: null;
+    --#{$prefix}pagination-padding-y: 0;
+    --#{$prefix}pagination-padding-x: 0.25rem;
+    .page-link {
+        @include border-radius(var(--#{$prefix}pagination-border-radius));
+        min-width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+    }
+    .nolink {
+        --#{$prefix}pagination-hover-bg: null;
+    }
+    .active {
+        font-weight: $font-weight-semibold;
+    }
+}
