@@ -8,12 +8,13 @@
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
-                        "id": "design-test",
+                        "id": "design-req",
                         "link": true
                     },
                     {
                         "title": "스크립트 관리",
-                        "id": "design-script"
+                        "id": "design-script",
+                        "link": true
                     },
                     {
                         "title": "스크립트 노드 관리",

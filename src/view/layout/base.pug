@@ -13,10 +13,6 @@ html.h-100(lang="ko")
             +navbar
         main.flex-grow-1.vstack
             a.position-fixed.bottom-0(href="./test.pug") 테스트페이지
-            if title
-                .container.hstack
-                    h5.my-4= title
-                    //- span.expand-button.plain-link.ms-auto(role="button")
             block contents
         include footer
         script(src="../js/app.js", type="module")

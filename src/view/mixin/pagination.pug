@@ -1,5 +1,7 @@
 mixin pagination
-    nav.mt-4(aria-label="Page navigation example")
+    nav.start-0.mt-4.position-relative
+        small.text-muted.position-absolute.start-0 15000개 항목
+        small.text-muted.position-absolute.end-0 1/3000 페이지
         ul.pagination.pagination-pill.justify-content-center
             li.page-item
                 a.page-link(href="#", aria-label="Previous")

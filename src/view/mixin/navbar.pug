@@ -39,6 +39,8 @@ mixin navbar(active)
                             each subNode in node.nodes
                                 li.sub-nav-item
                                     if subNode.link
-                                        a.plain-link(href=`./${node.id}.pug`)= subNode.title
+                                        a.plain-link(
+                                            href=`./${subNode.id}.pug`
+                                        )= subNode.title
                                     else
                                         a.plain-link= subNode.title

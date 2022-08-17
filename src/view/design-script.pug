@@ -1,0 +1,88 @@
+extends layout/base
+include mixin/form
+include mixin/pagination
+
+block head
+    - var title = "테스트 스크립트 관리";
+
+block contents
+    .container.hstack.gap-2
+        h5.my-4.me-auto= title
+        button.btn.btn-outline-success Excel 다운로드 #[i.bi-file-earmark-excel]
+        button.btn.btn-outline-primary 신규등록 #[i.bi-file-earmark-plus]
+    .bg-tone
+        .container.py-4
+            .row.gx-3.gy-2
+                .col #[+input("스크립트명")]
+                .col #[+input("작성자")]
+                .col #[+select("종류")]
+                .w-100.d-block.d-lg-none
+                .col #[+select("시스템")]
+                .col #[+select("업무")]
+                .col-auto.align-self-end #[button.btn.btn-primary 검색]
+                .col-auto.align-self-end #[button.btn.btn-secondary 초기화]
+
+    .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column
+        .table-responsive
+            table#design_script.table.table-sm.table-hover.w-100
+                thead
+                    tr
+                        th(scope="col") 번호
+                        th(scope="col") 시스템
+                        th(scope="col") 업무
+                        th(scope="col") 파일명
+                        th(scope="col") 설명
+                        th(scope="col") 종류
+                        th(scope="col") 크기
+                        th(scope="col") 작성자
+                        th(scope="col") 등록일
+                        th(scope="col") 작업
+                tbody
+                    tr
+                        td 3981
+                        td 시스템-1
+                        td 시스템1-업무1
+                        td 자동화 테스트 스크립트 파일-10
+                        td 자동화 테스트 스크립트 설명-10
+                        td Desktop
+                        td 454 Kb
+                        td 김신한무
+                        td 2016-05-19 18:00:00
+                        td
+                            .hstack.gap-2
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 편집
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 다운로드
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 삭제
+                    tr
+                        td 3981
+                        td 시스템-1
+                        td 시스템1-업무1
+                        td 자동화 테스트 스크립트 파일-10
+                        td 자동화 테스트 스크립트 설명-10
+                        td Desktop
+                        td 454 Kb
+                        td 김신한무
+                        td 2016-05-19 18:00:00
+                        td
+                            .hstack.gap-2
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 편집
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 다운로드
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 삭제
+                    tr
+                        td 3981
+                        td 시스템-1
+                        td 시스템1-업무1
+                        td 자동화 테스트 스크립트 파일-10
+                        td 자동화 테스트 스크립트 설명-10
+                        td Desktop
+                        td 454 Kb
+                        td 김신한무
+                        td 2016-05-19 18:00:00
+                        td
+                            .hstack.gap-2
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 편집
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 다운로드
+                                button.btn.btn-sm.btn-light.py-0.fw-bold 삭제
+        +pagination
+block scripts
+    script(src="../js/datepicker.js", type="module") 

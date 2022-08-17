@@ -1,5 +1,12 @@
 @import "design_req";
+@import "design_script";
 
-table {
+.contents table {
     min-width: 1116px;
+    th,
+    td {
+        @include text-truncate;
+        white-space: nowrap;
+        max-width: 0;
+    }
 }
