@@ -1,0 +1,25 @@
+table#design_req {
+    $design_req: (
+        1: 15%,
+        2: 21%,
+        3: 9%,
+        4: 9%,
+        5: 6%,
+        6: 6%,
+        7: 12%,
+        8: 6%,
+        9: 9%,
+        10: 6%,
+    );
+    th,
+    td {
+        @include text-truncate;
+        white-space: nowrap;
+        @each $i, $percent in $design_req {
+            &:nth-child(#{$i}) {
+                width: $percent;
+                max-width: 0;
+            }
+        }
+    }
+}

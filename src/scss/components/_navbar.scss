@@ -1,32 +1,54 @@
-.navbar {
-    font-family: $font-family-shinhan;
-}
-.csr-list {
-    @include list-unstyled();
-    font-size: 0.8125rem;
-    .csr-list-item {
-        &:not(:last-child)::after {
-            content: "|";
-            opacity: 0.35;
-            margin: 0 0.5rem;
+header {
+    .navbar {
+        font-family: $font-family-shinhan;
+        flex-wrap: nowrap;
+    }
+    .navbar,
+    .top-bar {
+        z-index: 1046;
+    }
+    .csr-list {
+        @include list-unstyled();
+        font-size: 0.8125rem;
+        .csr-list-item {
+            &:not(:last-child)::after {
+                content: "|";
+                opacity: 0.35;
+                margin: 0 0.5rem;
+            }
         }
     }
-}
-.user-panel {
-    > * {
-        &:not(:last-child)::after {
-            content: "|";
-            opacity: 0.35;
-            margin: 0 0.5rem;
+    .sub-nav {
+        @include list-unstyled();
+        .sub-nav-item {
+            &:not(:last-child)::after {
+                content: "|";
+                opacity: 0.35;
+                margin: 0 0.5rem;
+            }
         }
     }
-}
-.plain-link {
-    @include transition($nav-link-transition);
-    color: $text-muted;
-    text-decoration: none;
-    &:hover,
-    &:focus {
-        color: var(--#{$prefix}nav-link-hover-color);
+    .user-panel {
+        > * {
+            &:not(:last-child)::after {
+                content: "|";
+                opacity: 0.35;
+                margin: 0 0.5rem;
+            }
+        }
+    }
+    .plain-link {
+        @include transition($nav-link-transition);
+        color: $text-muted;
+        text-decoration: none;
+        &:hover,
+        &:focus {
+            color: var(--#{$prefix}nav-link-hover-color);
+        }
+    }
+    .offcanvas {
+        margin-top: 8rem;
+        --#{$prefix}offcanvas-height: fit-content;
+        --#{$prefix}offcanvas-border-width: null;
     }
 }

@@ -1,34 +1,44 @@
 mixin navbar(active)
-    .container.pt-3.small.fw-light.align-items-center.d-none.d-lg-flex
-        ul.csr-list.nav.me-auto
-            each csr in csrList
-                li.csr-list-item
-                    a.plain-link(href="#")
-                        span.me-1= csr.name
-                        span.csr-value= csr.value
-        .user-panel.ff-shinhan
-            span.text-muted #[span.fw-normal 김신한](admin)님
-            a.plain-link 로그아웃 #[i.bi.bi-chevron-right]
-    nav.navbar
+    .top-bar.bg-white.position-relative
+        .container.pt-3.small.fw-light.align-items-center.d-none.d-lg-flex
+            ul.csr-list.nav.me-auto
+                each csr in csrList
+                    li.csr-list-item
+                        a.plain-link(href="#")
+                            span.me-1= csr.name
+                            span.csr-value= csr.value
+            .user-panel.ff-shinhan
+                span.text-muted #[span.fw-normal 김신한](admin)님
+                a.plain-link 로그아웃 #[i.bi.bi-chevron-right]
+    nav.navbar.bg-white
         .container
             a.navbar-brand(href="/")
                 img.h-100(src="../img/logo.png")
             ul.navbar-nav.d-none.d-lg-flex.flex-row.gap-lg-4.gap-xl-5
                 each node in nodes 
                     li.nav-item
-                        a.nav-link(aria-current="page", href="#")= node.title
-                        #offcanvasTop.offcanvas.offcanvas-top(
-                            tabindex="-1",
-                            aria-labelledby="offcanvasTopLabel"
-                        )
-                            .offcanvas-header
-                                h5#offcanvasTopLabel.offcanvas-title Offcanvas top
-                                button.btn-close(
-                                    type="button",
-                                    data-bs-dismiss="offcanvas",
-                                    aria-label="Close"
-                                )
-                            .offcanvas-body
-                                | ...
+                        span.nav-link(
+                            aria-current="page",
+                            data-gr-target=`#offcanvas-${node.id}`,
+                            role="button"
+                        )= node.title
 
             i.bi.bi-list.fs-2.lh-sm
+    each node in nodes 
+        .offcanvas.offcanvas-top(
+            tabindex="-1",
+            aria-labelledby="offcanvasTopLabel",
+            id=`offcanvas-${node.id}`
+        )
+            .container.vstack
+                .offcanvas-header
+                    h5.offcanvas-title.mx-auto= node.title
+                .offcanvas-body
+                    if node.nodes
+                        ul.sub-nav.nav.justify-content-center.mb-3
+                            each subNode in node.nodes
+                                li.sub-nav-item
+                                    if subNode.link
+                                        a.plain-link(href=`./${node.id}.pug`)= subNode.title
+                                    else
+                                        a.plain-link= subNode.title

@@ -4,91 +4,92 @@
         "nodes": [
             {
                 "title": "테스트 설계",
-                // "href": "./design_req.pug",
+                "id": "design-req",
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
-                        // "href": "./design_test.pug"
+                        "id": "design-test",
+                        "link": true
                     },
                     {
                         "title": "스크립트 관리",
-                        // "href": "./design_script.pug"
+                        "id": "design-script"
                     },
                     {
                         "title": "스크립트 노드 관리",
-                        // "href": "./design_node.pug"
+                        "id": "design-node"
                     },
                     {
                         "title": "케이스 관리",
-                        // "href": "./design_case.pug"
+                        "id": "design-case"
                     },
                     {
                         "title": "데이터셋 관리",
-                        // "href": "./design_dataset.pug"
+                        "id": "design-dataset"
                     }
                 ]
             },
             {
                 "title": "테스트 실행",
-                // "href": "./execute_launch.pug",
+                "id": "execute-launch",
                 "nodes": [
                     {
                         "title": "케이스 실행",
-                        // "href": "./execute_case.pug"
+                        "id": "execute-case"
                     },
                     {
                         "title": "예약실행 관리",
-                        // "href": "./execute_schedule.pug"
+                        "id": "execute-schedule"
                     },
                     {
                         "title": "실시간 모니터링",
-                        // "href": "./execute_monitoring.pug"
+                        "id": "execute-monitoring"
                     }
                 ]
             },
             {
                 "title": "결함 관리",
-                // "href": "./fault_management.pug",
+                "id": "fault-management",
                 "nodes": [
                     {
                         "title": "테스트 케이스 실행",
-                        // "href": "./fault_case.pug"
+                        "id": "fault-case"
                     },
                     {
                         "title": "결함 관리 현황",
-                        // "href": "./fault_status.pug"
+                        "id": "fault-status"
                     },
                     {
                         "title": "테스트 제외건 조회",
-                        // "href": "./fault_exclude.pug"
+                        "id": "fault-exclude"
                     },
                     {
                         "title": "자동화 수행 이력",
-                        // "href": "./fault_log.pug"
+                        "id": "fault-log"
                     }
                 ]
             },
             {
                 "title": "보고서 관리",
-                // "href": "./report_gen.pug",
+                "id": "report-gen",
                 "nodes": [
                     {
                         "title": "보고서 생성",
-                        // "href": "./report_gen.pug"
+                        "id": "report-gen"
                     }
                 ]
             },
             {
                 "title": "사용자 관리",
-                // "href": "./user_management.pug",
+                "id": "user-management",
                 "nodes": [
                     {
                         "title": "사용자 관리",
-                        // "href": "./user_management.pug"
+                        "id": "user-management"
                     },
                     {
                         "title": "PC IP 등록",
-                        // "href": "./user_ip.pug"
+                        "id": "user-ip"
                     }
                 ]
             },

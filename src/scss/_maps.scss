@@ -31,3 +31,11 @@ $aspect-ratios: map-merge(
         "9x16": calc(16 / 9 * 100%),
     )
 );
+
+// spacing
+$spacers: map-merge(
+    $spacers,
+    (
+        6: $spacer * 6,
+    )
+);

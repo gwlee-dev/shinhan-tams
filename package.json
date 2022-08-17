@@ -22,7 +22,9 @@
     "homepage": "https://github.com/gwlee-dev/shinhan-tams#readme",
     "devDependencies": {
         "@babel/core": "^7.18.10",
+        "@easepick/amp-plugin": "^1.2.0",
         "@parcel/namer-default": "^2.7.0",
+        "@parcel/transformer-inline-string": "^2.7.0",
         "@parcel/transformer-pug": "^2.7.0",
         "@parcel/transformer-sass": "^2.7.0",
         "@prettier/plugin-pug": "^2.2.0",
@@ -33,8 +35,10 @@
         "eslint-config-standard": "^17.0.0",
         "lodash.escaperegexp": "^4.1.2",
         "parcel": "^2.7.0",
+        "path-browserify": "^1.0.1",
         "pretendard": "^1.3.5",
         "prettier": "^2.7.1",
+        "process": "^0.11.10",
         "replace-in-file": "^6.3.5",
         "rimraf": "^3.0.2",
         "sharp": "^0.29.3",
@@ -42,5 +46,8 @@
         "stylelint": "^14.9.1",
         "stylelint-config-prettier-scss": "^0.0.1",
         "stylelint-config-recommended-scss": "^7.0.0"
+    },
+    "dependencies": {
+        "@easepick/bundle": "^1.2.0"
     }
 }
