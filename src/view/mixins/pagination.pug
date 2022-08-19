@@ -1,14 +1,14 @@
 mixin pagination
-    nav.start-0.mt-4.position-relative
+    nav.start-0.position-relative
         small.text-muted.position-absolute.start-0 15000개 항목
         small.text-muted.position-absolute.end-0 1/3000 페이지
         ul.pagination.pagination-pill.justify-content-center
             li.page-item
                 a.page-link(href="#", aria-label="Previous")
                     span(aria-hidden="true") #[i.bi.bi-chevron-left]
-            li.page-item.active
-                a.page-link(href="#") 1
             li.page-item
+                a.page-link(href="#") 1
+            li.page-item.active
                 a.page-link(href="#") 2
             li.page-item
                 a.page-link(href="#") 3

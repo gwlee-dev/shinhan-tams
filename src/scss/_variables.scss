@@ -1,5 +1,6 @@
 $prefix: gr-;
 $enable-negative-margins: true;
+
 // type
 $font-family-shinhan: "OneShinhan", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol", sans-serif;
@@ -22,10 +23,8 @@ $purple: #8c91ff;
 $tone: #f4f7fc;
 
 // form
-$form-check-input-width: 1.625em;
-$form-check-input-border-radius: 50%;
-$form-switch-width: 3.25em;
-$form-check-margin-bottom: 0.5rem;
-
-// pagination
-$pagination-border-width: 0;
+$form-check-input-border-radius: 0.5em;
+$form-check-input-width: 1.4em;
+// $form-switch-width: 3.25em;
+$form-check-margin-bottom: 0.3rem;
+$form-check-min-height: 0;

@@ -1,12 +1,30 @@
 @import "design_req";
 @import "design_script";
+@import "function_detail";
+@import "requirement_case";
+@import "auto_history";
+@import "progress_history";
 
-.contents table {
-    min-width: 1116px;
+.contents {
+    .table {
+        min-width: 1116px;
+    }
+}
+.table {
+    border-top: 2px solid rgba($dark, 0.5);
+    th {
+        text-align: center;
+    }
     th,
     td {
         @include text-truncate;
         white-space: nowrap;
         max-width: 0;
+        &:first-child {
+            border-left: none;
+        }
+        &:last-child {
+            border-right: none;
+        }
     }
 }

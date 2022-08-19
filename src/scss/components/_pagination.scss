@@ -2,6 +2,7 @@
     --#{$prefix}pagination-bg: null;
     --#{$prefix}pagination-padding-y: 0;
     --#{$prefix}pagination-padding-x: 0.25rem;
+    --#{$prefix}pagination-border-width: 0;
     .page-link {
         @include border-radius(var(--#{$prefix}pagination-border-radius));
         min-width: 2rem;

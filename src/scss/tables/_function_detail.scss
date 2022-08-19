@@ -1,0 +1,17 @@
+table#function_detail {
+    $function_detail: (
+        1: 9%,
+        2: 20%,
+        3: 7%,
+        4: 46%,
+        5: 24%,
+    );
+    th,
+    td {
+        @each $i, $percent in $function_detail {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

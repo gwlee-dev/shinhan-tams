@@ -1,5 +1,5 @@
 import * as bootstrap from "bootstrap";
 import "./_navbarOffcanvas";
-// import "./_containerExpander";
+import "./_checkAll";
 
 window.bootstrap = bootstrap;

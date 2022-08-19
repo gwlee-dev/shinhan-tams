@@ -1,81 +1,120 @@
 extends layout/base
+include mixins/form
 
 block head
     - var title = "테스트 페이지";
 
 block contents
     .container
-        h1 신한 TAMS
+        h1 Title Text
         p.lead
-            | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            code.small.ps-2= siteName
+            | Lead Text
+            code.small.ps-2= `<shinhan sample=tag>card</shinhan>`
         p
             | Back to
             |
             | minus the navbar.
 
         .row.g-4
-            .col-2
-                .form-check
-                    input#flexCheckDefault.form-check-input(
-                        type="checkbox",
-                        value=""
-                    )
-                    label.form-check-label(for="flexCheckDefault") Default checkbox
-                .form-check
-                    input#flexCheckChecked.form-check-input(
-                        type="checkbox",
-                        value="",
-                        checked=""
-                    )
-                    label.form-check-label(for="flexCheckChecked") Checked checkbox
-                a.btn.btn-primary(href="./404.pug") 404 PAGE
-                a.btn.btn-primary(href="./401.pug") 401 PAGE
-            .col-2
-                .form-check
-                    input#flexRadioDefault1.form-check-input(
-                        type="radio",
-                        name="flexRadioDefault"
-                    )
-                    label.form-check-label(for="flexRadioDefault1")
-                        | Default radio
-                .form-check
-                    input#flexRadioDefault2.form-check-input(
-                        type="radio",
-                        name="flexRadioDefault",
-                        checked=""
-                    )
-                    label.form-check-label(for="flexRadioDefault2")
-                        | Default checked radio
+            .col-4
+                span.fw-bold color scheme
+                span.d-block.fs-5.fw-bold.text-primary #4868e1 (Primary)
+                span.d-block.fs-5.fw-bold.text-secondary #595959 (Secondary)
+                span.d-block.fs-5.fw-bold.text-info #00b4f0 (info)
+                span.d-block.fs-5.fw-bold.text-dark #0b1966 (Dark)
+                span.d-block.fs-5.fw-bold.text-light.bg-dark #f6f6f6 (Light)
+                span.d-block.fs-5.fw-bold.text-purple #8c91ff (Purple)
+                .row.mt-2
+                    .col
+                        .form-check
+                            input#flexCheck.form-check-input(
+                                type="checkbox",
+                                value=""
+                            )
+                            label.form-check-label(for="flexCheck") checkbox
+                        .form-check
+                            input#flexCheckChecked.form-check-input(
+                                type="checkbox",
+                                value="",
+                                checked=""
+                            )
+                            label.form-check-label(for="flexCheckChecked") checked chkbox
+                        .form-check.form-check-lg
+                            input#flexCheck1.form-check-input(
+                                type="checkbox",
+                                value=""
+                            )
+                            label.form-check-label(for="flexCheck1") checkbox
+                        .form-check.form-check-lg
+                            input#flexCheckChecked2.form-check-input(
+                                type="checkbox",
+                                value="",
+                                checked=""
+                            )
+                            label.form-check-label(for="flexCheckChecked2") checked chkbox
+                    .col
+                        .form-check
+                            input#flexRadio1.form-check-input(
+                                type="radio",
+                                name="flexRadio"
+                            )
+                            label.form-check-label(for="flexRadio1") radio
+                        .form-check
+                            input#flexRadio2.form-check-input(
+                                type="radio",
+                                name="flexRadio",
+                                checked=""
+                            )
+                            label.form-check-label(for="flexRadio2") checked radio
+                        .form-check.form-check-lg
+                            input#flexRadio3.form-check-input(
+                                type="radio",
+                                name="flexRadio"
+                            )
+                            label.form-check-label(for="flexRadio3") radio
+                        .form-check.form-check-lg
+                            input#flexRadio4.form-check-input(
+                                type="radio",
+                                name="flexRadio",
+                                checked=""
+                            )
+                            label.form-check-label(for="flexRadio4") checked radio
             .col-8
                 .bg-light.h-100.w-100.rounded-3.p-4
-                    .fs-2.ff-shinhan Shinhan 신한카드 1234567890 나랏말싸미
-                    .fs-2.ff-card.fw-bold Shinhan 신한카드 1234567890 나랏말싸미
-                    .fs-2.ff-card Shinhan 신한카드 1234567890 나랏말싸미
-                    .fs-2 Shinhan 신한카드 1234567890 나랏말싸미
-            .col-2
-                p.text-primary .text-primary
-                p.text-secondary .text-secondary
-                p.text-success .text-success
-                p.text-danger .text-danger
-                p.text-warning.bg-dark .text-warning
-                p.text-info.bg-dark .text-info
-                p.text-light.bg-dark .text-light
-                p.text-dark .text-dark
-                p.text-body .text-body
-                p.text-muted .text-muted
-                p.text-white.bg-dark .text-white
-                p.text-black-50 .text-black-50
-                p.text-white-50.bg-dark .text-white-50
-            .col-2
-                a.d-block.link-primary(href="#") Primary link
-                a.d-block.link-secondary(href="#") Secondary link
-                a.d-block.link-success(href="#") Success link
-                a.d-block.link-danger(href="#") Danger link
-                a.d-block.link-warning(href="#") Warning link
-                a.d-block.link-info(href="#") Info link
-                a.d-block.link-light(href="#") Light link
-                a.d-block.link-dark(href="#") Dark link
+                    .fs-2.ff-shinhan.fw-bold Shinhan 신한카드 1234567890 원신한 Bold
+                    .fs-2.ff-shinhan Shinhan 신한카드 1234567890 원신한
+                    .fs-2.ff-card.fw-bold Shinhan 신한카드 1234567890 신한카드 Bold
+                    .fs-2.ff-card Shinhan 신한카드 1234567890 신한카드
+                    .fs-2.fw-bold Shinhan 신한카드 1234567890 프리텐다드 Bold
+                    .fs-2 Shinhan 신한카드 1234567890 프리텐다드
+            .col-4 
+                .row
+                    .col
+                        p.text-primary .text-primary
+                        p.text-secondary .text-secondary
+                        p.text-success .text-success
+                        p.text-danger .text-danger
+                        p.text-warning.bg-dark .text-warning
+                        p.text-info .text-info
+                        p.text-light.bg-dark .text-light
+                        p.text-dark .text-dark
+                        p.text-body .text-body
+                        p.text-muted .text-muted
+                    .col
+                        .vstack.gap-3
+                            a.d-block.link-primary(href="#") Primary link
+                            a.d-block.link-secondary(href="#") Secondary link
+                            a.d-block.link-success(href="#") Success link
+                            a.d-block.link-danger(href="#") Danger link
+                            a.d-block.link-warning.bg-dark(href="#") Warning link
+                            a.d-block.link-info(href="#") Info link
+                            a.d-block.link-light.bg-dark(href="#") Light link
+                            a.d-block.link-dark(href="#") Dark link
+                            a.d-block.plain-link(href="#") Plain Link
+                .row
+                    .col #[+input("input")]
+                    .col #[+select("select")]
+                    .col-12 #[+range("select")]
             .col-8.vstack.gap-3
                 .hstack.gap-1
                     button.btn.btn-primary(type="button") Primary
@@ -103,37 +142,58 @@ block contents
                         type="button",
                         disabled=""
                     ) Button
-                .wrap
-                    .form-check.form-switch
-                        input#flexSwitchCheckDefault.form-check-input(
-                            type="checkbox",
-                            role="switch"
-                        )
-                        label.form-check-label(for="flexSwitchCheckDefault") Default switch checkbox input
-                    .form-check.form-switch
-                        input#flexSwitchCheckChecked.form-check-input(
-                            type="checkbox",
-                            role="switch",
-                            checked=""
-                        )
-                        label.form-check-label(for="flexSwitchCheckChecked") Checked switch checkbox input
-                    .form-check.form-switch
-                        input#flexSwitchCheckDisabled.form-check-input(
-                            type="checkbox",
-                            role="switch",
-                            disabled=""
-                        )
-                        label.form-check-label(for="flexSwitchCheckDisabled") Disabled switch checkbox input
-                    .form-check.form-switch
-                        input#flexSwitchCheckCheckedDisabled.form-check-input(
-                            type="checkbox",
-                            role="switch",
-                            checked="",
-                            disabled=""
-                        )
-                        label.form-check-label(
-                            for="flexSwitchCheckCheckedDisabled"
-                        ) Disabled checked switch checkbox input
+                .row.row-cols-2
+                    .col
+                        .form-check.form-switch
+                            input#flexSwitchCheck.form-check-input(
+                                type="checkbox",
+                                role="switch"
+                            )
+                            label.form-check-label(for="flexSwitchCheck") switch checkbox input
+                        .form-check.form-switch
+                            input#flexSwitchCheckChecked.form-check-input(
+                                type="checkbox",
+                                role="switch",
+                                checked=""
+                            )
+                            label.form-check-label(
+                                for="flexSwitchCheckChecked"
+                            ) Checked switch checkbox input
+                        .form-check.form-switch
+                            input#flexSwitchCheckDisabled.form-check-input(
+                                type="checkbox",
+                                role="switch",
+                                disabled=""
+                            )
+                            label.form-check-label(
+                                for="flexSwitchCheckDisabled"
+                            ) Disabled switch checkbox input
+                        .form-check.form-switch
+                            input#flexSwitchCheckCheckedDisabled.form-check-input(
+                                type="checkbox",
+                                role="switch",
+                                checked="",
+                                disabled=""
+                            )
+                            label.form-check-label(
+                                for="flexSwitchCheckCheckedDisabled"
+                            ) Disabled checked switch checkbox input
+                    .col 
+                        table.table.table-bordered.table-sm.table-hover
+                            thead
+                                tr
+                                    th(scope="col") 1열 제목
+                                    th(scope="col") 2열 제목
+                            tbody
+                                tr
+                                    td 정신한
+                                    td 김신한
+                                tr.text-center
+                                    td
+                                        span.badge.bg-primary.me-2 Badge
+                                        span.badge.bg-success.me-2 완료
+                                        span.badge.bg-danger.me-2 실패
+                                    td #[button.btn.btn-sm.py-0.btn-outline-primary Table Button]
                 label.form-label(for="customRange1") Example range
                     input#customRange1.form-range(type="range")
                 .row
@@ -143,11 +203,11 @@ block contents
                                 h5.card-title 카드 제목
                                 h6.card-subtitle.mb-2.text-muted 카드 부제목
                                 p.card-text
-                                    | Some quick example text to build on the card title and make up the bulk of the card's content.
+                                    | Card body text goes here.
                                 a.card-link(href="#") Card link
                                 a.card-link(href="#") Another link
                     .col 
-                        .modal.d-block.position-relative(tabindex="-1")
+                        .modal.d-block.position-relative.mb-2(tabindex="-1")
                             .modal-dialog.m-0
                                 .modal-content
                                     .modal-header

@@ -1,0 +1,23 @@
+table#auto_history {
+    $auto_history: (
+        1: 4%,
+        2: 8%,
+        3: 18%,
+        4: 18%,
+        5: 18%,
+        6: 8%,
+        7: 10%,
+        11: 14%,
+    );
+    th,
+    td {
+        &:nth-child(1) {
+            text-align: center;
+        }
+        @each $i, $percent in $auto_history {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

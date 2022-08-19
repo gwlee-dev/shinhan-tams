@@ -1,0 +1,17 @@
+$utilities: map-merge(
+    $utilities,
+    (
+        "border-opacity": (
+            css-var: true,
+            css-variable-name: #{$prefix}border-opacity,
+            class: border-opacity,
+            values: (
+                0: 0,
+                25: 0.25,
+                50: 0.5,
+                75: 0.75,
+                100: 1,
+            ),
+        ),
+    )
+);

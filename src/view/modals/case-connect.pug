@@ -1,0 +1,48 @@
+#case-connect.modal.fade(tabindex="-1", aria-hidden="true")
+    .modal-dialog.modal-dialog-centered.modal-lg
+        .modal-content
+            .modal-header
+                h5.modal-title 진행상태 이력
+                button.btn-close(
+                    type="button",
+                    data-bs-dismiss="modal",
+                    aria-label="Close"
+                )
+            .modal-body
+                .table-responsive
+                    table#case_connect.table.table-hover.w-100
+                        thead
+                            tr
+                                th(scope="col") 번호
+                                th(scope="col") 변경 구분
+                                th(scope="col") 설명
+                                th(scope="col") 변경일
+                                th(scope="col") 변경자
+                                th(scope="col") 담당자
+                        tbody
+                            tr
+                                td 1
+                                td CSR등록
+                                td
+                                td 2021-02-18 10:09:30
+                                td 
+                                td 
+                            tr
+                                td 2
+                                td 접수대기
+                                td
+                                td 2021-02-19 14:47:57
+                                td 
+                                td 
+                            tr
+                                td 3
+                                td 완료
+                                td (제외 테스트불가) 제외의견-309460
+                                td 
+                                td 2021-02-19 14:50:39
+                                td 김신한
+            .modal-footer
+                button.btn.btn-secondary(
+                    type="button",
+                    data-bs-dismiss="modal"
+                ) 확인

@@ -18,18 +18,13 @@ mixin navbar(active)
                 each node in nodes 
                     li.nav-item
                         span.nav-link(
-                            aria-current="page",
                             data-gr-target=`#offcanvas-${node.id}`,
                             role="button"
                         )= node.title
 
             i.bi.bi-list.fs-2.lh-sm
     each node in nodes 
-        .offcanvas.offcanvas-top(
-            tabindex="-1",
-            aria-labelledby="offcanvasTopLabel",
-            id=`offcanvas-${node.id}`
-        )
+        .offcanvas.offcanvas-top(tabindex="-1", id=`offcanvas-${node.id}`)
             .container.vstack
                 .offcanvas-header
                     h5.offcanvas-title.mx-auto= node.title

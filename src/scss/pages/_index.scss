@@ -1,5 +1,7 @@
 .main-cell {
     @include border-radius(var(--#{$prefix}border-radius-lg));
+    @include reset-text;
+    color: $body-color;
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;

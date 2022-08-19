@@ -1,0 +1,44 @@
+mixin caption(caption)
+    if caption
+        label.form-label= caption
+
+mixin range(caption)
+    +caption(caption)
+    .date-range-wrap.position-relative
+        .input-group
+            input.start-date.form-control(type="text", placeholder="시작 일자")
+            span.input-group-text ~
+            input.end-date.form-control(type="text", placeholder="종료 일자")
+        .range-button.h-100.w-100.position-absolute.top-0.start-0.opacity-0
+
+mixin select(caption)
+    +caption(caption)
+    select.form-select
+        option(selected="") 전체
+        option(value="1") One
+        option(value="2") Two
+        option(value="3") Three
+
+mixin input(caption)
+    +caption(caption)
+    input.form-control(type="text", placeholder=caption, class=classes)
+
+mixin searchBox(caption)
+    +caption(caption)
+    input.form-control(type="text", placeholder=caption)
+
+mixin check(name, id, classes, caption)
+    if caption
+        .form-check(class=classes)
+            input.form-check-input(type="checkbox", value="", name=name, id=id)
+            label.form-check-label(for=id)= caption
+    else
+        input.form-check-input(type="checkbox", value="", name=name, id=id)
+
+mixin floatingInput(caption)
+    .form-floating.mb-3
+        input#floatingInput.form-control(
+            type="email",
+            placeholder="name@example.com"
+        )
+        label(for="floatingInput") Email address

@@ -1,0 +1,21 @@
+table#requirement_case {
+    $requirement_case: (
+        1: 4%,
+        2: 6%,
+        3: 11%,
+        4: 11%,
+        5: 11%,
+        6: 9%,
+        7: 5%,
+        8: 5%,
+        11: 38%,
+    );
+    th,
+    td {
+        @each $i, $percent in $requirement_case {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}
