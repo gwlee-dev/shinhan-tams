@@ -2,10 +2,23 @@ mixin caption(caption)
     if caption
         label.form-label= caption
 
+mixin caption-sm(caption)
+    if caption
+        label.form-label.small.mb-1= caption
+
 mixin range(caption)
     +caption(caption)
     .date-range-wrap.position-relative
         .input-group
+            input.start-date.form-control(type="text", placeholder="시작 일자")
+            span.input-group-text ~
+            input.end-date.form-control(type="text", placeholder="종료 일자")
+        .range-button.h-100.w-100.position-absolute.top-0.start-0.opacity-0
+
+mixin range-sm(caption)
+    +caption-sm(caption)
+    .date-range-wrap.position-relative
+        .input-group.input-group-sm
             input.start-date.form-control(type="text", placeholder="시작 일자")
             span.input-group-text ~
             input.end-date.form-control(type="text", placeholder="종료 일자")
@@ -19,21 +32,70 @@ mixin select(caption)
         option(value="2") Two
         option(value="3") Three
 
+mixin select-sm(caption, disabled)
+    +caption-sm(caption)
+    select.form-select.form-select-sm(disabled=disabled)
+        option(selected="")= caption
+        option(value="1") One
+        option(value="2") Two
+        option(value="3") Three
+
 mixin input(caption)
     +caption(caption)
     input.form-control(type="text", placeholder=caption, class=classes)
+
+mixin input-sm(caption, disabled)
+    +caption-sm(caption)
+    input.form-control.form-control-sm(
+        type="text",
+        placeholder=caption,
+        class=classes,
+        disabled=disabled
+    )
+
+mixin time-sm(caption)
+    +caption-sm(caption)
+    .input-group.input-group-sm
+        select.form-select
+            - for (var x = 0; x <= 23; x++)
+                option(value=x)= x + "시"
+        select.form-select
+            - for (var x = 0; x <= 59; x++)
+                option(value=x)= x + "분"
 
 mixin searchBox(caption)
     +caption(caption)
     input.form-control(type="text", placeholder=caption)
 
-mixin check(name, id, classes, caption)
+mixin check(name, id, classes, caption, grType, grTarget)
     if caption
         .form-check(class=classes)
-            input.form-check-input(type="checkbox", value="", name=name, id=id)
+            input.form-check-input.me-1(
+                type="checkbox",
+                value="",
+                name=name,
+                id=id,
+                data-gr-type=grType,
+                data-gr-target=grTarget
+            )
             label.form-check-label(for=id)= caption
     else
-        input.form-check-input(type="checkbox", value="", name=name, id=id)
+        input.form-check-input(
+            type="checkbox",
+            value="",
+            name=name,
+            id=id,
+            data-gr-type=grType,
+            data-gr-target=grTarget
+        )
+
+mixin radio(name, id, classes, caption)
+    if caption
+        .form-check(class=classes)
+            input.form-check-input(type="radio", value="", name=name, id=id)
+            label.form-check-label(for=id)= caption
+    else
+        input.form-check-input(type="radio", value="", name=name, id=id)
 
 mixin floatingInput(caption)
     .form-floating.mb-3
@@ -42,3 +104,19 @@ mixin floatingInput(caption)
             placeholder="name@example.com"
         )
         label(for="floatingInput") Email address
+
+mixin floatingTextarea(caption)
+    if caption
+        .form-floating
+            textarea.form-control(placeholder=caption)
+            label(for=id)= caption
+    else
+        textarea.form-control
+
+mixin textarea(caption)
+    +caption(caption)
+    textarea.form-control
+
+mixin textarea-sm(caption, disabled)
+    +caption-sm(caption)
+    textarea.form-control.form-control-sm(disabled=disabled)

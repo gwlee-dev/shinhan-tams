@@ -1,0 +1,21 @@
+table#case_connect {
+    $case_connect: (
+        1: 7%,
+        2: 12%,
+        3: 12%,
+        4: 12%,
+        5: 12%,
+        6: 7%,
+        7: 11%,
+        8: 12%,
+        9: 29%,
+    );
+    th,
+    td {
+        @each $i, $percent in $case_connect {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

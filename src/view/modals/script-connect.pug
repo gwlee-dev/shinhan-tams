@@ -1,0 +1,70 @@
+#script-connect.modal.fade(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
+    .modal-dialog.modal-dialog-centered.modal-xl
+        .modal-content
+            .modal-header
+                h5.modal-title 스크립트 연결
+                button.btn-close(
+                    type="button",
+                    data-bs-dismiss="modal",
+                    aria-label="Close"
+                )
+            .bg-tone
+                .container.py-2
+                    .row.gx-2
+                        .col
+                            .row.gx-2.gy-1
+                                .col #[+select-sm("시스템")]
+                                .col #[+select-sm("종류")]
+                                .col #[+input-sm("스크립트명")]
+                                .col #[+input-sm("등록자")]
+                                .col-auto.align-self-end
+                                    .hstack.gap-1
+                                        button.btn.btn-primary.btn-sm.flex-grow-1 검색
+                                        button.btn.btn-secondary.btn-sm.flex-grow-1 초기화
+            .modal-body
+                .row.mb-2.g-2.align-items-center
+                    .col.auto
+                        span.fs-6
+                            span.fw-bold.mb-2 스크립트 목록
+                .table-responsive
+                    table#script_connect.small.table-bordered.table.table-sm.table-hover.w-100.small
+                        thead
+                            tr
+                                th(scope="col") 번호
+                                th(scope="col") 시스템
+                                th(scope="col") 스크립트명
+                                th(scope="col") 종류
+                                th(scope="col") 생성일시
+                                th(scope="col") 작성자
+                                th(scope="col") 선택
+                        tbody
+                            tr
+                                td 1
+                                td 시스템-1
+                                td homepage_conn.xml
+                                td Desktop
+                                td 2021-02-19 14:05:42
+                                td 장신한
+                                td
+                                    .hstack.gap-1.justify-content-center
+                                        button.btn.btn-sm.btn-outline-dark.py-0 선택
+                            tr
+                                td 2
+                                td 시스템-1
+                                td 자동화 테스트 스크립트 파일-4324
+                                td Desktop
+                                td 2021-02-19 14:05:42
+                                td 장신한
+                                td
+                                    .hstack.gap-1.justify-content-center
+                                        button.btn.btn-sm.btn-outline-dark.py-0 선택
+                +pagination
+            .modal-footer
+                button.btn.btn-secondary.btn-conditional(
+                    type="button",
+                    data-bs-dismiss="modal"
+                ) 취소

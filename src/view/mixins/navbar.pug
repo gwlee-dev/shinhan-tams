@@ -9,11 +9,13 @@ mixin navbar(active)
                             span.csr-value= csr.value
             .user-panel.ff-shinhan
                 span.text-muted #[span.fw-normal 김신한](admin)님
-                a.plain-link 로그아웃 #[i.bi.bi-chevron-right]
+                a.plain-link(href="./login.pug") 로그아웃 #[i.bi.bi-chevron-right]
     nav.navbar.bg-white
         .container
-            a.navbar-brand(href="/")
+            a.navbar-brand.d-block.d-lg-none.d-xl-block(href="/")
                 img.h-100(src="../img/logo.png")
+            a.navbar-brand.d-none.d-lg-block.d-xl-none(href="/")
+                img.h-100(src="../img/logo_only.png")
             ul.navbar-nav.d-none.d-lg-flex.flex-row.gap-lg-4.gap-xl-5
                 each node in nodes 
                     li.nav-item

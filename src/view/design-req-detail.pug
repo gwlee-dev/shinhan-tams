@@ -21,7 +21,7 @@ block contents
         .table-wrap.d-flex.flex-column
             span.fs-4.fw-bold.mb-2 CSR 정보
             .table-responsive
-                table#design_req.table-bordered.table.table-sm.table-hover.w-100
+                table#design_req.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col") CSR 번호
@@ -43,19 +43,26 @@ block contents
                             td 최신한
                             td 정신한
                             td 솔루션개발본부
-                            td.text-center #[span.badge.bg-primary.badge-history(role="button", data-bs-toggle="modal", data-bs-target="#progress-history") 진행중]
+                            td.text-center
+                                span.align-middle.badge.bg-primary.badge-history(
+                                    role="button",
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#progress-history"
+                                ) 진행중
                             td 2022-08-16
-                            td 박성빈
+                            td 이건우
         .table-wrap.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
                 .col.auto
                     span.fs-4.fw-bold.mb-2 기능상세설명
                 .col-auto
-                    button#button-addon2.btn.btn-secondary.btn-sm(
-                        type="button"
+                    button.btn.btn-secondary.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#case-connect",
+                        data-bs-varying="회귀테스트"
                     ) 회귀테스트 추가
             .table-responsive
-                table#function_detail.table-bordered.table.table-sm.table-hover.w-100
+                table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col") 요구사항 ID
@@ -68,21 +75,26 @@ block contents
                             td REQ-001
                             td requirement-1416310
                             td 수정
-                            td #[a(href="#") 요구사항상세내용-1416311]
+                            td #[a(href="#", data-bs-toggle="modal", data-bs-target="#request-detail") 요구사항상세내용-1416311]
                             td
-                                .hstack.gap-2.justify-content-center
-                                    button.btn.btn-sm.btn-outline-primary.py-0 테스트케이스 추가
+                                .hstack.gap-1.justify-content-center
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-connect",
+                                        data-bs-varying="테스트케이스"
+                                    ) 테스트케이스 연결
                                     button.btn.btn-sm.btn-outline-primary.py-0 결과문서
         .table-wrap.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
                 .col.auto
                     span.fs-4.fw-bold.mb-2 요구사항별 테스트케이스
                 .col-auto
-                    button#button-addon2.btn.btn-secondary.btn-sm(
-                        type="button"
+                    button.btn.btn-secondary.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#all-success"
                     ) 일괄 정상
             .table-responsive
-                table#requirement_case.table-bordered.table.table-sm.table-hover.w-100
+                table#requirement_case.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col") 번호
@@ -93,51 +105,111 @@ block contents
                             th(scope="col") 스크립트명
                             th(scope="col") 등록자
                             th(scope="col") 테스터
+                            th(scope="col") 테스트 결과
                             th(scope="col") 메뉴
-                    tbody.small
+                    tbody
                         tr
                             td 1
                             td 시스템-6
                             td REQ-001
-                            td #[a(href="#") TC202010060063]
+                            td #[a.case-id(href="#") TC202010060063]
                             td testcase-1321056
                             td
                             td 정신한
                             td 관리자
+                            td #[span.badge.bg-success 정상]
                             td
-                                .hstack.gap-2.justify-content-center
-                                    button.btn.btn-sm.btn-outline-primary.py-0 자세히
-                                    button.btn.btn-sm.btn-outline-primary.py-0 실행
+                                .hstack.gap-1.justify-content-center
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-detail"
+                                    ) 자세히
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-execute"
+                                    ) 실행
                                     button.btn.btn-sm.btn-outline-secondary.py-0(
                                         disabled
                                     ) (실행이력 없음)
-                                    button.btn.btn-sm.btn-outline-primary.py-0 결과입력
-                                    button.btn.btn-sm.btn-outline-primary.py-0 결과이력
-                                    button.btn.btn-sm.btn-outline-danger.py-0 삭제
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-result"
+                                    ) 결과입력
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-history"
+                                    ) 결과이력
+                                    button.btn.btn-sm.btn-outline-danger.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#remove-modal"
+                                    ) 삭제
+                        tr
+                            td 2
+                            td 시스템-6
+                            td 회귀테스트
+                            td #[a.case-id(href="#") TC202010060063]
+                            td testcase-1321056
+                            td
+                            td 정신한
+                            td 관리자
+                            td #[span.badge.bg-success 정상]
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-detail"
+                                    ) 자세히
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-execute"
+                                    ) 실행
+                                    button.btn.btn-sm.btn-outline-secondary.py-0(
+                                        disabled
+                                    ) (실행이력 없음)
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-result"
+                                    ) 결과입력
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-history"
+                                    ) 결과이력
+                                    button.btn.btn-sm.btn-outline-danger.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#remove-modal"
+                                    ) 삭제
         .table-wrap.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
                 .col.auto
                     span.fs-4.fw-bold.mb-2 자동테스트 수행이력
                 .col-auto
-                    button#button-addon2.btn.btn-danger.btn-sm(type="button") 선택항목 삭제
+                    button#history-remove-btn.btn.btn-danger.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#remove-modal",
+                        disabled
+                    ) 선택항목 삭제
                 .col-auto
                     .input-group.input-group-sm
                         span#basic-addon1.input-group-text 케이스ID
-                        input.form-control(
+                        input#case-search.form-control(
                             type="text",
                             placeholder="검색어를 입력하세요"
                         )
-                        button#button-addon2.btn.btn-secondary(type="button") 검색
+                        button.input-reset.btn.btn-secondary.opacity-50(
+                            type="button"
+                        ) 초기화
+                        button.btn.btn-secondary(type="button") 검색
             .table-responsive
-                table#auto_history.table-bordered.table.table-sm.table-hover.w-100
+                table#auto_history.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col")
-                                input.form-check-input(
+                                input#history-all.form-check-input(
                                     type="checkbox",
                                     value="",
-                                    name=name,
-                                    id=id
+                                    name="history",
+                                    data-gr-type="condition",
+                                    data-gr-target="#history-remove-btn"
                                 ) 
                             th(scope="col") 시스템
                             th(scope="col") 케이스 ID
@@ -146,9 +218,9 @@ block contents
                             th(scope="col") 테스터
                             th(scope="col") 테스트일자
                             th(scope="col") 메뉴
-                    tbody.small
+                    tbody
                         tr
-                            td #[+check("history", "history-1", "mb-0")]
+                            td #[+check("history", "history-1", "mb-0", null, "condition", "#history-remove-btn")]
                             td 시스템-6
                             td #[a(href="#") TC202010060063]
                             td testcase-1321056
@@ -156,11 +228,76 @@ block contents
                             td 정신한
                             td 2022-08-18
                             td
-                                .hstack.gap-2.justify-content-center
-                                    button.btn.btn-sm.btn-outline-primary.py-0 자세히
+                                .hstack.gap-1.justify-content-center
+                                    button.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-detail"
+                                    ) 자세히
                                     button.btn.btn-sm.btn-outline-secondary.py-0(
                                         disabled
                                     ) (실행이력 없음)
             +pagination
+        .table-wrap.d-flex.flex-column
+            .row.mb-2.g-2.align-items-center
+                .col.auto
+                    span.fs-4.fw-bold.mb-2 첨부파일 목록
+                .col-auto
+                    .input-group.input-group-sm
+                        input.form-control(
+                            type="file",
+                            placeholder="검색어를 입력하세요",
+                            multiple
+                        )
+                        button.btn.btn-secondary(type="button") 업로드
+            .table-responsive
+                table#attachment_list.small.table-bordered.table.table-sm.table-hover.w-100
+                    thead
+                        tr
+                            th(scope="col") 번호
+                            th(scope="col") 첨부파일
+                            th(scope="col") 파일크기
+                            th(scope="col") 구분
+                            th(scope="col") 등록자
+                            th(scope="col") 등록일시
+                            th(scope="col") 삭제
+                    tbody
+                        tr
+                            td 1
+                            td #[a(href="#") 첨부파일첨부파일.txt]
+                            td 15 Byte
+                            td .txt
+                            td 관리자
+                            td 2022-06-14 09:54:35
+                            td
+                                button.btn.btn-sm.btn-outline-danger.py-0(
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#remove-modal"
+                                ) 삭제
+                        tr
+                            td 2
+                            td #[a(href="#") 첨부파일첨부파일.txt]
+                            td 15 Byte
+                            td .txt
+                            td 관리자
+                            td 2022-06-14 09:54:35
+                            td
+                                button.btn.btn-sm.btn-outline-danger.py-0(
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#remove-modal"
+                                ) 삭제
 
+    include modals/request-detail
+    include modals/case-connect
+    include modals/script-connect
+    include modals/case-new
+    include modals/case-edit
+    include modals/all-success
+    include modals/case-detail
     include modals/progress-history
+    include modals/case-execute
+    include modals/case-result
+    include modals/case-history
+    include modals/remove
+
+block scripts
+    script(src="../js/pages/design_req.js") 

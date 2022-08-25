@@ -4,19 +4,38 @@
 @import "requirement_case";
 @import "auto_history";
 @import "progress_history";
+@import "attachment_list";
+@import "case_connect";
+@import "script_connect";
+@import "test_result_list";
+@import "case_execute";
+@import "case_history";
 
 .contents {
     .table {
         min-width: 1116px;
     }
 }
+.modal-xl {
+    .table {
+        min-width: 1106px;
+    }
+}
+.modal-lg {
+    .table {
+        min-width: 766px;
+    }
+    &.modal-dialog-scrollable {
+        .table {
+            min-width: 749px;
+        }
+    }
+}
 .table {
     border-top: 2px solid rgba($dark, 0.5);
-    th {
-        text-align: center;
-    }
     th,
     td {
+        text-align: center;
         @include text-truncate;
         white-space: nowrap;
         max-width: 0;

@@ -12,3 +12,14 @@
                   });
         });
     });
+
+[...document.querySelectorAll(".btn-conditional")].forEach((x) => {
+    const target = document.querySelectorAll(x.getAttribute("data-gr-target"));
+    target.forEach((t) => {
+        t.addEventListener("click", () => {
+            if (t.checked) {
+                x.removeAttribute("disabled");
+            }
+        });
+    });
+});

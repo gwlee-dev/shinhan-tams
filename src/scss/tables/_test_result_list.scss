@@ -1,0 +1,18 @@
+table#test_result_list {
+    $test_result_list: (
+        1: 11%,
+        2: 13%,
+        3: 40%,
+        4: 14%,
+        5: 12%,
+        6: 12%,
+    );
+    th,
+    td {
+        @each $i, $percent in $test_result_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.modal-backdrop ~ .modal-backdrop {
+    z-index: calc(var(--#{$prefix}backdrop-zindex) + 5);
+}
+
+.modal.show ~ .modal.show {
+    z-index: calc(var(--#{$prefix}modal-zindex) + 6);
+}
+
+.modal {
+    backdrop-filter: blur(2px);
+}

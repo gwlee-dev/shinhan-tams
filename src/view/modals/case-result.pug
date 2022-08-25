@@ -1,0 +1,25 @@
+#case-result.modal.fade(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
+    .modal-dialog.modal-dialog-centered.modal-lg
+        .modal-content
+            .modal-header
+                h5.modal-title 결과 입력
+                button.btn-close(
+                    type="button",
+                    data-bs-dismiss="modal",
+                    aria-label="Close"
+                )
+            .modal-body
+                .row.gx-2.gy-3
+                    .col-12 #[+input-sm("제목")]
+                    .col #[+select-sm("테스트 결과")]
+                    .col #[+select-sm("결함유형")]
+                    .col #[+select-sm("결함 심각도")]
+                    .col #[+select-sm("CSR 수정 범위 내")]
+                    .col-12 #[+textarea-sm("상세 정보")]
+            .modal-footer
+                button#execute-btn.btn.btn-primary 저장
+                button#execute-btn.btn.btn-secondary 취소

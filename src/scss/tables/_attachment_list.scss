@@ -1,0 +1,24 @@
+table#attachment_list {
+    $attachment_list: (
+        1: 4%,
+        2: 45%,
+        3: 10%,
+        4: 10%,
+        5: 10%,
+        6: 16%,
+        7: 5%,
+    );
+    th,
+    td {
+        @each $i, $percent in $attachment_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+    td {
+        &:nth-child(2) {
+            text-align: start;
+        }
+    }
+}

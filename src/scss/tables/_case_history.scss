@@ -1,0 +1,17 @@
+table#case_history {
+    $case_history: (
+        1: 11%,
+        2: 11%,
+        3: 11%,
+        4: 47%,
+        5: 6%,
+    );
+    th,
+    td {
+        @each $i, $percent in $case_history {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

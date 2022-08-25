@@ -1,4 +1,8 @@
-#progress-history.modal.fade(tabindex="-1", aria-hidden="true")
+#progress-history.modal.fade(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
     .modal-dialog.modal-dialog-centered.modal-lg
         .modal-content
             .modal-header
@@ -10,7 +14,7 @@
                 )
             .modal-body
                 .table-responsive
-                    table#progress_history.table.table-hover.table-bordered
+                    table#progress_history.small.table.table-sm.table-hover.table-bordered
                         thead
                             tr
                                 th(scope="col") 번호
