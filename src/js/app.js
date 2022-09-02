@@ -4,5 +4,6 @@ import "./_checkAll";
 import "./_resetInput";
 import "./_multiModal";
 import "./_conditionalEnable";
+import "./_modalVarying";
 
 window.bootstrap = bootstrap;

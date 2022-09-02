@@ -1,0 +1,21 @@
+table#design_node {
+    $design_node: (
+        1: 4%,
+        2: 7%,
+        3: 20%,
+        4: 19%,
+        5: 7%,
+        6: 6%,
+        7: 6%,
+        8: 15%,
+        9: 16%,
+    );
+    th,
+    td {
+        @each $i, $percent in $design_node {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

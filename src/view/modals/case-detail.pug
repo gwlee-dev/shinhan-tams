@@ -1,3 +1,7 @@
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+
 #case-detail.modal.fade(
     tabindex="-1",
     aria-hidden="true",
@@ -5,29 +9,22 @@
 )
     .modal-dialog.modal-dialog-centered.modal-lg.modal-dialog-scrollable
         .modal-content
-            .modal-header
-                h5.modal-title 테스트케이스 상세조회
-                button.btn-close(
-                    type="button",
-                    data-bs-dismiss="modal",
-                    aria-label="Close"
-                )
+            +modal-header("테스트케이스 상세조회")
             .modal-body
                 .row.gx-2.gy-3
-                    .col #[+input-sm("시스템", true)]
-                    .col #[+input-sm("업무", true)]
-                    .col #[+input-sm("중요도", true)]
-                    .col #[+input-sm("난이도", true)]
+                    .col #[+input-sm("시스템")(disabled)]
+                    .col #[+input-sm("업무")(disabled)]
+                    .col #[+input-sm("중요도")(disabled)]
+                    .col #[+input-sm("난이도")(disabled)]
                     .w-100.m-0
-                    .col #[+input-sm("화면/서비스/JOB ID", true)]
-                    .col #[+input-sm("화면/서비스/JOB 명", true)]
-                    .col #[+input-sm("테스트케이스명", true)]
-                    .col-12 #[+textarea-sm("테스트 내용", true)]
-                    .col-12 #[+textarea-sm("확인 방법", true)]
-                    .col-12 #[+textarea-sm("입력값", true)]
-                    .col-12 #[+textarea-sm("출력값", true)]
+                    .col #[+input-sm("화면/서비스/JOB ID")(disabled)]
+                    .col #[+input-sm("화면/서비스/JOB 명")(disabled)]
+                    .col #[+input-sm("테스트케이스명")(disabled)]
+                    .col-12 #[+textarea-sm("테스트 내용")(disabled)]
+                    .col-12 #[+textarea-sm("확인 방법")(disabled)]
+                    .col-12 #[+textarea-sm("입력값")(disabled)]
+                    .col-12 #[+textarea-sm("출력값")(disabled)]
                     .col-12
-                        .table-wrap.d-flex.flex-column
                         .row.mb-2.g-2.align-items-center
                             .col.auto
                                 span.fs-6.mb-2.fw-bold 테스트 결과 목록
@@ -42,42 +39,14 @@
                                         th(scope="col") 결과
                                         th(scope="col") 진행 상태
                                 tbody
-                                    tr
-                                        td 1
-                                        td 123123
-                                        td 원숭이 나무에 올라가
-                                        td 김신한
-                                        td 미실행
-                                        td
-                                            span.align-middle.badge.bg-primary.badge-history(
-                                                role="button",
-                                                data-gr-toggle="modal",
-                                                data-gr-target="#progress-history"
-                                            ) 진행중
-                                    tr
-                                        td 2
-                                        td 123123
-                                        td 꼬리를 흔들며 앉아서
-                                        td 김신한
-                                        td 미실행
-                                        td
-                                            span.align-middle.badge.bg-primary.badge-history(
-                                                role="button",
-                                                data-gr-toggle="modal",
-                                                data-gr-target="#progress-history"
-                                            ) 진행중
-                                    tr
-                                        td 3
-                                        td 123123
-                                        td 몽키몽키매직 몽키매직
-                                        td 김신한
-                                        td 미실행
-                                        td
-                                            span.align-middle.badge.bg-primary.badge-history(
-                                                role="button",
-                                                data-gr-toggle="modal",
-                                                data-gr-target="#progress-history"
-                                            ) 진행중
+                                    - for (var i = 1; i <= 3; i++)
+                                        tr
+                                            td= i
+                                            td 123123
+                                            td 원숭이 나무에 올라가
+                                            td 김신한
+                                            td 미실행
+                                            td #[+gr-badge-primary("modal", "#progress-history", "badge-history") 진행중]
                     .col-12
                         .table-wrap.d-flex.flex-column
                         .row.mb-2.g-2.align-items-center
@@ -89,15 +58,9 @@
                                     tr
                                         th(scope="col") 번호
                                 tbody
-                                    tr
-                                        td 1
-                                    tr
-                                        td 2
-                                    tr
-                                        td 3
+                                    - for (var i = 1; i <= 3; i++)
+                                        tr
+                                            td= i
             .modal-footer
-                button.btn.btn-primary 저장
-                button.btn.btn-secondary(
-                    type="button",
-                    data-bs-dismiss="modal"
-                ) 취소
+                +btn-primary 저장
+                +btn-cancel-modal 취소

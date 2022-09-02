@@ -1,3 +1,6 @@
+include ../../mixins/button
+include ../../mixins/modal
+
 #case-execute.modal.fade(
     tabindex="-1",
     aria-hidden="true",
@@ -5,13 +8,7 @@
 )
     .modal-dialog.modal-dialog-centered.modal-lg
         .modal-content
-            .modal-header
-                h5.modal-title 테스트케이스 실행
-                button.btn-close(
-                    type="button",
-                    data-bs-dismiss="modal",
-                    aria-label="Close"
-                )
+            +modal-header("테스트케이스 실행")
             .bg-tone 
                 .modal-body.d-flex.flex-column
                     .form-check.form-switch.ms-auto
@@ -62,35 +59,25 @@
                         tbody
                             tr
                                 td #[+check("execute", "execute-1", "mb-0", null, "condition", "#execute-btn")]
-                                td iPhone 13 Pro
-                                td 012345678901234
-                                td 1080x1920
-                                td iOS
-                                td 15.6.1
+                                mixin dummy
+                                    td iPhone 13 Pro
+                                    td 012345678901234
+                                    td 1080x1920
+                                    td iOS
+                                    td 15.6.1
+                                +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
                                 td #[+check("execute", "execute-2", "mb-0", null, "condition", "#execute-btn")]
-                                td iPhone 13 Pro
-                                td 012345678901234
-                                td 1080x1920
-                                td iOS
-                                td 15.6.1
+                                +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
                                 td #[+check("execute", "execute-3", "mb-0", null, "condition", "#execute-btn")]
-                                td iPhone 13 Pro
-                                td 012345678901234
-                                td 1080x1920
-                                td iOS
-                                td 15.6.1
+                                +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
                                 td #[+check("execute", "execute-4", "mb-0", null, "condition", "#execute-btn")]
-                                td iPhone 13 Pro
-                                td 012345678901234
-                                td 1080x1920
-                                td iOS
-                                td 15.6.1
+                                +dummy
                                 td #[span.badge.bg-success 정상]
             .modal-footer.justify-content-center
                 button#execute-btn.btn.btn-primary(disabled) 실행

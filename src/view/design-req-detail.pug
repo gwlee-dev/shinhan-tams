@@ -1,6 +1,8 @@
 extends layout/base
 include mixins/form
 include mixins/pagination
+include mixins/button
+include mixins/badge
 
 block head
     - var title = "CSR 상세조회";
@@ -12,11 +14,11 @@ block contents
                 h4.my-4.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2.justify-content-center
-                    button.btn.btn-primary(disabled) 승인
-                    button.btn.btn-primary(disabled) 배정
-                    button.btn.btn-secondary(disabled) 회수
-                    button.btn.btn-secondary(disabled) 반려
-                    button.btn.btn-secondary(disabled) 제외
+                    +btn-primary(null, null, true) 승인
+                    +btn-primary(null, null, true) 배정
+                    +btn-secondary(null, null, true) 회수
+                    +btn-secondary(null, null, true) 반려
+                    +btn-secondary(null, null, true) 제외
     .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-5
         .table-wrap.d-flex.flex-column
             span.fs-4.fw-bold.mb-2 CSR 정보
@@ -43,12 +45,7 @@ block contents
                             td 최신한
                             td 정신한
                             td 솔루션개발본부
-                            td.text-center
-                                span.align-middle.badge.bg-primary.badge-history(
-                                    role="button",
-                                    data-bs-toggle="modal",
-                                    data-bs-target="#progress-history"
-                                ) 진행중
+                            td #[+gr-badge-primary("modal", "#progress-history", "badge-history") 진행중]
                             td 2022-08-16
                             td 이건우
         .table-wrap.d-flex.flex-column
@@ -56,10 +53,8 @@ block contents
                 .col.auto
                     span.fs-4.fw-bold.mb-2 기능상세설명
                 .col-auto
-                    button.btn.btn-secondary.btn-sm(
-                        data-bs-toggle="modal",
-                        data-bs-target="#case-connect",
-                        data-bs-varying="회귀테스트"
+                    +btn-secondary-sm("modal", "#case-connect")(
+                        data-gr-varying="회귀테스트 추가"
                     ) 회귀테스트 추가
             .table-responsive
                 table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
@@ -78,10 +73,8 @@ block contents
                             td #[a(href="#", data-bs-toggle="modal", data-bs-target="#request-detail") 요구사항상세내용-1416311]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-connect",
-                                        data-bs-varying="테스트케이스"
+                                    +table-btn-primary("modal", "#case-connect")(
+                                        data-gr-varying="테스트케이스 연결"
                                     ) 테스트케이스 연결
                                     button.btn.btn-sm.btn-outline-primary.py-0 결과문서
         .table-wrap.d-flex.flex-column
@@ -89,10 +82,7 @@ block contents
                 .col.auto
                     span.fs-4.fw-bold.mb-2 요구사항별 테스트케이스
                 .col-auto
-                    button.btn.btn-secondary.btn-sm(
-                        data-bs-toggle="modal",
-                        data-bs-target="#all-success"
-                    ) 일괄 정상
+                    +btn-secondary-sm("modal", "#all-success") 일괄 정상
             .table-responsive
                 table#requirement_case.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -139,15 +129,12 @@ block contents
                                         data-bs-toggle="modal",
                                         data-bs-target="#case-history"
                                     ) 결과이력
-                                    button.btn.btn-sm.btn-outline-danger.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#remove-modal"
-                                    ) 삭제
+                                    +remove-btn
                         tr
                             td 2
                             td 시스템-6
                             td 회귀테스트
-                            td #[a.case-id(href="#") TC202010060063]
+                            td #[a.case-id(href="#") grid1one-grid2two]
                             td testcase-1321056
                             td
                             td 정신한
@@ -174,10 +161,7 @@ block contents
                                         data-bs-toggle="modal",
                                         data-bs-target="#case-history"
                                     ) 결과이력
-                                    button.btn.btn-sm.btn-outline-danger.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#remove-modal"
-                                    ) 삭제
+                                    +remove-btn
         .table-wrap.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
                 .col.auto
@@ -242,13 +226,7 @@ block contents
                 .col.auto
                     span.fs-4.fw-bold.mb-2 첨부파일 목록
                 .col-auto
-                    .input-group.input-group-sm
-                        input.form-control(
-                            type="file",
-                            placeholder="검색어를 입력하세요",
-                            multiple
-                        )
-                        button.btn.btn-secondary(type="button") 업로드
+                    +file(null, true)
             .table-responsive
                 table#attachment_list.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -268,11 +246,7 @@ block contents
                             td .txt
                             td 관리자
                             td 2022-06-14 09:54:35
-                            td
-                                button.btn.btn-sm.btn-outline-danger.py-0(
-                                    data-bs-toggle="modal",
-                                    data-bs-target="#remove-modal"
-                                ) 삭제
+                            td #[+remove-btn]
                         tr
                             td 2
                             td #[a(href="#") 첨부파일첨부파일.txt]
@@ -280,24 +254,20 @@ block contents
                             td .txt
                             td 관리자
                             td 2022-06-14 09:54:35
-                            td
-                                button.btn.btn-sm.btn-outline-danger.py-0(
-                                    data-bs-toggle="modal",
-                                    data-bs-target="#remove-modal"
-                                ) 삭제
+                            td #[+remove-btn]
 
-    include modals/request-detail
-    include modals/case-connect
-    include modals/script-connect
+    include modals/design-req/request-detail
+    include modals/design-req/case-connect
+    include modals/design-req/script-connect
     include modals/case-new
     include modals/case-edit
-    include modals/all-success
+    include modals/design-req/all-success
     include modals/case-detail
-    include modals/progress-history
-    include modals/case-execute
-    include modals/case-result
-    include modals/case-history
+    include modals/design-req/progress-history
+    include modals/design-req/case-execute
+    include modals/design-req/case-result
+    include modals/design-req/case-history
     include modals/remove
 
 block scripts
-    script(src="../js/pages/design_req.js") 
+    script(src="/src/js/pages/design_req.js") 

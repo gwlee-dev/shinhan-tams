@@ -1,0 +1,17 @@
+include ../../mixins/button
+include ../../mixins/modal
+
+#all-success.modal.fade(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
+    .modal-dialog.modal-dialog-centered
+        .modal-content
+            +modal-header("일괄 정상 처리")
+            .modal-body
+                span.d-block 테스트 결과가 입력되지 않은 건에 대해서 #[span.fw-bold 일괄 정상 처리]됩니다.
+                span.d-block 진행하시겠습니까?
+            .modal-footer
+                +btn-primary 예
+                +btn-cancel-modal 아니오

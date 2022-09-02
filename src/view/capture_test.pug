@@ -1,0 +1,58 @@
+extends layout/base
+include mixins/form
+include mixins/badge
+include mixins/button
+
+block head
+    - var title = "테스트 페이지";
+
+block contents
+    .container
+        a#download-btn(href="#") 다운로드
+        #capture.d-flex.overflow-auto(style={ height: "30rem" })
+            table.table.table-bordered.table-sm.small
+                thead
+                    tr
+                        th(scope="col") CSR 번호
+                        th(scope="col") CSR 제목
+                        th(scope="col") 완료 합의일
+                        th(scope="col") CSR 요청일
+                        th(scope="col") BA
+                        th(scope="col") AA
+                        th(scope="col") 개발부서
+                        th(scope="col") 테스트요청일
+                        th(scope="col") 테스터
+                tbody
+                    - for (var i = 1; i <= 50; i++)
+                        tr
+                            td.fw-bold= i
+                            td requirement_spec-1416308
+                            td 2022-08-16
+                            td 2022-08-16
+                            td 최신한
+                            td 정신한
+                            td 솔루션개발본부
+                            td 2022-08-16
+                            td 김신한(김신한)
+
+block scripts
+    script(
+        src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"
+    )
+    script.
+        const capture = async () => {
+            const target = document.querySelector("#capture");
+            const canvas = await html2canvas(target, {
+                onclone: (clonedDoc) => {
+                    const el = clonedDoc.querySelector("#capture");
+                    el.style.height = target.scrollHeight + "px";
+                },
+            });
+            const button = document.querySelector("#download-btn");
+            button.addEventListener("click", (e) => {
+                e.target.href = canvas.toDataURL();
+                e.target.download = "export.png";
+            });
+        };
+
+        capture();

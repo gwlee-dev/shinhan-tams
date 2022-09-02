@@ -1,3 +1,6 @@
+include ../../mixins/button
+include ../../mixins/modal
+
 #script-connect.modal.fade(
     tabindex="-1",
     aria-hidden="true",
@@ -5,13 +8,7 @@
 )
     .modal-dialog.modal-dialog-centered.modal-xl
         .modal-content
-            .modal-header
-                h5.modal-title 스크립트 연결
-                button.btn-close(
-                    type="button",
-                    data-bs-dismiss="modal",
-                    aria-label="Close"
-                )
+            +modal-header
             .bg-tone
                 .container.py-2
                     .row.gx-2
@@ -64,7 +61,4 @@
                                         button.btn.btn-sm.btn-outline-dark.py-0 선택
                 +pagination
             .modal-footer
-                button.btn.btn-secondary.btn-conditional(
-                    type="button",
-                    data-bs-dismiss="modal"
-                ) 취소
+                +btn-cancel-modal 취소

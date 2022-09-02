@@ -1,6 +1,7 @@
 extends layout/base
 include mixins/form
 include mixins/pagination
+include mixins/badge
 
 block head
     - var title = "테스트 요청 현황";
@@ -39,52 +40,20 @@ block contents
                         th(scope="col") 테스트요청일
                         th(scope="col") 테스터
                 tbody
-                    tr
-                        td #[a(href="./design-req-detail.pug") C202012248053B-6]
-                        td requirement_spec-1416308
-                        td 2022-08-16
-                        td 2022-08-16
-                        td 최신한
-                        td 정신한
-                        td 솔루션개발본부
-                        td.text-center #[span.align-middle.badge.bg-primary.badge-history(role="button", data-bs-toggle="modal", data-bs-target="#progress-history") 진행중]
-                        td 2022-08-16
-                        td 김신한(김신한)
-                    tr
-                        td #[a(href="./design-req-detail.pug") C202012248053B-6]
-                        td 감자에 싹이나서 잎사귀에 감자감자감자감자감자감자감자감자감자감자감자감자감자감자
-                        td 2022-08-16
-                        td 2022-08-16
-                        td 최신한
-                        td 정신한
-                        td 이름이길어슬픈본부
-                        td.text-center #[span.align-middle.badge.bg-primary.badge-history(role="button", data-bs-toggle="modal", data-bs-target="#progress-history") 진행중]
-                        td 2022-08-16
-                        td 김신한(김신한)
-                    tr
-                        td #[a(href="./design-req-detail.pug") C202012248053B-6]
-                        td 감자에 싹이나서 잎사귀에 감자감자감자감자감자감자감자감자감자감자감자감자감자감자
-                        td 2022-08-16
-                        td 2022-08-16
-                        td 최신한
-                        td 정신한
-                        td 김수한무와거북이삼천갑자동방삭
-                        td.text-center #[span.align-middle.badge.bg-primary.badge-history(role="button", data-bs-toggle="modal", data-bs-target="#progress-history") 진행중]
-                        td 2022-08-16
-                        td 김신한(김신한)
-                    tr
-                        td #[a(href="./design-req-detail.pug") C202012248053B-6]
-                        td 감자에 싹이나서 잎사귀에 감자감자감자감자감자감자감자감자감자감자감자감자감자감자
-                        td 2022-08-16
-                        td 2022-08-16
-                        td 최신한
-                        td 정신한
-                        td 솔루션개발본부
-                        td.text-center #[span.align-middle.badge.bg-primary.badge-history(role="button", data-bs-toggle="modal", data-bs-target="#progress-history") 진행중]
-                        td 2022-08-16
-                        td 김신한(김신한)
+                    - for (var i = 0; i < 5; i++)
+                        tr
+                            td #[a(href="./design-req-detail.pug") C202012248053B-6]
+                            td requirement_spec-1416308
+                            td 2022-08-16
+                            td 2022-08-16
+                            td 최신한
+                            td 정신한
+                            td 솔루션개발본부
+                            td #[+gr-badge-primary("진행중", "modal", "#progress-history", "badge-history")]
+                            td 2022-08-16
+                            td 김신한(김신한)
         +pagination
 
-    include modals/progress-history
+    include modals/design-req/progress-history
 block scripts
-    script(src="../js/datepicker.js", type="module") 
+    script(src="/src/js/datepicker.js", type="module") 

@@ -1,0 +1,134 @@
+mixin remove-btn
+    button.btn.btn-sm.btn-outline-danger.py-0(
+        data-bs-toggle="modal",
+        data-bs-target="#remove-modal"
+    )&attributes(attributes) 삭제
+
+mixin gr-remove-btn
+    button.btn.btn-sm.btn-outline-danger.py-0(
+        data-gr-toggle="modal",
+        data-gr-target="#remove-modal"
+    )&attributes(attributes) 삭제
+
+mixin close-btn
+    button.btn-close(
+        type="button",
+        data-bs-dismiss="modal",
+        aria-label="Close"
+    )&attributes(attributes)
+
+mixin btn-cancel-modal
+    button.btn.btn-secondary(type="button", data-bs-dismiss="modal")
+        block
+
+mixin btn-danger(toggle, target)
+    button.btn.btn-danger(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin btn-primary(toggle, target, disabled)
+    button.btn.btn-primary(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target,
+        disabled=disabled
+    )&attributes(attributes)
+        block
+
+mixin btn-dark(toggle, target, disabled)
+    button.btn.btn-dark(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target,
+        disabled=disabled
+    )&attributes(attributes)
+        block
+
+mixin gr-btn-dark(toggle, target, disabled)
+    button.btn.btn-dark(
+        type="button",
+        data-gr-toggle=toggle,
+        data-gr-target=target,
+        disabled=disabled
+    )&attributes(attributes)
+        block
+
+mixin btn-secondary(toggle, target, disabled)
+    button.btn.btn-secondary(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target,
+        disabled=disabled
+    )&attributes(attributes)
+        block
+
+mixin gr-btn-secondary(toggle, target, disabled)
+    button.btn.btn-secondary(
+        type="button",
+        data-gr-toggle=toggle,
+        data-gr-target=target,
+        disabled=disabled
+    )&attributes(attributes)
+        block
+
+mixin btn-outline-primary(toggle, target)
+    button.btn.btn-outline-primary(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin btn-outline-success(toggle, target)
+    button.btn.btn-outline-success(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin btn-secondary-sm(toggle, target)
+    button.btn.btn-secondary.btn-sm(
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin gr-btn-secondary-sm(toggle, target)
+    button.btn.btn-secondary.btn-sm(
+        data-gr-toggle=toggle,
+        data-gr-target=target
+    )&attributes(attributes)
+        block
+
+mixin link(href, toggle, target)
+    a(href=href, data-bs-toggle=toggle, data-bs-target=target)&attributes(attributes)
+        block
+
+mixin gr-link(href, toggle, target)
+    a(href=href, data-gr-toggle=toggle, data-gr-target=target)&attributes(attributes)
+        block
+
+mixin table-btn-primary(toggle, target)
+    button.btn.btn-sm.btn-outline-primary.py-0(
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin gr-table-btn-primary(toggle, target)
+    button.btn.btn-sm.btn-outline-primary.py-0(
+        data-gr-toggle=toggle,
+        data-gr-target=target
+    )&attributes(attributes)
+        block
+
+mixin gr-table-btn-dark(toggle, target)
+    button.btn.btn-sm.btn-outline-dark.py-0(
+        data-gr-toggle=toggle,
+        data-gr-target=target
+    )&attributes(attributes)
+        block

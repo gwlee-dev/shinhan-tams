@@ -5,7 +5,7 @@ import { Modal } from "bootstrap";
         const target = document.querySelector(x.getAttribute("data-gr-target"));
         if (typeof target !== "undefined") {
             const instance = new Modal(target);
-            instance.show();
+            instance.show(x);
         }
     });
 });

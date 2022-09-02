@@ -1,0 +1,34 @@
+mixin badge-primary(toggle, target, classes)
+    if toggle
+        span.align-middle.badge.bg-primary(
+            role="button",
+            data-bs-toggle=toggle,
+            data-bs-target=target,
+            class=classes
+        )
+            block
+    else
+        span.align-middle.badge.bg-primary(class=classes)
+            block
+
+mixin badge-success(toggle, target, classes)
+    if toggle
+        span.align-middle.badge.bg-success(
+            role="button",
+            data-bs-toggle=toggle,
+            data-bs-target=target,
+            class=classes
+        )
+            block
+    else
+        span.align-middle.badge.bg-primary(class=classes)
+            block
+
+mixin gr-badge-primary(toggle, target, classes)
+    span.align-middle.badge.bg-primary(
+        role="button",
+        data-gr-toggle=toggle,
+        data-gr-target=target,
+        class=classes
+    )
+        block

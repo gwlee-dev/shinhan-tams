@@ -1,3 +1,6 @@
+include ../../mixins/button
+include ../../mixins/modal
+
 #case-history.modal.fade(
     tabindex="-1",
     aria-hidden="true",
@@ -5,13 +8,7 @@
 )
     .modal-dialog.modal-dialog-centered.modal-lg
         .modal-content
-            .modal-header
-                h5.modal-title 결과 이력
-                button.btn-close(
-                    type="button",
-                    data-bs-dismiss="modal",
-                    aria-label="Close"
-                )
+            +modal-header("결과 이력")
             .modal-body
                 .table-responsive
                     table#case_history.small.table-bordered.table.table-sm.table-hover.w-100
@@ -28,10 +25,6 @@
                                 td 정상
                                 td 2021-02-19
                                 td 깊은산속 옹달샘 누가와서 쉬나요~!!
-                                td
-                                    button.btn.btn-sm.btn-outline-danger.py-0(
-                                        data-gr-toggle="modal",
-                                        data-gr-target="#remove-modal"
-                                    ) 삭제
+                                td #[+gr-remove-btn]
             .modal-footer
                 button#execute-btn.btn.btn-secondary 확인

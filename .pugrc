@@ -5,6 +5,7 @@
             {
                 "title": "테스트 설계",
                 "id": "design-req",
+                "dir": "design",
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
@@ -18,11 +19,13 @@
                     },
                     {
                         "title": "스크립트 노드 관리",
-                        "id": "design-node"
+                        "id": "design-node",
+                        "link": true
                     },
                     {
                         "title": "케이스 관리",
-                        "id": "design-case"
+                        "id": "design-case",
+                        "link": true
                     },
                     {
                         "title": "데이터셋 관리",
@@ -33,6 +36,7 @@
             {
                 "title": "테스트 실행",
                 "id": "execute-launch",
+                "dir": "execute",
                 "nodes": [
                     {
                         "title": "케이스 실행",
@@ -51,6 +55,7 @@
             {
                 "title": "결함 관리",
                 "id": "fault-management",
+                "dir": "fault",
                 "nodes": [
                     {
                         "title": "테스트 케이스 실행",
@@ -97,6 +102,7 @@
             {
                 "title": "환경 설정",
                 "id": "setting",
+                "dir": "setting",
                 "nodes": [
                     {
                         "title": "테스트 자동화 관리",

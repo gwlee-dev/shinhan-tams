@@ -1,17 +1,14 @@
-#case-new.modal.fade(
+include ../mixins/button
+include ../mixins/modal
+
+#case-new.modal.fade.modal-varying(
     tabindex="-1",
     aria-hidden="true",
     data-bs-keyboard="false"
 )
     .modal-dialog.modal-dialog-centered.modal-lg
         .modal-content
-            .modal-header
-                h5.modal-title 테스트케이스 신규 생성
-                button.btn-close(
-                    type="button",
-                    data-bs-dismiss="modal",
-                    aria-label="Close"
-                )
+            +modal-header
             .modal-body
                 .row.gx-2.gy-1
                     .col #[+select-sm("시스템")]
@@ -27,8 +24,5 @@
                     .col-12 #[+textarea-sm("입력값")]
                     .col-12 #[+textarea-sm("출력값")]
             .modal-footer
-                button.btn.btn-primary 저장
-                button.btn.btn-secondary(
-                    type="button",
-                    data-bs-dismiss="modal"
-                ) 취소
+                +btn-primary 저장
+                +btn-cancel-modal 취소

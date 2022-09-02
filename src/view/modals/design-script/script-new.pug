@@ -1,0 +1,46 @@
+include ../../mixins/button
+include ../../mixins/modal
+
+#script-new.modal.fade.modal-varying(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
+    .modal-dialog.modal-dialog-centered
+        .modal-content
+            +modal-header
+            .modal-body
+                .row.gx-2.gy-1
+                    .col-10
+                        +file-sm("스크립트 파일 선택")
+                            +gr-btn-secondary("modal", "#server-file").opacity-50 서버에서 찾기
+                    .col-2
+                        +input-sm("파일 크기")(disabled, placeholder="0 KB")
+                    .w-100
+                    .col
+                        +select-sm("시스템")
+                    .col
+                        +select-sm("업무")
+                    .col
+                        +caption-sm("종류")
+                        .btn-group.btn-group-sm.w-100
+                            +radio-btn-secondary("script-type", "script-mobile") Mobile
+                            +radio-btn-secondary("script-type", "script-desktop") Desktop
+                    .col-12
+                        +textarea-sm("설명")
+                    .col-12 
+                        +caption-sm("수정 이력")
+                        .table-responsive
+                            table.small.table-bordered.table.table-sm.table-hover.w-100
+                                thead
+                                    tr
+                                        th(scope="col") 수정자
+                                        th(scope="col") 수정일시
+                                tbody
+                                    - for (var i = 0; i < 3; i++)
+                                        tr
+                                            td 김신한
+                                            td 2022-08-30 16:30:00
+            .modal-footer
+                +btn-primary 저장
+                +btn-cancel-modal 취소

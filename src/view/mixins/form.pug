@@ -32,9 +32,9 @@ mixin select(caption)
         option(value="2") Two
         option(value="3") Three
 
-mixin select-sm(caption, disabled)
+mixin select-sm(caption)
     +caption-sm(caption)
-    select.form-select.form-select-sm(disabled=disabled)
+    select.form-select.form-select-sm&attributes(attributes)
         option(selected="")= caption
         option(value="1") One
         option(value="2") Two
@@ -42,16 +42,15 @@ mixin select-sm(caption, disabled)
 
 mixin input(caption)
     +caption(caption)
-    input.form-control(type="text", placeholder=caption, class=classes)
+    input.form-control(type="text", placeholder=caption, class=classes)&attributes(attributes)
 
-mixin input-sm(caption, disabled)
+mixin input-sm(caption)
     +caption-sm(caption)
     input.form-control.form-control-sm(
         type="text",
         placeholder=caption,
-        class=classes,
-        disabled=disabled
-    )
+        class=classes
+    )&attributes(attributes)
 
 mixin time-sm(caption)
     +caption-sm(caption)
@@ -117,6 +116,30 @@ mixin textarea(caption)
     +caption(caption)
     textarea.form-control
 
-mixin textarea-sm(caption, disabled)
+mixin textarea-sm(caption)
     +caption-sm(caption)
-    textarea.form-control.form-control-sm(disabled=disabled)
+    textarea.form-control.form-control-sm&attributes(attributes)
+
+mixin file(caption, multiple)
+    +caption(caption)
+    .input-group.input-group
+        input.form-control(type="file", multiple=multiple)
+        block
+        button.btn.btn-secondary(type="button") 업로드
+
+mixin file-sm(caption, multiple)
+    +caption-sm(caption)
+    .input-group.input-group-sm
+        input.form-control(type="file", multiple=multiple)
+        block
+        button.btn.btn-secondary(type="button") 업로드
+
+mixin radio-btn-primary(name, id)
+    input.btn-check(type="radio", name=name, autocomplete="off", id=id)
+    label.btn.btn-outline-primary(for=id)&attributes(attributes)
+        block
+
+mixin radio-btn-secondary(name, id)
+    input.btn-check(type="radio", name=name, autocomplete="off", id=id)
+    label.btn.btn-outline-secondary(for=id)&attributes(attributes)
+        block
