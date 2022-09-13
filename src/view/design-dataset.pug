@@ -4,7 +4,7 @@ include mixins/pagination
 include mixins/button
 
 block head
-    - var title = "테스트케이스 관리";
+    - var title = "데이터셋 관리";
 
 block contents
     .container
@@ -13,9 +13,6 @@ block contents
                 h4.my-4.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2
-                    +btn-outline-success
-                        span.me-2 Excel 다운로드
-                        i.bi-file-earmark-excel
                     +a-btn-outline-primary(
                         href="/src/view/popup-case.pug",
                         onclick="pop(this)"
@@ -24,21 +21,12 @@ block contents
                         i.bi-file-earmark-plus
     .bg-tone
         .container.py-4
-            .row.gx-3
-                .col
-                    .row.g-2
-                        .col #[+select("시스템")]
-                        .col #[+select("업무")]
-                        .col #[+input("화면ID")]
-                        .col #[+input("케이스ID")]
-                        .w-100
-                        .col #[+input("화면명")]
-                        .col #[+input("케이스명")]
-                        .col-3 #[+input("등록자명")]
-                .col-auto
-                    .vstack.h-100.gap-2
-                        button.btn.btn-primary.btn.flex-grow-1 검색
-                        button.btn.btn-secondary.btn.flex-grow-1 초기화
+            .row.gx-3.gy-2
+                .col #[+select("시스템")]
+                .col #[+input("데이터셋명")]
+                .col #[+input("등록자")]
+                .col-auto.align-self-end #[button.btn.btn-primary 검색]
+                .col-auto.align-self-end #[button.btn.btn-secondary 초기화]
     .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column.gap-5
         .table-responsive
             table#case_list.small.table-bordered.table.table-sm.table-hover.w-100.small

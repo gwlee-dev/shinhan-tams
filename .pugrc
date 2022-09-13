@@ -23,13 +23,14 @@
                         "link": true
                     },
                     {
-                        "title": "케이스 관리",
+                        "title": "테스트케이스 관리",
                         "id": "design-case",
                         "link": true
                     },
                     {
                         "title": "데이터셋 관리",
-                        "id": "design-dataset"
+                        "id": "design-dataset",
+                        "link": true
                     }
                 ]
             },

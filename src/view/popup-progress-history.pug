@@ -1,0 +1,54 @@
+extends layout/popupBase
+include mixins/form
+include mixins/button
+include mixins/badge
+include mixins/modal
+include mixins/pagination
+include mixins/popup
+
+block head
+    - var title = "스크립트 신규 등록";
+
+block contents
+    .popup.popup-md.vstack.gap-3.pb-2
+        +popup-title
+            h5.m-0 진행상태 이력
+            .ms-auto.ms-3
+                +badge-secondary 최종변경일시
+                span.badge.small.opacity-75 2022-05-16 14:45:52
+        .container-fluid
+            .table-responsive
+                table#progress_history.small.table.table-sm.table-hover.table-bordered
+                    thead
+                        tr
+                            th(scope="col") 번호
+                            th(scope="col") 변경 구분
+                            th(scope="col") 설명
+                            th(scope="col") 변경일
+                            th(scope="col") 변경자
+                            th(scope="col") 담당자
+                    tbody
+                        tr
+                            td 1
+                            td CSR등록
+                            td
+                            td 2021-02-18 10:09:30
+                            td 
+                            td 
+                        tr
+                            td 2
+                            td 접수대기
+                            td
+                            td 2021-02-19 14:47:57
+                            td 
+                            td 
+                        tr
+                            td 3
+                            td 완료
+                            td (제외 테스트불가) 제외의견-309460
+                            td 2021-02-19 14:50:39
+                            td 
+                            td 김신한
+        .container-fluid.d-flex
+            .hstack.gap-2.mx-auto
+                +btn-secondary 확인

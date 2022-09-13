@@ -51,10 +51,9 @@
 @import "bootstrap/scss/placeholders";
 @import "bootstrap/scss/helpers";
 
-@import "bootstrap/scss/utilities/api";
-
 // 8. Add additional custom code here
 @import "utilities";
+@import "bootstrap/scss/utilities/api";
 @import "fonts/fonts";
 @import "global";
 @import "components/components";

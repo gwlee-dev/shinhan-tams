@@ -5,7 +5,7 @@ include mixins/button
 include mixins/badge
 
 block head
-    - var title = "CSR 상세조회";
+    - var title = "테스트케이스 상세조회";
 
 block contents
     .container
@@ -53,9 +53,8 @@ block contents
                 .col.auto
                     span.fs-4.fw-bold.mb-2 기능상세설명
                 .col-auto
-                    +a-btn-secondary-sm(
-                        href="/src/view/popup-case-connect.pug",
-                        onclick="pop(this)"
+                    +btn-secondary-sm("modal", "#case-connect")(
+                        data-gr-varying="회귀테스트 추가"
                     ) 회귀테스트 추가
             .table-responsive
                 table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
@@ -74,9 +73,8 @@ block contents
                             td #[a(href="#", data-bs-toggle="modal", data-bs-target="#request-detail") 요구사항상세내용-1416311]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn-primary(
-                                        href="/src/view/popup-case-connect.pug",
-                                        onclick="pop(this)"
+                                    +table-btn-primary("modal", "#case-connect")(
+                                        data-gr-varying="테스트케이스 연결"
                                     ) 테스트케이스 연결
                                     button.btn.btn-sm.btn-outline-primary.py-0 결과문서
         section.d-flex.flex-column
@@ -112,9 +110,10 @@ block contents
                             td #[+badge-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    a.case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                    button.case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-editor",
+                                        data-gr-varying="테스트케이스 요약"
                                     ) 자세히
                                     button.btn.btn-sm.btn-outline-primary.py-0(
                                         data-bs-toggle="modal",
@@ -141,12 +140,13 @@ block contents
                             td
                             td 정신한
                             td 관리자
-                            td #[+badge-success 정상]
+                            td #[span.badge.bg-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn-primary#case-detail-btn.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                    button#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-editor",
+                                        data-gr-varying="테스트케이스 요약"
                                     ) 자세히
                                     button.btn.btn-sm.btn-outline-primary.py-0(
                                         data-bs-toggle="modal",
@@ -216,8 +216,9 @@ block contents
                             td
                                 .hstack.gap-1.justify-content-center
                                     button#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-editor",
+                                        data-gr-varying="테스트케이스 요약"
                                     ) 자세히
                                     button.btn.btn-sm.btn-outline-secondary.py-0(
                                         disabled
@@ -259,6 +260,9 @@ block contents
                             td #[+remove-btn]
 
     include modals/design-req/request-detail
+    include modals/design-req/case-connect
+    include modals/design-req/script-connect
+    include modals/case-editor
     include modals/design-req/all-success
     include modals/design-req/progress-history
     include modals/design-req/case-execute

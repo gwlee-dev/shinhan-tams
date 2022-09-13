@@ -5,14 +5,14 @@ const caseEditForm = (modal, button) => {
         [...modal.querySelectorAll("[disabled]")].forEach((x) => {
             x.disabled = false;
         });
-        if (button.id === "case-edit-btn") {
+        if ([...button.classList].includes("case-edit-btn")) {
             [...modal.querySelectorAll(".form-control, .form-select")]
                 .filter(
                     (x) => x.name !== "input-value" && x.name !== "output-value"
                 )
                 .forEach((x) => (x.disabled = true));
         }
-        if (button.id === "case-detail-btn") {
+        if ([...button.classList].includes("case-detail-btn")) {
             [...modal.querySelectorAll(".form-control, .form-select")].forEach(
                 (x) => (x.disabled = true)
             );
@@ -20,4 +20,4 @@ const caseEditForm = (modal, button) => {
     }
 };
 
-varyingFunc(caseEditForm);
+export const testcase = () => varyingFunc(caseEditForm);

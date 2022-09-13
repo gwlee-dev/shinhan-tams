@@ -16,7 +16,7 @@ block contents
                     +btn-outline-success
                         span.me-2 Excel 다운로드
                         i.bi-file-earmark-excel
-                    +btn-outline-primary("modal", "#node-new")(
+                    +btn-outline-primary("modal", "#node-editor").node-new-btn(
                         data-gr-varying="스크립트 노드 파일 등록"
                     )
                         span.me-2 신규등록
@@ -25,7 +25,7 @@ block contents
         .container.py-4
             .row.gx-3.gy-2
                 .col #[+input("스크립트명")]
-                .col #[+input("작성자")]
+                .col #[+input("등록자")]
                 .col #[+select("종류")]
                 .w-100.d-block.d-lg-none
                 .col #[+select("시스템")]
@@ -44,7 +44,7 @@ block contents
                         th(scope="col") 설명
                         th(scope="col") 종류
                         th(scope="col") 크기
-                        th(scope="col") 작성자
+                        th(scope="col") 등록자
                         th(scope="col") 등록일
                         th(scope="col") 메뉴
                 tbody
@@ -59,11 +59,11 @@ block contents
                         td 2016-05-19 18:00:00
                         td
                             .hstack.gap-1.justify-content-center
-                                +table-btn-primary("modal", "#node-new")(
+                                +table-btn-primary("modal", "#node-editor").node-edit-btn(
                                     data-gr-varying="스크립트 노드 파일 편집"
                                 ) 편집
                                 +table-btn-primary 다운로드
                                 +remove-btn
         +pagination
-    include modals/design-node/node-new
+    include modals/design-node/node-editor
     include modals/remove

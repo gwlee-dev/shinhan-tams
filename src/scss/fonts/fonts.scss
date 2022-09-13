@@ -1,10 +1,10 @@
 @import "OneShinhan";
-@import "ShinhanCard";
+// @import "ShinhanCard";
 @import "~node_modules/pretendard/dist/web/static/pretendard.css";
 
 $font-families: (
     shinhan: $font-family-shinhan,
-    card: $font-family-card,
+    // card: $font-family-card,
 );
 
 @each $name, $font in $font-families {

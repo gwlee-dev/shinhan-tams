@@ -16,8 +16,9 @@ block contents
                     +btn-outline-success
                         span.me-2 Excel 다운로드
                         i.bi-file-earmark-excel
-                    +btn-outline-primary("modal", "#script-new")(
-                        data-gr-varying="스크립트 파일 등록"
+                    +a-btn-outline-primary(
+                        href="/src/view/popup-script.pug",
+                        onclick="pop(this)"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
@@ -25,7 +26,7 @@ block contents
         .container.py-4
             .row.gx-3.gy-2
                 .col #[+input("스크립트명")]
-                .col #[+input("작성자")]
+                .col #[+input("등록자")]
                 .col #[+select("종류")]
                 .w-100.d-block.d-lg-none
                 .col #[+select("시스템")]
@@ -45,7 +46,7 @@ block contents
                         th(scope="col") 설명
                         th(scope="col") 종류
                         th(scope="col") 크기
-                        th(scope="col") 작성자
+                        th(scope="col") 등록자
                         th(scope="col") 등록일
                         th(scope="col") 메뉴
                 tbody
@@ -61,13 +62,14 @@ block contents
                         td 2016-05-19 18:00:00
                         td
                             .hstack.gap-1.justify-content-center
-                                +table-btn-primary("modal", "#script-new")(
-                                    data-gr-varying="스크립트 파일 편집"
+                                +a-table-btn-primary(
+                                    href="/src/view/popup-script.pug",
+                                    onclick="pop(this)"
                                 ) 편집
                                 +table-btn-primary 다운로드
                                 +remove-btn
         +pagination
-    include modals/design-script/script-new
+    include modals/design-script/script-editor
     include modals/server-file
     include modals/remove
 

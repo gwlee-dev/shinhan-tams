@@ -1,16 +1,15 @@
 $utilities: map-merge(
     $utilities,
     (
-        "border-opacity": (
+        "popup": (
             css-var: true,
-            css-variable-name: #{$prefix}border-opacity,
-            class: border-opacity,
+            css-variable-name: popup-width,
+            class: popup,
             values: (
-                0: 0,
-                25: 0.25,
-                50: 0.5,
-                75: 0.75,
-                100: 1,
+                xl: $modal-xl,
+                lg: $modal-lg,
+                md: $modal-md,
+                sm: $modal-sm,
             ),
         ),
     )

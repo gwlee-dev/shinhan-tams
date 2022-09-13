@@ -1,0 +1,18 @@
+table#test_history {
+    $test_history: (
+        1: 20%,
+        2: 20%,
+        3: 36%,
+        4: 10%,
+        5: 7%,
+        6: 7%,
+    );
+    th,
+    td {
+        @each $i, $percent in $test_history {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

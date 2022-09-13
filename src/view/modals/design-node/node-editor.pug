@@ -1,7 +1,7 @@
 include ../../mixins/button
 include ../../mixins/modal
 
-#node-new.modal.fade.modal-varying(
+#node-editor.modal.fade.modal-varying(
     tabindex="-1",
     aria-hidden="true",
     data-bs-keyboard="false"
@@ -25,7 +25,7 @@ include ../../mixins/modal
                             +radio-btn-secondary("script-type", "script-desktop") Desktop
                     .col-12
                         +textarea-sm("설명")
-                    .col-12 
+                    #node-edit-history.col-12
                         +caption-sm("수정 이력")
                         .table-responsive
                             table.small.table-bordered.table.table-sm.table-hover.w-100

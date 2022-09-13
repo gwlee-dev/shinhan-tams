@@ -1,34 +1,67 @@
-mixin badge-primary(toggle, target, classes)
+mixin badge-primary(toggle, target)
     if toggle
         span.align-middle.badge.bg-primary(
             role="button",
             data-bs-toggle=toggle,
-            data-bs-target=target,
-            class=classes
-        )
+            data-bs-target=target
+        )&attributes(attributes)
             block
     else
-        span.align-middle.badge.bg-primary(class=classes)
+        span.align-middle.badge.bg-primary
             block
 
-mixin badge-success(toggle, target, classes)
+mixin badge-dark(toggle, target)
+    if toggle
+        span.align-middle.badge.bg-dark(
+            role="button",
+            data-bs-toggle=toggle,
+            data-bs-target=target
+        )&attributes(attributes)
+            block
+    else
+        span.align-middle.badge.bg-dark
+            block
+
+mixin badge-black(toggle, target)
+    if toggle
+        span.align-middle.badge.bg-black(
+            role="button",
+            data-bs-toggle=toggle,
+            data-bs-target=target
+        )&attributes(attributes)
+            block
+    else
+        span.align-middle.badge.bg-black
+            block
+
+mixin badge-secondary(toggle, target)
+    if toggle
+        span.align-middle.badge.bg-secondary(
+            role="button",
+            data-bs-toggle=toggle,
+            data-bs-target=target
+        )&attributes(attributes)
+            block
+    else
+        span.align-middle.badge.bg-secondary
+            block
+
+mixin badge-success(toggle, target)
     if toggle
         span.align-middle.badge.bg-success(
             role="button",
             data-bs-toggle=toggle,
-            data-bs-target=target,
-            class=classes
-        )
+            data-bs-target=target
+        )&attributes(attributes)
             block
     else
-        span.align-middle.badge.bg-primary(class=classes)
+        span.align-middle.badge.bg-success
             block
 
-mixin gr-badge-primary(toggle, target, classes)
+mixin gr-badge-primary(toggle, target)
     span.align-middle.badge.bg-primary(
         role="button",
         data-gr-toggle=toggle,
-        data-gr-target=target,
-        class=classes
-    )
+        data-gr-target=target
+    )&attributes(attributes)
         block

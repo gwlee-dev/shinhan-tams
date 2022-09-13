@@ -11,3 +11,7 @@ main {
         color: var(--#{$prefix}nav-link-hover-color);
     }
 }
+
+.popup {
+    width: var(--#{$prefix}popup-width);
+}

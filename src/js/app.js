@@ -5,5 +5,6 @@ import "./_resetInput";
 import "./_multiModal";
 import "./_conditionalEnable";
 import "./_modalVarying";
+import "./_popupTrigger";
 
 window.bootstrap = bootstrap;

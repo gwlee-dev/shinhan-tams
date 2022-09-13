@@ -12,24 +12,37 @@
 @import "case_history";
 @import "server_file";
 @import "design_node";
+@import "csr_connection";
+@import "test_history";
+@import "test_script";
+@import "connected_script";
+@import "script_list";
+@import "case_list";
 
 .contents {
     .table {
         min-width: 1116px;
     }
 }
-.modal-xl {
-    .table {
-        min-width: 1106px;
-    }
-}
-.modal-lg {
-    .table {
-        min-width: 766px;
-    }
-    &.modal-dialog-scrollable {
+body:not(.popup-window) {
+    .modal-xl {
         .table {
-            min-width: 749px;
+            min-width: 1106px;
+        }
+        .p-3 {
+            .table {
+                min-width: 1072px;
+            }
+        }
+    }
+    .modal-lg {
+        .table {
+            min-width: 766px;
+        }
+        &.modal-dialog-scrollable {
+            .table {
+                min-width: 749px;
+            }
         }
     }
 }
@@ -46,6 +59,38 @@
         }
         &:last-child {
             border-right: none;
+        }
+    }
+}
+
+.popup-xl {
+    .table {
+        min-width: 766px;
+    }
+}
+
+.table {
+    .selected {
+        position: relative;
+        &::after {
+            z-index: 3;
+            content: "선택됨";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba($secondary, 0.625);
+            font-weight: $font-weight-bolder;
+            color: $white;
+            transition: opacity 0.1s ease;
+        }
+        &:hover::after {
+            opacity: 0;
+            visibility: hidden;
         }
     }
 }

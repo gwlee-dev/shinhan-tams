@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Shinhan TAMS",
     "scripts": {
-        "clean:output": "rimraf dist",
+        "clean:output": "rimraf dist && rimraf ./.parcel-cache",
         "start": "npm run clean:output && parcel ./src/view/index.pug",
         "build": "npm run clean:output && parcel build ./src/view/index.pug && node ./postbuild.js",
         "server": "node ./server.js",
