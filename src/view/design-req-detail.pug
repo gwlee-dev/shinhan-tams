@@ -45,7 +45,7 @@ block contents
                             td 최신한
                             td 정신한
                             td 솔루션개발본부
-                            td #[+gr-badge-primary("modal", "#progress-history").badge-history 진행중]
+                            td #[+a-badge-primary.badge-history(href="/src/view/popup-progress-history.pug", onclick="pop(this)") 진행중]
                             td 2022-08-16
                             td 이건우
         section.d-flex.flex-column
@@ -260,7 +260,6 @@ block contents
 
     include modals/design-req/request-detail
     include modals/design-req/all-success
-    include modals/design-req/progress-history
     include modals/design-req/case-execute
     include modals/design-req/case-result
     include modals/design-req/case-history

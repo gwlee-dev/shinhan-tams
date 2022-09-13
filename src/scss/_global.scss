@@ -13,5 +13,5 @@ main {
 }
 
 .popup {
-    width: var(--#{$prefix}popup-width);
+    min-width: var(--#{$prefix}popup-width);
 }

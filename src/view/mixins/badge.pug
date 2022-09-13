@@ -65,3 +65,11 @@ mixin gr-badge-primary(toggle, target)
         data-gr-target=target
     )&attributes(attributes)
         block
+
+mixin a-badge-primary(toggle, target)
+    a.align-middle.badge.bg-primary.text-decoration-none.text-white(
+        role="button",
+        data-gr-toggle=toggle,
+        data-gr-target=target
+    )&attributes(attributes)
+        block

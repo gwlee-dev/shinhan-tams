@@ -64,7 +64,10 @@ block contents
                                 td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
                                 td
                                     .hstack.gap-1.justify-content-center
-                                        +table-btn-primary 편집
+                                        +a-table-btn-primary(
+                                            href="/src/view/popup-case.pug",
+                                            onclick="pop(this)"
+                                        ) 편집
                                         +table-btn-danger 끊기
                             - for (var i = 2; i <= 3; i++)
                                 tr
@@ -87,5 +90,3 @@ block contents
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
                 +btn-cancel-modal 취소
-    include modals/design-req/progress-history
-    include modals/case-edit-form/script-connect
