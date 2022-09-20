@@ -100,6 +100,22 @@ mixin a-btn-outline-primary(toggle, target)
     )&attributes(attributes)
         block
 
+mixin a-btn-outline-secondary(toggle, target)
+    a.btn.btn-outline-secondary(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin a-btn-outline-secondary-sm(toggle, target)
+    a.btn.btn-outline-secondary.btn-sm(
+        type="button",
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
 mixin btn-outline-primary(toggle, target)
     button.btn.btn-outline-primary(
         type="button",
@@ -162,6 +178,14 @@ mixin btn-danger-sm(toggle, target)
     button.btn.btn-danger.btn-sm(data-bs-toggle=toggle, data-bs-target=target)&attributes(attributes)
         block
 
+mixin a-btn-primary-sm(toggle, target)
+    a.btn.btn-primary.btn-sm&attributes(attributes)
+        block
+
+mixin a-btn-secondary-sm(toggle, target)
+    a.btn.btn-secondary.btn-sm&attributes(attributes)
+        block
+
 mixin a-btn-secondary-sm(toggle, target)
     a.btn.btn-secondary.btn-sm&attributes(attributes)
         block
@@ -183,6 +207,13 @@ mixin gr-link(href, toggle, target)
 
 mixin table-btn-primary(toggle, target)
     button.btn.btn-sm.btn-outline-primary.py-0(
+        data-bs-toggle=toggle,
+        data-bs-target=target
+    )&attributes(attributes)
+        block
+
+mixin table-btn-secondary(toggle, target)
+    button.btn.btn-sm.btn-outline-secondary.py-0(
         data-bs-toggle=toggle,
         data-bs-target=target
     )&attributes(attributes)

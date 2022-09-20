@@ -37,7 +37,12 @@ include ../../mixins/modal
                                     .col.col-lg-3 #[+time-sm("실행시각")]
                                     .col #[+input-sm("반복실행 횟수")]
 
-            .modal-body
+            .modal-body.d-flex.flex-column
+                .d-flex.mb-2.align-items-center
+                    span.fs-6.fw-bold.me-2 장치 선택
+                    span.badge.bg-secondary
+                        span#device-count 0
+                        span 개
                 .table-responsive
                     table#case_execute.small.table-bordered.table.table-sm.table-hover.w-100
                         thead
@@ -48,7 +53,8 @@ include ../../mixins/modal
                                         value="",
                                         name="execute",
                                         data-gr-type="condition",
-                                        data-gr-target="#execute-btn"
+                                        data-gr-target="#execute-btn",
+                                        data-gr-count="#device-count"
                                     ) 
                                 th(scope="col") 모델명
                                 th(scope="col") 식별번호

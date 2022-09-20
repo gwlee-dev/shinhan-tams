@@ -10,12 +10,12 @@ block head
     - var title = "스크립트 신규 등록";
 
 block contents
-    .popup.popup-md.vstack.gap-3.pb-2
+    .popup.popup-lg.vstack.gap-3.pb-2
         +popup-title
             h5.m-0 스크립트 신규 등록
             .ms-auto.ms-3
                 +badge-secondary 최종변경일시
-                span.badge.small.opacity-75 2022-05-16 14:45:52
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid
             .row.gx-2.gy-1
                 .col-10
@@ -52,3 +52,4 @@ block contents
             .hstack.gap-2.mx-auto
                 +btn-primary 저장
                 +btn-cancel-modal 취소
+    include modals/server-file

@@ -2,6 +2,7 @@ extends layout/base
 include mixins/form
 include mixins/pagination
 include mixins/button
+include mixins/badge
 
 block head
     - var title = "데이터셋 관리";
@@ -14,7 +15,7 @@ block contents
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2
                     +a-btn-outline-primary(
-                        href="/src/view/popup-case.pug",
+                        href="/src/view/popup-dataset.pug",
                         onclick="pop(this)"
                     )
                         span.me-2 신규등록
@@ -29,30 +30,31 @@ block contents
                 .col-auto.align-self-end #[button.btn.btn-secondary 초기화]
     .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column.gap-5
         .table-responsive
-            table#case_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+            table#dataset_list.small.table-bordered.table.table-sm.table-hover.w-100.small
                 thead
                     tr
+                        th(scope="col") 번호
+                        th(scope="col") 데이터셋 명
+                        th(scope="col") 설명
                         th(scope="col") 시스템
-                        th(scope="col") 업무
-                        th(scope="col") 화면/서비스/JOB ID
-                        th(scope="col") 화면/서비스/JOB 명
-                        th(scope="col") 테스트케이스 ID
-                        th(scope="col") 테스트케이스 명
-                        th(scope="col") 등록자명
-                        th(scope="col") 등록일자
+                        th(scope="col") 상태
+                        th(scope="col") 작성자
+                        th(scope="col") 작성일
+                        th(scope="col") 메뉴
                 tbody
-                    tr
-                        td 시스템-2
-                        td 시스템2-업무26
-                        td 동해물과 백두산이
-                        td 마르고 닭도록
-                        td 하느님이 보우하사
-                        td 
-                            +gr-link(
-                                href="/src/view/popup-case.pug",
-                                onclick="pop(this)"
-                            ) homepage_conn_xml
-                        td 관리자
-                        td 2022-05-16
+                    - for (var i = 1; i <= 20; i++)
+                        tr
+                            td= i
+                            td= `데이터셋-306${i}`
+                            td= `데이터셋설명-306${i}`
+                            td 시스템-1
+                            td #[+badge-primary 초안]
+                            td 김신한
+                            td 2021-02-17 17:03:24
+                            td 
+                                .hstack.gap-1.justify-content-center
+                                    +table-btn-primary 데이터 관리
+                                    +table-btn-primary 편집
+                                    +table-btn-danger 삭제
         +pagination
     include modals/remove

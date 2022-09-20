@@ -1,7 +1,3 @@
-main {
-    padding-top: 8rem;
-}
-
 .plain-link {
     @include transition($nav-link-transition);
     color: $text-muted;

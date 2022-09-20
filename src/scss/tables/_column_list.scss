@@ -1,0 +1,16 @@
+table#column_list {
+    $column_list: (
+        1: 4%,
+        2: 30%,
+        3: 61%,
+        4: 5%,
+    );
+    th,
+    td {
+        @each $i, $percent in $column_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

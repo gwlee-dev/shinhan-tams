@@ -14,7 +14,7 @@ block contents
         +popup-title
             h5.m-0 테스트케이스 연결
             .ms-auto.ms-3.hstack.gap-2
-                +a-btn-outline-light-sm(
+                +a-btn-outline-secondary-sm(
                     href="/src/view/popup-case.pug",
                     onclick="pop(this)"
                 ) 테스트케이스 신규 등록
@@ -61,7 +61,7 @@ block contents
                                 td 하느님이 보우하사
                                 td 관리자
                                 td 2022-05-16
-                                td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
+                                td #[+gr-link(href="/src/view/popup-script-connect.pug", onclick="pop(this)") homepage_conn_xml]
                                 td
                                     .hstack.gap-1.justify-content-center
                                         +a-table-btn-primary(
@@ -78,7 +78,7 @@ block contents
                                     td 하느님이 보우하사
                                     td 관리자
                                     td 2022-05-16
-                                    td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
+                                    td #[+gr-link(href="/src/view/popup-script-connect.pug", onclick="pop(this)") homepage_conn_xml]
                                     td
                                         .hstack.gap-1.justify-content-center
                                             +a-table-btn-primary(
@@ -89,4 +89,4 @@ block contents
                     +pagination
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
-                +btn-cancel-modal 취소
+                +btn-secondary.popup-close-btn 취소

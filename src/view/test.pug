@@ -6,7 +6,10 @@ block head
 
 block contents
     .container
-        h1 Title Text #[a(href="capture_test.pug") capture test]
+        .hstack.gap-3
+            h1 Title Text
+            a(href="test-capture.pug") capture test
+            a(href="test-editor.pug") editor test
         p.lead
             | Lead Text
             code.small.ps-2= `<shinhan sample=tag>card</shinhan>`

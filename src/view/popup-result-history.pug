@@ -1,0 +1,38 @@
+extends layout/popupBase
+include mixins/form
+include mixins/button
+include mixins/badge
+include mixins/modal
+include mixins/pagination
+include mixins/popup
+
+block head
+    - var title = "결과 이력";
+
+block contents
+    .popup.popup-lg.vstack.gap-3.pb-2
+        +popup-title
+            h5.m-0 결과 이력
+            .ms-auto.ms-3
+                +badge-secondary 최종변경일시
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
+        .container-fluid
+            .table-responsive
+                table#case_history.small.table-bordered.table.table-sm.table-hover.w-100
+                    thead
+                        tr
+                            th(scope="col") 결과등록자
+                            th(scope="col") 테스트 결과
+                            th(scope="col") 등록일
+                            th(scope="col") 의견
+                            th(scope="col") 삭제
+                    tbody
+                        tr
+                            td 정신한
+                            td 정상
+                            td 2021-02-19
+                            td 깊은산속 옹달샘 누가와서 쉬나요~!!
+                            td #[+gr-remove-btn]
+            .hstack.gap-2
+                +btn-secondary.popup-close-btn.mx-auto 확인
+    include modals/remove

@@ -123,14 +123,14 @@ mixin textarea-sm(caption)
 mixin file(caption, multiple)
     +caption(caption)
     .input-group.input-group
-        input.form-control(type="file", multiple=multiple)
+        input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block
         button.btn.btn-secondary(type="button") 업로드
 
 mixin file-sm(caption, multiple)
     +caption-sm(caption)
     .input-group.input-group-sm
-        input.form-control(type="file", multiple=multiple)
+        input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block
         button.btn.btn-secondary(type="button") 업로드
 

@@ -30,7 +30,9 @@ const conditionalEnable = () => {
         relative.addEventListener("click", () => {
             const filtered = btnDisable.filter(
                 ({ relative, target: currentTarget }) =>
-                    currentTarget === target && relative.checked
+                    currentTarget === target &&
+                    !relative.id.endsWith("-all") &&
+                    relative.checked
             );
             target.disabled = filtered.length === 0;
         });

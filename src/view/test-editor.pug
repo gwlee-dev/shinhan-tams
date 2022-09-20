@@ -1,0 +1,15 @@
+extends layout/base
+include mixins/form
+include mixins/badge
+include mixins/button
+
+block head
+    - var title = "테스트 페이지";
+
+block contents
+    .container
+        .editor
+        textarea.form-control.mt-3
+
+block scripts
+    script(src="/src/js/ckeditor.js", type="module") 

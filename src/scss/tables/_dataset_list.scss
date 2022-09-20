@@ -1,0 +1,20 @@
+table#dataset_list {
+    $dataset_list: (
+        1: 5%,
+        2: 13%,
+        3: 27%,
+        4: 13%,
+        5: 5%,
+        6: 6%,
+        7: 14%,
+        8: 17%,
+    );
+    th,
+    td {
+        @each $i, $percent in $dataset_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

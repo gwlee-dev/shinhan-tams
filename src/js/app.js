@@ -6,5 +6,6 @@ import "./_multiModal";
 import "./_conditionalEnable";
 import "./_modalVarying";
 import "./_popupTrigger";
+import "./_dynamicRow";
 
 window.bootstrap = bootstrap;

@@ -49,14 +49,12 @@ block contents
                             td 2022-08-16
                             td 이건우
         section.d-flex.flex-column
-            .row.mb-2.g-2.align-items-center
-                .col.auto
-                    span.fs-4.fw-bold.mb-2 기능상세설명
-                .col-auto
-                    +a-btn-secondary-sm(
-                        href="/src/view/popup-case-connect.pug",
-                        onclick="pop(this)"
-                    ) 회귀테스트 추가
+            .hstack
+                span.fs-4.fw-bold.mb-2.me-auto 기능상세설명
+                +a-btn-secondary-sm(
+                    href="/src/view/popup-case-connect.pug",
+                    onclick="pop(this)"
+                ) 회귀테스트 추가
             .table-responsive
                 table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -78,13 +76,11 @@ block contents
                                         href="/src/view/popup-case-connect.pug",
                                         onclick="pop(this)"
                                     ) 테스트케이스 연결
-                                    button.btn.btn-sm.btn-outline-primary.py-0 결과문서
-        section.d-flex.flex-column
-            .row.mb-2.g-2.align-items-center
-                .col.auto
-                    span.fs-4.fw-bold.mb-2 요구사항별 테스트케이스
-                .col-auto
-                    +btn-secondary-sm("modal", "#all-success") 일괄 정상
+                                    +table-btn-primary 결과문서
+        section.g-2.align-items-center
+            .hstack
+                span.fs-4.fw-bold.mb-2.me-auto 요구사항별 테스트케이스
+                +btn-secondary-sm("modal", "#all-success") 일괄 정상
             .table-responsive
                 table#requirement_case.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -116,20 +112,14 @@ block contents
                                         href="/src/view/popup-case.pug",
                                         onclick="pop(this)"
                                     ) 자세히
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-execute"
-                                    ) 실행
-                                    button.btn.btn-sm.btn-outline-secondary.py-0(
-                                        disabled
+                                    +table-btn-primary("modal","#case-execute") 실행
+                                    +table-btn-secondary(
+                                        disabled="true"
                                     ) (실행이력 없음)
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-result"
-                                    ) 결과입력
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-history"
+                                    +table-btn-primary("modal","#case-result") 결과입력
+                                    +a-table-btn-primary(
+                                        href="/src/view/popup-result-history.pug",
+                                        onclick="pop(this)"
                                     ) 결과이력
                                     +remove-btn
                         tr
@@ -148,32 +138,26 @@ block contents
                                         href="/src/view/popup-case.pug",
                                         onclick="pop(this)"
                                     ) 자세히
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-execute"
-                                    ) 실행
-                                    button.btn.btn-sm.btn-outline-secondary.py-0(
-                                        disabled
+                                    +table-btn-primary("modal","#case-execute") 실행
+                                    +table-btn-secondary(
+                                        disabled="true"
                                     ) (실행이력 없음)
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-result"
-                                    ) 결과입력
-                                    button.btn.btn-sm.btn-outline-primary.py-0(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-history"
-                                    ) 결과이력
+                                    +table-btn-primary("modal","#case-result") 결과입력
+                                    +table-btn-primary("modal","#case-history") 결과이력
                                     +remove-btn
         section.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
-                .col.auto
-                    span.fs-4.fw-bold.mb-2 자동테스트 수행이력
                 .col-auto
+                    span.fs-4.fw-bold.mb-2 자동테스트 수행이력
+                .col-auto.me-auto
                     button#history-remove-btn.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
                         data-bs-target="#remove-modal",
                         disabled
-                    ) 선택항목 삭제
+                    )
+                        span 선택항목 (
+                        span#history-count 0
+                        span 개) 삭제
                 .col-auto
                     .input-group.input-group-sm
                         span#basic-addon1.input-group-text 케이스ID
@@ -195,7 +179,8 @@ block contents
                                     value="",
                                     name="history",
                                     data-gr-type="condition",
-                                    data-gr-target="#history-remove-btn"
+                                    data-gr-target="#history-remove-btn",
+                                    data-gr-count="#history-count"
                                 ) 
                             th(scope="col") 시스템
                             th(scope="col") 케이스 ID
@@ -215,7 +200,7 @@ block contents
                             td 2022-08-18
                             td
                                 .hstack.gap-1.justify-content-center
-                                    button#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
+                                    a#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
                                         href="/src/view/popup-case.pug",
                                         onclick="pop(this)"
                                     ) 자세히
@@ -225,10 +210,10 @@ block contents
             +pagination
         section.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
-                .col.auto
+                .col-auto.me-auto
                     span.fs-4.fw-bold.mb-2 첨부파일 목록
                 .col-auto
-                    +file(null, true)
+                    +file-sm(null, true)
             .table-responsive
                 table#attachment_list.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -262,8 +247,8 @@ block contents
     include modals/design-req/all-success
     include modals/design-req/case-execute
     include modals/design-req/case-result
-    include modals/design-req/case-history
     include modals/remove
 
 block scripts
     script(src="/src/js/pages/design_req.js", type="module") 
+    script(src="/src/js/datepicker.js", type="module") 

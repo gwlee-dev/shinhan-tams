@@ -7,15 +7,15 @@ include mixins/pagination
 include mixins/popup
 
 block head
-    - var title = "스크립트 신규 등록";
+    - var title = "진행상태 이력";
 
 block contents
-    .popup.popup-md.vstack.gap-3.pb-2
+    .popup.popup-lg.vstack.gap-3.pb-2
         +popup-title
             h5.m-0 진행상태 이력
             .ms-auto.ms-3
                 +badge-secondary 최종변경일시
-                span.badge.small.opacity-75 2022-05-16 14:45:52
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid
             .table-responsive
                 table#progress_history.small.table.table-sm.table-hover.table-bordered
@@ -49,6 +49,5 @@ block contents
                             td 2021-02-19 14:50:39
                             td 
                             td 김신한
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn-secondary 확인
+            .hstack.gap-2
+                +btn-secondary.popup-close-btn.mx-auto 확인

@@ -36,6 +36,11 @@ const popupController = () => {
             popupModal.hide();
         }
     });
+
+    const closeButtons = popup.querySelectorAll(".popup-close-btn");
+    [...closeButtons].forEach((el) =>
+        el.addEventListener("click", () => window.close())
+    );
 };
 
 popupController();

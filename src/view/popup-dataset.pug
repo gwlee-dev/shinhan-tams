@@ -13,102 +13,52 @@ block contents
     .popup.popup-xl.vstack.gap-3.pb-2
         +popup-title
             h5.m-0 테스트 데이터셋 신규 등록
-            .ms-auto.ms-3.gap-2
-                +btn-black CSR/요구사항 연결
-                +btn-black 참조등록
+            .ms-auto.ms-3
+                +badge-secondary 최종변경일시
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid.vstack.gap-4
             section.d-flex.flex-column
                 .d-flex
-                    span.fs-5.fw-bold.mb-2 테스트 데이터셋 정보
-                    .ms-auto.ms-3
-                        +badge-secondary 최종변경일시
-                        span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
                 .row.gx-2.gy-1
-                    .col #[+select-sm("시스템")]
-                    .col #[+select-sm("업무")]
-                    .col #[+select-sm("중요도")]
-                    .col #[+select-sm("난이도")]
-                    .w-100
-                    .col #[+input-sm("화면/서비스/JOB ID")]
-                    .col #[+input-sm("화면/서비스/JOB 명")]
-                    .col #[+input-sm("테스트 데이터셋명")]
-                    .col #[+input-sm("담당자")]
-                    .col-12 #[+textarea-sm("테스트 내용")]
-                    .col-12 #[+textarea-sm("확인 방법")]
-                    .col-12 #[+textarea-sm("입력값")(name="input-value")]
-                    .col-12 #[+textarea-sm("출력값")(name="output-value")]
-            section.d-flex.flex-column
-                span.fs-5.fw-bold.mb-2 연결된 CSR / 요구사항
-                .table-responsive
-                    table#csr_connection.small.table-bordered.table.table-sm.table-hover.w-100
+                    .col-2 #[+select-sm("시스템")]
+                    .col-10 #[+input-sm("데이터셋 명")]
+                    .col-12 #[+textarea-sm("데이터셋 설명")]
+            section.d-flex.flex-column.dynamic-row
+                .hstack.gap-2.align-items-center.mb-2
+                    span.fs-5.fw-bold 열(필드) 관리
+                    button#column-remove-btn.btn.btn-danger.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#remove-modal",
+                        disabled
+                    )
+                        span 선택항목 (
+                        span#column-count 0
+                        span 개) 삭제
+                    +a-btn-primary-sm.ms-auto.row-add-btn 추가
+                    +a-btn-secondary-sm 초기화
+                .table-responsive.bg-light(style="min-height: 224px")
+                    table#column_list.small.table-bordered.table.table-sm.table-hover.w-100.bg-white.mb-0
                         thead
                             tr
-                                th(scope="col") CSR 번호
-                                th(scope="col") CSR 제목
-                                th(scope="col") 요구사항 ID
-                                th(scope="col") 요구사항 명
-                        tbody
-                            tr
-                                td C202012248053B-6
-                                td requirement_spec-1416308
-                                td REQ-001
-                                td requirement-1416310
-            section.d-flex.flex-column
-                span.fs-5.fw-bold.mb-2 테스트 결과
-                .table-responsive
-                    table#test_history.small.table-bordered.table.table-sm.table-hover.w-100
-                        thead 
-                            tr
-                                th(scope="col") CSR 번호
-                                th(scope="col") 결함관리번호
-                                th(scope="col") 제목
-                                th(scope="col") 테스트담당자
-                                th(scope="col") 결과
-                                th(scope="col") 진행상태
-                        tbody
-                            tr
-                                td C202012248053B-6
-                                td C202012248053B-6
-                                td requirement_spec-1416308
-                                td 김신한
-                                td #[+badge-primary("modal", "#progress-history").badge-history 진행중]
-                                td #[+badge-success 정상]
-            section.d-flex.flex-column
-                .d-flex.align-items-center.mb-2
-                    span.fs-5.fw-bold 테스트 스크립트
-                    +a-btn-secondary-sm.ms-auto(
-                        href="/src/view/popup-script-connect.pug",
-                        onclick="pop(this)"
-                    ) 테스트 스크립트 연결
-                .table-responsive
-                    table#test_script.small.table-bordered.table.table-sm.table-hover.w-100
-                        thead
-                            tr
-                                th(scope="col") 제목
+                                th(scope="col")
+                                    input#column-all.form-check-input(
+                                        type="checkbox",
+                                        value="",
+                                        name="column",
+                                        data-gr-type="condition",
+                                        data-gr-target="#column-remove-btn",
+                                        data-gr-count="#column-count"
+                                    ) 
+                                th(scope="col") 열이름
                                 th(scope="col") 설명
-                                th(scope="col") 종류
-                                th(scope="col") 상태
+                                th(scope="col") 삭제
                         tbody
-                            tr
-                                td homepage_conn.xml
-                                td 자동화 테스트 스크립트 설명-4325
-                                td Desktop
-                                td 초안
-            section.d-flex.flex-column
-                .d-flex.align-items-center.mb-2
-                    span.fs-5.fw-bold 데이터셋
-                    +btn-secondary-sm.ms-auto 데이터셋 연결
-                .table-responsive
-                    table#dataset_list.small.table-bordered.table.table-sm.table-hover.w-100
-                        thead 
-                            tr
-                                th(scope="col") 번호
-                        tbody
-                            tr
-                                td C202012248053B-6
+                            //- tr
+                            //-     td #[+check("column", "column-1", "mb-0", null, "condition", "#column-remove-btn")]
+                            //-     td.p-0.overflow-visible #[+input-sm.lh-sm.rounded-0.border-0(name="tr1-name")]
+                            //-     td.p-0.overflow-visible #[+input-sm.lh-sm.rounded-0.border-0(name="tr2-describe")]
+                            //-     td #[+table-btn-danger.row-remove-btn 삭제]
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
                 +btn-primary 저장
                 +btn-cancel-modal 취소
-    include modals/design-req/progress-history
-    include modals/case-edit-form/script-connect

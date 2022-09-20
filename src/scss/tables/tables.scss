@@ -18,6 +18,8 @@
 @import "connected_script";
 @import "script_list";
 @import "case_list";
+@import "column_list";
+@import "dataset_list";
 
 .contents {
     .table {
@@ -92,5 +94,8 @@ body:not(.popup-window) {
             opacity: 0;
             visibility: hidden;
         }
+    }
+    .form-control[type="text"]:not(:focus) {
+        background-color: rgba(255, 255, 255, 0);
     }
 }
