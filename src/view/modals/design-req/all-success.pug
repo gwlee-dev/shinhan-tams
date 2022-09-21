@@ -6,12 +6,11 @@ include ../../mixins/modal
     aria-hidden="true",
     data-bs-keyboard="false"
 )
-    .modal-dialog.modal-dialog-centered
+    .modal-dialog.modal-dialog-centered.modal-sm
         .modal-content
-            +modal-header("일괄 정상 처리")
-            .modal-body
-                span.d-block 테스트 결과가 입력되지 않은 건에 대해서 #[span.fw-bold 일괄 정상 처리]됩니다.
-                span.d-block 진행하시겠습니까?
-            .modal-footer
+            .modal-body.text-center
+                span.d-block 테스트 결과가 입력되지 않은 건을
+                span.d-block #[span.fw-bold 일괄 정상 처리]합니다.
+            .modal-footer.justify-content-center
                 +btn-primary 예
                 +btn-cancel-modal 아니오

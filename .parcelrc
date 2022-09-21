@@ -1,7 +1,7 @@
 {
     "extends": "@parcel/config-default",
     "namers": [
-        "@parcel/namer-default",
-        "..."
+        "parcel-namer-custom",
+        "@parcel/namer-default"
     ]
 }

@@ -26,6 +26,28 @@
         min-width: 1116px;
     }
 }
+
+.contents,
+.popup,
+.modal {
+    .table {
+        border-top: 2px solid rgba($dark, 0.5);
+        th,
+        td {
+            text-align: center;
+            @include text-truncate;
+            white-space: nowrap;
+            max-width: 0;
+            &:first-child {
+                border-left: none;
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}
+
 body:not(.popup-window) {
     .modal-xl {
         .table {
@@ -45,22 +67,6 @@ body:not(.popup-window) {
             .table {
                 min-width: 749px;
             }
-        }
-    }
-}
-.table {
-    border-top: 2px solid rgba($dark, 0.5);
-    th,
-    td {
-        text-align: center;
-        @include text-truncate;
-        white-space: nowrap;
-        max-width: 0;
-        &:first-child {
-            border-left: none;
-        }
-        &:last-child {
-            border-right: none;
         }
     }
 }

@@ -1,12 +1,17 @@
-/*
- * Configure the z-index of the editor UI, so when inside a Bootstrap
- * modal, it will be rendered over the modal.
- */
 :root {
     --ck-z-default: 100;
     --ck-z-modal: calc(var(--ck-z-default) + 999);
+    --ck-border-radius: var(--#{$prefix}border-radius) !important;
+    --ck-color-base-border: var(--#{$prefix}border-color) !important;
+    --ck-color-focus-border: #{$input-focus-border-color} !important;
+    --ck-font-face: var(--#{$prefix}font-sans-serif) !important;
+    --ck-drop-shadow: null !important;
 }
 
 .ck-content .table {
     width: auto;
+}
+
+.ck-focused {
+    box-shadow: 0 0 0 0.25rem #4868e140 !important;
 }
