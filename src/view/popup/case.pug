@@ -1,10 +1,10 @@
-extends layout/popupBase
-include mixins/form
-include mixins/button
-include mixins/badge
-include mixins/modal
-include mixins/pagination
-include mixins/popup
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
 
 block head
     - var title = "테스트케이스 신규 등록";
@@ -71,13 +71,13 @@ block contents
                                 td C202012248053B-6
                                 td requirement_spec-1416308
                                 td 김신한
-                                td #[+a-badge-primary.badge-history.popup-link(href="/src/view/popup-progress-history.pug") 진행중]
+                                td #[+a-badge-primary.badge-history.popup-link(href="/src/view/popup/progress-history.pug") 진행중]
                                 td #[+badge-success 정상]
             section.d-flex.flex-column
                 .d-flex.align-items-center.mb-2
                     span.fs-5.fw-bold 테스트 스크립트
                     +a-btn-secondary-sm.ms-auto.popup-link(
-                        href="/src/view/popup-script-connect.pug"
+                        href="/src/view/popup/script-connect.pug"
                     ) 테스트 스크립트 연결
                 .table-responsive
                     table#test_script.small.table-bordered.table.table-sm.table-hover.w-100

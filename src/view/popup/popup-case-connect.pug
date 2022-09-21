@@ -1,0 +1,89 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+
+block head
+    - var title = "테스트케이스 연결";
+
+block contents
+    .popup.popup-xl.pb-2
+        +popup-title
+            h5.m-0 테스트케이스 연결
+            .ms-auto.ms-3.hstack.gap-2
+                +a-btn-outline-secondary-sm.popup-link(
+                    href="/src/view/popup/case.pug"
+                ) 테스트케이스 신규 등록
+        .container-fluid.bg-tone.py-3
+            section.d-flex.flex-column
+                .row.gx-2
+                    .col
+                        .row.gx-2.gy-1
+                            .col #[+select-sm("시스템")]
+                            .col #[+select-sm("업무")]
+                            .col #[+input-sm("화면ID")]
+                            .col #[+input-sm("케이스ID")]
+                            .w-100
+                            .col #[+input-sm("화면명")]
+                            .col #[+input-sm("케이스명")]
+                            .col-3 #[+input-sm("등록자명")]
+                    .col-auto
+                        .vstack.h-100.gap-1
+                            button.btn.btn-primary.btn-sm.flex-grow-1 검색
+                            button.btn.btn-secondary.btn-sm.flex-grow-1 초기화
+        .container-fluid.vstack.gap-4
+            section.d-flex.flex-column
+                .table-responsive
+                    .mt-3.mb-2
+                        span.fw-bold 테스트케이스 목록
+                    table#case_connect.small.table-bordered.table.table-sm.table-hover.w-100.small
+                        thead
+                            tr
+                                th(scope="col") 시스템
+                                th(scope="col") 업무
+                                th(scope="col") 화면/서비스/JOB ID
+                                th(scope="col") 화면/서비스/JOB 명
+                                th(scope="col") 테스트케이스 명
+                                th(scope="col") 등록자명
+                                th(scope="col") 등록일자
+                                th(scope="col") 스크립트
+                                th(scope="col") 메뉴
+                        tbody
+                            tr.selected
+                                td 시스템-1
+                                td 시스템2-업무26
+                                td 동해물과 백두산이
+                                td 마르고 닭도록
+                                td 하느님이 보우하사
+                                td 관리자
+                                td 2022-05-16
+                                td #[+gr-link.popup-link(href="/src/view/popup/script-connect.pug") homepage_conn_xml]
+                                td
+                                    .hstack.gap-1.justify-content-center
+                                        +a-table-btn-primary.popup-link(
+                                            href="/src/view/popup/case.pug"
+                                        ) 편집
+                                        +table-btn-danger 끊기
+                            - for (var i = 2; i <= 3; i++)
+                                tr
+                                    td= `시스템-${i}`
+                                    td= `시스템${i}-업무26`
+                                    td 동해물과 백두산이
+                                    td 마르고 닭도록
+                                    td 하느님이 보우하사
+                                    td 관리자
+                                    td 2022-05-16
+                                    td #[+gr-link.popup-link(href="/src/view/popup/script-connect.pug") homepage_conn_xml]
+                                    td
+                                        .hstack.gap-1.justify-content-center
+                                            +a-table-btn-primary.popup-link(
+                                                href="/src/view/popup/case.pug"
+                                            ) 편집
+                                            +table-btn-dark 선택
+                    +pagination
+        .container-fluid.d-flex
+            .hstack.gap-2.mx-auto
+                +btn-secondary.popup-close-btn 취소

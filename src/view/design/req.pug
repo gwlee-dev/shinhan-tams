@@ -1,7 +1,7 @@
-extends layout/base
-include mixins/form
-include mixins/pagination
-include mixins/badge
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/badge
 
 block head
     - var title = "테스트 요청 현황";
@@ -42,14 +42,14 @@ block contents
                 tbody
                     - for (var i = 0; i < 5; i++)
                         tr
-                            td #[a(href="/src/view/design-req-detail.pug") C202012248053B-6]
+                            td #[a(href="/src/view/design/req-detail.pug") C202012248053B-6]
                             td requirement_spec-1416308
                             td 2022-08-16
                             td 2022-08-16
                             td 최신한
                             td 정신한
                             td 솔루션개발본부
-                            td #[+a-badge-primary.badge-history.popup-link(href="/src/view/popup-progress-history.pug") 진행중]
+                            td #[+a-badge-primary.badge-history.popup-link(href="/src/view/popup/progress-history.pug") 진행중]
                             td 2022-08-16
                             td 김신한(김신한)
         +pagination

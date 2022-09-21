@@ -1,8 +1,8 @@
-extends layout/base
-include mixins/form
-include mixins/pagination
-include mixins/button
-include mixins/badge
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/badge
 
 block head
     - var title = "테스트케이스 상세조회";
@@ -259,16 +259,16 @@ block contents
                             td 2022-06-14 09:54:35
                             td #[+remove-btn]
 
-    include modals/design-req/request-detail
-    include modals/design-req/case-connect
-    include modals/design-req/script-connect
-    include modals/case-editor
-    include modals/design-req/all-success
-    include modals/design-req/progress-history
-    include modals/design-req/case-execute
-    include modals/design-req/case-result
-    include modals/design-req/case-history
-    include modals/remove
+    include ../modals/design-req/request-detail
+    include ../modals/design-req/case-connect
+    include ../modals/design-req/script-connect
+    include ../modals/case-editor
+    include ../modals/design-req/all-success
+    include ../modals/design-req/progress-history
+    include ../modals/design-req/case-execute
+    include ../modals/design-req/case-result
+    include ../modals/design-req/case-history
+    include ../modals/remove
 
 block scripts
     script(src="/src/js/pages/design_req.js", type="module") 

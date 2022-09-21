@@ -1,10 +1,10 @@
-extends layout/base
-include mixins/form
-include mixins/pagination
-include mixins/button
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
 
 block head
-    - var title = "스크립트 관리";
+    - var title = "스크립트 노드 관리";
 
 block contents
     .container
@@ -17,7 +17,7 @@ block contents
                         span.me-2 Excel 다운로드
                         i.bi-file-earmark-excel
                     +a-btn-outline-primary.popup-link(
-                        href="/src/view/popup-script.pug"
+                        href="/src/view/popup/script.pug"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
@@ -35,12 +35,11 @@ block contents
 
     .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column.gap-5
         .table-responsive
-            table#design_script.table.table-sm.table-hover.table-bordered.w-100.small
+            table#design_node.table.table-sm.table-hover.table-bordered.w-100.small
                 thead
                     tr
                         th(scope="col") 번호
                         th(scope="col") 시스템
-                        th(scope="col") 업무
                         th(scope="col") 파일명
                         th(scope="col") 설명
                         th(scope="col") 종류
@@ -52,7 +51,6 @@ block contents
                     tr
                         td 3981
                         td 시스템-1
-                        td 시스템1-업무1
                         td 자동화 테스트 스크립트 파일-10
                         td 자동화 테스트 스크립트 설명-10
                         td Desktop
@@ -62,13 +60,9 @@ block contents
                         td
                             .hstack.gap-1.justify-content-center
                                 +a-table-btn-primary.popup-link(
-                                    href="/src/view/popup-script.pug"
+                                    href="/src/view/popup/script.pug"
                                 ) 편집
                                 +table-btn-primary 다운로드
                                 +remove-btn
         +pagination
-    include modals/server-file
-    include modals/remove
-
-block scripts
-    script(src="/src/js/datepicker.js", type="module") 
+    include ../modals/remove

@@ -36,7 +36,7 @@ each node in nodes
                             li.sub-nav-item
                                 if subNode.link
                                     a.plain-link(
-                                        href=`/src/view/${subNode.id}.pug`
+                                        href=`/src/view/${node.dir}/${subNode.id}.pug`
                                     )= subNode.title
                                 else
                                     a.plain-link= subNode.title

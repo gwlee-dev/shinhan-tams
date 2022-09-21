@@ -1,8 +1,8 @@
-extends layout/base
-include mixins/form
-include mixins/pagination
-include mixins/button
-include mixins/badge
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/badge
 
 block head
     - var title = "데이터셋 관리";
@@ -15,7 +15,7 @@ block contents
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2
                     +a-btn-outline-primary.popup-link(
-                        href="/src/view/popup-dataset.pug"
+                        href="/src/view/popup/dataset.pug"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
@@ -53,9 +53,9 @@ block contents
                             td 
                                 .hstack.gap-1.justify-content-center
                                     +a-table-btn-primary.popup-link(
-                                        href="/src/view/popup-dataset.pug"
+                                        href="/src/view/popup/dataset.pug"
                                     ) 데이터 관리
                                     +table-btn-primary 편집
                                     +table-btn-danger 삭제
         +pagination
-    include modals/remove
+    include ../modals/remove

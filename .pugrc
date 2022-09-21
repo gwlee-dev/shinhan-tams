@@ -4,32 +4,32 @@
         "nodes": [
             {
                 "title": "테스트 설계",
-                "id": "design-req",
+                "id": "req",
                 "dir": "design",
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
-                        "id": "design-req",
+                        "id": "req",
                         "link": true
                     },
                     {
                         "title": "스크립트 관리",
-                        "id": "design-script",
+                        "id": "script",
                         "link": true
                     },
                     {
                         "title": "스크립트 노드 관리",
-                        "id": "design-node",
+                        "id": "node",
                         "link": true
                     },
                     {
                         "title": "테스트케이스 관리",
-                        "id": "design-case",
+                        "id": "case",
                         "link": true
                     },
                     {
                         "title": "데이터셋 관리",
-                        "id": "design-dataset",
+                        "id": "dataset",
                         "link": true
                     }
                 ]

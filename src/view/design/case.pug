@@ -1,7 +1,7 @@
-extends layout/base
-include mixins/form
-include mixins/pagination
-include mixins/button
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
 
 block head
     - var title = "테스트케이스 관리";
@@ -17,7 +17,7 @@ block contents
                         span.me-2 Excel 다운로드
                         i.bi-file-earmark-excel
                     +a-btn-outline-primary.popup-link(
-                        href="/src/view/popup-case.pug"
+                        href="/src/view/popup/case.pug"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
@@ -59,8 +59,10 @@ block contents
                         td 마르고 닭도록
                         td 하느님이 보우하사
                         td 
-                            +gr-link.popup-link(href="/src/view/popup-case.pug") homepage_conn_xml
+                            +gr-link.popup-link(
+                                href="/src/view/popup/case.pug"
+                            ) homepage_conn_xml
                         td 관리자
                         td 2022-05-16
         +pagination
-    include modals/remove
+    include ../modals/remove

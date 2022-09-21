@@ -1,27 +1,39 @@
-extends layout/base
-
-block contents
-    .container.pt-5.pb-6.flex-grow-1.d-flex.flex-column
-        .row.row-cols-1.row-cols-md-2.row-cols-xl-4.h-100.g-4
-            .col.d-flex.align-items-center
-                a.main-cell.p-5.pt-4(
-                    role="button",
-                    href="/src/view/design-req.pug"
-                )
-                    img.img-fluid(src="/src/img/main/status.png?width=210")
-                    span.ff-shinhan.fs-5 테스트 현황 관리
-            .col.d-flex.align-items-center
-                a.main-cell.p-5.pt-4(
-                    role="button",
-                    href="/src/view/design-case.pug"
-                )
-                    img.img-fluid(src="/src/img/main/case.png?width=210")
-                    span.ff-shinhan.fs-5 테스트 케이스 관리
-            .col.d-flex.align-items-center
-                a.main-cell.p-5.pt-4(role="button")
-                    img.img-fluid(src="/src/img/main/fault.png?width=210")
-                    span.ff-shinhan.fs-5 결함 관리
-            .col.d-flex.align-items-center
-                a.main-cell.p-5.pt-4(role="button")
-                    img.img-fluid(src="/src/img/main/report.png?width=210")
-                    span.ff-shinhan.fs-5 보고서 관리
+doctype html
+html.h-100(lang="ko")
+    head
+        include layout/meta
+        if title
+            title= `TAMS | ${title}`
+        else
+            title TAMS
+    body.d-flex.flex-column.h-100
+        header.sticky-top
+            include layout/navbar
+        main.flex-grow-1.vstack
+            a.position-fixed.bottom-0(href="/src/view/test/test-ui.pug") 테스트페이지
+            .container.pt-5.pb-6.flex-grow-1.d-flex.flex-column
+                .row.row-cols-1.row-cols-md-2.row-cols-xl-4.h-100.g-4
+                    .col.d-flex.align-items-center
+                        a.main-cell.p-5.pt-4(
+                            role="button",
+                            href="/src/view/design/req.pug"
+                        )
+                            img.img-fluid(src="/src/img/main/status.png?width=210")
+                            span.ff-shinhan.fs-5 테스트 현황 관리
+                    .col.d-flex.align-items-center
+                        a.main-cell.p-5.pt-4(
+                            role="button",
+                            href="/src/view/design/case.pug"
+                        )
+                            img.img-fluid(src="/src/img/main/case.png?width=210")
+                            span.ff-shinhan.fs-5 테스트 케이스 관리
+                    .col.d-flex.align-items-center
+                        a.main-cell.p-5.pt-4(role="button")
+                            img.img-fluid(src="/src/img/main/fault.png?width=210")
+                            span.ff-shinhan.fs-5 결함 관리
+                    .col.d-flex.align-items-center
+                        a.main-cell.p-5.pt-4(role="button")
+                            img.img-fluid(src="/src/img/main/report.png?width=210")
+                            span.ff-shinhan.fs-5 보고서 관리
+        include layout/footer
+        script(src="/src/js/app.js", type="module")

@@ -1,10 +1,10 @@
-extends layout/popupBase
-include mixins/form
-include mixins/button
-include mixins/badge
-include mixins/modal
-include mixins/pagination
-include mixins/popup
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
 
 block head
     - var title = "결과 이력";
@@ -35,4 +35,4 @@ block contents
                             td #[+gr-remove-btn]
             .hstack.gap-2
                 +btn-secondary.popup-close-btn.mx-auto 확인
-    include modals/remove
+    include ../modals/remove
