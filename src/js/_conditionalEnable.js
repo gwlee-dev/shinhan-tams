@@ -15,19 +15,22 @@ const conditionalEnable = () => {
     const switchCollapse = relativeElements.filter(({ target }) =>
         [...target.classList].includes("collapse")
     );
+
     switchCollapse.forEach(({ relative, target }) => {
-        relative.addEventListener("click", () => {
+        const switchClickHandler = () => {
             const instance = new Collapse(target, { toggle: false });
             relative.checked ? instance.show() : instance.hide();
-        });
+        };
+        relative.addEventListener("click", switchClickHandler);
     });
 
     // btn-disable
     const btnDisable = relativeElements.filter(({ target }) =>
         [...target.classList].includes("btn")
     );
+
     btnDisable.forEach(({ relative, target }) => {
-        relative.addEventListener("click", () => {
+        const btnClickHandler = () => {
             const filtered = btnDisable.filter(
                 ({ relative, target: currentTarget }) =>
                     currentTarget === target &&
@@ -35,8 +38,9 @@ const conditionalEnable = () => {
                     relative.checked
             );
             target.disabled = filtered.length === 0;
-        });
+        };
+        relative.addEventListener("click", btnClickHandler);
     });
 };
 
-conditionalEnable();
+export default conditionalEnable;

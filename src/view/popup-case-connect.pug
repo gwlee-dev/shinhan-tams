@@ -14,9 +14,8 @@ block contents
         +popup-title
             h5.m-0 테스트케이스 연결
             .ms-auto.ms-3.hstack.gap-2
-                +a-btn-outline-secondary-sm(
-                    href="/src/view/popup-case.pug",
-                    onclick="pop(this)"
+                +a-btn-outline-secondary-sm.popup-link(
+                    href="/src/view/popup-case.pug"
                 ) 테스트케이스 신규 등록
         .container-fluid.bg-tone.py-3
             section.d-flex.flex-column
@@ -61,12 +60,11 @@ block contents
                                 td 하느님이 보우하사
                                 td 관리자
                                 td 2022-05-16
-                                td #[+gr-link(href="/src/view/popup-script-connect.pug", onclick="pop(this)") homepage_conn_xml]
+                                td #[+gr-link.popup-link(href="/src/view/popup-script-connect.pug") homepage_conn_xml]
                                 td
                                     .hstack.gap-1.justify-content-center
-                                        +a-table-btn-primary(
-                                            href="/src/view/popup-case.pug",
-                                            onclick="pop(this)"
+                                        +a-table-btn-primary.popup-link(
+                                            href="/src/view/popup-case.pug"
                                         ) 편집
                                         +table-btn-danger 끊기
                             - for (var i = 2; i <= 3; i++)
@@ -78,12 +76,11 @@ block contents
                                     td 하느님이 보우하사
                                     td 관리자
                                     td 2022-05-16
-                                    td #[+gr-link(href="/src/view/popup-script-connect.pug", onclick="pop(this)") homepage_conn_xml]
+                                    td #[+gr-link.popup-link(href="/src/view/popup-script-connect.pug") homepage_conn_xml]
                                     td
                                         .hstack.gap-1.justify-content-center
-                                            +a-table-btn-primary(
-                                                href="/src/view/popup-case.pug",
-                                                onclick="pop(this)"
+                                            +a-table-btn-primary.popup-link(
+                                                href="/src/view/popup-case.pug"
                                             ) 편집
                                             +table-btn-dark 선택
                     +pagination

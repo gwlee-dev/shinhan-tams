@@ -45,15 +45,14 @@ block contents
                             td 최신한
                             td 정신한
                             td 솔루션개발본부
-                            td #[+a-badge-primary.badge-history(href="/src/view/popup-progress-history.pug", onclick="pop(this)") 진행중]
+                            td #[+a-badge-primary.badge-history.popup-link(href="/src/view/popup-progress-history.pug") 진행중]
                             td 2022-08-16
                             td 이건우
         section.d-flex.flex-column
             .hstack
                 span.fs-4.fw-bold.mb-2.me-auto 기능상세설명
-                +a-btn-secondary-sm(
-                    href="/src/view/popup-case-connect.pug",
-                    onclick="pop(this)"
+                +a-btn-secondary-sm.popup-link(
+                    href="/src/view/popup-case-connect.pug"
                 ) 회귀테스트 추가
             .table-responsive
                 table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
@@ -72,9 +71,8 @@ block contents
                             td #[a(href="#", data-bs-toggle="modal", data-bs-target="#request-detail") 요구사항상세내용-1416311]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn-primary(
-                                        href="/src/view/popup-case-connect.pug",
-                                        onclick="pop(this)"
+                                    +a-table-btn-primary.popup-link(
+                                        href="/src/view/popup-case-connect.pug"
                                     ) 테스트케이스 연결
                                     +table-btn-primary 결과문서
         section.g-2.align-items-center
@@ -108,18 +106,16 @@ block contents
                             td #[+badge-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    a.case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                    a.case-detail-btn.btn.btn-sm.btn-outline-primary.py-0.popup-link(
+                                        href="/src/view/popup-case.pug"
                                     ) 자세히
                                     +table-btn-primary("modal","#case-execute") 실행
                                     +table-btn-secondary(
                                         disabled="true"
                                     ) (실행이력 없음)
                                     +table-btn-primary("modal","#case-result") 결과입력
-                                    +a-table-btn-primary(
-                                        href="/src/view/popup-result-history.pug",
-                                        onclick="pop(this)"
+                                    +a-table-btn-primary.popup-link(
+                                        href="/src/view/popup-result-history.pug"
                                     ) 결과이력
                                     +remove-btn
                         tr
@@ -134,9 +130,8 @@ block contents
                             td #[+badge-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn-primary#case-detail-btn.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                    +a-table-btn-primary#case-detail-btn.py-0.popup-link(
+                                        href="/src/view/popup-case.pug"
                                     ) 자세히
                                     +table-btn-primary("modal","#case-execute") 실행
                                     +table-btn-secondary(
@@ -200,9 +195,8 @@ block contents
                             td 2022-08-18
                             td
                                 .hstack.gap-1.justify-content-center
-                                    a#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0(
-                                        href="/src/view/popup-case.pug",
-                                        onclick="pop(this)"
+                                    a#case-detail-btn.btn.btn-sm.btn-outline-primary.py-0.popup-link(
+                                        href="/src/view/popup-case.pug"
                                     ) 자세히
                                     button.btn.btn-sm.btn-outline-secondary.py-0(
                                         disabled

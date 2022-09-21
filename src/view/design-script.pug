@@ -16,9 +16,8 @@ block contents
                     +btn-outline-success
                         span.me-2 Excel 다운로드
                         i.bi-file-earmark-excel
-                    +a-btn-outline-primary(
-                        href="/src/view/popup-script.pug",
-                        onclick="pop(this)"
+                    +a-btn-outline-primary.popup-link(
+                        href="/src/view/popup-script.pug"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
@@ -62,9 +61,8 @@ block contents
                         td 2016-05-19 18:00:00
                         td
                             .hstack.gap-1.justify-content-center
-                                +a-table-btn-primary(
-                                    href="/src/view/popup-script.pug",
-                                    onclick="pop(this)"
+                                +a-table-btn-primary.popup-link(
+                                    href="/src/view/popup-script.pug"
                                 ) 편집
                                 +table-btn-primary 다운로드
                                 +remove-btn

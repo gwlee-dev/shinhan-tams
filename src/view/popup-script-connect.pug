@@ -59,9 +59,8 @@ block contents
                                 td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
                                 td
                                     .hstack.gap-1.justify-content-center
-                                        +a-table-btn-primary(
-                                            href="/src/view/popup-case.pug",
-                                            onclick="pop(this)"
+                                        +a-table-btn-primary.popup-link(
+                                            href="/src/view/popup-case.pug"
                                         ) 편집
                                         +table-btn-danger 끊기
                             - for (var i = 2; i <= 5; i++)
@@ -76,9 +75,8 @@ block contents
                                     td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
                                     td
                                         .hstack.gap-1.justify-content-center
-                                            +a-table-btn-primary(
-                                                href="/src/view/popup-case.pug",
-                                                onclick="pop(this)"
+                                            +a-table-btn-primary.popup-link(
+                                                href="/src/view/popup-case.pug"
                                             ) 편집
                                             +table-btn-dark 선택
 

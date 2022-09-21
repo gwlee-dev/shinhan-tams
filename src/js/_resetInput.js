@@ -7,4 +7,4 @@ const resetInputFunc = () => {
     });
 };
 
-resetInputFunc();
+export default resetInputFunc;

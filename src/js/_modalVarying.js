@@ -16,4 +16,4 @@ const defaultVaryingFunc = (modal, button) => {
     modalTitle.textContent = recipient;
 };
 
-varyingFunc(defaultVaryingFunc);
+export default () => varyingFunc(defaultVaryingFunc);

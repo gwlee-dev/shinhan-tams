@@ -38,4 +38,4 @@ const navInitFunc = () => {
     });
 };
 
-navInitFunc();
+export default navInitFunc;
