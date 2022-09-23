@@ -5,6 +5,7 @@ include ../mixins/badge
 include ../mixins/modal
 include ../mixins/pagination
 include ../mixins/popup
+include ../mixins/modal
 
 block head
     - var title = "테스트 데이터셋 신규 등록";
@@ -14,7 +15,7 @@ block contents
         +popup-title
             h5.m-0 테스트 데이터셋 신규 등록
             .ms-auto.ms-3
-                +badge-secondary 최종변경일시
+                +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid.vstack.gap-4
             section.d-flex.flex-column
@@ -23,19 +24,19 @@ block contents
                     .col-2 #[+select-sm("시스템")]
                     .col-10 #[+input-sm("데이터셋 명")]
                     .col-12 #[+textarea-sm("데이터셋 설명")]
-            section.d-flex.flex-column.dynamic-row
+            section#column-management.d-flex.flex-column
                 .hstack.gap-2.align-items-center.mb-2
                     span.fs-5.fw-bold 열(필드) 관리
                     button#column-remove-btn.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
-                        data-bs-target="#remove-modal",
+                        data-bs-target="#danger-modal",
                         disabled
                     )
                         span 선택항목 (
                         span#column-count 0
                         span 개) 삭제
-                    +a-btn-primary-sm.ms-auto.row-add-btn 추가
-                    +a-btn-secondary-sm 초기화
+                    +a-btn.btn-primary.btn-sm.ms-auto.row-add-btn 추가
+                    +a-btn.btn-secondary.btn-sm 초기화
                 .table-responsive.bg-light(style="min-height: 224px")
                     table#column_list.small.table-bordered.table.table-sm.table-hover.w-100.bg-white.mb-0
                         thead
@@ -53,7 +54,23 @@ block contents
                                 th(scope="col") 설명
                                 th(scope="col") 삭제
                         tbody
+                            tr 
+                                td 
+                                    input#column-1.form-check-input(
+                                        type="checkbox",
+                                        value="",
+                                        name="column",
+                                        data-gr-type="condition",
+                                        data-gr-target="#column-remove-btn",
+                                        data-gr-count="#column-count"
+                                    ) 
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td #[button.btn.btn-sm.btn-outline-danger.py-0.row-remove-btn(name="describe") 삭제]
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
-                +btn-primary 저장
-                +btn-cancel-modal 취소
+                +btn.btn-primary 저장
+                +btn.btn-secondary.popup-close 취소
+    +danger-modal
+block scripts
+    script(src="/src/js/pages/dataset.js", type="module")

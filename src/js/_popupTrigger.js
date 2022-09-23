@@ -21,6 +21,13 @@ const popupTrigger = () => {
             pop(x);
         })
     );
+
+    [...document.body.classList].includes("popup-window") &&
+        [...document.querySelectorAll(".popup-close")].forEach((x) =>
+            x.addEventListener("click", () => {
+                window.close();
+            })
+        );
 };
 
 export default popupTrigger;

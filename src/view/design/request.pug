@@ -1,0 +1,57 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/badge
+
+block head
+    - var title = "테스트 요청 현황";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+    .bg-tone
+        .container.py-4
+            .row.gx-3.gy-2
+                .col #[+select("진행상태")]
+                .col #[+select("개발부서")]
+                .col #[+select("테스트요청일")]
+                .w-100.d-block.d-lg-none
+                .col.col-lg-4 #[+range("검색 기간")]
+                .w-100.d-block.d-lg-none
+                .col #[+input("CSR 번호")]
+                .col-auto.align-self-end #[+btn.btn-primary 검색]
+                .col-auto.align-self-end #[+btn.btn-secondary 초기화]
+
+    .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column.gap-5
+        .table-responsive
+            table#design_req.table.small.table-bordered.table-sm.table-hover.w-100
+                thead
+                    tr
+                        th(scope="col") CSR 번호
+                        th(scope="col") CSR 제목
+                        th(scope="col") 완료 합의일
+                        th(scope="col") CSR 요청일
+                        th(scope="col") BA
+                        th(scope="col") AA
+                        th(scope="col") 개발부서
+                        th(scope="col") 진행상태
+                        th(scope="col") 테스트요청일
+                        th(scope="col") 테스터
+                tbody
+                    - for (var i = 0; i < 5; i++)
+                        tr
+                            td #[a(href="/src/view/design/csr.pug") C202012248053B-6]
+                            td requirement_spec-1416308
+                            td 2022-08-16
+                            td 2022-08-16
+                            td 최신한
+                            td 정신한
+                            td 솔루션개발본부
+                            td #[+a-badge-history.popup-link(href="/src/view/popup/progress-history.pug") 진행중]
+                            td 2022-08-16
+                            td 김신한(김신한)
+        +pagination
+block scripts
+    script(src="/src/js/datepicker.js", type="module") 

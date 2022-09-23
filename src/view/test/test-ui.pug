@@ -121,7 +121,7 @@ block contents
             .col-8.vstack.gap-3
                 .hstack.gap-1
                     button.btn.btn-primary(type="button") Primary
-                    button.btn.btn-secondary(type="button") Secondary
+                    +btn.btn-secondary(type="button") Secondary
                     button.btn.btn-success(type="button") Success
                     button.btn.btn-danger(type="button") Danger
                     button.btn.btn-warning(type="button") Warning
@@ -139,7 +139,10 @@ block contents
                     button.btn.btn-outline-dark(type="button") Dark
                 .hstack.gap-1
                     button.btn.btn-primary(type="button", disabled="") Primary button
-                    button.btn.btn-secondary(type="button", disabled="") Button
+                    +btn.btn-secondary(
+                        type="button",
+                        disabled=""
+                    ) Button
                     button.btn.btn-outline-primary(type="button", disabled="") Primary button
                     button.btn.btn-outline-secondary(
                         type="button",
@@ -223,8 +226,11 @@ block contents
                                     .modal-body
                                         p Modal body text goes here.
                                     .modal-footer
-                                        button.btn.btn-secondary(
+                                        +btn.btn-secondary(
                                             type="button",
                                             data-bs-dismiss="modal"
                                         ) 닫기
                                         button.btn.btn-primary(type="button") 저장
+
+block scripts
+    script(src="/src/js/DEV.js", type="module")

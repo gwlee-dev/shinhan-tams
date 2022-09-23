@@ -1,0 +1,148 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "테스트케이스 실행";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col #[+select("시스템")]
+                        .col #[+select("업무")]
+                        .col #[+input("화면ID")]
+                        .col #[+input("케이스ID")]
+                        .w-100
+                        .col #[+input("화면명")]
+                        .col #[+input("케이스명")]
+                        .col-3 #[+input("등록자명")]
+                .col-auto
+                    .vstack.h-100.gap-2
+                        button.btn.btn-primary.btn.flex-grow-1 검색
+                        +btn.btn-secondary.btn.flex-grow-1 초기화
+    .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-5
+        section.d-flex.flex-column
+            span.fs-4.fw-bold.mb-2 테스트케이스 목록
+                span.fs-6.fw-normal.text-muted.ms-2 스크립트가 연결된 케이스만 표시됩니다.
+            .table-responsive
+                table#execute_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                    thead
+                        tr
+                            th(scope="col") 시스템
+                            th(scope="col") 업무
+                            th(scope="col") 화면/서비스/JOB ID
+                            th(scope="col") 화면/서비스/JOB 명
+                            th(scope="col") 테스트케이스 ID
+                            th(scope="col") 테스트케이스 명
+                            th(scope="col") 등록자명
+                            th(scope="col") 등록일자
+                            th(scope="col") 스크립트
+                            th(scope="col") 자세히
+                    tbody
+                        - for (var i = 1; i <= 10; i++)
+                            tr
+                                td 시스템-2
+                                td= `시스템2-업무${i}`
+                                td 동해물과 백두산이
+                                td 마르고 닭도록
+                                td 
+                                    +link.popup-link(
+                                        href="/src/view/popup/case.pug"
+                                    ) TC202205160000
+                                td 하느님이 보우하사
+                                td 관리자
+                                td 2022-05-16 17:12:24
+                                td homepage_conn.xml
+                                td
+                                    .hstack.gap-1.justify-content-center
+                                        +a-table-btn.btn-outline-primary.popup-link(
+                                            href="/src/view/popup/case.pug"
+                                        ) 자세히
+            +pagination
+        section#test-history.d-flex.flex-column
+            .row.mb-2.gx-3.align-items-center
+                .col-auto
+                    span.fs-4.fw-bold.mb-2 자동테스트 수행이력
+                .col-auto.me-auto.ms-n2
+                    button#history-remove-btn.btn.btn-danger.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#danger-modal",
+                        disabled
+                    )
+                        span 선택항목 (
+                        span#history-count 0
+                        span 개) 삭제
+                .col-auto
+                    .input-group.input-group-sm
+                        span.input-group-text 스크립트명
+                        input#case-search.form-control(
+                            type="text",
+                            placeholder="검색어를 입력하세요"
+                        )
+                        select.form-select(style="max-width: 6rem")
+                            option(selected="") 종류
+                            option(value="1") One
+                            option(value="2") Two
+                            option(value="3") Three
+
+                .col-auto
+                    .input-group.input-group-sm
+                        span.input-group-text 케이스ID
+                        input#case-search.form-control(
+                            type="text",
+                            placeholder="검색어를 입력하세요"
+                        )
+                .col-auto.h-100.py-2
+                    .border-start.h-100
+                .col-auto
+                    .hstack.gap-2
+                        +btn.btn-sm.btn-secondary(type="button") 검색
+                        +btn.btn-sm.btn-secondary.opacity-50.input-reset(
+                            type="button"
+                        ) 초기화
+            .table-responsive
+                table#execute_history.small.table-bordered.table.table-sm.table-hover.w-100
+                    thead
+                        tr
+                            th(scope="col")
+                                input#history-all.form-check-input(
+                                    type="checkbox",
+                                    value="",
+                                    name="history",
+                                    data-gr-type="condition",
+                                    data-gr-target="#history-remove-btn",
+                                    data-gr-count="#history-count"
+                                ) 
+                            th(scope="col") 시스템
+                            th(scope="col") 케이스 ID
+                            th(scope="col") 케이스명
+                            th(scope="col") 스크립트명
+                            th(scope="col") 테스터
+                            th(scope="col") 테스트일자
+                            th(scope="col") 이력
+                            th(scope="col") 자세히
+                    tbody
+                        tr
+                            td #[+check("history", "history-1", "mb-0", null, "condition", "#history-remove-btn")]
+                            td 시스템-6
+                            td #[a(href="#") TC202010060063]
+                            td testcase-1321056
+                            td
+                            td 정신한
+                            td 2022-08-18 17:23:24
+                            td #[+badge.bg-success 통과]
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/detail.pug"
+                                    ) 자세히
+            +pagination
+    +danger-modal

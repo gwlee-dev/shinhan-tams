@@ -19,13 +19,17 @@ nav.navbar.bg-white
             each node in nodes 
                 li.nav-item
                     span.nav-link(
-                        data-gr-target=`#offcanvas-${node.id}`,
+                        data-gr-target=`#offcanvas-${node.dir}`,
                         role="button"
                     )= node.title
 
-        i.bi.bi-list.fs-2.lh-sm
+        i.bi.bi-list.fs-2.lh-sm(
+            role="button",
+            data-bs-toggle="modal",
+            data-bs-target="#sitemap"
+        )
 each node in nodes 
-    .offcanvas.offcanvas-top(tabindex="-1", id=`offcanvas-${node.id}`)
+    .offcanvas.offcanvas-top(tabindex="-1", id=`offcanvas-${node.dir}`)
         .container.vstack
             .offcanvas-header
                 h5.offcanvas-title.mx-auto= node.title
@@ -35,8 +39,5 @@ each node in nodes
                         each subNode in node.nodes
                             li.sub-nav-item
                                 if subNode.link
-                                    a.plain-link(
-                                        href=`/src/view/${node.dir}/${subNode.id}.pug`
-                                    )= subNode.title
-                                else
-                                    a.plain-link= subNode.title
+                                    - var path = `/src/view/${node.dir}/${subNode.id}.pug`;
+                                a.plain-link(href=path)= subNode.title

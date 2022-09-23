@@ -1,0 +1,22 @@
+table#execute_list {
+    $execute_list: (
+        1: 7%,
+        2: 9%,
+        3: 12%,
+        4: 12%,
+        5: 12%,
+        6: 12%,
+        7: 6%,
+        8: 12%,
+        9: 12%,
+        10: 6%,
+    );
+    th,
+    td {
+        @each $i, $percent in $execute_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

@@ -14,13 +14,49 @@ block contents
         +popup-title
             h5.m-0 스크립트 신규 등록
             .ms-auto.ms-3
-                +badge-secondary 최종변경일시
+                +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid
             .row.gx-2.gy-1
                 .col-10
-                    +file-sm("스크립트 파일")
-                        +gr-btn-secondary("modal", "#server-file").opacity-50 서버에서 찾기
+                    .row.g-2
+                        .col-auto
+                            +caption-sm("파일 선택")
+                            .w-100
+                            .btn-group.mt-auto(role="tablist")
+                                button.btn.btn-outline-secondary.btn-sm.active(
+                                    data-bs-toggle="pill",
+                                    data-bs-target="#file-local",
+                                    type="button",
+                                    role="tab"
+                                ) 내 PC에서
+                                button.btn.btn-outline-secondary.btn-sm(
+                                    data-bs-toggle="pill",
+                                    data-bs-target="#file-server",
+                                    type="button",
+                                    role="tab"
+                                ) 서버에서
+                        .col.tab-content
+                            #file-local.tab-pane.fade.show.active
+                                +file-sm("내 PC에서 업로드")
+                            #file-server.tab-pane.fade
+                                +caption-sm("서버에서 업로드")
+                                .input-group.input-group-sm 
+                                    .form-control.input-group.input-group-sm.p-0.fake-file
+                                        span.input-group-text(
+                                            role="button",
+                                            data-bs-toggle="modal",
+                                            data-bs-target="#server-file"
+                                        ) 파일 선택
+                                        label.form-control(
+                                            role="button",
+                                            data-bs-toggle="modal",
+                                            data-bs-target="#server-file"
+                                        ) 선택된 파일 없음
+                                    +btn.btn-secondary(
+                                        type="button"
+                                    ) 업로드
+
                 .col-2
                     +input-sm("파일 크기")(disabled, placeholder="0 KB")
                 .w-100
@@ -50,6 +86,6 @@ block contents
                                         td 2022-08-30 16:30:00
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
-                +btn-primary 저장
-                +btn-cancel-modal 취소
+                +btn.btn-primary 저장
+                +btn.btn-secondary.popup-close 취소
     include ../modals/server-file

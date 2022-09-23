@@ -1,5 +1,4 @@
 const popupController = () => {
-    console.log("pop!");
     const popup = document.querySelector(".popup");
     const {
         screen: { availHeight },

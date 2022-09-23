@@ -29,7 +29,7 @@ block contents
                     .col-auto
                         .vstack.h-100.gap-1
                             button.btn.btn-primary.btn-sm.flex-grow-1 검색
-                            button.btn.btn-secondary.btn-sm.flex-grow-1 초기화
+                            +btn.btn-secondary.btn-sm.flex-grow-1 초기화
         .container-fluid.vstack.gap-4
             section.d-flex.flex-column
                 .table-responsive
@@ -56,13 +56,16 @@ block contents
                                 td 하느님이 보우하사
                                 td 관리자
                                 td 2022-05-16
-                                td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
+                                td #[+link(href="#", data-bs-toggle="modal", data-bs-target="#script-connect") homepage_conn_xml]
                                 td
                                     .hstack.gap-1.justify-content-center
-                                        +a-table-btn-primary.popup-link(
+                                        +a-table-btn.btn-outline-primary.popup-link(
                                             href="/src/view/popup/case.pug"
                                         ) 편집
-                                        +table-btn-danger 끊기
+                                        +table-btn.btn-outline-danger(
+                                            data-bs-toggle="modal",
+                                            data-bs-target="#disconnect-modal"
+                                        ) 끊기
                             - for (var i = 2; i <= 5; i++)
                                 tr
                                     td= `시스템-${i}`
@@ -72,15 +75,18 @@ block contents
                                     td 하느님이 보우하사
                                     td 관리자
                                     td 2022-05-16
-                                    td #[+gr-link("#", "modal", "#script-connect") homepage_conn_xml]
+                                    td #[+link(href="#", data-bs-toggle="modal", data-bs-target="#script-connect") homepage_conn_xml]
                                     td
                                         .hstack.gap-1.justify-content-center
-                                            +a-table-btn-primary.popup-link(
+                                            +a-table-btn.btn-outline-primary.popup-link(
                                                 href="/src/view/popup/case.pug"
                                             ) 편집
-                                            +table-btn-dark 선택
+                                            +table-btn.btn-outline-dark 선택
 
                     +pagination
         .container-fluid.d-flex
             .hstack.gap-2.mx-auto
-                +btn-cancel-modal 취소
+                +btn.btn-secondary.popup-close 취소
+    +danger-modal#disconnect-modal
+    span.d-block 해당 항목의 연결을 해제하시겠습니까?
+    span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

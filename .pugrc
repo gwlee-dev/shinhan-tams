@@ -1,15 +1,16 @@
 {
+    "pretty": true,
     "locals": {
         "siteName": "Shinhan",
         "nodes": [
             {
                 "title": "테스트 설계",
-                "id": "req",
                 "dir": "design",
+                "icon": "bi-pencil-square",
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
-                        "id": "req",
+                        "id": "request",
                         "link": true
                     },
                     {
@@ -36,90 +37,94 @@
             },
             {
                 "title": "테스트 실행",
-                "id": "execute-launch",
                 "dir": "execute",
+                "icon": "bi-robot",
                 "nodes": [
                     {
-                        "title": "케이스 실행",
-                        "id": "execute-case"
+                        "title": "테스트케이스 실행",
+                        "id": "case",
+                        "link": true
+
                     },
                     {
                         "title": "예약실행 관리",
-                        "id": "execute-schedule"
+                        "id": "schedule"
                     },
                     {
                         "title": "실시간 모니터링",
-                        "id": "execute-monitoring"
+                        "id": "monitoring"
                     }
                 ]
             },
             {
                 "title": "결함 관리",
-                "id": "fault-management",
                 "dir": "fault",
+                "icon": "bi-flag-fill",
                 "nodes": [
                     {
                         "title": "테스트 케이스 실행",
-                        "id": "fault-case"
+                        "id": "case"
                     },
                     {
                         "title": "결함 관리 현황",
-                        "id": "fault-status"
+                        "id": "status"
                     },
                     {
                         "title": "테스트 제외건 조회",
-                        "id": "fault-exclude"
+                        "id": "exclude"
                     },
                     {
                         "title": "자동화 수행 이력",
-                        "id": "fault-log"
+                        "id": "log"
                     }
                 ]
             },
             {
                 "title": "보고서 관리",
-                "id": "report-gen",
+                "dir": "report",
+                "icon": "bi-file-earmark-text",
                 "nodes": [
                     {
                         "title": "보고서 생성",
-                        "id": "report-gen"
+                        "id": "generate"
                     }
                 ]
             },
             {
                 "title": "사용자 관리",
-                "id": "user-management",
+                "dir": "user",
+                "icon": "bi-person-circle",
                 "nodes": [
                     {
-                        "title": "사용자 관리",
-                        "id": "user-management"
+                        "title": "사용자 계정 관리",
+                        "id": "account"
                     },
                     {
                         "title": "PC IP 등록",
-                        "id": "user-ip"
+                        "id": "ip"
                     }
                 ]
             },
             {
                 "title": "환경 설정",
-                "id": "setting",
                 "dir": "setting",
+                "icon": "bi-gear-wide-connected",
                 "nodes": [
                     {
                         "title": "테스트 자동화 관리",
-                        "id": "setting-automation"
+                        "id": "automation"
                     },
                     {
                         "title": "공지사항 관리",
-                        "id": "setting-notice"
+                        "id": "notice"
                     },
                     {
                         "title": "이메일 호스트 관리",
-                        "id": "setting-email"
+                        "id": "email"
                     },
                     {
                         "title": "버전 정보",
-                        "id": "setting-version"
+                        "id": "version"
                     },
                 ]
             },
