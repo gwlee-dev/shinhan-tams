@@ -5,6 +5,7 @@ include ../mixins/badge
 include ../mixins/modal
 include ../mixins/pagination
 include ../mixins/popup
+include ../mixins/modal
 
 block head
     - var title = "결과 이력";
@@ -14,7 +15,7 @@ block contents
         +popup-title
             h5.m-0 결과 이력
             .ms-auto.ms-3
-                +badge-secondary 최종변경일시
+                +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid
             .table-responsive
@@ -32,7 +33,11 @@ block contents
                             td 정상
                             td 2021-02-19
                             td 깊은산속 옹달샘 누가와서 쉬나요~!!
-                            td #[+gr-remove-btn]
+                            td 
+                                +table-btn.btn-outline-danger(
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#danger-modal"
+                                ) 삭제
             .hstack.gap-2
-                +btn-secondary.popup-close-btn.mx-auto 확인
-    include ../modals/remove
+                +btn.btn-secondary.popup-close-btn.mx-auto 확인
+    +danger-modal

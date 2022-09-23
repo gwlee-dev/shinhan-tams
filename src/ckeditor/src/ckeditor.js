@@ -72,11 +72,8 @@ TAMSEditor.defaultConfig = {
             "default",
             "OneShinhan",
             "ShinhanCard",
-            "맑은 고딕",
-            "바탕",
-            "궁서",
-            "굴림",
-            "돋움",
+            "Nanum Gothic",
+            "Nanum Myeongjo",
         ],
     },
 

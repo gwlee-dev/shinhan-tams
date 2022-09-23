@@ -1,0 +1,24 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "상세 내용";
+
+block contents
+    .popup.popup-lg.vstack.gap-3.pb-2
+        +popup-title
+            h5.m-0 상세 내용
+            .ms-auto.ms-3
+                +badge.bg-secondary 최종변경일시
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
+        .container-fluid
+            span 상세 내용이 없습니다.
+            .hstack.gap-2
+                +btn.btn-secondary.popup-close-btn.mx-auto 확인
+    +danger-modal

@@ -1,7 +1,7 @@
 mixin modal-header(text)
     .modal-header
         h5.modal-title= text
-        +close-btn
+        +modal-close
 
 mixin modal(id, title, keyboard)
     .modal.fade(tabindex="-1", aria-hidden="true", id=id, data-bs-keyboard="false")
@@ -10,21 +10,37 @@ mixin modal(id, title, keyboard)
                 +modal-header(title)
                 block
 
-mixin remove-modal
-    #remove-modal.modal.fade(
-        tabindex="-1",
-        aria-hidden="true",
-        data-bs-keyboard="false"
-    )
+mixin danger-modal
+    #danger-modal.modal.fade(tabindex="-1")&attributes(attributes)
         .modal-dialog.modal-dialog-centered.modal-sm
-            .modal-content
-                .modal-header
-                    h5.modal-title 삭제
-                    +close-btn
+            .modal-content.text-center
                 .modal-body
-                    span.d-block 해당 항목을 삭제하시겠습니까?
-                    span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]
-                    block
-                .modal-footer
-                    +btn-danger 삭제
-                    +btn-cancel-modal 취소
+                    i.bi.bi-exclamation-triangle.opacity-25.display-1
+                    if block
+                        block
+                    else
+                        span.d-block 해당 항목을 삭제하시겠습니까?
+                        span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]
+
+                .modal-footer.justify-content-center
+                    +btn.btn-danger 삭제
+                    +btn.btn-secondary(
+                        data-bs-dismiss="modal"
+                    ) 취소
+
+mixin confirm-modal
+    #danger-modal.modal.fade(tabindex="-1")&attributes(attributes)
+        .modal-dialog.modal-dialog-centered.modal-sm
+            .modal-content.text-center
+                .modal-body
+                    i.bi.bi-question-lg.opacity-25.display-1
+                    if block
+                        block
+                    else
+                        span.d-block 저장하시겠습니까?
+
+                .modal-footer.justify-content-center
+                    +btn.btn-primary 승인
+                    +btn.btn-secondary(
+                        data-bs-dismiss="modal"
+                    ) 취소

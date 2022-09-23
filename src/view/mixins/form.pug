@@ -1,3 +1,5 @@
+include button
+
 mixin caption(caption)
     if caption
         label.form-label= caption
@@ -125,14 +127,14 @@ mixin file(caption, multiple)
     .input-group.input-group
         input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block
-        button.btn.btn-secondary(type="button") 업로드
+        +btn.btn-secondary(type="button") 업로드
 
 mixin file-sm(caption, multiple)
     +caption-sm(caption)
     .input-group.input-group-sm
         input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block
-        button.btn.btn-secondary(type="button") 업로드
+        +btn.btn-secondary(type="button") 업로드
 
 mixin radio-btn-primary(name, id)
     input.btn-check(type="radio", name=name, autocomplete="off", id=id)

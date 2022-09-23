@@ -1,75 +1,11 @@
-mixin badge-primary(toggle, target)
-    if toggle
-        span.align-middle.badge.bg-primary(
-            role="button",
-            data-bs-toggle=toggle,
-            data-bs-target=target
-        )&attributes(attributes)
-            block
-    else
-        span.align-middle.badge.bg-primary
-            block
-
-mixin badge-dark(toggle, target)
-    if toggle
-        span.align-middle.badge.bg-dark(
-            role="button",
-            data-bs-toggle=toggle,
-            data-bs-target=target
-        )&attributes(attributes)
-            block
-    else
-        span.align-middle.badge.bg-dark
-            block
-
-mixin badge-black(toggle, target)
-    if toggle
-        span.align-middle.badge.bg-black(
-            role="button",
-            data-bs-toggle=toggle,
-            data-bs-target=target
-        )&attributes(attributes)
-            block
-    else
-        span.align-middle.badge.bg-black
-            block
-
-mixin badge-secondary(toggle, target)
-    if toggle
-        span.align-middle.badge.bg-secondary(
-            role="button",
-            data-bs-toggle=toggle,
-            data-bs-target=target
-        )&attributes(attributes)
-            block
-    else
-        span.align-middle.badge.bg-secondary
-            block
-
-mixin badge-success(toggle, target)
-    if toggle
-        span.align-middle.badge.bg-success(
-            role="button",
-            data-bs-toggle=toggle,
-            data-bs-target=target
-        )&attributes(attributes)
-            block
-    else
-        span.align-middle.badge.bg-success
-            block
-
-mixin gr-badge-primary(toggle, target)
-    span.align-middle.badge.bg-primary(
-        role="button",
-        data-gr-toggle=toggle,
-        data-gr-target=target
-    )&attributes(attributes)
+mixin badge
+    span.align-middle.lh-sm.badge&attributes(attributes)
         block
 
-mixin a-badge-primary(toggle, target)
-    a.align-middle.badge.bg-primary.text-decoration-none.text-white(
-        role="button",
-        data-gr-toggle=toggle,
-        data-gr-target=target
-    )&attributes(attributes)
+mixin a-badge
+    a.align-middle.lh-sm.badge.text-decoration-none&attributes(attributes)
+        block
+
+mixin a-badge-history
+    a.align-middle.lh-sm.badge.text-decoration-none.bg-primary.text-white.badge-history&attributes(attributes)
         block

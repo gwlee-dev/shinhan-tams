@@ -1,0 +1,29 @@
+.sitemap-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 1rem + $spacer * 0.75;
+    @include list-unstyled();
+    .sitemap-item {
+        $sitemap-item-padding-x: $spacer * 0.25;
+        $sitemap-item-padding-y: $spacer * 0.5;
+        $sitemap-item-margin-x: $spacer * -0.5;
+        padding: $sitemap-item-padding-x $sitemap-item-padding-y;
+        margin: 0 $sitemap-item-margin-x;
+        border-radius: $border-radius;
+        @include transition($nav-link-transition);
+
+        &:hover,
+        &:active,
+        &:focus {
+            background: rgba($primary, 0.1);
+            font-weight: $font-weight-semibold;
+        }
+    }
+    .sitemap-link {
+        @include reset-text();
+        text-decoration: none;
+        color: inherit;
+        font-weight: inherit;
+    }
+}

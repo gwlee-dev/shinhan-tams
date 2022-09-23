@@ -1,7 +1,4 @@
 import * as bootstrap from "bootstrap";
-import checkAll from "./_checkAll";
-import conditionalEnable from "./_conditionalEnable";
-import dynamicRow from "./_dynamicRow";
 import modalVarying from "./_modalVarying";
 import multiModal from "./_multiModal";
 import navInit from "./_navbarOffcanvas";
@@ -10,9 +7,6 @@ import resetInput from "./_resetInput";
 import editorEnabler from "./editorEnabler";
 
 const functions = {
-    checkAll,
-    conditionalEnable,
-    dynamicRow,
     modalVarying,
     multiModal,
     navInit,

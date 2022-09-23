@@ -1,0 +1,22 @@
+include ../mixins/button
+include ../mixins/modal
+
+#sitemap.modal.fade(tabindex="-1")
+    .modal-dialog.modal-dialog-centered.modal-fullscreen-lg-down.modal-xl
+        .modal-content
+            .container-md.p-lg-0
+                +modal-header("전체 메뉴")
+            .modal-body
+                .container-md.p-lg-0
+                    .row.row-cols-1.row-cols-sm-2.row-cols-md-4.row-cols-xl-6.gy-2
+                        each node in nodes
+                            .col.d-flex.flex-column
+                                span.fs-5.fw-semibold.mb-1
+                                    i.bi.fs-6.me-2.text-primary(class=node.icon)
+                                    span.ms-1= node.title
+                                ul.sitemap-list
+                                    each subNode in node.nodes
+                                        li.sitemap-item 
+                                            if subNode.link
+                                                - var path = `/src/view/${node.dir}/${subNode.id}.pug`;
+                                            a.sitemap-link(href=path)= subNode.title
