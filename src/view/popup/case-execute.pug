@@ -1,0 +1,108 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+
+block head
+    - var title = "테스트케이스 실행";
+
+block contents
+    .popup.popup-xl.pb-2
+        +popup-title
+            h5.m-0 테스트케이스 실행
+            .ms-auto.ms-3.hstack.gap-2
+                .form-check.form-switch
+                    input.form-check-input(
+                        type="checkbox",
+                        role="switch",
+                        data-gr-type="opener",
+                        data-gr-target="#execute-scheduling"
+                    )
+                    label.form-check-label(for="#execute-scheduling") 예약 실행
+        #execute-scheduling.collapse
+            .container-fluid.bg-tone.py-3
+                section.d-flex.flex-column
+                    .row 
+                        .col 
+                            .row.gx-3.gy-2
+                                .col #[+input-sm("예약 제목")]
+                                .col #[+input-sm("설명")]
+                                .d-block.d-lg-none.w-100.h-0
+                                .col-auto.col-lg-2
+                                    +caption-sm("실행 알림")
+                                    .wrap.d-flex.align-items-center
+                                        +check("execute-alert", "execute-alert-email", "small d-flex my-auto", "이메일")
+                                .d-none.d-lg-block.w-100.h-0
+                                .col #[+select-sm("실행주기")]
+                                .col.col-lg-4 #[+range-sm("예약 기간")]
+                                .d-block.d-lg-none.w-100.h-0
+                                .col.col-lg-3 #[+time-sm("실행시각")]
+                                .col #[+input-sm("반복실행 횟수")]
+        .container-fluid.vstack.gap-4.mt-3
+            section.d-flex.flex-column
+                .row.mb-2.gx-3.align-items-center
+                    .col-auto
+                        span.fs-6.fw-bold.me-2 장치 선택
+                        span.badge.bg-secondary
+                            span#device-count 0
+                            span 개
+                    .col-auto.ms-auto
+                        .input-group.input-group-sm
+                            span.input-group-text 에이전트
+                            select.form-select
+                                option(selected="") 에이전트 선택
+                                option(value="1") One
+                                option(value="2") Two
+                                option(value="3") Three
+                .table-responsive
+                    table#case_execute.small.table-bordered.table.table-sm.table-hover.w-100
+                        thead
+                            tr
+                                th(scope="col")
+                                    input#execute-all.form-check-input(
+                                        type="checkbox",
+                                        value="",
+                                        name="execute",
+                                        data-gr-type="condition",
+                                        data-gr-target="#execute-btn",
+                                        data-gr-count="#device-count"
+                                    ) 
+                                th(scope="col") 모델명
+                                th(scope="col") 식별번호
+                                th(scope="col") 해상도
+                                th(scope="col") OS
+                                th(scope="col") 버전
+                                th(scope="col") 상태
+                        tbody
+                            tr
+                                td #[+check("execute", "execute-1", "mb-0", null, "condition", "#execute-btn")]
+                                mixin dummy
+                                    td iPhone 13 Pro
+                                    td 012345678901234
+                                    td 1080x1920
+                                    td iOS
+                                    td 15.6.1
+                                +dummy
+                                td #[span.badge.bg-success 정상]
+                            tr
+                                td #[+check("execute", "execute-2", "mb-0", null, "condition", "#execute-btn")]
+                                +dummy
+                                td #[span.badge.bg-success 정상]
+                            tr
+                                td #[+check("execute", "execute-3", "mb-0", null, "condition", "#execute-btn")]
+                                +dummy
+                                td #[span.badge.bg-success 정상]
+                            tr
+                                td #[+check("execute", "execute-4", "mb-0", null, "condition", "#execute-btn")]
+                                +dummy
+                                td #[span.badge.bg-success 정상]
+        .container-fluid.d-flex
+            .hstack.gap-2.mx-auto
+                +btn#execute-btn.btn-primary(disabled) 실행
+                +btn.btn-secondary.popup-close-btn 취소
+    +danger-modal#disconnect-modal
+        span.d-block 해당 항목의 연결을 해제하시겠습니까?
+        span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

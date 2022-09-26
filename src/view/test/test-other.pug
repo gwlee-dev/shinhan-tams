@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        link(
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css",
+            rel="stylesheet",
+            integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT",
+            crossorigin="anonymous"
+        )
+    body 
+        .container.d-flex.gap-2.mt-3.flex-wrap
+            input#values.form-control.w-100
+            .input-group.flex-nowrap
+                input#menu.form-control
+                button#pick.btn.btn-primary.text-nowrap 가자~~
+        script.
+            const values = document.querySelector("#values");
+            values.value = "오부찌, 코이라멘, 소풍, 도화, 뭉티기, 바스, 양재골, 도라스시, 수제버거, 스파게티, 치킨처럼, 산동, 일키로";
+            const pick = () => {
+                const menus = values.value.split(", ");
+                document.querySelector("#menu").value = menus[Math.floor(Math.random() * menus.length)];
+            };
+            document.querySelector("#pick").addEventListener("click", pick);
