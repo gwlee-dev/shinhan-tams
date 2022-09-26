@@ -70,18 +70,18 @@ block contents
                                             href="/src/view/popup/case-execute.pug"
                                         ) 실행
             +pagination
-        section#test-history.d-flex.flex-column
+        section#test-history.d-flex.flex-column.dynamic-table
             .row.mb-2.gx-3.align-items-center
                 .col-auto
                     span.fs-4.fw-bold.mb-2 자동테스트 수행이력
                 .col-auto.me-auto.ms-n2
-                    button#history-remove-btn.btn.btn-danger.btn-sm(
+                    button.row-locked.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
                         data-bs-target="#danger-modal",
                         disabled
                     )
                         span 선택항목 (
-                        span#history-count 0
+                        span.row-counter 0
                         span 개) 삭제
                 .col-auto
                     .input-group.input-group-sm

@@ -6,6 +6,7 @@ import popupTrigger from "./_popupTrigger";
 import resetInput from "./_resetInput";
 import editorEnabler from "./editorEnabler";
 import switchOpen from "./_switchOpen";
+import { dynamicTableInit } from "./dynamicTable";
 
 const initFuncs = {
     modalVarying,
@@ -15,6 +16,7 @@ const initFuncs = {
     resetInput,
     editorEnabler,
     switchOpen,
+    dynamicTableInit,
 };
 
 (() => {

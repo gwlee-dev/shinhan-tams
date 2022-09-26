@@ -1,4 +1,4 @@
-const DynamicTable = class {
+export const DynamicTable = class {
     getChecks = (findAll) =>
         [...this.root.querySelectorAll(`[name=${this.chkAll.name}]`)].filter(
             (el) => !el.id.endsWith("-all") || findAll
@@ -13,11 +13,13 @@ const DynamicTable = class {
         this.getChecks().forEach((el) => (el.checked = goal));
     };
 
-    countChecks = () => {
+    processChecks = () => {
+        // counter
         const { length } = this.getChecks().filter((el) => el.checked);
-        this.counter.innerHTML = length;
-        typeof this.locked !== "undefined" &&
-            (this.locked.disabled = length === 0);
+        this.counter.forEach((el) => (el.innerHTML = length));
+        this.locked.forEach((el) => (el.disabled = length === 0));
+
+        // toggle
         if (length !== this.getChecks().length && this.chkAll.checked) {
             this.chkAll.indeterminate = true;
         }
@@ -42,12 +44,12 @@ const DynamicTable = class {
         const tr = this.tr.cloneNode(true);
         const check = tr.querySelector("[type=checkbox]");
         const btn = tr.querySelector(".row-remove-btn");
-        btn.addEventListener("click", this.removeRow);
+        btn && btn.addEventListener("click", this.removeRow);
         this.tbody.append(tr);
         this.setId(tr);
-        if (typeof this.counter !== "undefined") {
-            check.addEventListener("click", this.countChecks);
-            this.countChecks(tr);
+        if (this.chkAll) {
+            check.addEventListener("click", this.processChecks);
+            this.processChecks(tr);
         }
     };
 
@@ -58,22 +60,23 @@ const DynamicTable = class {
             specified.remove();
         typeof specified === "number" &&
             this.tbody.querySelector(`tr:nth-child(${specified})`).remove();
-        typeof this.counter !== "undefined" && this.countChecks();
+        this.chkAll && this.processChecks();
     };
 
-    constructor(option) {
+    init = (option) => {
+        this.counter = [...this.root.querySelectorAll(".row-counter")];
+        this.addBtn = [...this.root.querySelectorAll(".row-add-btn")];
+        this.locked = [...this.root.querySelectorAll(".row-locked")];
         Object.assign(this, option);
 
         // chkAll
         this.chkAll = this.root.querySelector("[type=checkbox][id$=all]");
-        if (typeof this.chkAll !== "undefined") {
+        if (this.chkAll) {
             this.chkAll.addEventListener("click", this.verifyChecked);
-            if (typeof this.counter !== "undefined") {
-                this.chkAll.addEventListener("click", this.countChecks);
-                this.getChecks().forEach((el) => {
-                    el.addEventListener("click", this.countChecks);
-                });
-            }
+            this.chkAll.addEventListener("click", this.processChecks);
+            this.getChecks().forEach((el) => {
+                el.addEventListener("click", this.processChecks);
+            });
         }
 
         // remove
@@ -83,26 +86,72 @@ const DynamicTable = class {
             );
 
         // add
-        if (typeof this.addBtn !== "undefined") {
-            this.tbody = this.root.querySelector("tbody");
-            this.tr = document.createElement("tr");
+
+        const createChkTd = () => {
             const chkTd = document.createElement("td");
             const chk = this.chkAll.cloneNode(true);
             chkTd.append(chk);
-            const tds = Object.keys(this.template).map((key) => {
-                const td = document.createElement("td");
-                const { rootClass, attribute } = this.template[key];
-                td.className = rootClass || "";
-                const control = document.createElement(this.template[key].tag);
-                Object.assign(control, attribute);
-                control.className = attribute.className;
-                td.append(control);
-                return td;
-            });
-            this.tr.append(chkTd, ...tds);
-            this.addBtn.addEventListener("click", this.appendRow);
+            return chkTd;
+        };
+
+        if (this.addBtn.length > 0) {
+            this.thead = this.root.querySelector("thead");
+            this.tbody = this.root.querySelector("tbody");
+            this.tr = document.createElement("tr");
+            const headers = [...this.thead.querySelectorAll("th[data-gr-tag]")];
+            const tds = this.template
+                ? Object.keys(this.template).map((key) => {
+                      const td = document.createElement("td");
+                      const { rootClass, attribute } = this.template[key];
+                      td.className = rootClass || "";
+                      const control = document.createElement(
+                          this.template[key].tag
+                      );
+                      Object.assign(control, attribute);
+                      control.className = attribute.className;
+                      td.append(control);
+                      return td;
+                  })
+                : headers.map((header) => {
+                      const td = document.createElement("td");
+                      td.className = header.getAttribute("data-gr-class") || "";
+                      const control = document.createElement(
+                          header.getAttribute("data-gr-tag")
+                      );
+                      control.className =
+                          header.getAttribute("data-gr-tag-class") || "";
+                      control.innerHTML =
+                          header.getAttribute("data-gr-tag-inner") || "";
+                      const attributes = {};
+                      [...header.attributes]
+                          .filter(
+                              ({ name }) =>
+                                  name !== "data-gr-tag-class" &&
+                                  name !== "data-gr-tag-inner" &&
+                                  name.startsWith("data-gr-tag-")
+                          )
+                          .forEach(({ name, value }) => {
+                              attributes[name.replace("data-gr-tag-", "")] =
+                                  value;
+                          });
+                      Object.assign(control, attributes);
+                      td.append(control);
+                      return td;
+                  });
+            this.tr.append(this.chkAll && createChkTd(), ...tds);
+            this.addBtn.forEach((el) =>
+                el.addEventListener("click", this.appendRow)
+            );
         }
+    };
+
+    constructor(root, option) {
+        typeof root.constructor.name.endsWith("Element") && (this.root = root);
+        this.init(option ?? {});
     }
 };
 
-export default DynamicTable;
+export const dynamicTableInit = () =>
+    [...document.querySelectorAll(".dynamic-table")].forEach((el) => {
+        el.instance = new DynamicTable(el);
+    });

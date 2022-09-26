@@ -24,16 +24,16 @@ block contents
                     .col-2 #[+select-sm("시스템")]
                     .col-10 #[+input-sm("데이터셋 명")]
                     .col-12 #[+textarea-sm("데이터셋 설명")]
-            section#column-management.d-flex.flex-column
+            section#column-management.d-flex.flex-column.dynamic-table
                 .hstack.gap-2.align-items-center.mb-2
                     span.fs-5.fw-bold 열(필드) 관리
-                    button#column-remove-btn.btn.btn-danger.btn-sm(
+                    button.row-locked.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
                         data-bs-target="#danger-modal",
                         disabled
                     )
                         span 선택항목 (
-                        span#column-count 0
+                        span.row-counter 0
                         span 개) 삭제
                     +a-btn.btn-primary.btn-sm.ms-auto.row-add-btn 추가
                     +a-btn.btn-secondary.btn-sm 초기화
@@ -45,14 +45,31 @@ block contents
                                     input#column-all.form-check-input(
                                         type="checkbox",
                                         value="",
-                                        name="column",
-                                        data-gr-type="condition",
-                                        data-gr-target="#column-remove-btn",
-                                        data-gr-count="#column-count"
+                                        name="column"
                                     ) 
-                                th(scope="col") 열이름
-                                th(scope="col") 설명
-                                th(scope="col") 삭제
+                                th(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="describe"
+                                ) 열이름
+                                th(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="describe"
+                                ) 설명
+                                th(
+                                    scope="col",
+                                    data-gr-tag="button",
+                                    data-gr-tag-class="btn btn-sm btn-outline-danger py-0 row-remove-btn",
+                                    data-gr-tag-name="describe",
+                                    data-gr-tag-inner="삭제"
+                                ) 삭제
                         tbody
                             tr 
                                 td 
@@ -72,5 +89,3 @@ block contents
                 +btn.btn-primary 저장
                 +btn.btn-secondary.popup-close 취소
     +danger-modal
-block scripts
-    script(src="/src/js/pages/dataset.js", type="module")

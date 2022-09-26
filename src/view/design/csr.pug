@@ -163,18 +163,18 @@ block contents
                                         data-bs-toggle="modal",
                                         data-bs-target="#danger-modal"
                                     ) 삭제
-        section#test-history.d-flex.flex-column
+        section#test-history.d-flex.flex-column.dynamic-table
             .row.mb-2.g-2.align-items-center
                 .col-auto
                     span.fs-4.fw-bold.mb-2 자동테스트 수행이력
                 .col-auto.me-auto
-                    button#history-remove-btn.btn.btn-danger.btn-sm(
+                    button.row-locked.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
                         data-bs-target="#danger-modal",
                         disabled
                     )
                         span 선택항목 (
-                        span#history-count 0
+                        span.row-counter 0
                         span 개) 삭제
                 .col-auto
                     .input-group.input-group-sm
@@ -197,10 +197,7 @@ block contents
                                 input#history-all.form-check-input(
                                     type="checkbox",
                                     value="",
-                                    name="history",
-                                    data-gr-type="condition",
-                                    data-gr-target="#history-remove-btn",
-                                    data-gr-count="#history-count"
+                                    name="history"
                                 ) 
                             th(scope="col") 시스템
                             th(scope="col") 케이스 ID
@@ -211,7 +208,7 @@ block contents
                             th(scope="col") 메뉴
                     tbody
                         tr
-                            td #[+check("history", "history-1", "mb-0", null, "condition", "#history-remove-btn")]
+                            td #[+check("history", "history-1", "mb-0")]
                             td 시스템-6
                             td #[a(href="#") TC202010060063]
                             td testcase-1321056
@@ -277,5 +274,4 @@ block contents
         span.d-block 테스트 결과가 입력되지 않은 건을
         span.d-block #[span.fw-bold 일괄 정상 처리]하시겠습니까?
 block scripts
-    script(src="/src/js/pages/csr.js", type="module") 
     script(src="/src/js/datepicker.js", type="module") 
