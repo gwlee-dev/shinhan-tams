@@ -41,10 +41,15 @@
                 "icon": "bi-robot",
                 "nodes": [
                     {
+<<<<<<< HEAD
                         "title": "테스트케이스 실행",
                         "id": "case",
                         "link": true
 
+=======
+                        "title": "케이스 실행",
+                        "id": "case"
+>>>>>>> cf5c0cccd822fe4bd5478ccb94746a2477b7d3f5
                     },
                     {
                         "title": "예약실행 관리",
