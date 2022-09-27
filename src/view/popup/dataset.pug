@@ -41,21 +41,21 @@ block contents
                     table#column_list.small.table-bordered.table.table-sm.table-hover.w-100.bg-white.mb-0
                         thead
                             tr
-                                th(scope="col")
+                                th#column-check(scope="col")
                                     input#column-all.form-check-input(
                                         type="checkbox",
                                         value="",
-                                        name="column"
+                                        name="column-chk"
                                     ) 
-                                th(
+                                th#column-name(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="describe"
+                                    data-gr-tag-name="column-name"
                                 ) 열이름
-                                th(
+                                th#column-describe(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -63,11 +63,10 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="describe"
                                 ) 설명
-                                th(
+                                th#column-remove(
                                     scope="col",
                                     data-gr-tag="button",
                                     data-gr-tag-class="btn btn-sm btn-outline-danger py-0 row-remove-btn",
-                                    data-gr-tag-name="describe",
                                     data-gr-tag-inner="삭제"
                                 ) 삭제
                         tbody
@@ -76,7 +75,7 @@ block contents
                                     input#column-1.form-check-input(
                                         type="checkbox",
                                         value="",
-                                        name="column",
+                                        name="column-chk",
                                         data-gr-type="condition",
                                         data-gr-target="#column-remove-btn",
                                         data-gr-count="#column-count"

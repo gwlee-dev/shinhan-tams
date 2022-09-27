@@ -47,7 +47,7 @@ block contents
                     .col-auto
                         span.fs-6.fw-bold.me-2 장치 선택
                         span.badge.bg-secondary
-                            span#device-count 0
+                            span.row-counter 0
                             span 개
                     .col-auto.ms-auto
                         .input-group.input-group-sm
@@ -65,20 +65,22 @@ block contents
                                     input#execute-all.form-check-input(
                                         type="checkbox",
                                         value="",
-                                        name="execute",
-                                        data-gr-type="condition",
-                                        data-gr-target="#execute-btn",
-                                        data-gr-count="#device-count"
+                                        name="execute"
                                     ) 
-                                th(scope="col") 모델명
-                                th(scope="col") 식별번호
-                                th(scope="col") 해상도
-                                th(scope="col") OS
-                                th(scope="col") 버전
-                                th(scope="col") 상태
+                                th(scope="col", data-gr-tag="span") 모델명
+                                th(scope="col", data-gr-tag="span") 식별번호
+                                th(scope="col", data-gr-tag="span") 해상도
+                                th(scope="col", data-gr-tag="span") OS
+                                th(scope="col", data-gr-tag="span") 버전
+                                th(
+                                    scope="col",
+                                    data-gr-class="mb-0",
+                                    data-gr-tag="span",
+                                    data-gr-tag-class="badge bg-secondary"
+                                ) 상태
                         tbody
                             tr
-                                td #[+check("execute", "execute-1", "mb-0", null, "condition", "#execute-btn")]
+                                td #[+check("execute", "execute-1", "mb-0")]
                                 mixin dummy
                                     td iPhone 13 Pro
                                     td 012345678901234
@@ -88,15 +90,15 @@ block contents
                                 +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
-                                td #[+check("execute", "execute-2", "mb-0", null, "condition", "#execute-btn")]
+                                td #[+check("execute", "execute-2", "mb-0")]
                                 +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
-                                td #[+check("execute", "execute-3", "mb-0", null, "condition", "#execute-btn")]
+                                td #[+check("execute", "execute-3", "mb-0")]
                                 +dummy
                                 td #[span.badge.bg-success 정상]
                             tr
-                                td #[+check("execute", "execute-4", "mb-0", null, "condition", "#execute-btn")]
+                                td #[+check("execute", "execute-4", "mb-0")]
                                 +dummy
                                 td #[span.badge.bg-success 정상]
         .container-fluid.d-flex
