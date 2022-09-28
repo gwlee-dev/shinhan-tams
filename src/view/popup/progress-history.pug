@@ -12,7 +12,6 @@ block head
 block contents
     .popup.popup-lg.vstack.gap-3.pb-2
         +popup-title
-            h5.m-0 진행상태 이력
             .ms-auto.ms-3
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
@@ -49,5 +48,5 @@ block contents
                             td 2021-02-19 14:50:39
                             td 
                             td 김신한
-            .hstack.gap-2
-                +btn.btn-secondary.popup-close-btn.mx-auto 확인
+        +popup-footer
+            +btn.btn-secondary.popup-close-btn.mx-auto 확인

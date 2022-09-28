@@ -174,7 +174,9 @@ export const DynamicTable = class {
     }
 };
 
-export const dynamicTableInit = () =>
+const dynamicTableInit = () =>
     [...document.querySelectorAll(".dynamic-table")].forEach((el) => {
         Object.assign(el, new DynamicTable(el));
     });
+
+export default dynamicTableInit;

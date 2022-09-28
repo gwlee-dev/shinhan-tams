@@ -6,7 +6,9 @@ html.h-100(lang="ko")
             title= `TAMS | ${title}`
         else
             title TAMS
-    body.d-flex.flex-column.h-100
+    body.d-flex.flex-column.h-100(data-gr-dismiss="#notice-modal")
+        #preloader
+            .bar(role="progressbar")
         header.sticky-top
             include layout/navbar
         main.flex-grow-1.vstack
@@ -45,4 +47,5 @@ html.h-100(lang="ko")
                             span.ff-shinhan.fs-5 보고서 관리
         include layout/footer
         include modals/sitemap
-        script(src="/src/js/app.js", type="module")
+        include modals/notice
+        script(src="/src/js/app.js", type="module", defer="false")

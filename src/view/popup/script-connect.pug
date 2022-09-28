@@ -12,7 +12,6 @@ block head
 block contents
     .popup.popup-xl.pb-2
         +popup-title
-            h5.m-0 스크립트 연결
         .container-fluid.bg-tone.py-3
             section.d-flex.flex-column
                 .row.gx-2
@@ -84,9 +83,8 @@ block contents
                                             +table-btn.btn-outline-dark 선택
 
                     +pagination
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn.btn-secondary.popup-close 취소
+        +popup-footer
+            +btn.btn-secondary.popup-close 취소
     +danger-modal#disconnect-modal
     span.d-block 해당 항목의 연결을 해제하시겠습니까?
     span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

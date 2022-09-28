@@ -13,7 +13,6 @@ block head
 block contents
     .popup.popup-xl.vstack.gap-3.pb-2
         +popup-title
-            h5.m-0 테스트 데이터셋 신규 등록
             .ms-auto.ms-3
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
@@ -83,8 +82,7 @@ block contents
                                 td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
                                 td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
                                 td #[button.btn.btn-sm.btn-outline-danger.py-0.row-remove-btn(name="describe") 삭제]
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn.btn-primary 저장
-                +btn.btn-secondary.popup-close 취소
+        +popup-footer
+            +btn.btn-primary 저장
+            +btn.btn-secondary.popup-close 취소
     +danger-modal

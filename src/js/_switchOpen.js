@@ -23,9 +23,9 @@ const switchOpen = () => {
         };
         relative.addEventListener("click", switchClickHandler);
         const popup = document.querySelector(".popup");
-        popup !== null &&
+        popup &&
             relative.addEventListener("transitionend", () =>
-                setTimeout(popup.instance.position, 200)
+                setTimeout(popup.position, 200)
             );
     });
 };

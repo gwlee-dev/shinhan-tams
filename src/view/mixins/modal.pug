@@ -1,14 +1,8 @@
 mixin modal-header(text)
     .modal-header
         h5.modal-title= text
+        block
         +modal-close
-
-mixin modal(id, title, keyboard)
-    .modal.fade(tabindex="-1", aria-hidden="true", id=id, data-bs-keyboard="false")
-        .modal-dialog.modal-dialog-centered&attributes(attributes)
-            .modal-content
-                +modal-header(title)
-                block
 
 mixin danger-modal
     #danger-modal.modal.fade(tabindex="-1")&attributes(attributes)

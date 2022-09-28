@@ -8,35 +8,63 @@ html.h-100(lang="ko")
         else
             title TAMS
     body.d-flex.flex-column.h-100
+        #preloader
+            .bar(role="progressbar")
         main.flex-grow-1.vstack
             a.position-fixed.bottom-0(href="/src/view/test/test-ui.pug") 테스트페이지
             .container.pt-5.pb-6.flex-grow-1.d-flex
                 .row.row-cols-1.row-cols-lg-2.my-auto.mx-auto.col-12.col-xl-10
                     .col
-                        form.vstack.gap-4.px-lg-5(method="POST")
-                            h3.text-center.ff-card.fw-bold 사용자 로그인
-                            .form-floating
-                                input#id.form-control(
-                                    type="text",
-                                    placeholder="사용자 ID"
-                                )
-                                label(for="id") 사용자 ID
-                            .form-floating
-                                input#password.form-control(
-                                    type="password",
-                                    placeholder="비밀번호"
-                                )
-                                label(for="password") 비밀번호
-                            button.btn.btn-primary.px-4.py-2.align-self-center 로그인
+                        .px-lg-5
+                            form#login-form.vstack.gap-4.needs-validation(
+                                method="POST",
+                                novalidate
+                            )
+                                h3.text-center.ff-card.fw-bold 사용자 로그인
+                                .form-floating
+                                    input#id.form-control(
+                                        type="text",
+                                        placeholder="사용자 ID"
+                                    )
+                                    .invalid-feedback 존재하지 않는 ID 입니다.
+                                    label(for="id") 사용자 ID
+                                .form-floating
+                                    input#password.form-control(
+                                        type="password",
+                                        placeholder="비밀번호"
+                                    )
+                                    .invalid-feedback 비밀번호가 일치하지 않습니다.
+                                    label(for="password") 비밀번호
+                                button#login-btn.btn.btn-primary.px-4.py-2.align-self-center 로그인
                     .col.order-lg-first.d-flex.flex-column.flex-lg-row
                         .ms-auto.w-100.border-top.d-lg-none.my-4
                         .d-flex.justify-content-center.flex-column.align-items-start
-                            img.mb-4.d-none.d-lg-block(
-                                src="/src/img/logo_only_grey.png"
-                            )
+                            a(href="/")
+                                img.mb-4.d-none.d-lg-block(
+                                    src="/src/img/logo_only_grey.png"
+                                )
                             p.form-text
                                 span.d-block 최초 비밀번호는 #[code TAMS사번!] 입니다.
                                 span.d-block 비밀번호는 6~16자로 영문자, 숫자, 특수문자를 모두 포함해야 합니다.
                                 span.d-block 비밀번호 분실 시 관리자에게 요청하시면 초기화 해드립니다.
                         .ms-auto.h-100.border-end.d-none.d-lg-block
-        script(src="/src/js/app.js", type="module")
+        script(src="/src/js/app.js", type="module", defer="false")
+
+        // 각 input에 .is-invalid 클래스 추가시 피드백 표시
+
+        // 예시
+        script.
+            const blurFunc = (e) => {
+                e.target.classList.remove("is-invalid");
+                e.target.removeEventListener("focus", blurFunc);
+            };
+
+            const invalidFunc = (e) => {
+                e.preventDefault();
+                [...document.querySelectorAll("#login-form input")].forEach((el) => {
+                    el.classList.add("is-invalid");
+                    el.addEventListener("focus", blurFunc);
+                });
+            };
+
+            document.querySelector("#login-btn").addEventListener("click", invalidFunc);

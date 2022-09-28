@@ -1,0 +1,24 @@
+table#schedule_list {
+    $schedule_list: (
+        1: 4%,
+        2: 7%,
+        3: 13%,
+        4: 8%,
+        5: 8%,
+        6: 6%,
+        7: 8%,
+        8: 8%,
+        9: 5%,
+        10: 5%,
+        11: 7%,
+        12: 19%,
+    );
+    th,
+    td {
+        @each $i, $percent in $schedule_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

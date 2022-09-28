@@ -5,6 +5,7 @@ block head
     - var title = "테스트 페이지";
 
 block contents
+    body(data-gr-dismiss="#sitemap #notice-modal")
     .container
         .hstack.gap-3
             h1 Title Text
@@ -232,6 +233,4 @@ block contents
                                             data-bs-dismiss="modal"
                                         ) 닫기
                                         button.btn.btn-primary(type="button") 저장
-
-block scripts
-    script(src="/src/js/DEV.js", type="module")
+    include ../modals/notice

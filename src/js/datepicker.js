@@ -24,46 +24,50 @@ const pickerOption = {
     lang: "ko-KR",
 };
 
-[...range].forEach(
-    (x) =>
-        new easepick.create({
-            element: x.querySelector(".start-date"),
-            RangePlugin: {
-                elementEnd: x.querySelector(".end-date"),
-                strict: false,
-                locale: {
-                    other: "일",
+const datepickerInit = () => {
+    [...range].forEach(
+        (x) =>
+            new easepick.create({
+                element: x.querySelector(".start-date"),
+                RangePlugin: {
+                    elementEnd: x.querySelector(".end-date"),
+                    strict: false,
+                    locale: {
+                        other: "일",
+                    },
                 },
-            },
-            plugins: [AmpPlugin, PresetPlugin, RangePlugin],
-            ...pickerOption,
-        })
-);
+                plugins: [AmpPlugin, PresetPlugin, RangePlugin],
+                ...pickerOption,
+            })
+    );
 
-[...datepicker].forEach(
-    (element) =>
-        new easepick.create({
-            element,
-            plugins: [AmpPlugin, PresetPlugin],
-            ...pickerOption,
-        })
-);
+    [...datepicker].forEach(
+        (element) =>
+            new easepick.create({
+                element,
+                plugins: [AmpPlugin, PresetPlugin],
+                ...pickerOption,
+            })
+    );
 
-[...rangeButton].forEach((x) => {
-    const real = {
-        start: x.parentNode.querySelector(".start-date"),
-        end: x.parentNode.querySelector(".end-date"),
-    };
-    const fake = {
-        start: x.querySelector(".start-display"),
-        end: x.querySelector(".end-display"),
-    };
-    real.start.addEventListener("input", () => {
-        console.log("hi");
-        fake.start.innerHTML = real.start.value;
+    [...rangeButton].forEach((x) => {
+        const real = {
+            start: x.parentNode.querySelector(".start-date"),
+            end: x.parentNode.querySelector(".end-date"),
+        };
+        const fake = {
+            start: x.querySelector(".start-display"),
+            end: x.querySelector(".end-display"),
+        };
+        real.start.addEventListener("input", () => {
+            console.log("hi");
+            fake.start.innerHTML = real.start.value;
+        });
+        real.end.addEventListener("input", () => {
+            fake.end.innerHTML = real.end.value;
+        });
+        x.addEventListener("click", () => real.start.click());
     });
-    real.end.addEventListener("input", () => {
-        fake.end.innerHTML = real.end.value;
-    });
-    x.addEventListener("click", () => real.start.click());
-});
+};
+
+export default datepickerInit;

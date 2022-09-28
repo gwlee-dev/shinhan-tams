@@ -47,7 +47,8 @@
                     },
                     {
                         "title": "예약실행 관리",
-                        "id": "schedule"
+                        "id": "schedule",
+                        "link": true
                     },
                     {
                         "title": "실시간 모니터링",

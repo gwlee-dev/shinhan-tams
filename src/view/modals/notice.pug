@@ -1,0 +1,22 @@
+include ../mixins/button
+include ../mixins/modal
+
+#notice-modal.modal.fade(
+    tabindex="-1",
+    aria-hidden="true",
+    data-bs-keyboard="false"
+)
+    .modal-dialog.modal-dialog-centered.modal-lg
+        .modal-content
+            .modal-header.d-flex.align-items-center
+                span.badge.bg-secondary.me-2 공지
+                h5.modal-title TEST
+                +modal-close
+            .modal-body 
+                .notice-contents 
+                    - for (var i = 0; i < 10; i++)
+                        span.d-block 안녕 하세요~
+                        span.d-block TAMS
+            .modal-footer
+                +btn.btn-secondary(data-bs-dismiss="modal") 오늘은 그만보기
+                +btn.btn-primary(data-bs-dismiss="modal") 닫기

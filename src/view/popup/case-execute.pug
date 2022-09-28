@@ -12,7 +12,6 @@ block head
 block contents
     .popup.popup-xl.pb-2
         +popup-title
-            h5.m-0 테스트케이스 실행
             .ms-auto.ms-3.hstack.gap-2
                 .form-check.form-switch
                     input.form-check-input(
@@ -101,10 +100,10 @@ block contents
                                 td #[+check("execute", "execute-4", "mb-0")]
                                 +dummy
                                 td #[span.badge.bg-success 정상]
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn#execute-btn.btn-primary(disabled) 실행
-                +btn.btn-secondary.popup-close-btn 취소
+        +popup-footer
+            +btn#execute-btn.btn-primary(disabled) 실행
+            +btn.btn-secondary.popup-close-btn 취소
+
     +danger-modal#disconnect-modal
         span.d-block 해당 항목의 연결을 해제하시겠습니까?
         span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

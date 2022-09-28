@@ -69,7 +69,7 @@ block contents
                             td REQ-001
                             td requirement-1416310
                             td 수정
-                            td #[a(href="#", data-bs-toggle="modal", data-bs-target="#request-detail") 요구사항상세내용-1416311]
+                            td #[+link.popup-link(href="/src/view/popup/case.pug") 요구사항상세내용-1416311]
                             td
                                 .hstack.gap-1.justify-content-center
                                     +a-table-btn.btn-outline-primary.popup-link(
@@ -119,9 +119,8 @@ block contents
                                     +table-btn.btn-outline-secondary(
                                         disabled="true"
                                     ) (실행이력 없음)
-                                    +table-btn.btn-outline-primary(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#case-result"
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case-result.pug"
                                     ) 결과입력
                                     +a-table-btn.btn-outline-primary.popup-link(
                                         href="/src/view/popup/result-history.pug"
@@ -267,11 +266,8 @@ block contents
                                     data-bs-target="#danger-modal"
                                 ) 삭제
 
-    include ../modals/design-req/case-execute
-    include ../modals/design-req/case-result
     +danger-modal
     +confirm-modal#all-success 
         span.d-block 테스트 결과가 입력되지 않은 건을
         span.d-block #[span.fw-bold 일괄 정상 처리]하시겠습니까?
 block scripts
-    script(src="/src/js/datepicker.js", type="module") 

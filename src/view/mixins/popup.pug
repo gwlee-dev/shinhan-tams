@@ -1,4 +1,10 @@
 mixin popup-title
     .container-fluid.bg-white.sticky-top.border-bottom
         .py-3.d-flex.align-items-center&attributes(attributes)
+            h5.m-0= title
+            block
+
+mixin popup-footer
+    .container-fluid.d-flex.bg-white.sticky-bottom.py-2.mt-auto
+        .hstack.gap-2.mx-auto
             block

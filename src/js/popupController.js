@@ -11,8 +11,9 @@ const Popup = class {
             height: outerHeight - innerHeight,
         };
         const popupWidth = offsetWidth + ui.width;
+        const calcHeight = offsetHeight + ui.height;
         const popupHeight =
-            offsetHeight > availHeight
+            calcHeight > availHeight * 0.75
                 ? availHeight * 0.75
                 : offsetHeight + ui.height;
 
@@ -44,7 +45,7 @@ const Popup = class {
 
 const init = () => {
     const el = document.querySelector(".popup");
-    el.instance = new Popup(el);
+    Object.assign(el, new Popup(el));
 };
 
 init();

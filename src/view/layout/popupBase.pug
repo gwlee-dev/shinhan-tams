@@ -8,7 +8,9 @@ html.h-100(lang="ko")
         else
             title TAMS
     body.popup-window
+        #preloader
+            .bar(role="progressbar")
         block contents
-        script(src="/src/js/popupController.js", type="module")
         script(src="/src/js/app.js", type="module")
+        script(src="/src/js/popupController.js", type="module", defer="false")
         block scripts

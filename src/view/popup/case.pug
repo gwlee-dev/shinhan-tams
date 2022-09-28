@@ -12,7 +12,6 @@ block head
 block contents
     .popup.popup-xl.vstack.gap-3.pb-2
         +popup-title
-            h5.m-0 테스트케이스 신규 등록
             .ms-auto.ms-3.hstack.gap-2
                 +a-btn.btn-outline-secondary.btn-sm CSR/요구사항 연결
                 +a-btn.btn-outline-secondary.btn-sm 참조등록
@@ -105,7 +104,6 @@ block contents
                         tbody
                             tr
                                 td C202012248053B-6
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn.btn-primary 저장
-                +btn.btn-secondary.popup-close 취소
+        +popup-footer
+            +btn.btn-primary 저장
+            +btn.btn-secondary.popup-close 취소

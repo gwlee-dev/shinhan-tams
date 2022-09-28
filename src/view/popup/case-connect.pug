@@ -12,7 +12,6 @@ block head
 block contents
     .popup.popup-xl.pb-2
         +popup-title
-            h5.m-0 테스트케이스 연결
             .ms-auto.ms-3.hstack.gap-2
                 +a-btn.btn-outline-secondary.btn-sm.popup-link(
                     href="/src/view/popup/case.pug"
@@ -87,9 +86,9 @@ block contents
                                             ) 편집
                                             +table-btn.btn-outline-dark 선택
                     +pagination
-        .container-fluid.d-flex
-            .hstack.gap-2.mx-auto
-                +btn.btn-secondary.popup-close-btn 취소
+        +popup-footer
+            +btn.btn-secondary.popup-close-btn 취소
+
     +danger-modal#disconnect-modal
         span.d-block 해당 항목의 연결을 해제하시겠습니까?
         span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

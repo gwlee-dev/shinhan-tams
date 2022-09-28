@@ -1,0 +1,68 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "예약실행 관리";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col #[+input("예약 제목")]
+                        .col #[+input("CSR 번호")]
+                        .col #[+select("실행주기")]
+                        .col #[+input("작성자")]
+                        .col-auto.align-self-end #[+btn.btn-primary 검색]
+                        .col-auto.align-self-end #[+btn.btn-secondary 초기화]
+    .contents.container.pt-5.pb-6.flex-grow-1.d-flex.flex-column.gap-5
+        .table-responsive
+            table#schedule_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                thead
+                    tr
+                        th(scope="col") 번호
+                        th(scope="col") 예약제목
+                        th(scope="col") CSR번호
+                        th(scope="col") 실행시작
+                        th(scope="col") 실행종료
+                        th(scope="col") 실행시각
+                        th(scope="col") 실행주기유형
+                        th(scope="col") 실행주기
+                        th(scope="col") 반복횟수
+                        th(scope="col") 작성자
+                        th(scope="col") 작성일
+                        th(scope="col") 메뉴
+                tbody
+                    - for (var i = 1; i <= 10; i++)
+                        tr
+                            td= i
+                            td 예약테스트
+                            td C202012248053B-6
+                            td 2021-02-04
+                            td 2021-02-04
+                            td 16:15
+                            td 매일
+                            td
+                            td 1
+                            td 안신한
+                            td 2021-02-14
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    +table-btn.btn-outline-primary 예약관리
+                                    +table-btn.btn-outline-primary 실행결과
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case-execute.pug"
+                                    ) 편집
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
+        +pagination
+    +danger-modal
