@@ -1,0 +1,66 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "예약된 테스트케이스 목록";
+
+block contents
+    .popup.popup-xl.vstack.gap-3.pb-2
+        +popup-title
+            .ms-auto.ms-3
+                +badge.bg-secondary 최종변경일시
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
+        .container-fluid
+            .table-responsive
+                table#case_schedule.small.table-bordered.table.table-sm.table-hover.w-100
+                    thead
+                        tr
+                            th(scope="col") CSR 번호
+                            th(scope="col") 케이스 ID
+                            th(scope="col") 테스트케이스명
+                            th(scope="col") 에이전트
+                            th(scope="col") 디바이스명
+                            th(scope="col") 제조사
+                            th(scope="col") 운영체제
+                            th(scope="col") 운영체제 버전
+                            th(scope="col") 해상도
+                    tbody
+                        tr
+                            td C202012248053B-6
+                            td TC202009150032
+                            td testcase-1308281
+                            td ath
+                            td PC
+                            td unknown
+                            td Win32
+                            td 7.0
+                            td 1920x1080
+                        tr
+                            td C202012248053B-6
+                            td TC202009150032
+                            td testcase-1308281
+                            td ath
+                            td SHW-A170S
+                            td SAMSUNG
+                            td Android
+                            td 7.0
+                            td 1920x1080
+                        tr
+                            td C202012248053B-6
+                            td TC202009150032
+                            td testcase-1308281
+                            td ath
+                            td iPhone
+                            td Apple
+                            td Android
+                            td 7.0
+                            td 1920x1080
+            +popup-footer
+                +btn.btn-secondary.popup-close-btn.mx-auto 확인
+    +danger-modal

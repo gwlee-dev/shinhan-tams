@@ -11,7 +11,7 @@ mixin caption-sm(caption)
 mixin range(caption)
     +caption(caption)
     .date-range-wrap.position-relative
-        .input-group
+        .input-group&attributes(attributes)
             input.start-date.form-control(type="text", placeholder="시작 일자")
             span.input-group-text ~
             input.end-date.form-control(type="text", placeholder="종료 일자")

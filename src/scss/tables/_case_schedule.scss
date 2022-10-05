@@ -1,0 +1,21 @@
+table#case_schedule {
+    $case_schedule: (
+        1: 13%,
+        2: 13%,
+        3: 20%,
+        4: 9%,
+        5: 10%,
+        6: 9%,
+        7: 8%,
+        8: 9%,
+        9: 9%,
+    );
+    th,
+    td {
+        @each $i, $percent in $case_schedule {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

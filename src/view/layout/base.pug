@@ -7,7 +7,7 @@ html.h-100(lang="ko")
             title= `TAMS | ${title}`
         else
             title TAMS
-    body.d-flex.flex-column.h-100
+    body.d-flex.flex-column
         #preloader
             .bar(role="progressbar")
         header.sticky-top
@@ -17,5 +17,5 @@ html.h-100(lang="ko")
             block contents
         include footer
         include ../modals/sitemap
-        script(src="/src/js/app.js", type="module", defer="false")
+        script(src="/src/js/app.js", type="module")
         block scripts

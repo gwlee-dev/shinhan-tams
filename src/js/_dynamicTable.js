@@ -48,7 +48,7 @@ export const DynamicTable = class {
         this.tbody.append(tr);
         this.setId(tr);
         if (arg.length > 0) {
-            arg[0].constructor.name === "PointerEvent" && arg.shift();
+            arg[0].constructor.name.endsWith("Event") && arg.shift();
             const controls = [...tr.querySelectorAll(".row-control")];
             controls
                 .filter((el, idx) => arg[idx])

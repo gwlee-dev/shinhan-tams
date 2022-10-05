@@ -23,17 +23,6 @@ const popupTrigger = () => {
         x.addEventListener("click", preventAndPop)
     );
 
-    [...document.querySelectorAll(".table tbody")].forEach((x) => {
-        const observer = new MutationObserver((mutations) => {
-            [...mutations[0].addedNodes].forEach((tr) =>
-                [...tr.querySelectorAll(".popup-link")].forEach((el) =>
-                    el.addEventListener("click", preventAndPop)
-                )
-            );
-        });
-        observer.observe(x, { childList: true });
-    });
-
     [...document.body.classList].includes("popup-window") &&
         [...document.querySelectorAll(".popup-close")].forEach((x) =>
             x.addEventListener("click", () => {
@@ -41,5 +30,4 @@ const popupTrigger = () => {
             })
         );
 };
-
 export default popupTrigger;

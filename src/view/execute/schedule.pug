@@ -55,8 +55,12 @@ block contents
                             td 2021-02-14
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +table-btn.btn-outline-primary 예약관리
-                                    +table-btn.btn-outline-primary 실행결과
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case-schedule.pug"
+                                    ) 예약관리
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/schedule-history.pug"
+                                    ) 실행결과
                                     +a-table-btn.btn-outline-primary.popup-link(
                                         href="/src/view/popup/case-execute.pug"
                                     ) 편집

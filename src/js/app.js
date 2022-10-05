@@ -1,11 +1,10 @@
-import * as bootstrap from "bootstrap";
 import navInit from "./_navbarOffcanvas";
 import popupTrigger from "./_popupTrigger";
 import resetInput from "./_resetInput";
-import editorEnabler from "./editorEnabler";
+import editorEnabler from "./_editorEnabler";
 import switchOpen from "./_switchOpen";
-import dynamicTableInit from "./dynamicTable";
-import datepickerInit from "./datepicker";
+import dynamicTableInit from "./_dynamicTable";
+import datepickerInit from "./_datepicker";
 import emergencyModal from "./_emergencyModal";
 import preloader from "./_preloader";
 
@@ -23,6 +22,5 @@ const initFuncs = {
 
 (() => {
     Object.keys(initFuncs).forEach((key) => initFuncs[key]());
-    window.bootstrap = bootstrap;
     window.pop = (e) => alert(e);
 })();
