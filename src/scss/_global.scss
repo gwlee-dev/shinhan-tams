@@ -9,7 +9,7 @@
 }
 
 .popup {
-    min-width: var(--#{$prefix}popup-width);
+    width: var(--#{$prefix}popup-width);
     &.loading {
         overflow: visible;
     }
@@ -24,6 +24,10 @@ body {
 body:not(.popup-window) {
     display: flex;
     flex-direction: column;
+}
+
+body > *:not(main) {
+    user-select: none;
 }
 
 ::-webkit-scrollbar {

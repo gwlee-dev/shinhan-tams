@@ -6,6 +6,7 @@ const Popup = class {
             innerHeight,
         } = window;
         const { offsetWidth, offsetHeight } = this.root;
+        console.log(this.root);
         const ui = {
             width: outerWidth - innerWidth,
             height: outerHeight - innerHeight,
@@ -39,7 +40,7 @@ const Popup = class {
             el.addEventListener("click", () => window.close())
         );
 
-        this.position();
+        window.addEventListener("load", this.position);
     }
 };
 

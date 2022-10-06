@@ -1,0 +1,11 @@
+include ../mixins/button
+include ../mixins/modal
+
+#preview-modal.modal.fade(tabindex="-1", , data-bs-keyboard="false")
+    .modal-dialog.modal-dialog-centered.modal-xl
+        .modal-content
+            +modal-header("미리보기")
+            .modal-body
+                iframe#preview-frame
+            .modal-footer
+                +btn.btn-secondary(data-bs-dismiss="modal") 취소

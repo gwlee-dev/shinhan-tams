@@ -3,7 +3,11 @@ import TAMSEditor from "../ckeditor/build/ckeditor";
 const editorEnabler = () => {
     document.querySelectorAll(".editor").forEach(async (el) => {
         try {
-            await TAMSEditor.create(el);
+            el.ck = await TAMSEditor.create(el, {
+                simpleUpload: {
+                    uploadUrl: "http://localhost:4000/",
+                },
+            });
             const dropdowns = await document.querySelectorAll(
                 `[data-cke-tooltip-text="글꼴 집합"]`
             );

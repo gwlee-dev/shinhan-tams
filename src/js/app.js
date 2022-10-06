@@ -7,6 +7,7 @@ import dynamicTableInit from "./_dynamicTable";
 import datepickerInit from "./_datepicker";
 import emergencyModal from "./_emergencyModal";
 import preloader from "./_preloader";
+import pdfExport from "./_pdfExport";
 
 const initFuncs = {
     preloader,
@@ -18,6 +19,7 @@ const initFuncs = {
     dynamicTableInit,
     datepickerInit,
     emergencyModal,
+    pdfExport,
 };
 
 (() => {
