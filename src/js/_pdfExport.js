@@ -15,8 +15,9 @@ const capture = async (e) => {
     content.className = "ck ck-reset ck-editor ck-editor__editable_inline";
     content.id = ID;
     content.innerHTML = htmlStr;
-    // content.style.width = "595.28mm";
     // content.style.display = "none";
+    // content.style.width = "595.28mm";
+    content.style.width = editorWidth + "px";
     content.style.maxWidth = editorWidth + "px";
     // const heightPX = 841.89 * 96 / DPI;js
 

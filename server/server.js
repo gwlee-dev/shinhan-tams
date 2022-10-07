@@ -26,7 +26,7 @@ app.use([express.json(), cors(corsOptions), upload.single("upload")]);
 app.post("/", (req, res) => {
     try {
         return res.json({
-            url: `http://localhost:1234/${req.file.filename}`,
+            url: `/${req.file.filename}`,
         });
     } catch (err) {
         res.json({
