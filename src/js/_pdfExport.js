@@ -1,5 +1,5 @@
-import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const capture = async (e) => {
     const ID = "ck-cloned";
@@ -10,12 +10,13 @@ const capture = async (e) => {
     const editorWidth =
         editorEl.nextElementSibling.getBoundingClientRect().width;
     const pageWidth = (595.28 * 96) / DPI;
+    const pageHeight = (841.89 * 96) / DPI;
     const transformRatio = pageWidth / editorWidth;
 
     content.className = "ck ck-reset ck-editor ck-editor__editable_inline";
     content.id = ID;
     content.innerHTML = htmlStr;
-    // content.style.display = "none";
+    content.style.display = "none";
     // content.style.width = "595.28mm";
     content.style.width = editorWidth + "px";
     content.style.maxWidth = editorWidth + "px";
@@ -37,7 +38,34 @@ const capture = async (e) => {
         unit: "px",
         format: "a4",
     });
-    doc.addImage({ imageData: canvas });
+    // doc.save();
+
+    const imageData = canvas.toDataURL("image/png");
+    const imageHeight = (canvas.height * pageWidth) / canvas.width;
+    let heightLeft = imageHeight;
+    let position = 0;
+    doc.addImage({
+        imageData,
+        format: "PNG",
+        x: 0,
+        y: position,
+        width: pageWidth,
+        height: imageHeight,
+    });
+    heightLeft -= pageHeight;
+    while (heightLeft >= 0) {
+        position = heightLeft - imageHeight;
+        doc.addPage();
+        doc.addImage({
+            imageData,
+            format: "PNG",
+            x: 0,
+            y: position,
+            width: pageWidth,
+            height: imageHeight,
+        });
+        heightLeft -= pageHeight;
+    }
     doc.save();
 };
 

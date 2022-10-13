@@ -26,6 +26,7 @@ import IndentBlock from "@ckeditor/ckeditor5-indent/src/indentblock.js";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic.js";
 import Link from "@ckeditor/ckeditor5-link/src/link.js";
 import List from "@ckeditor/ckeditor5-list/src/list.js";
+import TodoList from "@ckeditor/ckeditor5-list/src/todolist";
 import ListProperties from "@ckeditor/ckeditor5-list/src/listproperties.js";
 import MediaEmbed from "@ckeditor/ckeditor5-media-embed/src/mediaembed.js";
 import Paragraph from "@ckeditor/ckeditor5-paragraph/src/paragraph.js";
@@ -66,6 +67,7 @@ TAMSEditor.builtinPlugins = [
     Italic,
     Link,
     List,
+    TodoList,
     ListProperties,
     MediaEmbed,
     Paragraph,
@@ -106,8 +108,10 @@ TAMSEditor.defaultConfig = {
             "italic",
             "underline",
             "link",
+            "|",
             "bulletedList",
             "numberedList",
+            "todoList",
             "|",
             "alignment",
 
