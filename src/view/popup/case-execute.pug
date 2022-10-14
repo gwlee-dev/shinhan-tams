@@ -34,11 +34,109 @@ block contents
                                 .wrap.d-flex.align-items-center
                                     +check("execute-alert", "execute-alert-email", "small d-flex my-auto", "이메일")
                             .d-none.d-lg-block.w-100.h-0
-                            .col #[+select-sm("실행주기")]
-                            .col.col-lg-4 #[+range-sm("예약 기간")]
+                            .col-auto
+                                +caption-sm("실행주기")
+                                .row.flex-nowrap.g-0
+                                    .col-auto
+                                        .btn-group.mt-auto(role="tablist")
+                                            input#every-day.btn-check(
+                                                type="radio",
+                                                name="execution-term",
+                                                autocomplete="off",
+                                                checked=""
+                                            )
+                                            label.btn.btn-outline-secondary.btn-sm(
+                                                for="every-day",
+                                                data-bs-toggle="pill",
+                                                data-bs-target="#tab-every-day"
+                                            ) 매일
+                                            input#every-week.btn-check(
+                                                type="radio",
+                                                name="execution-term",
+                                                autocomplete="off"
+                                            )
+                                            label.btn.btn-outline-secondary.btn-sm(
+                                                for="every-week",
+                                                data-bs-toggle="pill",
+                                                data-bs-target="#tab-every-week"
+                                            ) 매주
+                                            input#every-month.btn-check(
+                                                type="radio",
+                                                name="execution-term",
+                                                autocomplete="off"
+                                            )
+                                            label.btn.btn-outline-secondary.btn-sm(
+                                                for="every-month",
+                                                data-bs-toggle="pill",
+                                                data-bs-target="#tab-every-month"
+                                            ) 매월
+                                    .col.tab-content
+                                        #tab-every-month.tab-pane.fade.ps-3
+                                            +select-sm("1일", true).w-auto
+                                        #tab-every-week.tab-pane.fade.ps-3
+                                            .btn-group.mt-auto
+                                                input#monday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off",
+                                                    checked=""
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="monday"
+                                                ) 월
+                                                input#tuesday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="tuesday"
+                                                ) 화
+                                                input#wednesday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="wednesday"
+                                                ) 수
+                                                input#thursday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="thursday"
+                                                ) 목
+                                                input#friday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="friday"
+                                                ) 금
+                                                input#saturday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="saturday"
+                                                ) 토
+                                                input#sunday.btn-check(
+                                                    type="radio",
+                                                    name="execution-day",
+                                                    autocomplete="off"
+                                                )
+                                                label.btn.btn-outline-secondary.btn-sm(
+                                                    for="sunday"
+                                                ) 일
+                                        #tab-every-day.tab-pane.fade
+                            .col.col-lg-3 #[+range-sm("예약 기간")]
                             .d-block.d-lg-none.w-100.h-0
                             .col.col-lg-3 #[+time-sm("실행시각")]
-                            .col #[+input-sm("반복실행 횟수")]
+                            .col #[+input-sm("반복실행 횟수")(type="number")]
         section.container-fluid.vstack.gap-4.mt-3.d-flex.flex-column.dynamic-table
             .row.mb-2.gx-3.align-items-center
                 .col-auto

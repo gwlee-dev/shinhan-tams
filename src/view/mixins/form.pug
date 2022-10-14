@@ -34,8 +34,9 @@ mixin select(caption)
         option(value="2") Two
         option(value="3") Three
 
-mixin select-sm(caption)
-    +caption-sm(caption)
+mixin select-sm(caption, no)
+    - if (!no)
+        +caption-sm(caption)
     select.form-select.form-select-sm&attributes(attributes)
         option(selected="")= caption
         option(value="1") One

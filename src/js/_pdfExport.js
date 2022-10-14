@@ -70,7 +70,9 @@ const capture = async (e) => {
 };
 
 const pdfExport = () => {
-    document.querySelector("#download-btn").addEventListener("click", capture);
+    document
+        .querySelectorAll("#download-btn")
+        .forEach((el) => el.addEventListener("click", capture));
 };
 
 export default pdfExport;
