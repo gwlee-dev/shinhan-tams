@@ -20,7 +20,7 @@ block contents
                     +btn.btn-secondary(disabled) 회수
                     +btn.btn-secondary(disabled) 반려
                     +btn.btn-secondary(disabled) 제외
-    .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-5
+    .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
         section.d-flex.flex-column
             span.fs-4.fw-bold.mb-2 CSR 정보
             .table-responsive
@@ -102,7 +102,11 @@ block contents
                             td 1
                             td 시스템-6
                             td REQ-001
-                            td #[a.case-id(href="#") TC202010060063]
+                            td
+                                +link.text-deliver(
+                                    role="button",
+                                    data-gr-target="#case-search"
+                                ) TC202010060063
                             td testcase-1321056
                             td
                             td 정신한
@@ -133,7 +137,11 @@ block contents
                             td 2
                             td 시스템-6
                             td 회귀테스트
-                            td #[a.case-id(href="#") grid1one-grid2two]
+                            td
+                                +link.text-deliver(
+                                    role="button",
+                                    data-gr-target="#case-search"
+                                ) grid1one-grid2two
                             td testcase-1321056
                             td
                             td 정신한

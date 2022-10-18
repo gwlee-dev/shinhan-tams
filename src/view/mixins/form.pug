@@ -66,7 +66,7 @@ mixin time-sm(caption)
                 option(value=x)= x + "분"
 
 mixin searchBox(caption)
-    +caption(caption)
+    +caption caption
     input.form-control(type="text", placeholder=caption)
 
 mixin check(name, id, classes, caption, grType, grTarget)
@@ -79,7 +79,7 @@ mixin check(name, id, classes, caption, grType, grTarget)
                 id=id,
                 data-gr-type=grType,
                 data-gr-target=grTarget
-            )
+            )&attributes(attributes)
             label.form-check-label(for=id)= caption
     else
         input.form-check-input(
@@ -89,7 +89,7 @@ mixin check(name, id, classes, caption, grType, grTarget)
             id=id,
             data-gr-type=grType,
             data-gr-target=grTarget
-        )
+        )&attributes(attributes)
 
 mixin radio(name, id, classes, caption)
     if caption
@@ -116,7 +116,7 @@ mixin floatingTextarea(caption)
         textarea.form-control
 
 mixin textarea(caption)
-    +caption(caption)
+    +caption caption
     textarea.form-control
 
 mixin textarea-sm(caption)
@@ -124,7 +124,7 @@ mixin textarea-sm(caption)
     textarea.form-control.form-control-sm&attributes(attributes)
 
 mixin file(caption, multiple)
-    +caption(caption)
+    +caption caption
     .input-group.input-group
         input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block

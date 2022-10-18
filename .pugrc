@@ -62,46 +62,46 @@
                 "icon": "bi-flag-fill",
                 "nodes": [
                     {
-                        "title": "테스트 케이스 실행",
-                        "id": "case"
+                        "title": "결함 관리",
+                        "id": "fault",
+                        "link": true
                     },
                     {
-                        "title": "결함 관리 현황",
-                        "id": "status"
+                        "title": "부서별 결함 관리",
+                        "id": "depart",
+                        "link": true
+                    },
+                    {
+                        "title": "테스터별 결함 관리",
+                        "id": "tester",
+                        "link": true
+                    },
+                    {
+                        "title": "결함 관리 실적",
+                        "id": "performance",
+                        "link": true
                     },
                     {
                         "title": "테스트 제외건 조회",
-                        "id": "exclude"
+                        "id": "excluded",
+                        "link": true
                     },
                     {
                         "title": "자동화 수행 이력",
-                        "id": "log"
+                        "id": "history",
+                        "link": true
                     }
                 ]
             },
             {
-                "title": "보고서 관리",
+                "title": "보고서",
                 "dir": "report",
                 "icon": "bi-file-earmark-text",
                 "nodes": [
                     {
                         "title": "보고서 생성",
-                        "id": "generate"
-                    }
-                ]
-            },
-            {
-                "title": "사용자 관리",
-                "dir": "user",
-                "icon": "bi-person-circle",
-                "nodes": [
-                    {
-                        "title": "사용자 계정 관리",
-                        "id": "account"
-                    },
-                    {
-                        "title": "PC IP 등록",
-                        "id": "ip"
+                        "id": "generate",
+                        "link": true
                     }
                 ]
             },
@@ -110,6 +110,18 @@
                 "dir": "setting",
                 "icon": "bi-gear-wide-connected",
                 "nodes": [
+                    {
+                        "title": "사용자 계정",
+                        "id": "account"
+                    },
+                    {
+                        "title": "PC IP 관리",
+                        "id": "ip"
+                    },
+                    {
+                        "title": "시스템 작업 관리",
+                        "id": "system"
+                    },
                     {
                         "title": "테스트 자동화 관리",
                         "id": "automation"
@@ -125,9 +137,9 @@
                     {
                         "title": "버전 정보",
                         "id": "version"
-                    },
+                    }
                 ]
-            },
+            }
         ],
         "csrList": [
             {
@@ -169,7 +181,7 @@
             {
                 "name": "제외",
                 "value": "0"
-            },
+            }
         ]
     }
 }

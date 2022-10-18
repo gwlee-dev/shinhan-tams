@@ -1,0 +1,25 @@
+table#history_list {
+    $history_list: (
+        1: 4%,
+        2: 6%,
+        3: 5%,
+        4: 5%,
+        5: 15%,
+        6: 5%,
+        7: 8%,
+        8: 4%,
+        9: 4%,
+        10: 5%,
+        11: 12%,
+        12: 12%,
+        13: 12%,
+    );
+    th,
+    td {
+        @each $i, $percent in $history_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

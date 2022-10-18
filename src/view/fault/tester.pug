@@ -1,0 +1,128 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "테스터별 결함 관리";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +btn.btn-outline-success
+                        span.me-2 Excel 다운로드
+                        i.bi-file-earmark-excel
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col.gx-3.gy-2
+                    .row.g-2
+                        .col-auto #[+range("기간(완료일)")]
+                        .col-auto.align-self-end.ms-auto #[+btn.btn-primary 검색]
+                        .col-auto.align-self-end #[+btn.btn-secondary 초기화]
+    .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
+        section.d-flex.flex-column
+            .table-responsive
+                table#fault_tester.small.table-bordered.table.table-sm.table-hover.w-100.small
+                    thead
+                        tr
+                            th(scope="col") 테스터
+                            th(scope="col") 수행일자
+                            th(scope="col") CSR
+                            th(scope="col") 개발자 신규작성
+                            th(scope="col") 테스터 신규작성
+                            th(scope="col") 수행
+                            th(scope="col") 정상
+                            th(scope="col") 결합
+                            th(scope="col") 개선
+                            th(scope="col") 제안
+                            th(scope="col") 불가
+                            th(scope="col") 배치
+                    tbody
+                        - for (var i = 1; i <= 5; i++)
+                            tr
+                                td 고신한
+                                td 2022-10-11
+                                td 1
+                                td 1
+                                td 1
+                                td 0
+                                td 2
+                                td 0
+                                td 4
+                                td 11
+                                td 0
+                                td 7
+                            tr
+                                td 
+                                td 2022-10-12
+                                td 1
+                                td 1
+                                td 1
+                                td 0
+                                td 2
+                                td 0
+                                td 4
+                                td 11
+                                td 0
+                                td 7
+                            tr.table-light.row-divider
+                                td
+                                td 소계
+                                td 2
+                                td 2
+                                td 2
+                                td 0
+                                td 4
+                                td 0
+                                td 8
+                                td 22
+                                td 0
+                                td 14
+                            tr
+                                td 김신한
+                                td 2022-10-11
+                                td 1
+                                td 2
+                                td 0
+                                td 5
+                                td 0
+                                td 3
+                                td 4
+                                td 0
+                                td 2
+                                td 1
+                            tr
+                                td 
+                                td 2022-10-12
+                                td 1
+                                td 2
+                                td 0
+                                td 5
+                                td 0
+                                td 3
+                                td 4
+                                td 0
+                                td 2
+                                td 1
+                            tr.table-light.row-divider
+                                td
+                                td 소계
+                                td 2
+                                td 4
+                                td 0
+                                td 10
+                                td 0
+                                td 6
+                                td 8
+                                td 0
+                                td 4
+                                td 2
+            +pagination
+    +danger-modal

@@ -1,0 +1,83 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "자동화 수행 이력";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +btn.btn-outline-success
+                        span.me-2 Excel 다운로드
+                        i.bi-file-earmark-excel
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col-3 #[+range-sm("테스트 일자")]
+                        .col #[+select-sm("종류")]
+                        .col #[+select-sm("시스템")]
+                        .col #[+select-sm("업무")]
+                        .col #[+select-sm("CSR 연결 구분")]
+                        .col #[+select-sm("이력")]
+                        .col #[+select-sm("수행자")]
+                        .w-100
+                        .col #[+input-sm("스크립트명")]
+                        .col #[+input-sm("수행자명")]
+                        .col #[+input-sm("화면명")]
+                        .col #[+input-sm("화면 ID")]
+                        .col #[+input-sm("케이스 ID")]
+                        .col #[+input-sm("재활용 횟수")(type="number")]
+                .w-100.my-2
+                .col-auto.me-auto.text-muted.d-flex.align-items-center.lh-sm
+                    i.bi.bi-info-circle.me-2.fs-5
+                    span 통과/실패 이력은 최종 수행 결과가 표시되며, 세부내역은 별도 조회가 필요합니다.
+                .col-auto
+                    .hstack.h-100.gap-2.align-self-center
+                        +btn.btn-primary.btn.flex-grow-1 검색
+                        +btn.btn-secondary.btn.flex-grow-1 초기화
+    .contents.container.pt-5.flex-grow-1.d-flex.flex-column.gap-4
+        .table-responsive
+            table#history_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                thead
+                    tr
+                        th(scope="col") 순번
+                        th(scope="col") 종류
+                        th(scope="col") 시스템
+                        th(scope="col") 업무
+                        th(scope="col") 스크립트명
+                        th(scope="col") 수행자
+                        th(scope="col") 테스트일자
+                        th(scope="col") 이력
+                        th(scope="col") 횟수
+                        th(scope="col") 화면ID
+                        th(scope="col") 화면명
+                        th(scope="col") 케이스ID
+                        th(scope="col") CSR
+                tbody
+                    - for (var i = 1; i <= 10; i++)
+                        tr
+                            td= i
+                            td DeskTop
+                            td 제우스
+                            td 가맹점
+                            td 자동_15222_가맹점_지정_즉시매입_요청조회.xml
+                            td 김수한무
+                            td 2022-10-05
+                            td #[+badge.bg-danger 실패]
+                            td 2
+                            td 15222
+                            td 지점 즉시매입 요청조회
+                            td TC202201200032
+                            td C2022092156241
+        +pagination
+    +danger-modal

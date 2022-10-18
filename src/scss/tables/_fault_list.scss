@@ -1,0 +1,23 @@
+table#fault_list {
+    $fault_list: (
+        1: 11%,
+        2: 11%,
+        3: 12%,
+        4: 6%,
+        5: 7%,
+        6: 7%,
+        7: 6%,
+        8: 13%,
+        9: 13%,
+        10: 7%,
+        11: 8%,
+    );
+    th,
+    td {
+        @each $i, $percent in $fault_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

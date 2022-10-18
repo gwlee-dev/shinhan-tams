@@ -24,6 +24,12 @@
 @import "execute_history";
 @import "schedule_list";
 @import "case_schedule";
+@import "fault_list";
+@import "fault_depart";
+@import "fault_tester";
+@import "fault_performance";
+@import "excluded_list";
+@import "history_list";
 
 .contents {
     .table {
@@ -104,6 +110,9 @@ body:not(.popup-window) {
             opacity: 0;
             visibility: hidden;
         }
+    }
+    .row-divider {
+        border-bottom: 1px solid rgba($black, 0.5);
     }
     .form-control[type="text"]:not(:focus) {
         background-color: rgba(255, 255, 255, 0);
