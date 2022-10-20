@@ -1,0 +1,129 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "결함 조회";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .contents.container.pt-4.pb-4.flex-grow-1.d-flex.flex-column.gap-5
+        section.d-flex.flex-column
+            .d-flex.align-items-center.mb-3
+                span.fs-4.fw-bold 결함 정보
+                span.text-muted.ms-3 등록일자: 2022-10-07
+            .row.g-3
+                .col.col-xl-8
+                    .input-group
+                        span.input-group-text 제목
+                        span.form-control.text-truncate 다음버튼 오류
+                .col-auto.col-xl-2  #[span.form-control.text-center.px-4 DF201905310017]
+                .col-auto.col-xl-2
+                    .input-group
+                        span.input-group-text 테스트 결과
+                        .form-control.text-center #[+badge.bg-dark 개선]
+                .col-12
+                    .card
+                        .card-header.d-flex
+                            span.me-auto 상세 정보
+                            span.me-2 결함 심각도
+                            +badge.bg-warning 중
+                            span.opacity-50.mx-3
+                                span.border-end.border-secondary
+                            span.me-2 CSR 수정 범위 내
+                            +badge.bg-dark Y
+                        textarea.form-control.form-control-plaintext.card-body
+                            | 회원가입, 정보변경, 관리자 로그인 하여 정보변경 거래 정상 출력 확인
+                            | -> 다음버튼 비활성화 되면서 스크롤바 사라짐
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 테스터
+                        .form-control.text-center 김신한
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 테스트 중요도
+                        .form-control.text-center #[+badge.bg-warning 중]
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 검증구분
+                        .form-control.text-center #[+badge.bg-secondary 이행전]
+                .col-auto
+                    .input-group
+                        span.input-group-text 결함유형
+                        .form-control.text-center 인터페이스 결함
+                .col-auto
+                    .input-group
+                        span.input-group-text 관련 테스트케이스
+                        .form-control.text-center #[+link(href="/src/view/design/case.pug") TC202209200044]
+        section.d-flex.flex-column
+            span.fs-4.fw-bold.mb-3 케이스 정보
+            .row.g-3
+                .col-12.col-xl-5
+                    .input-group
+                        span.input-group-text 개발부서
+                        .form-control.text-center Core인프라챕터 승인계
+                .col
+                    .input-group
+                        span.input-group-text AA
+                        .form-control.text-center 문신한
+                .col
+                    .input-group
+                        span.input-group-text BB
+                        .form-control.text-center 최신한
+                .col-5.col-md
+                    .input-group
+                        span.input-group-text 케이스 작성자
+                        .form-control.text-center 목신한
+                .w-100.m-0
+                .col-6.col-md-5.col-xl-3
+                    .input-group
+                        span.input-group-text 관련 CSR
+                        .form-control.text-center
+                            +link(href="/src/view/design/csr.pug") C2022091452602
+                .col-6.col-md-7.col-xl-9
+                    .form-control.flex-grow-1.text-truncate
+                        span.ms-2 체크카드 승인거래 오픈뱅킹망 적용으로 출금방식 추가 반영 요청
+        section.d-flex.flex-column
+            span.fs-4.fw-bold.mb-3 조치 정보
+            .row.g-3
+                .col-auto
+                    .input-group
+                        span.input-group-text 수용여부
+                        .form-control.text-center #[+badge.bg-dark Y]
+                .col-auto
+                    .input-group
+                        span.input-group-text 조치 담당자
+                        .form-control.text-center 목신한
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 조치 계획일자
+                        .form-control.text-center 2022-10-11
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 조치 완료일자
+                        .form-control.text-center 2022-10-11
+                .col-auto.col-xl
+                    .input-group
+                        span.input-group-text 조치 확인일자
+                        .form-control.text-center 2022-10-11
+                .w-100.m-0
+                .col-6.col-md-5.col-xl-3
+                    .input-group
+                        span.input-group-text 조치 CSR
+                        .form-control.text-center
+                            +link(href="/src/view/design/csr.pug") C2022091452602
+                .col-6.col-md-7.col-xl-9
+                    .input-group
+                        span.input-group-text 조치 내용
+                        .form-control.flex-grow-1.text-truncate
+                            span.ms-2 -
+                .col-12
+                    .input-group
+                        span.input-group-text 조치 불가 사유
+                        .form-control
+                            span.ms-2 -
+    +danger-modal

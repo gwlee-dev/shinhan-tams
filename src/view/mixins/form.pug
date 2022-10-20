@@ -16,6 +16,7 @@ mixin range(caption)
             span.input-group-text ~
             input.end-date.form-control(type="text", placeholder="종료 일자")
         .range-button.h-100.w-100.position-absolute.top-0.start-0.opacity-0
+            span.d-block 최초 비밀번호는 #[code TAMS사번!] 입니다.
 
 mixin range-sm(caption)
     +caption-sm(caption)
@@ -28,7 +29,7 @@ mixin range-sm(caption)
 
 mixin select(caption)
     +caption(caption)
-    select.form-select
+    select.form-select&attributes(attributes)
         option(selected="") 전체
         option(value="1") One
         option(value="2") Two

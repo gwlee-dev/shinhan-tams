@@ -1,0 +1,57 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "시스템 작업 관리";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col #[+input("로그인 ID")]
+                        .col #[+input("이름")]
+                        .col #[+select("역할")]
+                        .col #[+input("부서")]
+                        .col-auto.align-self-end #[+btn.btn-primary 검색]
+    .contents.container.pt-5.flex-grow-1.d-flex.flex-column.gap-4
+        .table-responsive
+            table#user_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                thead
+                    tr
+                        th(scope="col") 로그인 ID
+                        th(scope="col") 이름
+                        th(scope="col") 역할
+                        th(scope="col") 이메일
+                        th(scope="col") 부서
+                        th(scope="col") 직급
+                        th(scope="col") 전화번호
+                        th(scope="col") 비밀번호
+                tbody
+                    - for (var i = 0; i <= 9; i++)
+                        tr
+                            td= `S0000${i}`
+                            td 김신한
+                            td.p-0.align-middle.overflow-visible #[+select-sm("테스트 관리자", true).border-0.rounded-0]
+                            td= `S0000${i}@shinhan.com`
+                            td 플랫폼인프라챕터 통합&모바일 플랫폼운영
+                            td 부부장(P)
+                            td 02-6950-1983
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 초기화
+        +pagination
+    +danger-modal
+        span.d-block 비밀번호를 초기화하시겠습니까?
+        span.d-block 최초 비밀번호는 #[code TAMS사번!] 입니다.
+        span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]

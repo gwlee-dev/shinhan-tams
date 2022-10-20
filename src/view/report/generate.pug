@@ -27,9 +27,11 @@ block contents
                         .card-body.d-flex.flex-column
                             .d-flex.align-items-center.mb-3
                                 h5.mb-0.me-auto CSR 요약 정보
-                                +btn.btn-light.btn-sm.lh-1.py-2.fw-bold
-                                    | 자세히
-                                    i.bi.bi-chevron-right.me-n1
+                                //- +a-btn.btn-light.btn-sm.lh-1.py-2.fw-bold(
+                                //-     href="/src/view/report/csr.pug"
+                                //- )
+                                //-     | 자세히
+                                //-     i.bi.bi-chevron-right.me-n1
                             .row.fs-5.gy-2.my-auto
                                 .col-4 #[+badge.bg-secondary.me-2.w-100 전체]
                                 .col-8 #[span 0]
@@ -37,7 +39,9 @@ block contents
                                 .col-8 #[span 0]
                                 .col-4 #[+badge.bg-dark.me-2.w-100 완료]
                                 .col-8 #[span 0]
-                            +btn.btn-light.fw-bold.mt-4
+                            +a-btn.btn-light.fw-bold.mt-4(
+                                href="/src/view/report/csr.pug"
+                            )
                                 i.bi.bi-box.me-2
                                 | 보고서 생성
                 .col
@@ -45,9 +49,9 @@ block contents
                         .card-body.d-flex.flex-column
                             .d-flex.align-items-center.mb-3
                                 h5.mb-0.me-auto 결함 요약 정보
-                                +btn.btn-light.btn-sm.lh-1.py-2.fw-bold
-                                    | 자세히
-                                    i.bi.bi-chevron-right.me-n1
+                                //- +btn.btn-light.btn-sm.lh-1.py-2.fw-bold
+                                //-     | 자세히
+                                //-     i.bi.bi-chevron-right.me-n1
                             .row.fs-5.gy-2.my-auto
                                 .col-5 #[+badge.bg-secondary.me-2.w-100 전체]
                                 .col-7 #[span 0]
@@ -63,9 +67,9 @@ block contents
                         .card-body.d-flex.flex-column
                             .d-flex.align-items-center.mb-3
                                 h5.mb-0.me-auto 테스트케이스 요약 정보
-                                +btn.btn-light.btn-sm.lh-1.py-2.fw-bold
-                                    | 자세히
-                                    i.bi.bi-chevron-right.me-n1
+                                //- +btn.btn-light.btn-sm.lh-1.py-2.fw-bold
+                                //-     | 자세히
+                                //-     i.bi.bi-chevron-right.me-n1
                             .row.fs-5.gy-2.my-auto
                                 .col-5 #[+badge.bg-secondary.me-2.w-100 전체]
                                 .col-7 #[span 0]

@@ -1,0 +1,16 @@
+table#ip_list {
+    $ip_list: (
+        1: 15%,
+        2: 10%,
+        3: 70%,
+        4: 5%,
+    );
+    th,
+    td {
+        @each $i, $percent in $ip_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

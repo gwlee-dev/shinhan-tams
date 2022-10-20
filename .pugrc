@@ -106,26 +106,43 @@
                 ]
             },
             {
-                "title": "환경 설정",
-                "dir": "setting",
-                "icon": "bi-gear-wide-connected",
+                "title": "사용자 설정",
+                "dir": "user",
+                "icon": "bi-person-circle",
                 "nodes": [
                     {
                         "title": "사용자 계정",
-                        "id": "account"
+                        "id": "account",
+                        "link": true
                     },
                     {
                         "title": "PC IP 관리",
-                        "id": "ip"
-                    },
+                        "id": "ip",
+                        "link": true
+                    }
+                ]
+            },
+            {
+                "title": "시스템 관리",
+                "dir": "system",
+                "icon": "bi-server",
+                "nodes": [
                     {
                         "title": "시스템 작업 관리",
-                        "id": "system"
+                        "id": "task",
+                        "link": true
                     },
                     {
                         "title": "테스트 자동화 관리",
                         "id": "automation"
-                    },
+                    }
+                ]
+            },
+            {
+                "title": "환경 설정",
+                "dir": "setting",
+                "icon": "bi-gear-wide-connected",
+                "nodes": [
                     {
                         "title": "공지사항 관리",
                         "id": "notice"

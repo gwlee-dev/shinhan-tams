@@ -1,0 +1,55 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "PC IP 관리";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +a-btn.btn-outline-primary.popup-link(
+                        href="/src/view/popup/script.pug"
+                    )
+                        span.me-2 신규등록
+                        i.bi-file-earmark-plus
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col #[+input("PC IP")]
+                        .col #[+input("로그인 ID")]
+                        .col.col-xl-6 #[+input("메모")]
+                        .col-auto.align-self-end #[+btn.btn-primary 검색]
+                        .col-auto.align-self-end #[+btn.btn-secondary 초기화]
+    .contents.container.pt-5.flex-grow-1.d-flex.flex-column.gap-4
+        .table-responsive
+            table#ip_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                thead
+                    tr
+                        th(scope="col") PC IP
+                        th(scope="col") 로그인 ID
+                        th(scope="col") 메모
+                        th(scope="col") 삭제
+                tbody
+                    - for (var i = 100; i < 110; i++)
+                        tr
+                            td= `172.30.194.${i}`
+                            td= `S00${i}`
+                            td 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 !!!!!
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
+        +pagination
+    +danger-modal

@@ -4,7 +4,7 @@ mixin modal-header(text)
         block
         +modal-close
 
-mixin danger-modal
+mixin danger-modal(text)
     #danger-modal.modal.fade(tabindex="-1")&attributes(attributes)
         .modal-dialog.modal-dialog-centered.modal-sm
             .modal-content.text-center
@@ -17,6 +17,8 @@ mixin danger-modal
                         span.d-block 이후 #[span.fw-bold 되돌릴 수 없습니다.]
 
                 .modal-footer.justify-content-center
+                    if text
+                        +btn.btn-danger= text
                     +btn.btn-danger 삭제
                     +btn.btn-secondary(
                         data-bs-dismiss="modal"
