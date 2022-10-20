@@ -19,7 +19,8 @@ mixin danger-modal(text)
                 .modal-footer.justify-content-center
                     if text
                         +btn.btn-danger= text
-                    +btn.btn-danger 삭제
+                    else
+                        +btn.btn-danger 삭제
                     +btn.btn-secondary(
                         data-bs-dismiss="modal"
                     ) 취소

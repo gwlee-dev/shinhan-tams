@@ -131,10 +131,6 @@
                         "title": "시스템 작업 관리",
                         "id": "task",
                         "link": true
-                    },
-                    {
-                        "title": "테스트 자동화 관리",
-                        "id": "automation"
                     }
                 ]
             },
@@ -144,8 +140,14 @@
                 "icon": "bi-gear-wide-connected",
                 "nodes": [
                     {
+                        "title": "테스트 자동화 관리",
+                        "id": "automation",
+                        "link": true
+                    },
+                    {
                         "title": "공지사항 관리",
-                        "id": "notice"
+                        "id": "notice",
+                        "link": true
                     },
                     {
                         "title": "이메일 호스트 관리",

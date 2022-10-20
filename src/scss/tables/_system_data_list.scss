@@ -1,0 +1,16 @@
+table#system_data_list {
+    $system_data_list: (
+        1: 7%,
+        2: 31%,
+        3: 31%,
+        4: 31%,
+    );
+    th,
+    td {
+        @each $i, $percent in $system_data_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

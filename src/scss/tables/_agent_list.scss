@@ -1,0 +1,16 @@
+table#agent_list {
+    $agent_list: (
+        1: 7%,
+        2: 66%,
+        3: 20%,
+        4: 7%,
+    );
+    th,
+    td {
+        @each $i, $percent in $agent_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}
