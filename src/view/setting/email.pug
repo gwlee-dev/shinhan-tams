@@ -1,0 +1,27 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "공지사항 관리";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .contents.container.pt-4.pb-4.flex-grow-1.d-flex.flex-column.gap-5
+        section.d-flex.flex-column
+            .row.g-3
+                section.d-flex.flex-column.gap-3
+                    span.fs-4.fw-bold.me-3 콜백 정보
+                    .input-group
+                        span.input-group-text 호스트
+                        +input
+                        +btn.btn-secondary.opacity-50 테스트 메일
+                        +btn.btn-secondary 저장
+                    .alert.alert-light
+                        i.bi.bi-info-circle.me-2.fs-5
+                        span 이메일 전송을 위한 호스트 정보를 설정합니다.
+    +danger-modal

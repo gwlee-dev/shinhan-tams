@@ -151,7 +151,8 @@
                     },
                     {
                         "title": "이메일 호스트 관리",
-                        "id": "email"
+                        "id": "email",
+                        "link": true
                     },
                     {
                         "title": "버전 정보",

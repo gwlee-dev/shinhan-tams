@@ -6,7 +6,6 @@ const Popup = class {
             innerHeight,
         } = window;
         const { offsetWidth, offsetHeight } = this.root;
-        console.log(this.root);
         const ui = {
             width: outerWidth - innerWidth,
             height: outerHeight - innerHeight,
@@ -44,9 +43,9 @@ const Popup = class {
     }
 };
 
-const init = () => {
+const popupController = () => {
     const el = document.querySelector(".popup");
-    Object.assign(el, new Popup(el));
+    el && Object.assign(el, new Popup(el));
 };
 
-init();
+export default popupController;
