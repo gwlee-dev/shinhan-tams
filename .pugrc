@@ -10,28 +10,23 @@
                 "nodes": [
                     {
                         "title": "테스트 요청현황",
-                        "id": "request",
-                        "link": true
+                        "id": "request"
                     },
                     {
                         "title": "스크립트 관리",
-                        "id": "script",
-                        "link": true
+                        "id": "script"
                     },
                     {
                         "title": "스크립트 노드 관리",
-                        "id": "node",
-                        "link": true
+                        "id": "node"
                     },
                     {
                         "title": "테스트케이스 관리",
-                        "id": "case",
-                        "link": true
+                        "id": "case"
                     },
                     {
                         "title": "데이터셋 관리",
-                        "id": "dataset",
-                        "link": true
+                        "id": "dataset"
                     }
                 ]
             },
@@ -42,13 +37,11 @@
                 "nodes": [
                     {
                         "title": "테스트케이스 실행",
-                        "id": "case",
-                        "link": true
+                        "id": "case"
                     },
                     {
                         "title": "예약실행 관리",
-                        "id": "schedule",
-                        "link": true
+                        "id": "schedule"
                     },
                     {
                         "title": "실시간 모니터링",
@@ -63,33 +56,27 @@
                 "nodes": [
                     {
                         "title": "결함 관리",
-                        "id": "fault",
-                        "link": true
+                        "id": "fault"
                     },
                     {
                         "title": "부서별 결함 관리",
-                        "id": "depart",
-                        "link": true
+                        "id": "depart"
                     },
                     {
                         "title": "테스터별 결함 관리",
-                        "id": "tester",
-                        "link": true
+                        "id": "tester"
                     },
                     {
                         "title": "결함 관리 실적",
-                        "id": "performance",
-                        "link": true
+                        "id": "performance"
                     },
                     {
                         "title": "테스트 제외건 조회",
-                        "id": "excluded",
-                        "link": true
+                        "id": "excluded"
                     },
                     {
                         "title": "자동화 수행 이력",
-                        "id": "history",
-                        "link": true
+                        "id": "history"
                     }
                 ]
             },
@@ -100,8 +87,7 @@
                 "nodes": [
                     {
                         "title": "보고서 생성",
-                        "id": "generate",
-                        "link": true
+                        "id": "generate"
                     }
                 ]
             },
@@ -112,13 +98,11 @@
                 "nodes": [
                     {
                         "title": "사용자 계정",
-                        "id": "account",
-                        "link": true
+                        "id": "account"
                     },
                     {
                         "title": "PC IP 관리",
-                        "id": "ip",
-                        "link": true
+                        "id": "ip"
                     }
                 ]
             },
@@ -129,8 +113,7 @@
                 "nodes": [
                     {
                         "title": "시스템 작업 관리",
-                        "id": "task",
-                        "link": true
+                        "id": "task"
                     }
                 ]
             },
@@ -141,18 +124,15 @@
                 "nodes": [
                     {
                         "title": "테스트 자동화 관리",
-                        "id": "automation",
-                        "link": true
+                        "id": "automation"
                     },
                     {
                         "title": "공지사항 관리",
-                        "id": "notice",
-                        "link": true
+                        "id": "notice"
                     },
                     {
                         "title": "이메일 호스트 관리",
-                        "id": "email",
-                        "link": true
+                        "id": "email"
                     },
                     {
                         "title": "버전 정보",

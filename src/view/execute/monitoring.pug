@@ -1,0 +1,79 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "실시간 모니터링";
+
+block contents
+    .container
+        h4.my-4.me-auto.text-truncate= title
+    .contents.container.pt-2.flex-grow-1.d-flex.flex-column.gap-4
+        .row.justify-content-center.g-3
+            // desktop
+            .col-auto
+                .card.h-100
+                    //- .card-header 
+                    //-     .hstack.gap-3
+                    //-         .text-muted
+                    //-             span.me-2 처리스텝
+                    //-             span.fw-bold.text-secondary 3
+                    //-         .text-muted
+                    //-             span.me-2 실패율
+                    //-             span.fw-bold.text-secondary 0%
+                    .card-body.d-flex.justify-content-center.align-items-center
+                        .ratio.ratio-4x3.bg-light.rounded-1(
+                            style="width: 37rem"
+                        )
+                            span.w-100.h-100.d-flex.align-items-center.justify-content-center.fs-5.fw-bold.text-muted 4:3
+                    .card-footer
+                        .vstack.gap-1
+                            .text-muted
+                                span.me-2 에이전트
+                                span.fw-bold.text-secondary agent-0001
+                            .text-muted 
+                                span.me-2 게이트웨이
+                                span.fw-bold.text-secondary 192.168.0.1
+                            .text-muted 
+                                span.me-2 테스트케이스
+                                span.fw-bold.text-secondary TC202205160000
+                            .text-muted 
+                                span.me-2 테스트 스크립트
+                                span.fw-bold.text-secondary test_script.xml
+
+            // mobile
+            .col-auto
+                .card.h-100
+                    //- .card-header 
+                    //-     .hstack.gap-3
+                    //-         .text-muted
+                    //-             span.me-2 처리스텝
+                    //-             span.fw-bold.text-secondary 3
+                    //-         .text-muted
+                    //-             span.me-2 실패율
+                    //-             span.fw-bold.text-secondary 0%
+                    .card-body.d-flex.justify-content-center.align-items-center
+                        .ratio.ratio-9x16.bg-light.rounded-1(
+                            style="width: 15rem"
+                        )
+                            span.w-100.h-100.d-flex.align-items-center.justify-content-center.fs-5.fw-bold.text-muted 9:16
+                    .card-footer 
+                        .vstack.gap-1
+                            .text-muted
+                                span.me-2 테스터
+                                span.fw-bold.text-secondary agent-0001
+                            .text-muted 
+                                span.me-2 장치이름
+                                span.fw-bold.text-secondary iPhone 13 Pro
+                            .text-muted 
+                                span.me-2 장치 ID
+                                span.fw-bold.text-secondary DVC02205160000
+                            .text-muted 
+                                span.me-2 테스트케이스
+                                span.fw-bold.text-secondary TC202205160000
+                            .text-muted 
+                                span.me-2 테스트 스크립트
+                                span.fw-bold.text-secondary test_script.xml

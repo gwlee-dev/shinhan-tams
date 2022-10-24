@@ -13,13 +13,14 @@
     "license": "ISC",
     "author": "Geonwoo Lee",
     "scripts": {
-        "build": "npm run clean && parcel build ./src/view/index.pug",
+        "build": "npm run clean && parcel build ./src/view/index.pug --public-url ./",
         "clean": "rimraf dist && rimraf ./.parcel-cache",
         "lint": "eslint ./**/*.js --fix && stylelint ./**/*.scss",
         "static-server": "node ./static-server.js",
-        "server": "nodemon --presets @babel/preset-env --watch ./server --exec babel-node ./server/server.js",
+        "server": "babel-node ./server/server.js",
         "dev": "npm run clean && parcel ./src/view/index.pug",
-        "start": "nodemon --watch ./package.json --exec npm run dev"
+        "start": "nodemon --watch ./package.json --exec npm run dev",
+        "install": "./yarn.cmd install -offline"
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
@@ -30,6 +31,7 @@
         "@parcel/transformer-inline-string": "^2.7.0",
         "@parcel/transformer-pug": "^2.7.0",
         "@parcel/transformer-sass": "^2.7.0",
+        "@popperjs/core": "^2.11.6",
         "@prettier/plugin-pug": "^2.2.0",
         "bootstrap": "^5.2.0",
         "bootstrap-icons": "^1.9.1",

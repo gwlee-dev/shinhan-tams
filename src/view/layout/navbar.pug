@@ -47,6 +47,6 @@ each node in nodes
                     ul.sub-nav.nav.justify-content-center.mb-3
                         each subNode in node.nodes
                             li.sub-nav-item
-                                if subNode.link
-                                    - var path = `/src/view/${node.dir}/${subNode.id}.pug`;
-                                a.plain-link(href=path)= subNode.title
+                                a.plain-link(
+                                    href=`/src/view/${node.dir}/${subNode.id}.pug`
+                                )= subNode.title

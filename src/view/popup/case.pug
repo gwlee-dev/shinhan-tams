@@ -95,7 +95,9 @@ block contents
             section.d-flex.flex-column
                 .d-flex.align-items-center.mb-2
                     span.fs-5.fw-bold 데이터셋
-                    +btn.btn-secondary.btn-sm.ms-auto 데이터셋 연결
+                    +a-btn.btn-secondary.btn-sm.ms-auto.popup-link(
+                        href="/src/view/popup/dataset-connect.pug"
+                    ) 데이터셋 연결
                 .table-responsive
                     table#dataset_list.small.table-bordered.table.table-sm.table-hover.w-100
                         thead 

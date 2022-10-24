@@ -4,3 +4,6 @@ node_modules
 dist
 server/upload/*
 npm_packages
+yarn
+src/ckeditor/node_modules
+src/ckeditor/npm_packages

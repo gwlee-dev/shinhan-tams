@@ -6,7 +6,7 @@ include ../mixins/modal
 include ../mixins/badge
 
 block head
-    - var title = "공지사항 관리";
+    - var title = "이메일 호스트 관리";
 
 block contents
     .container
@@ -15,7 +15,6 @@ block contents
         section.d-flex.flex-column
             .row.g-3
                 section.d-flex.flex-column.gap-3
-                    span.fs-4.fw-bold.me-3 콜백 정보
                     .input-group
                         span.input-group-text 호스트
                         +input
