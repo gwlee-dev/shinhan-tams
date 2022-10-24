@@ -24,8 +24,6 @@
     },
     "devDependencies": {
         "@babel/core": "^7.18.10",
-        "@easepick/amp-plugin": "^1.2.0",
-        "@easepick/bundle": "^1.2.0",
         "@parcel/namer-default": "^2.7.0",
         "@parcel/plugin": "^2.7.0",
         "@parcel/transformer-inline-string": "^2.7.0",
@@ -53,7 +51,8 @@
         "sharp": "^0.29.3",
         "stylelint": "^14.9.1",
         "stylelint-config-prettier-scss": "^0.0.1",
-        "stylelint-config-recommended-scss": "^7.0.0"
+        "stylelint-config-recommended-scss": "^7.0.0",
+        "vanillajs-datepicker": "^1.2.0"
     },
     "parcel-namer-custom": {
         "app.js$": "js/TAMS.[type]",

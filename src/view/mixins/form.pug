@@ -10,13 +10,11 @@ mixin caption-sm(caption)
 
 mixin range(caption)
     +caption(caption)
-    .date-range-wrap.position-relative
-        .input-group&attributes(attributes)
-            input.start-date.form-control(type="text", placeholder="시작 일자")
-            span.input-group-text ~
-            input.end-date.form-control(type="text", placeholder="종료 일자")
-        .range-button.h-100.w-100.position-absolute.top-0.start-0.opacity-0
-            span.d-block 최초 비밀번호는 #[code TAMS사번!] 입니다.
+    .input-group.range-picker
+        input.form-control(type="text", name="range-start", placeholder="시작일")
+        span.input-group-text ~
+        input.form-control(type="text", name="range-end", placeholder="종료일")
+        span.input-group-text.btn-calender(role="button") #[i.bi.bi-calendar-week]
 
 mixin range-sm(caption)
     +caption-sm(caption)

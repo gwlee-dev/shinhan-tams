@@ -1,72 +1,46 @@
-import { easepick } from "@easepick/core";
-import { RangePlugin } from "@easepick/range-plugin";
-import { AmpPlugin } from "@easepick/amp-plugin";
-import easepickCss from "bundle-text:@easepick/bundle/dist/index.css";
-import { PresetPlugin } from "@easepick/bundle";
+import Datepicker from "vanillajs-datepicker/js/Datepicker.js";
+import DateRangePicker from "vanillajs-datepicker/js/DateRangePicker.js";
+import ko from "vanillajs-datepicker/js/i18n/locales/ko.js";
 
-const range = document.querySelectorAll(".date-range-wrap");
-const rangeButton = document.querySelectorAll(".range-button");
-const datepicker = document.querySelectorAll(".datepicker");
+const inputHandler = (e) => {
+    const val = e.target.value.replace(/\D/g, "");
+    const { length } = val;
 
-const pickerOption = {
-    css: easepickCss + `.month-name--select:last-child{order:-1};`,
-    zIndex: 10,
-    AmpPlugin: {
-        dropdown: {
-            months: true,
-            years: true,
-        },
-    },
-    PresetPlugin: {
-        position: "bottom",
-        customLabels: ["오늘", "어제", "1주일", "30일", "이번달", "저번달"],
-    },
-    lang: "ko-KR",
+    let result = "";
+
+    if (length < 6) {
+        result = val;
+    } else if (length < 8) {
+        result += val.substring(0, 4);
+        result += "-";
+        result += val.substring(4);
+    } else {
+        result += val.substring(0, 4);
+        result += "-";
+        result += val.substring(4, 6);
+        result += "-";
+        result += val.substring(6);
+    }
+    e.target.value = result;
 };
 
 const datepickerInit = () => {
-    [...range].forEach(
-        (x) =>
-            new easepick.create({
-                element: x.querySelector(".start-date"),
-                RangePlugin: {
-                    elementEnd: x.querySelector(".end-date"),
-                    strict: false,
-                    locale: {
-                        other: "일",
-                    },
-                },
-                plugins: [AmpPlugin, PresetPlugin, RangePlugin],
-                ...pickerOption,
-            })
-    );
-
-    [...datepicker].forEach(
-        (element) =>
-            new easepick.create({
-                element,
-                plugins: [AmpPlugin, PresetPlugin],
-                ...pickerOption,
-            })
-    );
-
-    [...rangeButton].forEach((x) => {
-        const real = {
-            start: x.parentNode.querySelector(".start-date"),
-            end: x.parentNode.querySelector(".end-date"),
-        };
-        const fake = {
-            start: x.querySelector(".start-display"),
-            end: x.querySelector(".end-display"),
-        };
-        real.start.addEventListener("input", () => {
-            console.log("hi");
-            fake.start.innerHTML = real.start.value;
+    ko.ko.titleFormat = "y년 mm월";
+    Object.assign(Datepicker.locales, ko);
+    const elements = [...document.querySelectorAll(".range-picker")];
+    elements.forEach((el) => {
+        el.instance = new DateRangePicker(el, {
+            buttonClass: "btn",
+            language: "ko",
+            nextArrow: `<i class="bi bi-chevron-right"></i>`,
+            prevArrow: `<i class="bi bi-chevron-left"></i>`,
         });
-        real.end.addEventListener("input", () => {
-            fake.end.innerHTML = real.end.value;
-        });
-        x.addEventListener("click", () => real.start.click());
+        el.instance.inputs.forEach((el) =>
+            el.addEventListener("input", inputHandler)
+        );
+        el.querySelector(".btn-calender").addEventListener("click", () =>
+            el.instance.inputs[0].focus()
+        );
     });
 };
 
