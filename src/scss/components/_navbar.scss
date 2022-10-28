@@ -1,6 +1,6 @@
 header {
     .navbar {
-        font-family: $font-family-shinhan;
+        font-family: $font-family-card;
         flex-wrap: nowrap;
     }
     .navbar,
@@ -42,5 +42,8 @@ header {
         margin-top: 8rem;
         --#{$prefix}offcanvas-height: fit-content;
         --#{$prefix}offcanvas-border-width: null;
+    }
+    .navbar-nav {
+        --#{$prefix}nav-link-font-weight: #{$font-weight-semibold};
     }
 }

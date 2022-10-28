@@ -10,28 +10,77 @@ mixin caption-sm(caption)
 
 mixin range(caption)
     +caption(caption)
-    .input-group.range-picker
-        input.form-control(type="text", name="range-start", placeholder="시작일")
+    .input-group.range-picker&attributes(attributes)
+        input.start-date.form-control(
+            type="text",
+            placeholder="시작 일자",
+            maxlength="10"
+        )
         span.input-group-text ~
-        input.form-control(type="text", name="range-end", placeholder="종료일")
-        span.input-group-text.btn-calender(role="button") #[i.bi.bi-calendar-week]
+        input.end-date.form-control(
+            type="text",
+            placeholder="종료 일자",
+            maxlength="10"
+        )
+        span.input-group-text #[i.bi.bi-calendar-week]
+
+mixin range-time(caption)
+    +caption(caption)
+    .input-group.range-picker&attributes(attributes)
+        input.start-date.form-control(
+            type="text",
+            placeholder="시작 일자",
+            maxlength="10"
+        )
+        +select
+            option(selected="", value="0")= "00시"
+            - for(var i = 1; i < 24; i++)
+                option(value=i)= `${("00" + i).slice(-2)}시`
+        +select
+            option(selected="", value="0")= "00분"
+            - for(var i = 1; i < 60; i++)
+                option(value=i)= `${("00" + i).slice(-2)}분`
+        span.input-group-text ~
+        input.end-date.form-control(
+            type="text",
+            placeholder="종료 일자",
+            maxlength="10"
+        )
+        +select
+            option(selected="", value="0")= "00시"
+            - for(var i = 1; i < 24; i++)
+                option(value=i)= `${("00" + i).slice(-2)}시`
+        +select
+            option(selected="", value="0")= "00분"
+            - for(var i = 1; i < 60; i++)
+                option(value=i)= `${("00" + i).slice(-2)}분`
 
 mixin range-sm(caption)
     +caption-sm(caption)
-    .date-range-wrap.position-relative
-        .input-group.input-group-sm
-            input.start-date.form-control(type="text", placeholder="시작 일자")
-            span.input-group-text ~
-            input.end-date.form-control(type="text", placeholder="종료 일자")
-        .range-button.h-100.w-100.position-absolute.top-0.start-0.opacity-0
+    .input-group.input-group-sm.range-picker&attributes(attributes)
+        input.start-date.form-control(
+            type="text",
+            placeholder="시작 일자",
+            maxlength="10"
+        )
+        span.input-group-text ~
+        input.end-date.form-control(
+            type="text",
+            placeholder="종료 일자",
+            maxlength="10"
+        )
+        span.input-group-text #[i.bi.bi-calendar-week]
 
 mixin select(caption)
     +caption(caption)
     select.form-select&attributes(attributes)
-        option(selected="") 전체
-        option(value="1") One
-        option(value="2") Two
-        option(value="3") Three
+        if block
+            block
+        else
+            option(selected="") 전체
+            option(value="1") One
+            option(value="2") Two
+            option(value="3") Three
 
 mixin select-sm(caption, no)
     - if (!no)
@@ -65,7 +114,7 @@ mixin time-sm(caption)
                 option(value=x)= x + "분"
 
 mixin searchBox(caption)
-    +caption caption
+    +caption(caption)
     input.form-control(type="text", placeholder=caption)
 
 mixin check(name, id, classes, caption, grType, grTarget)
@@ -115,15 +164,15 @@ mixin floatingTextarea(caption)
         textarea.form-control
 
 mixin textarea(caption)
-    +caption caption
-    textarea.form-control
+    +caption(caption)
+    textarea.form-control&attributes(attributes)
 
 mixin textarea-sm(caption)
     +caption-sm(caption)
     textarea.form-control.form-control-sm&attributes(attributes)
 
 mixin file(caption, multiple)
-    +caption caption
+    +caption(caption)
     .input-group.input-group
         input.form-control(type="file", multiple=multiple)&attributes(attributes)
         block

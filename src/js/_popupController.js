@@ -44,8 +44,14 @@ const Popup = class {
 };
 
 const popupController = () => {
-    const el = document.querySelector(".popup");
-    el && Object.assign(el, new Popup(el));
+    if (window.opener) {
+        const el = document.querySelector(".popup");
+        if (el) Object.assign(el, new Popup(el));
+        else if (![...document.body.classList].includes("popup")) {
+            document.querySelector("header").remove();
+            document.querySelector("footer").remove();
+        }
+    }
 };
 
 export default popupController;

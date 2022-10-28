@@ -92,6 +92,17 @@
                 ]
             },
             {
+                "title": "테스트 그룹",
+                "dir": "group",
+                "icon": "bi-list-ul",
+                "nodes": [
+                    {
+                        "title": "게시판",
+                        "id": "board"
+                    }
+                ]
+            },
+            {
                 "title": "사용자 설정",
                 "dir": "user",
                 "icon": "bi-person-circle",

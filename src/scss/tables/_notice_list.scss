@@ -1,0 +1,24 @@
+table#notice_list {
+    $notice_list: (
+        1: 5%,
+        2: 55%,
+        3: 8%,
+        4: 8%,
+        5: 8%,
+        6: 6%,
+        7: 10%,
+    );
+    th,
+    td {
+        @each $i, $percent in $notice_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+    tr td:nth-child(2) {
+        text-align: left;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+}

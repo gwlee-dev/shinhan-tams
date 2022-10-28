@@ -13,12 +13,12 @@
     "license": "ISC",
     "author": "Geonwoo Lee",
     "scripts": {
-        "build": "npm run clean && parcel build ./src/view/index.pug --public-url ./",
+        "build": "npm run clean && parcel build ./src/view/index.pug --public-url ./ --no-scope-hoist --no-optimize",
         "clean": "rimraf dist && rimraf ./.parcel-cache",
         "lint": "eslint ./**/*.js --fix && stylelint ./**/*.scss",
         "static-server": "node ./static-server.js",
         "server": "babel-node ./server/server.js",
-        "dev": "npm run clean && parcel ./src/view/index.pug",
+        "dev": "npm run clean && parcel ./src/view/index.pug ",
         "start": "nodemon --watch ./package.json --exec npm run dev",
         "install": "./yarn.cmd install -offline"
     },
@@ -77,5 +77,10 @@
         "multer": "^1.4.5-lts.1",
         "pug": "^3.0.2",
         "static-server": "^2.2.1"
+    },
+    "alias": {
+        "jquery": {
+            "global": "$"
+        }
     }
 }

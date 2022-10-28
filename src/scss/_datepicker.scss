@@ -3,3 +3,12 @@ $dp-cell-prevnext-color: $text-muted !important;
 .range-start.range-end {
     border-radius: $border-radius !important;
 }
+
+.range-picker {
+    .form-select {
+        width: 5.125rem;
+    }
+    .form-control {
+        width: 7.375rem;
+    }
+}

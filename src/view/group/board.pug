@@ -6,7 +6,7 @@ include ../mixins/modal
 include ../mixins/badge
 
 block head
-    - var title = "공지사항 관리";
+    - var title = "게시판";
 
 block contents
     .container
@@ -16,20 +16,18 @@ block contents
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2
                     +a-btn.btn-outline-primary(
-                        href="/src/view/setting/noticeForm.pug"
+                        href="/src/view/group/form.pug"
                     )
                         span.me-2 신규등록
                         i.bi-file-earmark-plus
     .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
         section.d-flex.flex-column
             .table-responsive
-                table#notice_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                table#post_list.small.table-bordered.table.table-sm.table-hover.w-100.small
                     thead
                         tr
                             th(scope="col") 순번
                             th(scope="col") 제목
-                            th(scope="col") 공지 시작 시간
-                            th(scope="col") 공지 종료 시간
                             th(scope="col") 생성일
                             th(scope="col") 등록자
                             th(scope="col") 자세히
@@ -39,13 +37,11 @@ block contents
                                 td= i
                                 td 어린시절에 풍선을 타고 하늘을 날던 아름다운 기억들이 생각나
                                 td 2022-05-16
-                                td 2022-05-16
-                                td 2022-05-16
                                 td 관리자
                                 td
                                     .hstack.gap-1.justify-content-center
                                         +a-table-btn.btn-outline-primary(
-                                            href="/src/view/setting/noticeForm.pug"
+                                            href="/src/view/group/form.pug"
                                         ) 자세히
                                         +table-btn.btn-outline-danger(
                                             data-bs-toggle="modal",

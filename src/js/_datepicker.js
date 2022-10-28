@@ -21,6 +21,7 @@ const inputHandler = (e) => {
         result += "-";
         result += val.substring(6);
     }
+
     e.target.value = result;
 };
 
@@ -37,9 +38,6 @@ const datepickerInit = () => {
         });
         el.instance.inputs.forEach((el) =>
             el.addEventListener("input", inputHandler)
-        );
-        el.querySelector(".btn-calender").addEventListener("click", () =>
-            el.instance.inputs[0].focus()
         );
     });
 };

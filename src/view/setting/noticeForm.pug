@@ -1,0 +1,33 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "공지사항 등록";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +btn.btn-primary 저장
+                    +btn.btn-secondary(
+                        data-bs-toggle="modal",
+                        data-bs-target="#danger-modal"
+                    ) 취소
+    .contents.container.pt-4.pb-4.flex-grow-1.d-flex.flex-column.gap-5
+        section.d-flex.flex-column.flex-grow-1.gap-4.mb-5
+            .row.g-3
+                .col
+                    +input("제목")
+                .col-auto
+                    +range-time("공지 기간")
+            .flex-grow-1
+                +textarea("내용").h-100
+    +danger-modal
+        span.d-block 작성 중인 내용을 #[span.fw-bold 삭제하시겠습니까?]

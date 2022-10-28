@@ -8,7 +8,6 @@ import datepickerInit from "./_datepicker";
 import emergencyModal from "./_emergencyModal";
 import preloader from "./_preloader";
 import textDeliver from "./_textDeliver";
-// import pdfExport from "./_pdfExport";
 import popupController from "./_popupController";
 
 const initFuncs = {
@@ -23,10 +22,8 @@ const initFuncs = {
     emergencyModal,
     textDeliver,
     popupController,
-    // pdfExport,
 };
 
 (() => {
     Object.keys(initFuncs).forEach((key) => initFuncs[key]());
-    window.pop = (e) => alert(e);
 })();
