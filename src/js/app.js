@@ -9,6 +9,7 @@ import emergencyModal from "./_emergencyModal";
 import preloader from "./_preloader";
 import textDeliver from "./_textDeliver";
 import popupController from "./_popupController";
+import { Modal } from "bootstrap";
 
 const initFuncs = {
     preloader,
@@ -26,4 +27,5 @@ const initFuncs = {
 
 (() => {
     Object.keys(initFuncs).forEach((key) => initFuncs[key]());
+    window.Modal = Modal;
 })();

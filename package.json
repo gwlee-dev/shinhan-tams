@@ -13,7 +13,7 @@
     "license": "ISC",
     "author": "Geonwoo Lee",
     "scripts": {
-        "build": "npm run clean && parcel build ./src/view/index.pug --public-url ./ --no-scope-hoist --no-optimize",
+        "build": "npm run clean && parcel build ./src/view/index.pug --no-optimize",
         "clean": "rimraf dist && rimraf ./.parcel-cache",
         "lint": "eslint ./**/*.js --fix && stylelint ./**/*.scss",
         "static-server": "node ./static-server.js",

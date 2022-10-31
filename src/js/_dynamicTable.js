@@ -72,6 +72,8 @@ export const DynamicTable = class {
             check.addEventListener("click", this.processChecks);
             this.processChecks(tr);
         }
+        tr.querySelector("input:first-child").focus();
+        tr.querySelector("input:first-child").blur();
     };
 
     removeRow = (specified) => {
@@ -88,6 +90,7 @@ export const DynamicTable = class {
         this.counter = [...this.root.querySelectorAll(".row-counter")];
         this.addBtn = [...this.root.querySelectorAll(".row-add-btn")];
         this.locked = [...this.root.querySelectorAll(".row-locked")];
+        this.table = this.root.querySelector("table");
         this.thead = this.root.querySelector("thead");
         this.tbody = this.root.querySelector("tbody");
         this.tr = document.createElement("tr");

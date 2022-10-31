@@ -21,11 +21,11 @@ block contents
                 .col #[+select-sm("시스템")]
                 .col #[+input-sm("데이터셋 명")]
                 .col-3 #[+input-sm("등록자명")]
-                .col-auto.align-self-end
-                    +check#owned_only
-                    label.form-label(for="owned_only") 내가 작성한 데이터셋만 보기
-                .col-auto
-                    .hstack.h-100.gap-1
+                .col-auto.d-flex.flex-column
+                    small.d-flex.align-items-center
+                        +check#owned_only.me-1
+                        label.form-label.m-0(for="owned_only") 내가 작성한 데이터셋만 보기
+                    .hstack.gap-1.mt-auto
                         +btn.btn-primary.btn-sm.flex-grow-1 검색
                         +btn.btn-secondary.btn-sm.flex-grow-1 초기화
         section.container-fluid.vstack.gap-4.d-flex.flex-column

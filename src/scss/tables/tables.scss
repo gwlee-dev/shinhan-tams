@@ -36,6 +36,7 @@
 @import "agent_list";
 @import "notice_list";
 @import "post_list";
+@import "data_list";
 
 .contents {
     .table {
@@ -47,7 +48,10 @@
 .popup,
 .modal {
     .table {
-        border-top: 2px solid rgba($dark, 0.5);
+        th {
+            box-shadow: inset 0px 2px 0px 0px rgba($dark, 0.5),
+                inset 0px -1px 0px 0px rgba($secondary, 0.14);
+        }
         th,
         td {
             text-align: center;
@@ -123,4 +127,32 @@ body:not(.popup-window) {
     .form-control[type="text"]:not(:focus) {
         background-color: rgba(255, 255, 255, 0);
     }
+}
+
+.table-adaptive {
+    overflow-x: auto;
+    .cell-adaptive {
+        &:not(:nth-child(-n + 2)) {
+            width: 1px;
+            min-width: 5rem;
+            max-width: 10rem;
+            white-space: nowrap;
+        }
+    }
+}
+
+.dynamic-table {
+    thead {
+        position: sticky;
+        top: 0;
+        z-index: 1021;
+    }
+    th,
+    td {
+        &:first-child {
+            position: sticky;
+            left: 0;
+        }
+    }
+    max-height: 33rem;
 }

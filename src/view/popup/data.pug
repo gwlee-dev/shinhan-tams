@@ -1,0 +1,177 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "테스트 데이터 관리";
+
+block contents
+    .popup.popup-xl.vstack.gap-3.pb-2
+        +popup-title
+            .ms-auto.ms-3
+                +badge.bg-secondary 최종변경일시
+                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
+        .container-fluid.vstack.gap-4
+            section.d-flex.flex-column.gap-2
+                +input-sm("데이터셋 명")
+                +textarea-sm("데이터셋 설명")
+            section.d-flex.flex-column.dynamic-table
+                .hstack.gap-2.align-items-center.mb-2
+                    span.fs-5.fw-bold 행 관리
+                    button.row-locked.btn.btn-danger.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#danger-modal",
+                        disabled
+                    )
+                        span 선택항목 (
+                        span.row-counter 0
+                        span 개) 삭제
+                    +a-btn.btn-primary.btn-sm.ms-auto.row-add-btn 추가
+                    +a-btn.btn-secondary.btn-sm 초기화
+                .table-adaptive.bg-light(style="min-height: 224px")
+                    table#data_list.small.table-bordered.table.table-sm.table-hover.bg-white.mb-0
+                        thead
+                            tr
+                                th(scope="col")
+                                    input#column-all.form-check-input(
+                                        type="checkbox",
+                                        value="",
+                                        name="column-chk"
+                                    ) 
+                                th(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="column-name"
+                                ) 번호
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col1"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col1"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col2"
+                                ) sample sample sample sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col3"
+                                ) long long long long long long long long long long long long long
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col4"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col8"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col9"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col10"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col11"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col12"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col13"
+                                ) sample
+                                th.cell-adaptive(
+                                    scope="col",
+                                    data-gr-class="p-0 overflow-visible",
+                                    data-gr-tag="input",
+                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                    data-gr-tag-type="text",
+                                    data-gr-tag-name="col14"
+                                ) sample
+                        tbody
+                            tr 
+                                td 
+                                    input.form-check-input(
+                                        type="checkbox",
+                                        value="",
+                                        name="column-chk",
+                                        data-gr-type="condition",
+                                        data-gr-target="#column-remove-btn",
+                                        data-gr-count="#column-count"
+                                    ) 
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+        +popup-footer
+            +btn.btn-primary 저장
+            +btn.btn-secondary.popup-close 취소
+    +danger-modal
