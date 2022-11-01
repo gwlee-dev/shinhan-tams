@@ -40,6 +40,10 @@ const Popup = class {
         );
 
         window.addEventListener("load", this.position);
+
+        [...document.querySelectorAll(".popup-close")].forEach((x) =>
+            x.addEventListener("click", () => window.close())
+        );
     }
 };
 

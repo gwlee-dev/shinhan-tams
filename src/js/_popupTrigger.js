@@ -30,6 +30,8 @@ const popupTrigger = () => {
     spinner.className = "spinner-border";
     div.append(spinner);
     const pop = async (that) => {
+        const href = that.href;
+        console.log(that);
         const popupWidth = 780;
         const popupHeight = 500;
         const { screenLeft, screenTop, outerWidth, outerHeight } = window;
@@ -42,24 +44,17 @@ const popupTrigger = () => {
         );
         popup.document.write(style.outerHTML);
         popup.document.write(div.outerHTML);
-        popup.location.href = that.getAttribute("href");
+        popup.location.href = href;
     };
 
     const preventAndPop = (e) => {
         e.preventDefault();
-        pop(e.target);
+        pop(e.currentTarget);
     };
 
     [...document.querySelectorAll(".popup-link")].forEach((x) => {
         x.setAttribute("target", "_blank");
         x.addEventListener("click", preventAndPop);
     });
-
-    [...document.body.classList].includes("popup-window") &&
-        [...document.querySelectorAll(".popup-close")].forEach((x) =>
-            x.addEventListener("click", () => {
-                window.close();
-            })
-        );
 };
 export default popupTrigger;
