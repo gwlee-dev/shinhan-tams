@@ -17,8 +17,8 @@ block contents
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
         .container-fluid.vstack.gap-4
-            section.d-flex.flex-column.gap-2
-                +input-sm("데이터셋 명")
+            section.d-flex.flex-column
+                +input-sm("데이터셋 명").mb-3
                 +textarea-sm("데이터셋 설명")
             section.d-flex.flex-column.dynamic-table
                 .hstack.gap-2.align-items-center.mb-2
@@ -57,7 +57,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col1"
+                                    data-gr-tag-name="column-0"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -65,7 +65,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col1"
+                                    data-gr-tag-name="column-1"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -73,7 +73,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col2"
+                                    data-gr-tag-name="column-2"
                                 ) sample sample sample sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -81,7 +81,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col3"
+                                    data-gr-tag-name="column-3"
                                 ) long long long long long long long long long long long long long
                                 th.cell-adaptive(
                                     scope="col",
@@ -89,7 +89,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col4"
+                                    data-gr-tag-name="column-4"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -97,7 +97,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col8"
+                                    data-gr-tag-name="column-8"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -105,7 +105,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col9"
+                                    data-gr-tag-name="column-9"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -113,7 +113,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col10"
+                                    data-gr-tag-name="column-10"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -121,7 +121,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col11"
+                                    data-gr-tag-name="column-11"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -129,7 +129,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col12"
+                                    data-gr-tag-name="column-12"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -137,7 +137,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col13"
+                                    data-gr-tag-name="column-13"
                                 ) sample
                                 th.cell-adaptive(
                                     scope="col",
@@ -145,7 +145,7 @@ block contents
                                     data-gr-tag="input",
                                     data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
                                     data-gr-tag-type="text",
-                                    data-gr-tag-name="col14"
+                                    data-gr-tag-name="column-14"
                                 ) sample
                         tbody
                             tr 

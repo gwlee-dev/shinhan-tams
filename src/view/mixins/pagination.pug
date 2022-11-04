@@ -4,6 +4,9 @@ mixin pagination
         small.text-muted.position-absolute.end-0 1/3000 페이지
         ul.pagination.pagination-pill.justify-content-center
             li.page-item
+                a.page-link(href="#", aria-label="Start")
+                    span #[i.bi.bi-chevron-bar-left]
+            li.page-item
                 a.page-link(href="#", aria-label="Previous")
                     span #[i.bi.bi-chevron-left]
             li.page-item
@@ -13,9 +16,16 @@ mixin pagination
             li.page-item
                 a.page-link(href="#") 3
             li.page-item
-                span.page-link.nolink #[i.bi.bi-three-dots]
+                a.page-link(href="#") 4
             li.page-item
-                a.page-link(href="#") 3000
+                a.page-link(href="#") 5
+            li.page-item
+                span.page-link.nolink #[i.bi.bi-three-dots]
+            //- li.page-item
+            //-     a.page-link(href="#") 3000
             li.page-item
                 a.page-link(href="#", aria-label="Next")
                     span #[i.bi.bi-chevron-right]
+            li.page-item
+                a.page-link(href="#", aria-label="End")
+                    span #[i.bi.bi-chevron-bar-right]

@@ -8,7 +8,11 @@
                         span.me-1= csr.name
                         span.csr-value= csr.value
         .user-panel.ff-shinhan
-            span.text-muted #[span.fw-normal 김신한](admin)님
+            a.text-muted.plain-link(
+                role="button",
+                data-bs-toggle="modal",
+                data-bs-target="#change-password"
+            ) #[span.fw-normal 김신한](admin)님
             a.plain-link(href="/src/view/login.pug") 로그아웃 #[i.bi.bi-chevron-right]
 nav.navbar.bg-white
     .container

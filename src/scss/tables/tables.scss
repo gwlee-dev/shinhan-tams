@@ -139,20 +139,21 @@ body:not(.popup-window) {
             white-space: nowrap;
         }
     }
-}
-
-.dynamic-table {
     thead {
         position: sticky;
         top: 0;
-        z-index: 1021;
+        z-index: 1019;
     }
     th,
     td {
         &:first-child {
             position: sticky;
             left: 0;
+            z-index: 1018;
         }
     }
-    max-height: 33rem;
+}
+
+.dynamic-table {
+    max-height: 32rem;
 }

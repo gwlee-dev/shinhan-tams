@@ -72,6 +72,7 @@ export const DynamicTable = class {
             check.addEventListener("click", this.processChecks);
             this.processChecks(tr);
         }
+        document.body.scrollTop = document.body.scrollHeight;
         tr.querySelector("input:first-child").focus();
         tr.querySelector("input:first-child").blur();
     };

@@ -1,0 +1,30 @@
+*,
+:before,
+:after {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    height: 100%;
+    margin: 0;
+}
+@keyframes spinner-border {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.spinner-border {
+    height: 1.5rem;
+    width: 1.5rem;
+    vertical-align: -0.125em;
+    border-width: 0.25em;
+    border-style: solid;
+    border-color: rgb(108, 117, 125) transparent rgb(108, 117, 125)
+        rgb(108, 117, 125);
+    border-image: initial;
+    border-radius: 50%;
+    animation: 0.75s linear 0s infinite normal none running spinner-border;
+}
