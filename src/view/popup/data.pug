@@ -31,19 +31,25 @@ block contents
                         span 선택항목 (
                         span.row-counter 0
                         span 개) 삭제
-                    +a-btn.btn-primary.btn-sm.ms-auto.row-add-btn 추가
+                    +a-btn.btn-outline-primary.btn-sm.ms-auto
+                        | 업로드
+                        i.bi.bi-download.ms-2
+                    +a-btn.btn-outline-success.btn-sm.me-2
+                        | 양식 다운로드
+                        i.bi.bi-upload.ms-2
+                    +a-btn.btn-primary.btn-sm.row-add-btn 추가
                     +a-btn.btn-secondary.btn-sm 초기화
                 .table-adaptive.bg-light(style="min-height: 224px")
                     table#data_list.small.table-bordered.table.table-sm.table-hover.bg-white.mb-0
                         thead
                             tr
-                                th(scope="col")
+                                th.cell-check(scope="col")
                                     input#column-all.form-check-input(
                                         type="checkbox",
                                         value="",
-                                        name="column-chk"
+                                        name="column- "
                                     ) 
-                                th(
+                                th.cell-check(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -51,7 +57,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-name"
                                 ) 번호
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -59,7 +65,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-0"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -67,7 +73,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-1"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -75,7 +81,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-2"
                                 ) sample sample sample sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -83,7 +89,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-3"
                                 ) long long long long long long long long long long long long long
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -91,7 +97,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-4"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -99,7 +105,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-8"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -107,7 +113,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-9"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -115,7 +121,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-10"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -123,7 +129,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-11"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -131,7 +137,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-12"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -139,7 +145,7 @@ block contents
                                     data-gr-tag-type="text",
                                     data-gr-tag-name="column-13"
                                 ) sample
-                                th.cell-adaptive(
+                                th(
                                     scope="col",
                                     data-gr-class="p-0 overflow-visible",
                                     data-gr-tag="input",
@@ -149,7 +155,7 @@ block contents
                                 ) sample
                         tbody
                             tr 
-                                td 
+                                td.cell-check
                                     input.form-check-input(
                                         type="checkbox",
                                         value="",
@@ -158,19 +164,19 @@ block contents
                                         data-gr-target="#column-remove-btn",
                                         data-gr-count="#column-count"
                                     ) 
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.cell-adaptive.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.cell-check.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
         +popup-footer
             +btn.btn-primary 저장
             +btn.btn-secondary.popup-close 취소

@@ -1,0 +1,67 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+
+block head
+    - var title = "수동 실행 데이터셋 관리";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-4.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +a-btn.btn-outline-primary.popup-link(
+                        href="/src/view/popup/dataset.pug"
+                    )
+                        span.me-2 신규등록
+                        i.bi-file-earmark-plus
+    .bg-tone
+        .container.py-4
+            .row.gx-3.gy-2
+                .col #[+select("시스템")]
+                .col #[+input("데이터셋명")]
+                .col #[+input("등록자")]
+                .col-auto.align-self-end #[button.btn.btn-primary 검색]
+                .col-auto.align-self-end #[+btn.btn-secondary 초기화]
+    .contents.container.pt-5.flex-grow-1.d-flex.flex-column.gap-4
+        .table-responsive
+            table#dataset_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                thead
+                    tr
+                        th(scope="col") 번호
+                        th(scope="col") 데이터셋 명
+                        th(scope="col") 설명
+                        th(scope="col") 시스템
+                        th(scope="col") 상태
+                        th(scope="col") 작성자
+                        th(scope="col") 작성일
+                        th(scope="col") 메뉴
+                tbody
+                    - for (var i = 1; i <= 20; i++)
+                        tr
+                            td= i
+                            td= `데이터셋-306${i}`
+                            td= `데이터셋설명-306${i}`
+                            td 시스템-1
+                            td #[+badge.bg-primary 초안]
+                            td 김신한
+                            td 2021-02-17 17:03:24
+                            td 
+                                .hstack.gap-1.justify-content-center
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/data.pug"
+                                    ) 데이터 관리
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/dataset.pug"
+                                    ) 편집
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
+        +pagination
+    +danger-modal

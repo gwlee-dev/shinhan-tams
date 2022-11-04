@@ -1,7 +1,7 @@
 import navInit from "./_navbarOffcanvas";
 import popupTrigger from "./_popupTrigger";
 import resetInput from "./_resetInput";
-import editorEnabler from "./_editorEnabler";
+// import editorEnabler from "./_editorEnabler";
 import switchOpen from "./_switchOpen";
 import dynamicTableInit from "./_dynamicTable";
 import datepickerInit from "./_datepicker";
@@ -16,7 +16,7 @@ const initFuncs = {
     navInit,
     popupTrigger,
     resetInput,
-    editorEnabler,
+    // editorEnabler,
     switchOpen,
     dynamicTableInit,
     datepickerInit,
@@ -29,3 +29,8 @@ const initFuncs = {
     Object.keys(initFuncs).forEach((key) => initFuncs[key]());
     window.Modal = Modal;
 })();
+
+// const myModalEl = document.getElementById("danger-modal");
+// myModalEl.addEventListener("show.bs.modal", (event) => {
+//     console.log(event.relatedTarget.getAttribute("data-test"));
+// });

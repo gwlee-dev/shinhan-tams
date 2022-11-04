@@ -1,0 +1,18 @@
+table#dataset_connect {
+    $dataset_connect: (
+        1: 5%,
+        2: 21%,
+        3: 34%,
+        4: 16%,
+        6: 7%,
+        7: 17%,
+    );
+    th,
+    td {
+        @each $i, $percent in $dataset_connect {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

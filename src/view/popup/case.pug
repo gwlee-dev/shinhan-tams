@@ -94,18 +94,36 @@ block contents
                                 td 초안
             section.d-flex.flex-column
                 .d-flex.align-items-center.mb-2
-                    span.fs-5.fw-bold 데이터셋
+                    span.fs-5.fw-bold 테스트 데이터셋
                     +a-btn.btn-secondary.btn-sm.ms-auto.popup-link(
                         href="/src/view/popup/dataset-connect.pug"
-                    ) 데이터셋 연결
+                    ) 테스트 데이터셋 연결
                 .table-responsive
-                    table#dataset_list.small.table-bordered.table.table-sm.table-hover.w-100
+                    table#data_list.small.table-bordered.table.table-sm.table-hover.w-100
                         thead 
                             tr
-                                th(scope="col") 번호
+                                th.cell-check(scope="col") 번호
                         tbody
                             tr
-                                td C202012248053B-6
+                                td.cell-check 1
+            section.d-flex.flex-column
+                .d-flex.align-items-center.mb-2
+                    span.fs-5.fw-bold 수동 테스트 데이터셋
+                    +a-btn.btn-secondary.btn-sm.ms-auto.popup-link(
+                        href="/src/view/popup/manual-connect.pug"
+                    ) 수동 테스트 데이터셋 연결
+                .table-responsive
+                    table#data_list.small.table-bordered.table.table-sm.table-hover.w-100
+                        thead 
+                            tr
+                                th.cell-check(scope="col") 번호
+                        tbody
+                            tr
+                                td.cell-check 1
+                .form-floating
+                    textarea#json-text.form-control(placeholder="JSON 데이터셋")
+                    label(for="json-text") JSON 데이터셋
+
         +popup-footer
             +btn.btn-primary 저장
             +btn.btn-secondary.popup-close 취소
