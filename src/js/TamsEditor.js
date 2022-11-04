@@ -5,7 +5,10 @@ const editorEnabler = () => {
         try {
             el.ck = await TAMSEditor.create(el, {
                 simpleUpload: {
-                    uploadUrl: "http://localhost:4000/",
+                    uploadUrl: prompt(
+                        "(임시) 이미지 서버 URL 입력",
+                        "http://localhost:4000/"
+                    ),
                 },
             });
             const dropdowns = await document.querySelectorAll(
@@ -35,4 +38,4 @@ const editorEnabler = () => {
     });
 };
 
-export default editorEnabler;
+editorEnabler();

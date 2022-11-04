@@ -1,0 +1,24 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "간단 결과 입력";
+
+block contents
+    .popup.popup-lg.vstack.gap-3.pb-2.flex-grow-1
+        +popup-title
+        .container-fluid
+            .editor
+        +popup-footer
+            +btn.btn-primary 저장
+            +btn.btn-secondary.popup-close 취소
+    +danger-modal
+
+block scripts
+    script(src="/src/js/TamsEditor.js", type="module") 

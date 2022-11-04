@@ -82,5 +82,6 @@
         "jquery": {
             "global": "$"
         }
-    }
+    },
+    "type": "module"
 }
