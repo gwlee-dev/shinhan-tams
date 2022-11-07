@@ -9,6 +9,7 @@ import emergencyModal from "./_emergencyModal";
 import preloader from "./_preloader";
 import textDeliver from "./_textDeliver";
 import popupController from "./_popupController";
+import tableObserver from "./_tableObserver";
 import { Modal } from "bootstrap";
 
 const initFuncs = {
@@ -23,6 +24,7 @@ const initFuncs = {
     emergencyModal,
     textDeliver,
     popupController,
+    tableObserver,
 };
 
 (() => {
