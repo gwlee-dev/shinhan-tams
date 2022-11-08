@@ -1,0 +1,31 @@
+table#schedule_history {
+    $schedule_history: (
+        8: 14%,
+        7: 12%,
+        5: 5%,
+        4: 6%,
+        3: 7%,
+        2: 8%,
+        1: 10%,
+    );
+    th,
+    td {
+        &:first-child {
+            width: 5%;
+        }
+    }
+    td {
+        &:nth-last-child(6) {
+            width: 20%;
+            max-width: none;
+        }
+    }
+    th,
+    td {
+        @each $i, $percent in $schedule_history {
+            &:nth-last-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+}

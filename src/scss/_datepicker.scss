@@ -11,4 +11,9 @@ $dp-cell-prevnext-color: $text-muted !important;
     .form-control {
         width: 7.375rem;
     }
+    flex-wrap: nowrap;
+}
+
+.datepicker-dropdown {
+    z-index: 1021 !important;
 }

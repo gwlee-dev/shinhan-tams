@@ -11,72 +11,60 @@ block head
     - var title = "예약실행 결과 목록";
 
 block contents
-    .popup.popup-xl.vstack.gap-3.pb-2
+    .popup.popup-xl
         +popup-title
-            .ms-auto.ms-3
+            .ms-auto
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid.bg-tone.py-3
-            section.d-flex.flex-column
-                .row.gx-2
-                    .col-auto.me-auto
-                        +caption-sm("실행 횟수")
-                        .w-100
-                        span.fw-bold.fs-5 1회
-                    .col-auto
-                        .row.gx-2
-                            .col #[+range-sm("검색 기간")]
-                    .col-auto
-                        .hstack.h-100.gap-1.align-items-end
-                            +btn.btn-primary.btn-sm 검색
-                            +btn.btn-secondary.btn-sm 초기화
-        .container-fluid
-            section.d-flex.flex-column
-                .table-responsive
-                    table#case_schedule.small.table-bordered.table.table-sm.table-hover.w-100
-                        thead
-                            tr
-                                th(scope="col") CSR 번호
-                                th(scope="col") 케이스 ID
-                                th(scope="col") 테스트케이스명
-                                th(scope="col") 에이전트
-                                th(scope="col") 디바이스명
-                                th(scope="col") 제조사
-                                th(scope="col") 운영체제
-                                th(scope="col") 운영체제 버전
-                                th(scope="col") 해상도
-                        tbody
-                            tr
-                                td C202012248053B-6
-                                td TC202009150032
-                                td testcase-1308281
-                                td ath
-                                td PC
-                                td unknown
-                                td Win32
-                                td 7.0
-                                td 1920x1080
-                            tr
-                                td C202012248053B-6
-                                td TC202009150032
-                                td testcase-1308281
-                                td ath
-                                td SHW-A170S
-                                td SAMSUNG
-                                td Android
-                                td 7.0
-                                td 1920x1080
-                            tr
-                                td C202012248053B-6
-                                td TC202009150032
-                                td testcase-1308281
-                                td ath
-                                td iPhone
-                                td Apple
-                                td Android
-                                td 7.0
-                                td 1920x1080
-                    +pagination
+        section.popup-section.container-fluid.bg-tone
+            .row.gx-2
+                .col-auto.me-auto
+                    +caption-sm("실행 횟수")
+                    .w-100
+                    span.fw-bold.fs-5 1회
+                .col-auto
+                    .row.gx-2
+                        .col #[+range-sm("검색 기간")]
+                .col-auto
+                    .hstack.h-100.gap-1.align-items-end
+                        +btn.btn-primary.btn-sm 검색
+                        +btn.btn-secondary.btn-sm 초기화
+        section.popup-section.container-fluid
+            .table-responsive
+                table#schedule_history.small.table-bordered.table.table-sm.table-hover.w-100
+                    thead
+                        tr
+                            th(scope="col") 순번
+                            th(scope="col") CSR 번호
+                            th(scope="col") 실행일시
+                            th(scope="col") 케이스 ID
+                            th(scope="col") 케이스명
+                            th(scope="col") 장치
+                            th(scope="col") 실행상태
+                            th(scope="col") 실행방식
+                            th(scope="col") 소요시간 (초)
+                            th(scope="col") 메뉴
+                    tbody
+                        tr
+                            td 1
+                            td C202012248053B-6
+                            td 2021-02-04 16:15:10
+                            td TC202009150032
+                            td testcase-1308281
+                            td PC
+                            td #[+badge.bg-success 통과]
+                            td 예약
+                            td 97
+                            td
+                                .hstack.gap-1.justify-content-center
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/detail.pug"
+                                    ) 자세히
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
+                +pagination
         +popup-footer
             +btn.btn-secondary.popup-close-btn.mx-auto 확인
     +danger-modal

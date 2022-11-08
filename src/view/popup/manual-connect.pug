@@ -16,7 +16,7 @@ block contents
                 +a-btn.btn-outline-secondary.btn-sm.popup-link(
                     href="/src/view/popup/dataset.pug"
                 ) 테스트 데이터셋 신규등록
-        section.container-fluid.bg-tone.py-3.d-flex.flex-column
+        section.popup-section.container-fluid.bg-tone
             .row.gx-2
                 .col #[+select-sm("시스템")]
                 .col #[+input-sm("데이터셋 명")]
@@ -27,12 +27,12 @@ block contents
                     .hstack.gap-1.mt-auto
                         +btn.btn-primary.btn-sm.flex-grow-1 검색
                         +btn.btn-secondary.btn-sm.flex-grow-1 초기화
-        section.container-fluid.vstack.gap-4.d-flex.flex-column
+        section.popup-section.container-fluid
+            .d-flex.align-items-center
+                span.popup-section-title 데이터셋 목록
+                +badge.bg-secondary.lh-sm 10
             .table-responsive
-                .mt-3.mb-2
-                    span.fw-bold.me-2 데이터셋 목록
-                    +badge.bg-secondary.lh-sm 10
-                table#dataset_connect.small.table-bordered.table.table-sm.table-hover.w-100.small
+                table#dataset_connect.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col") 번호
@@ -51,12 +51,12 @@ block contents
                                 td 김신한
                                 td 2021-02-17 17:03:24
                 +pagination
-        section.container-fluid.vstack.gap-4.d-flex.flex-column
+        section.popup-section.container-fluid
+            .d-flex.align-items-center
+                span.popup-section-title 데이터 목록
+                +badge.bg-secondary.lh-sm 1
             .table-adaptive
-                .mt-3.mb-2
-                    span.fw-bold.me-2 데이터 목록
-                    +badge.bg-secondary.lh-sm 1
-                table#data_list.small.table-bordered.table.table-sm.table-hover.w-100.small
+                table#data_list.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th.cell-check(scope="col")

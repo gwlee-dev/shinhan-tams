@@ -11,12 +11,12 @@ block head
     - var title = "결과 입력";
 
 block contents
-    .popup.popup-lg.vstack.gap-3.pb-2.flex-grow-1
+    .popup.popup-lg.flex-grow-1
         +popup-title
-            .ms-auto.ms-3
+            .ms-auto
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid
+        section.popup-section.container-fluid
             .row.gx-2.gy-3
                 .col-12 #[+input-sm("제목")]
                 .col #[+select-sm("테스트 결과")]

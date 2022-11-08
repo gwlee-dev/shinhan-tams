@@ -11,12 +11,12 @@ block head
     - var title = "상세 내용";
 
 block contents
-    .popup.popup-lg.vstack.gap-3.pb-2.flex-grow-1
+    .popup.popup-lg.flex-grow-1
         +popup-title
-            .ms-auto.ms-3
+            .ms-auto
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid
+        section.popup-section.container-fluid
             span 상세 내용이 없습니다.
         +popup-footer
             +btn.btn-secondary.popup-close-btn.mx-auto 확인

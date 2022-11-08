@@ -8,10 +8,55 @@ block head
 
 block contents
     .container
-        .vstack.gap-3
-            +btn#download-btn.btn-primary 다운로드
-            #editor-1.editor
-            //- #editor-2.editor
-            //- #editor-3.editor
+        h3.mb-3 팝업목록
+        .d-flex.gap-1.justify-content-center.flex-wrap
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case-connect.pug"
+            ) 테스트케이스 연결
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case-execute.pug"
+            ) 테스트케이스 실행
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case-result.pug"
+            ) 결과 입력
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case-schedule.pug"
+            ) 예약된 테스트케이스 목록
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case-simple.pug"
+            ) 간단 결과 입력
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/case.pug"
+            ) 테스트케이스 신규 등록
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/data.pug"
+            ) 테스트 데이터 관리
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/dataset-connect.pug"
+            ) 테스트 데이터셋 연결
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/dataset.pug"
+            ) 테스트 데이터셋 신규 등록
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/detail.pug"
+            ) 상세 내용
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/manual-connect.pug"
+            ) 수동 테스트 데이터셋 연결
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/progress-history.pug"
+            ) 진행상태 이력
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/result-history.pug"
+            ) 결과 이력
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/schedule-history.pug"
+            ) 예약실행 결과 목록
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/script-connect.pug"
+            ) 스크립트 연결
+            +a-btn.btn-outline-primary.popup-link(
+                href="/src/view/popup/script.pug"
+            ) 스크립트 신규 등록
 
     include ../modals/preview

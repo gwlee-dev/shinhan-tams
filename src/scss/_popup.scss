@@ -1,0 +1,33 @@
+.popup {
+    min-width: var(--#{$prefix}popup-width);
+    min-height: 18.125rem;
+    &.loading {
+        overflow: visible;
+    }
+    &.include-dp {
+        min-height: 28rem;
+    }
+
+    .pagination {
+        margin-bottom: 0;
+    }
+    .popup-section {
+        display: flex;
+        flex-direction: column;
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+        &:last-child {
+            padding-bottom: 0;
+        }
+    }
+    .popup-section-title {
+        align-self: center;
+        font-weight: $font-weight-bold;
+        margin-top: -0.125em;
+    }
+    .popup-toolbar {
+        padding-bottom: $spacer * 0.5;
+        align-items: center;
+        font-size: $font-size-lg;
+    }
+}

@@ -8,14 +8,6 @@
     }
 }
 
-.popup {
-    min-width: var(--#{$prefix}popup-width);
-    min-height: 18.125rem;
-    &.loading {
-        overflow: visible;
-    }
-}
-
 html,
 body {
     height: 100%;

@@ -10,13 +10,13 @@ block head
     - var title = "테스트케이스 연결";
 
 block contents
-    .popup.popup-xl.pb-2
+    .popup.popup-xl
         +popup-title
             .ms-auto.ms-3.hstack.gap-2
                 +a-btn.btn-outline-secondary.btn-sm.popup-link(
                     href="/src/view/popup/case.pug"
                 ) 테스트케이스 신규 등록
-        section.container-fluid.bg-tone.py-3.d-flex.flex-column
+        section.popup-section.container-fluid.bg-tone
             .row.gx-2
                 .col
                     .row.gx-2.gy-1
@@ -32,11 +32,10 @@ block contents
                     .vstack.h-100.gap-1
                         +btn.btn-primary.btn-sm.flex-grow-1 검색
                         +btn.btn-secondary.btn-sm.flex-grow-1 초기화
-        section.container-fluid.vstack.gap-4.d-flex.flex-column
+        section.popup-section.container-fluid
+            span.popup-section-title 테스트케이스 목록
             .table-responsive
-                .mt-3.mb-2
-                    span.fw-bold 테스트케이스 목록
-                table#case_connect.small.table-bordered.table.table-sm.table-hover.w-100.small
+                table#case_connect.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col") 시스템

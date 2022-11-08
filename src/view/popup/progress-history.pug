@@ -10,12 +10,12 @@ block head
     - var title = "진행상태 이력";
 
 block contents
-    .popup.popup-lg.vstack.gap-3.pb-2
+    .popup.popup-lg
         +popup-title
             .ms-auto.ms-3
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid
+        section.popup-section.container-fluid
             .table-responsive
                 table#progress_history.small.table.table-sm.table-hover.table-bordered
                     thead

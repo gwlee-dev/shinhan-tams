@@ -22,7 +22,7 @@ block contents
                     )
                     label.form-check-label(for="#execute-scheduling") 예약 실행
         #execute-scheduling.collapse
-            section.container-fluid.bg-tone.py-3.d-flex.flex-column
+            section.popup-section.container-fluid.bg-tone
                 .row 
                     .col 
                         .row.gx-3.gy-2
@@ -137,10 +137,10 @@ block contents
                             .d-block.d-lg-none.w-100.h-0
                             .col.col-lg-3 #[+time-sm("실행시각")]
                             .col #[+input-sm("반복실행 횟수")(type="number")]
-        section.container-fluid.vstack.gap-4.mt-3.d-flex.flex-column.dynamic-table
-            .row.mb-2.gx-3.align-items-center
+        section.popup-section.container-fluid.dynamic-table
+            .popup-toolbar.row.g-0
                 .col-auto
-                    span.fs-6.fw-bold.me-2 장치 선택
+                    span.popup-section-title 장치 선택
                     span.badge.bg-secondary
                         span.row-counter 0
                         span 개

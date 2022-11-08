@@ -11,21 +11,20 @@ block head
     - var title = "테스트 데이터셋 신규 등록";
 
 block contents
-    .popup.popup-xl.vstack.gap-3.pb-2
+    .popup.popup-xl
         +popup-title
-            .ms-auto.ms-3
+            .ms-auto
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid.vstack.gap-4
-            section.d-flex.flex-column
-                .d-flex
-                .row.gx-2.gy-1
-                    .col-2 #[+select-sm("시스템")]
-                    .col-10 #[+input-sm("데이터셋 명")]
-                    .col-12 #[+textarea-sm("데이터셋 설명")]
-            section#column-management.d-flex.flex-column.dynamic-table
-                .hstack.gap-2.align-items-center.mb-2
-                    span.fs-5.fw-bold 열 관리
+        section.popup-section.container-fluid
+            .row.gx-2.gy-1
+                .col-2 #[+select-sm("시스템")]
+                .col-10 #[+input-sm("데이터셋 명")]
+                .col-12 #[+textarea-sm("데이터셋 설명")]
+        section.popup-section.container-fluid.dynamic-table
+            .popup-toolbar.row.g-0
+                .col-auto.hstack.gap-2
+                    span.popup-section-title 행 관리
                     button.row-locked.btn.btn-danger.btn-sm(
                         data-bs-toggle="modal",
                         data-bs-target="#danger-modal",
@@ -34,54 +33,55 @@ block contents
                         span 선택항목 (
                         span.row-counter 0
                         span 개) 삭제
+                .col-auto.hstack.gap-2.ms-auto
                     +a-btn.btn-primary.btn-sm.ms-auto.row-add-btn 추가
                     +a-btn.btn-secondary.btn-sm 초기화
-                .table-adaptive.bg-light(style="min-height: 224px")
-                    table#column_list.small.table-bordered.table.table-sm.table-hover.w-100.bg-white.mb-0
-                        thead
-                            tr
-                                th#column-check(scope="col")
-                                    input#column-all.form-check-input(
-                                        type="checkbox",
-                                        value="",
-                                        name="column-chk"
-                                    ) 
-                                th#column-name(
-                                    scope="col",
-                                    data-gr-class="p-0 overflow-visible",
-                                    data-gr-tag="input",
-                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
-                                    data-gr-tag-type="text",
-                                    data-gr-tag-name="column-name"
-                                ) 열이름
-                                th#column-describe(
-                                    scope="col",
-                                    data-gr-class="p-0 overflow-visible",
-                                    data-gr-tag="input",
-                                    data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
-                                    data-gr-tag-type="text",
-                                    data-gr-tag-name="describe"
-                                ) 설명
-                                th#column-remove(
-                                    scope="col",
-                                    data-gr-tag="button",
-                                    data-gr-tag-class="btn btn-sm btn-outline-danger py-0 row-remove-btn",
-                                    data-gr-tag-inner="삭제"
-                                ) 삭제
-                        tbody
-                            tr 
-                                td 
-                                    input#column-1.form-check-input(
-                                        type="checkbox",
-                                        value="",
-                                        name="column-chk",
-                                        data-gr-type="condition",
-                                        data-gr-target="#column-remove-btn",
-                                        data-gr-count="#column-count"
-                                    ) 
-                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
-                                td #[button.btn.btn-sm.btn-outline-danger.py-0.row-remove-btn(name="describe") 삭제]
+            .table-adaptive.bg-light(style="min-height: 224px")
+                table#column_list.small.table-bordered.table.table-sm.table-hover.w-100.bg-white.mb-0
+                    thead
+                        tr
+                            th#column-check(scope="col")
+                                input#column-all.form-check-input(
+                                    type="checkbox",
+                                    value="",
+                                    name="column-chk"
+                                ) 
+                            th#column-name(
+                                scope="col",
+                                data-gr-class="p-0 overflow-visible",
+                                data-gr-tag="input",
+                                data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                data-gr-tag-type="text",
+                                data-gr-tag-name="column-name"
+                            ) 열이름
+                            th#column-describe(
+                                scope="col",
+                                data-gr-class="p-0 overflow-visible",
+                                data-gr-tag="input",
+                                data-gr-tag-class="form-control form-control-sm lh-sm rounded-0 border-0",
+                                data-gr-tag-type="text",
+                                data-gr-tag-name="describe"
+                            ) 설명
+                            th#column-remove(
+                                scope="col",
+                                data-gr-tag="button",
+                                data-gr-tag-class="btn btn-sm btn-outline-danger py-0 row-remove-btn",
+                                data-gr-tag-inner="삭제"
+                            ) 삭제
+                    tbody
+                        tr 
+                            td 
+                                input#column-1.form-check-input(
+                                    type="checkbox",
+                                    value="",
+                                    name="column-chk",
+                                    data-gr-type="condition",
+                                    data-gr-target="#column-remove-btn",
+                                    data-gr-count="#column-count"
+                                ) 
+                            td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                            td.p-0.overflow-visible #[input.form-control.form-control-sm.lh-sm.rounded-0.border-0(type="text", name="column-name")]
+                            td #[button.btn.btn-sm.btn-outline-danger.py-0.row-remove-btn(name="describe") 삭제]
         +popup-footer
             +btn.btn-primary 저장
             +btn.btn-secondary.popup-close 취소

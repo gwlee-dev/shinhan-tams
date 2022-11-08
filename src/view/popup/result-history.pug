@@ -11,12 +11,12 @@ block head
     - var title = "결과 이력";
 
 block contents
-    .popup.popup-lg.vstack.gap-3.pb-2
+    .popup.popup-lg
         +popup-title
-            .ms-auto.ms-3
+            .ms-auto
                 +badge.bg-secondary 최종변경일시
                 span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
-        .container-fluid
+        section.popup-section.container-fluid
             .table-responsive
                 table#case_history.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
