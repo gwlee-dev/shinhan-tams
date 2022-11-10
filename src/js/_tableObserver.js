@@ -3,9 +3,7 @@ import popupTrigger from "./_popupTrigger";
 const Table = class {
     observer = new MutationObserver((mutationList, observer) => {
         const [mutationRecord] = mutationList;
-        [...mutationRecord.addedNodes].forEach(
-            (tr) => console.log(tr) && popupTrigger(tr)
-        );
+        [...mutationRecord.addedNodes].forEach((tr) => popupTrigger(tr));
     });
 
     observe = (el) =>

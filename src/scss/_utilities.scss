@@ -1,6 +1,20 @@
 $utilities: map-merge(
     $utilities,
     (
+        "width":
+            map-merge(
+                map-get($utilities, "width"),
+                (
+                    responsive: true,
+                )
+            ),
+        "font-size":
+            map-merge(
+                map-get($utilities, "font-size"),
+                (
+                    responsive: true,
+                )
+            ),
         "popup": (
             css-var: true,
             css-variable-name: popup-width,

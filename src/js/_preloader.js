@@ -1,5 +1,5 @@
 const fillLoader = (value) => {
-    const loader = document.querySelector("#preloader .bar");
+    const loader = document.querySelector(".preloader .bar");
     loader.style.width = value;
 };
 
@@ -13,10 +13,10 @@ const preloader = () => {
         if (document.readyState === "complete") {
             fillLoader("100%");
             setTimeout(() => {
-                document.querySelector("#preloader").classList.add("complete");
+                document
+                    .querySelector(".preloader")
+                    .classList.remove("loading");
             }, 400);
-            [...document.body.classList].includes("loading") &&
-                document.body.classList.remove("loading");
         }
     });
 };

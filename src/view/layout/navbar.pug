@@ -15,32 +15,21 @@
             ) #[span.fw-normal 김신한](admin)님
             a.plain-link(href="/src/view/login.pug") 로그아웃 #[i.bi.bi-chevron-right]
 nav.navbar.bg-white
-    .container
-        a.navbar-brand.d-block.d-lg-none.d-xxl-block(href="/")
-            img.h-100(src="/src/img/logo.png?height=40")
-        a.navbar-brand.d-none.d-lg-block.d-xxl-none(href="/")
-            img.h-100(src="/src/img/logo_only.png?height=40")
-        ul.navbar-nav.d-none.d-lg-flex.flex-row.gap-3.gap-xl-4.gap-xxl-5
-            each node in nodes 
-                li.nav-item
-                    span.nav-link(
-                        data-gr-target=`#offcanvas-${node.dir}`,
-                        role="button"
-                    )= node.title
-
-        i.bi.bi-list.fs-2.lh-sm.ms-2(
+    .container.flex-wrap.flex-lg-nowrap.position-relative
+        a.navbar-brand.me-lg-n3.me-xl-n4(href="/")
+            img.h-100(src="/src/img/logo.png?height=28")
+        i.bi.bi-list.fs-2.lh-sm.mt-1.me-n1.position-absolute.top-0.end-0.translate-middle-x(
             role="button",
             data-bs-toggle="modal",
             data-bs-target="#sitemap"
         )
-//- .container.position-absolute.top-100.start-50.translate-middle-x
-//-     #toast-stack.row.row-cols-4.flex-column.align-items-end
-//-         .col
-//-             .alert.alert-light.border-secondary.border-opacity-25.text-center(
-//-                 role="alert"
-//-             )
-//-                 .spinner-border.spinner-border-sm.me-3(role="status")
-//-                 | 보고서를 생성하고 있습니다.
+        ul.navbar-nav.flex-row.row.row-cols-auto.row-cols-md-6.row-cols-lg-auto.gx-4.flex-grow-1.mx-lg-4.mx-xl-5.justify-content-center.text-center.text-nowrap
+            each node in nodes 
+                li.col.nav-item
+                    span.nav-link(
+                        data-gr-target=`#offcanvas-${node.dir}`,
+                        role="button"
+                    )= node.title
 each node in nodes 
     .offcanvas.offcanvas-top(tabindex="-1", id=`offcanvas-${node.dir}`)
         .container.vstack

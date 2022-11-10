@@ -16,9 +16,6 @@
         flex-direction: column;
         padding-top: $spacer;
         padding-bottom: $spacer;
-        &:last-child {
-            padding-bottom: 0;
-        }
     }
     .popup-section-title {
         align-self: center;
