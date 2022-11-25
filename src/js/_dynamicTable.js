@@ -1,7 +1,7 @@
 export const DynamicTable = class {
-    getChecks = (findAll) =>
+    getChecks = () =>
         [...this.root.querySelectorAll(`[name=${this.chkAll.name}]`)].filter(
-            (el) => !el.id.endsWith("-all") || findAll
+            (el) => !el.id.endsWith("-all")
         );
 
     getRemoveButtons = () => [...this.root.querySelectorAll(".row-remove-btn")];
@@ -33,20 +33,20 @@ export const DynamicTable = class {
         }
     };
 
-    setId = (tr) => {
-        const idx = this.getChecks().length + 1;
-        [...tr.querySelectorAll("input, button")].forEach(
-            (control) => (control.id = `${control.name}-${idx}`)
-        );
+    setId = () => {
+        this.getChecks().forEach((chk, idx) => {
+            const tr = chk.parentNode.parentNode;
+            [...tr.querySelectorAll("input, button")].forEach(
+                (control) => (control.id = `${control.name}-${idx + 1}`)
+            );
+        });
     };
 
     addRow = (...arg) => {
         const tr = this.tr.cloneNode(true);
-        const check = tr.querySelector("[type=checkbox]");
         const btn = tr.querySelector(".row-remove-btn");
         btn && btn.addEventListener("click", this.removeRow);
         this.tbody.append(tr);
-        this.setId(tr);
         if (arg.length > 0) {
             arg[0].constructor.name.endsWith("Event") && arg.shift();
             const controls = [...tr.querySelectorAll(".row-control")];
@@ -68,13 +68,19 @@ export const DynamicTable = class {
                     }
                 });
         }
+        this.setId();
+        this.bindChkEvent(tr);
+        document.body.scrollTop = document.body.scrollHeight;
+        tr.querySelector("input:first-child").focus();
+        tr.querySelector("input:first-child").blur();
+    };
+
+    bindChkEvent = (tr) => {
+        const check = tr.querySelector("[type=checkbox]");
         if (this.chkAll) {
             check.addEventListener("click", this.processChecks);
             this.processChecks(tr);
         }
-        document.body.scrollTop = document.body.scrollHeight;
-        tr.querySelector("input:first-child").focus();
-        tr.querySelector("input:first-child").blur();
     };
 
     removeRow = (specified) => {
@@ -87,40 +93,16 @@ export const DynamicTable = class {
         this.chkAll && this.processChecks();
     };
 
-    init = (option) => {
-        this.counter = [...this.root.querySelectorAll(".row-counter")];
-        this.addBtn = [...this.root.querySelectorAll(".row-add-btn")];
-        this.locked = [...this.root.querySelectorAll(".row-locked")];
-        this.table = this.root.querySelector("table");
-        this.thead = this.root.querySelector("thead");
-        this.tbody = this.root.querySelector("tbody");
-        this.tr = document.createElement("tr");
-        this.chkAll = this.root.querySelector("[type=checkbox][id$=all]");
-        Object.assign(this, option);
+    createChkTd = () => {
+        const chkTd = document.createElement("td");
+        const chk = this.chkAll.cloneNode(true);
+        chk.id = "";
+        chkTd.append(chk);
+        return chkTd;
+    };
 
-        // chkAll
-        if (this.chkAll) {
-            this.chkAll.addEventListener("click", this.verifyChecked);
-            this.chkAll.addEventListener("click", this.processChecks);
-            this.getChecks().forEach((el) => {
-                el.addEventListener("click", this.processChecks);
-            });
-        }
-
-        // remove
-        this.getRemoveButtons().length !== 0 &&
-            this.getRemoveButtons().forEach((el) =>
-                el.addEventListener("click", this.removeRow)
-            );
-
-        // add
-
-        const createChkTd = () => {
-            const chkTd = document.createElement("td");
-            const chk = this.chkAll.cloneNode(true);
-            chkTd.append(chk);
-            return chkTd;
-        };
+    makeTemplate = () => {
+        this.tr.innerHTML = "";
 
         const headers = [...this.thead.querySelectorAll("th[data-gr-tag]")];
         const tds = this.template
@@ -164,12 +146,59 @@ export const DynamicTable = class {
                   td.append(control);
                   return td;
               });
-        this.tr.append(this.chkAll && createChkTd(), ...tds);
-        if (this.addBtn.length > 0) {
-            this.addBtn.forEach((el) =>
-                el.addEventListener("click", this.addRow)
+        this.tr.append(this.chkAll && this.createChkTd(), ...tds);
+    };
+
+    observer = {
+        thead: new MutationObserver(() => {
+            this.makeTemplate();
+            this.setId();
+        }),
+        tbody: new MutationObserver(() => {
+            this.getChecks().forEach((el) => {
+                el.addEventListener("click", this.processChecks);
+            });
+            this.getRemoveButtons().forEach((el) =>
+                el.addEventListener("click", this.removeRow)
             );
+            this.setId();
+        }),
+    };
+
+    init = (option) => {
+        this.counter = [...this.root.querySelectorAll(".row-counter")];
+        this.addBtn = [...this.root.querySelectorAll(".row-add-btn")];
+        this.locked = [...this.root.querySelectorAll(".row-locked")];
+        this.table = this.root.querySelector("table");
+        this.thead = this.root.querySelector("thead");
+        this.tbody = this.root.querySelector("tbody");
+        this.tr = document.createElement("tr");
+        this.chkAll = this.root.querySelector("[type=checkbox][id$=all]");
+        Object.assign(this, option);
+
+        // chkAll
+        if (this.chkAll) {
+            this.chkAll.addEventListener("click", this.verifyChecked);
+            this.chkAll.addEventListener("click", this.processChecks);
+            this.getChecks().forEach((el) => {
+                el.addEventListener("click", this.processChecks);
+            });
+            this.observer.tbody.observe(this.tbody, {
+                childList: true,
+            });
+            this.observer.thead.observe(this.thead.children[0], {
+                childList: true,
+            });
         }
+
+        // remove
+        this.getRemoveButtons().forEach((el) =>
+            el.addEventListener("click", this.removeRow)
+        );
+
+        // add
+        this.makeTemplate();
+        this.addBtn.forEach((el) => el.addEventListener("click", this.addRow));
     };
 
     constructor(root, option) {
@@ -178,9 +207,11 @@ export const DynamicTable = class {
     }
 };
 
-const dynamicTableInit = () =>
-    [...document.querySelectorAll(".dynamic-table")].forEach((el) => {
+const dynamicTableInit = () => {
+    const elements = document.querySelectorAll(".dynamic-table");
+    [...elements].forEach((el) => {
         Object.assign(el, new DynamicTable(el));
     });
+};
 
 export default dynamicTableInit;

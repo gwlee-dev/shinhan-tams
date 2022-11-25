@@ -53,3 +53,19 @@ body > *:not(main) {
         display: none;
     }
 }
+
+.toast-container {
+    margin-top: 9rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.no-focus {
+    box-shadow: none !important;
+    border-color: inherit !important;
+    outline: 0 !important;
+}
+
+.calculated-height {
+    max-height: calc(100vh - 18rem);
+}

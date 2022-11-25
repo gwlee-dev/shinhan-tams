@@ -8,8 +8,14 @@ html.h-100(lang="ko")
         else
             title TAMS
     body.d-flex.flex-column
-        #preloader
+        .preloader.loading
             .bar(role="progressbar")
+        .postloader
+            .spinner-border.text-white(role="status")
+            img(src="/src/img/tams.png", alt="TAMS")
+            .w-100
+            span.loader-msg 데이터를 가져오고 있습니다
+        .toast-container.position-fixed.top-0.start-50.translate-middle-x
         header.sticky-top
             include navbar
         main.flex-grow-1.vstack

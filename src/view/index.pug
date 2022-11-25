@@ -7,8 +7,13 @@ html.h-100(lang="ko")
         else
             title TAMS
     body.d-flex.flex-column.h-100(data-gr-dismiss="#notice-modal")
-        #preloader
+        .preloader
             .bar(role="progressbar")
+        .postloader
+            .spinner-border.text-white(role="status")
+            img(src="/src/img/tams.png", alt="TAMS")
+            .w-100
+            span.loader-msg 데이터를 가져오고 있습니다
         header.sticky-top
             include layout/navbar
         main.flex-grow-1.vstack

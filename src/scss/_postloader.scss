@@ -1,0 +1,27 @@
+.postloader {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    z-index: #{$zindex-modal-backdrop};
+    img {
+        margin-left: $spacer;
+        margin-top: 0.1em;
+    }
+    .loader-msg {
+        font-family: $font-family-shinhan;
+        display: block;
+        color: $white;
+        margin-top: $spacer;
+    }
+    &:not(.loading) {
+        display: none;
+    }
+}

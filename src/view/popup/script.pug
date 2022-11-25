@@ -12,9 +12,9 @@ block head
 block contents
     .popup.popup-lg
         +popup-title
-            .ms-auto
-                +badge.bg-secondary 최종변경일시
-                span.badge.text-body.small.opacity-75 2022-05-16 14:45:52
+            .ms-auto.d-flex.align-items-center
+                +badge.bg-secondary.me-2 현재 등록된 파일
+                span.text-body.opacity-75.text-truncate.fw-bold filefile.xml
         section.popup-section.container-fluid
             .row.gx-2.gy-1
                 .col-10
@@ -22,35 +22,37 @@ block contents
                         .col-auto
                             +caption-sm("파일 선택")
                             .w-100
-                            .btn-group.mt-auto(role="tablist")
-                                button.btn.btn-outline-secondary.btn-sm.active(
+                            .btn-group.btn-group-sm.mt-auto(role="tablist")
+                                +radio-btn-secondary("file-from", "file-local").active(
                                     data-bs-toggle="pill",
-                                    data-bs-target="#file-local",
+                                    data-bs-target="#file-local-tab",
                                     type="button",
                                     role="tab"
                                 ) 내 PC에서
-                                button.btn.btn-outline-secondary.btn-sm(
+                                +radio-btn-secondary("file-from", "file-server")(
                                     data-bs-toggle="pill",
-                                    data-bs-target="#file-server",
+                                    data-bs-target="#file-server-tab",
                                     type="button",
                                     role="tab"
                                 ) 서버에서
                         .col.tab-content
-                            #file-local.tab-pane.fade.show.active
+                            #file-local-tab.tab-pane.fade.show.active
                                 +file-sm("내 PC에서 업로드")
-                            #file-server.tab-pane.fade
+                            #file-server-tab.tab-pane.fade
                                 +caption-sm("서버에서 업로드")
                                 .input-group.input-group-sm 
                                     .form-control.input-group.input-group-sm.p-0.fake-file
-                                        span.input-group-text(
+                                        button.input-group-text.no-focus(
                                             role="button",
                                             data-bs-toggle="modal",
-                                            data-bs-target="#server-file"
+                                            data-bs-target="#server-file",
+                                            disabled
                                         ) 파일 선택
-                                        label.form-control(
+                                        button.text-start.form-control.no-focus(
                                             role="button",
                                             data-bs-toggle="modal",
-                                            data-bs-target="#server-file"
+                                            data-bs-target="#server-file",
+                                            disabled
                                         ) 선택된 파일 없음
                                     +btn.btn-secondary(
                                         type="button"

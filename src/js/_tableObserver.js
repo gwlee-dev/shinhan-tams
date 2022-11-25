@@ -1,11 +1,13 @@
 import popupTrigger from "./_popupTrigger";
+import textDeliver from "./_textDeliver";
 
 const Table = class {
     observer = new MutationObserver((mutationList, observer) => {
         const [mutationRecord] = mutationList;
-        [...mutationRecord.addedNodes].forEach(
-            (tr) => console.log(tr) && popupTrigger(tr)
+        [...mutationRecord.target.querySelectorAll("tbody tr")].forEach((tr) =>
+            popupTrigger(tr)
         );
+        textDeliver();
     });
 
     observe = (el) =>

@@ -1,0 +1,139 @@
+.attach-item {
+    i.bi {
+        font-size: $h4-font-size;
+        $filetypes: (
+            "\F389": (
+                "color": $green,
+                "extensions": (
+                    "xlsx",
+                    "xlsm",
+                    "xlsb",
+                    "xltx",
+                    "xltm",
+                    "xls",
+                    "xlt",
+                    "xlam",
+                    "xla",
+                    "xlw",
+                    "xlr",
+                    "csv",
+                ),
+            ),
+            "\F38D": (
+                "color": $blue,
+                "extensions": (
+                    "doc",
+                    "docm",
+                    "docx",
+                    "dot",
+                    "dotm",
+                    "dotx",
+                    "odt",
+                    "rtf",
+                ),
+            ),
+            "\F381": (
+                "color": $orange,
+                "extensions": (
+                    "pptx",
+                    "pptm",
+                    "ppt",
+                    "potx",
+                    "potm",
+                    "pot",
+                    "ppsx",
+                    "ppsm",
+                    "pps",
+                    "ppam",
+                    "ppa",
+                ),
+            ),
+            "\F377": (
+                "color": $dark,
+                "extensions": (
+                    "aiff",
+                    "aac",
+                    "alac",
+                    "flac",
+                    "mmf",
+                    "mp3",
+                    "ogg",
+                    "wav",
+                    "wma",
+                ),
+            ),
+            "\F63E": (
+                "color": $red,
+                "extensions": (
+                    "pdf",
+                ),
+            ),
+            "\F391": (
+                "color": $secondary,
+                "extensions": (
+                    "zip",
+                    "rar",
+                    "7z",
+                    "tar",
+                    "gz",
+                    "tgz",
+                    "bz2",
+                    "cab",
+                    "alz",
+                    "egg",
+                ),
+            ),
+            "\F37B": (
+                "color": $secondary,
+                "extensions": (
+                    "webm",
+                    "mpg",
+                    "mp2",
+                    "mpeg",
+                    "mpe",
+                    "mpv",
+                    "mp4",
+                    "m4p",
+                    "m4v",
+                    "avi",
+                    "mkv",
+                    "wmv",
+                    "mov",
+                    "qt",
+                    "flv",
+                    "swf",
+                    "avchd",
+                ),
+            ),
+            "\F36D": (
+                "color": $secondary,
+                "extensions": (
+                    "jpg",
+                    "png",
+                    "gif",
+                    "webp",
+                    "tif",
+                    "tiff",
+                    "bmp",
+                    "heif",
+                    "jpeg",
+                    "svg",
+                ),
+            ),
+        );
+        $test: ();
+        @each $unicode, $obj in $filetypes {
+            $color: map-get($obj, "color");
+            $extensions: map-get($obj, "extensions");
+            @each $extension in $extensions {
+                &.bi-filetype-#{$extension}::before {
+                    content: $unicode;
+                    color: $color;
+                }
+            }
+        }
+    }
+}
+i::before {
+    content: "\f392";
+}

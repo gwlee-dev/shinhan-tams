@@ -6,11 +6,13 @@ import switchOpen from "./_switchOpen";
 import dynamicTableInit from "./_dynamicTable";
 import datepickerInit from "./_datepicker";
 import emergencyModal from "./_emergencyModal";
-import preloader from "./_preloader";
+import { preloader, Loading } from "./_loader";
 import textDeliver from "./_textDeliver";
 import popupController from "./_popupController";
 import tableObserver from "./_tableObserver";
 import { Modal } from "bootstrap";
+import Toast from "./_toast";
+import makeExcel from "./_excel";
 
 const initFuncs = {
     preloader,
@@ -27,12 +29,16 @@ const initFuncs = {
     tableObserver,
 };
 
-(() => {
-    Object.keys(initFuncs).forEach((key) => initFuncs[key]());
-    window.Modal = Modal;
-})();
+const globals = {
+    Modal,
+    Toast,
+    makeExcel,
+    Loading,
+};
 
-// const myModalEl = document.getElementById("danger-modal");
-// myModalEl.addEventListener("show.bs.modal", (event) => {
-//     console.log(event.relatedTarget.getAttribute("data-test"));
-// });
+document.addEventListener("DOMContentLoaded", () => {
+    Object.keys(initFuncs).forEach((key) => {
+        initFuncs[key]();
+    });
+    Object.assign(window, globals);
+});

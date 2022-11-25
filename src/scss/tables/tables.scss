@@ -39,6 +39,7 @@
 @import "data_list";
 @import "dataset_connect";
 @import "schedule_history";
+@import "monitoring";
 
 .contents {
     .table {
@@ -129,6 +130,15 @@ body:not(.popup-window) {
     .form-control[type="text"]:not(:focus) {
         background-color: rgba(255, 255, 255, 0);
     }
+    margin-bottom: 0 !important;
+}
+
+body:not(.popup-window) {
+    .table-adaptive {
+        overflow-x: auto;
+        margin-right: -1rem;
+        padding-right: 1rem;
+    }
 }
 
 .table-adaptive {
@@ -143,12 +153,12 @@ body:not(.popup-window) {
     }
     thead {
         position: sticky;
-        top: 0;
+        top: -1px;
         z-index: 1019;
     }
     th,
     td {
-        &:first-child {
+        &.cell-check {
             position: sticky;
             left: 0;
             z-index: 1018;
@@ -158,4 +168,18 @@ body:not(.popup-window) {
 
 .dynamic-table {
     max-height: 32rem;
+}
+
+.cell-empty {
+    padding: $spacer * 3 0 !important;
+    font-size: $h6-font-size;
+    &::before {
+        content: "\F567";
+        font-family: bootstrap-icons;
+        font-size: $h2-font-size;
+        display: block;
+        width: 100%;
+        color: rgba($secondary, 0.5);
+        margin-bottom: $spacer * 0.75;
+    }
 }

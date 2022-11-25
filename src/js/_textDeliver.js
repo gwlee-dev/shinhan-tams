@@ -7,8 +7,9 @@ const delivery = (e) => {
 };
 
 const textDeliver = () => {
-    const links = [...document.querySelectorAll(".text-deliver")];
-    links.forEach((el) => {
+    const elements = document.querySelectorAll(".text-deliver");
+    [...elements].forEach((el) => {
+        el.removeEventListener("click", delivery);
         el.addEventListener("click", delivery);
     });
 };

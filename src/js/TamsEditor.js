@@ -1,7 +1,8 @@
 import TAMSEditor from "../ckeditor/build/ckeditor";
 
 const editorEnabler = () => {
-    document.querySelectorAll(".editor").forEach(async (el) => {
+    const elements = document.querySelectorAll(".editor");
+    [...elements].forEach(async (el) => {
         try {
             el.ck = await TAMSEditor.create(el, {
                 simpleUpload: {

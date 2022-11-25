@@ -1,0 +1,76 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "게시판";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.mt-4.me-auto.text-truncate 10CM 그라데이션 가사
+                span.mb-4.text-secondary 2022-11-22, 김신한
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +a-btn.btn-primary(href="/src/view/group/form.pug") 편집
+                    +a-btn.btn-secondary(
+                        href="/src/view/group/board.pug"
+                    ) 목록
+    .contents.container.pt-4.pb-4.flex-grow-1.d-flex.flex-column.gap-5
+        section.d-flex.flex-column.flex-grow-1.gap-4
+            .post-content.border-top.pt-4.flex-grow-1
+                pre.ff-shinhan.fs-6.fw-light.
+                    달콤한 색감이 물들어 조금씩
+                    정신을 차렸을 땐 알아볼 수도 없지
+                    가득 찬 마음이 여물다 못해
+                    터지고 있어
+                    내일은 말을 걸어봐야지
+
+                    바람을 맞고 빗물에 젖어
+                    나의 색감도 흐려지겠지만
+                    너는 항상 빛에 반짝일 테니까
+
+                    멋진 말들을 전하지 못하고
+                    아무도 관심 없는 그림이 되겠지만
+                    달콤한 색감은 감추지 못해
+                    터지고 있어
+                    내일은 말을 걸어봐야지
+
+                    그냥 이 노래가 어떨까 싶어
+            .card
+                .card-header 첨부파일
+                .card-body
+                    .row.row-cols-md-2.row-cols-lg-3.row-cols-xl-4.g-2
+                        mixin attach(ext)
+                            .col
+                                .card.attach-item(role="button")
+                                    .card-body.mx-n1
+                                        .row.g-0.align-items-center
+                                            .col-3.text-center.lh-sm.pe-3
+                                                i.bi(class=`bi-filetype-${ext}`)
+                                                small.d-block= ext
+                                            .col-9.lh-sm.ms-n1
+                                                .text-truncate
+                                                    block
+                                                small
+                                                    small.text-muted.d-block 2022-11-11 14:28:23
+                                                    small.text-muted.d-block 245 KB
+                        +attach("xml") 내이름은_xml_파일이죠.xml
+                        +attach("json") 내이름은_json_파일이죠.json
+                        +attach("pptx") 내이름은_pptx_파일이죠.pptx
+                        +attach("xlsx") 내이름은_xlsx_파일이죠.xlsx
+                        +attach("docx") 내이름은_docx_파일이죠.docx
+                        //- +attach("pdf") 내이름은_pdf_파일이죠.pdf
+                        //- +attach("mp3") 내이름은_mp3_파일이죠.mp3
+                        //- +attach("jpg") 내이름은_jpg_파일이죠.jpg
+                        //- +attach("mov") 내이름은_mov_파일이죠.mov
+                        //- +attach("alz") 내이름은_alz_파일이죠.alz
+                        //- +attach("7z") 내이름은_7z_파일이죠.7z
+                        //- +attach("aml") 이름이_길기때문에_끝부분이_잘릴것이다.aml
+
+    +danger-modal
+        span.d-block 작성 중인 내용을 #[span.fw-bold 삭제하시겠습니까?]

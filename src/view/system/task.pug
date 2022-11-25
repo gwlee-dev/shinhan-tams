@@ -10,19 +10,31 @@ block head
 
 block contents
     .container
-        h4.my-4.me-auto.text-truncate= title
+        .row.g-0
+            .col.d-flex
+                h4.my-3.text-truncate= title
+                +badge.bg-primary.align-self-center.ms-2.mt-1 모니터링 데이터 삭제
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-3
+                    .btn-group
+                        input#mobile-btn.btn-check(
+                            type="radio",
+                            name="options",
+                            autocomplete="off"
+                        )
+                        label.btn.btn-outline-secondary(for="mobile-btn") 모니터링 데이터 삭제
+                        input#desktop-btn.btn-check(
+                            type="radio",
+                            name="options",
+                            autocomplete="off"
+                        )
+                        label.btn.btn-outline-secondary(for="desktop-btn") 자동실행 오류 정정
+                    +btn.btn-dark(
+                        data-bs-toggle="modal",
+                        data-bs-target="#danger-modal"
+                    ) 실행
     .contents.container.pt-2.flex-grow-1.d-flex.flex-column.gap-4
-        ul.nav.nav-tabs
-            li.nav-item
-                a.nav-link.active(aria-current="page", href="#") 모니터링 데이터 삭제
-            li.nav-item
-                a.nav-link(href="#") 자동실행 오류 정정
-            li.ms-auto
-                +btn.btn-primary(
-                    data-bs-toggle="modal",
-                    data-bs-target="#danger-modal"
-                ) 실행
-        .table-responsive
+        .table-adaptive
             table#system_data_list.small.table-bordered.table.table-sm.table-hover.w-100.small
                 thead
                     tr

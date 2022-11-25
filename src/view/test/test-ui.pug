@@ -5,12 +5,14 @@ block head
     - var title = "테스트 페이지";
 
 block contents
-    body(data-gr-dismiss="#sitemap #notice-modal")
+    //- body(data-gr-dismiss="#sitemap #notice-modal")
     .container
         .hstack.gap-3
             h1 Title Text
             a(href="test-capture.pug") capture test
             a(href="test-editor.pug") popup test
+            a(href="test-excel.pug") excel test
+            a(href="/src/view/error/404.pug") 404 page
         p.lead
             | Lead Text
             code.small.ps-2= `<shinhan sample=tag>card</shinhan>`

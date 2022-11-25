@@ -12,7 +12,7 @@ block contents
     .container
         .row.g-0
             .col
-                h4.my-4.me-auto.text-truncate= title
+                h4.my-3.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2
                     +btn.btn-primary 저장
@@ -25,10 +25,49 @@ block contents
             .input-group&attributes(attributes)
                 span.input-group-text 제목
                 input.start-date.form-control(type="text")
-            .flex-grow-1
+            .post-input
                 .card.h-100
                     .card-header 내용
                     .card-body.p-0
                         +textarea.form-control-plaintext.h-100.p-3
+            .card
+                .card-header
+                    .row.align-items-center
+                        .col-auto.me-auto 첨부파일
+                        .col-auto #[+file-sm(null, true)]
+                .card-body 
+                    .row.row-cols-md-2.row-cols-lg-3.row-cols-xl-4.g-2
+                        mixin attach(ext)
+                            .col
+                                .card.attach-item(role="button")
+                                    .card-body.mx-n1
+                                        .row.g-0.align-items-center
+                                            .col-3.text-center.lh-sm.pe-3
+                                                i.bi(class=`bi-filetype-${ext}`)
+                                                small.d-block= ext
+                                            .col-9.lh-sm.ms-n1
+                                                .row.gx-2
+                                                    .col.text-truncate
+                                                        block
+                                                    .col-auto.mt-n1
+                                                        i.bi.bi-x(
+                                                            role="button"
+                                                        )
+                                                small
+                                                    small.text-muted.d-block 2022-11-11 14:28:23
+                                                    small.text-muted.d-block 245 KB
+                        +attach("xml") 내이름은_xml_파일이죠.xml
+                        +attach("json") 내이름은_json_파일이죠.json
+                        +attach("pptx") 내이름은_pptx_파일이죠.pptx
+                        +attach("xlsx") 내이름은_xlsx_파일이죠.xlsx
+                        +attach("docx") 내이름은_docx_파일이죠.docx
+                        //- +attach("pdf") 내이름은_pdf_파일이죠.pdf
+                        //- +attach("mp3") 내이름은_mp3_파일이죠.mp3
+                        //- +attach("jpg") 내이름은_jpg_파일이죠.jpg
+                        //- +attach("mov") 내이름은_mov_파일이죠.mov
+                        //- +attach("alz") 내이름은_alz_파일이죠.alz
+                        //- +attach("7z") 내이름은_7z_파일이죠.7z
+                        //- +attach("aml") 이름이_길기때문에_끝부분이_잘릴것이다.aml
+
     +danger-modal
         span.d-block 작성 중인 내용을 #[span.fw-bold 삭제하시겠습니까?]

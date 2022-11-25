@@ -12,7 +12,7 @@ block contents
     .container
         .row.g-0
             .col
-                h4.my-4.me-auto.text-truncate= title
+                h4.my-3.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2.justify-content-center
                     +btn.btn-primary(disabled) 승인
@@ -30,6 +30,8 @@ block contents
                             th(scope="col") CSR 번호
                             th(scope="col") CSR 제목
                             th(scope="col") 완료 합의일
+                            th(scope="col") 업무 유형
+                            th(scope="col") CSR 요청자
                             th(scope="col") CSR 요청일
                             th(scope="col") BA
                             th(scope="col") AA
@@ -42,6 +44,8 @@ block contents
                             td C202012248053B-6
                             td requirement_spec-1416308
                             td 2022-08-16
+                            td 업무효율화
+                            td 요청자
                             td 2022-08-16
                             td 최신한
                             td 정신한

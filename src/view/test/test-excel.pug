@@ -1,0 +1,17 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/badge
+include ../mixins/button
+
+block head
+    - var title = "테스트 페이지";
+
+block contents
+    .container.d-flex.flex-column.h-100.pb-4
+        .hstack.gap-2
+            a#excel-btn.btn.btn-success(href="#") EXCEL EXPORT
+            a.btn.btn-success(href="/src/assets/template.xlsx") get original xlsx file
+        code#excel-json.form-control.mt-3.flex-grow-1
+
+block scripts
+    script(src="/src/js/TEST.js", type="module") 

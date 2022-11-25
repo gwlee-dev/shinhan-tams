@@ -29,12 +29,15 @@ const preventAndPop = (e) => {
 
 const eventBinder = (x) => {
     x.setAttribute("target", "_blank");
+    x.removeEventListener("click", preventAndPop);
     x.addEventListener("click", preventAndPop);
 };
 
 const popupTrigger = (el) => {
     const target = el || document;
-    [...target.querySelectorAll(".popup-link")].forEach((x) => eventBinder(x));
+    const elements = target.querySelectorAll(".popup-link");
+
+    [...elements].forEach((x) => eventBinder(x));
 };
 
 export default popupTrigger;

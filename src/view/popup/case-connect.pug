@@ -12,10 +12,6 @@ block head
 block contents
     .popup.popup-xl
         +popup-title
-            .ms-auto.ms-3.hstack.gap-2
-                +a-btn.btn-outline-secondary.btn-sm.popup-link(
-                    href="/src/view/popup/case.pug"
-                ) 테스트케이스 신규 등록
         section.popup-section.container-fluid.bg-tone
             .row.gx-2
                 .col
@@ -33,11 +29,25 @@ block contents
                         +btn.btn-primary.btn-sm.flex-grow-1 검색
                         +btn.btn-secondary.btn-sm.flex-grow-1 초기화
         section.popup-section.container-fluid
-            span.popup-section-title 테스트케이스 목록
+            .row.mb-2.g-2.align-items-center
+                .col-auto.me-auto
+                    span.popup-section-title 테스트케이스 목록
+                .col-auto.d-flex.gap-2
+                    +btn.py-0.btn-sm.btn-outline-primary(type="button") 테스트케이스 추가
+                    +btn.py-0.btn-sm.btn-outline-secondary(
+                        type="button"
+                    ) 편집
+                    +btn.py-0.btn-sm.btn-outline-secondary(
+                        type="button"
+                    ) 참조등록
+                    +btn.py-0.btn-sm.btn-outline-secondary(
+                        type="button"
+                    ) 신규등록
             .table-responsive
                 table#case_connect.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
-                        tr
+                        tr 
+                            th(scope="col") 선택
                             th(scope="col") 시스템
                             th(scope="col") 업무
                             th(scope="col") 화면/서비스/JOB ID
@@ -46,9 +56,9 @@ block contents
                             th(scope="col") 등록자명
                             th(scope="col") 등록일자
                             th(scope="col") 스크립트
-                            th(scope="col") 메뉴
                     tbody
                         tr.selected
+                            td #[+check("case", "case-1", "mb-0")(type="radio")]
                             td 시스템-1
                             td 시스템2-업무26
                             td 동해물과 백두산이
@@ -57,17 +67,9 @@ block contents
                             td 관리자
                             td 2022-05-16
                             td #[+link.popup-link(href="/src/view/popup/script-connect.pug") homepage_conn_xml]
-                            td
-                                .hstack.gap-1.justify-content-center
-                                    +a-table-btn.btn-outline-primary.popup-link(
-                                        href="/src/view/popup/case.pug"
-                                    ) 편집
-                                    +table-btn.btn-outline-danger(
-                                        data-bs-toggle="modal",
-                                        data-bs-target="#disconnect-modal"
-                                    ) 끊기
                         - for (var i = 2; i <= 3; i++)
                             tr
+                                td #[+check("case", "case-1", "mb-0")(type="radio")]
                                 td= `시스템-${i}`
                                 td= `시스템${i}-업무26`
                                 td 동해물과 백두산이
@@ -76,12 +78,6 @@ block contents
                                 td 관리자
                                 td 2022-05-16
                                 td #[+link.popup-link(href="/src/view/popup/script-connect.pug") homepage_conn_xml]
-                                td
-                                    .hstack.gap-1.justify-content-center
-                                        +a-table-btn.btn-outline-primary.popup-link(
-                                            href="/src/view/popup/case.pug"
-                                        ) 편집
-                                        +table-btn.btn-outline-dark 선택
                 +pagination
         +popup-footer
             +btn.btn-secondary.popup-close-btn 취소

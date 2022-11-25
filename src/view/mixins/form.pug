@@ -71,8 +71,9 @@ mixin range-sm(caption)
         )
         span.input-group-text #[i.bi.bi-calendar-week]
 
-mixin select(caption)
-    +caption(caption)
+mixin select(caption, no)
+    - if (!no)
+        +caption(caption)
     select.form-select&attributes(attributes)
         if block
             block
@@ -102,6 +103,16 @@ mixin input-sm(caption)
         placeholder=caption,
         class=classes
     )&attributes(attributes)
+
+mixin time(caption)
+    +caption(caption)
+    .input-group
+        select.form-select
+            - for (var x = 0; x <= 23; x++)
+                option(value=x)= x + "시"
+        select.form-select
+            - for (var x = 0; x <= 59; x++)
+                option(value=x)= x + "분"
 
 mixin time-sm(caption)
     +caption-sm(caption)
