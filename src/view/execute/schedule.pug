@@ -72,3 +72,49 @@ block contents
                         td.cell-empty(colspan="12") 예약실행 관리 목록이 존재하지 않습니다.
         +pagination
     +danger-modal
+
+//- block scripts
+//-     script.
+//-         const obj = {
+//-             num: 2,
+//-             name: "Test",
+//-             start_dt: "9999-99-99 99:99:99",
+//-             end_dt: "9999-99-99 99:99:99",
+//-             exec_time: "9999-99-99 99:99:99",
+//-             cycleType: "예약",
+//-             repeat_number: "97",
+//-             user_name: "test",
+//-             creation_dt: "555",
+//-         };
+//-         const contents = `
+//-             <tr>
+//-                 <td>ㅋㅋ</td>
+//-                 <td>예약테스트</td>
+//-                 <td>C202012248053B-6</td>
+//-                 <td>2021-02-04</td>
+//-                 <td>2021-02-04</td>
+//-                 <td>16:15</td>
+//-                 <td>매일</td>
+//-                 <td></td>
+//-                 <td>1</td>
+//-                 <td>안신한</td>
+//-                 <td>2021-02-14</td>
+//-                 <td>
+//-                   <div class="hstack gap-1 justify-content-center">
+//-                     <a
+//-                         class="btn btn-sm py-0 btn-outline-primary popup-link"
+//-                         href="/popup/case-schedule.html" target="_blank"
+//-                         onclick="alert('Test')"
+//-                     >
+//-                         예약관리
+//-                     </a>
+//-                     <a class="btn btn-sm py-0 btn-outline-primary popup-link" href="/popup/schedule-history.html" target="_blank">실행결과</a><a class="btn btn-sm py-0 btn-outline-primary popup-link" href="/popup/reserv-edit.html" target="_blank">
+//-                     편집
+//-                     </a>
+//-                     <button class="btn btn-sm py-0 btn-outline-danger" data-bs-toggle="modal" data-bs-target="#danger-modal">삭제
+//-                     </button>
+//-                   </div>
+//-                 </td>
+//-               </tr>
+//-             `;
+//-         $("tbody").html(contents);
