@@ -17,7 +17,7 @@
         "clean": "rimraf dist && rimraf ./.parcel-cache",
         "lint": "eslint ./**/*.js --fix && stylelint ./**/*.scss",
         "static-server": "node ./static-server.js",
-        "server": "babel-node ./server/server.js",
+        "server": "nodemon --watch ./server/**/*.js --exec babel-node ./server/server.js",
         "dev": "npm run clean && parcel ./src/view/index.pug ",
         "start": "nodemon --watch ./package.json --exec npm run dev",
         "install": "./yarn.cmd install -offline"
@@ -83,5 +83,6 @@
         "jquery": {
             "global": "$"
         }
-    }
+    },
+    "type": "module"
 }

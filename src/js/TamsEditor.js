@@ -1,9 +1,9 @@
 import TAMSEditor from "../ckeditor/build/ckeditor";
 
-const editorEnabler = () => {
-    const elements = document.querySelectorAll(".editor");
-    [...elements].forEach(async (el) => {
+const Editor = class {
+    init = async (el) => {
         try {
+            this.root = el;
             el.ck = await TAMSEditor.create(el, {
                 simpleUpload: {
                     uploadUrl: prompt(
@@ -36,7 +36,29 @@ const editorEnabler = () => {
         } catch (error) {
             console.error(error);
         }
-    });
+    };
+
+    upload = () => {
+        const contents = this.root.ck.getData();
+        const div = document.createElement("div");
+        div.innerHTML = contents;
+        const fileIncluded = [
+            ...new Set([...div.querySelectorAll("[src]")].map((el) => el.src)),
+        ];
+        return {
+            contents,
+            fileIncluded,
+        };
+    };
+
+    constructor(el) {
+        this.init(el);
+    }
+};
+
+const editorEnabler = () => {
+    const elements = document.querySelectorAll(".editor");
+    [...elements].forEach((el) => Object.assign(el, new Editor(el)));
 };
 
 editorEnabler();

@@ -23,10 +23,24 @@ const corsOptions = {
 
 app.use([express.json(), cors(corsOptions), upload.single("upload")]);
 
+app.post("/uploadTestAPI", (req, res) => {
+    try {
+        console.log("[REQ]", req);
+        return res.status(200).json({ result: "OK" });
+    } catch (err) {
+        console.log("[err]", err.message);
+        res.status(400).json({
+            error: {
+                message: err.message,
+            },
+        });
+    }
+});
+
 app.post("/", (req, res) => {
     try {
         return res.json({
-            url: `/${req.file.filename}`,
+            url: `http://192.168.0.6:1234/${req.file.filename}`,
         });
     } catch (err) {
         res.json({
