@@ -1,5 +1,5 @@
 import navInit from "./_navbarOffcanvas";
-import popupTrigger from "./_popupTrigger";
+import { pop, popupTrigger } from "./_popupTrigger";
 import resetInput from "./_resetInput";
 // import editorEnabler from "./_editorEnabler";
 import switchOpen from "./_switchOpen";
@@ -34,6 +34,7 @@ const globals = {
     Toast,
     makeExcel,
     Loading,
+    pop,
 };
 
 document.addEventListener("DOMContentLoaded", () => {

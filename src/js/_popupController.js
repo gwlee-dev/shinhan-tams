@@ -24,11 +24,15 @@ const Popup = class {
             outerHeight: parentHeight,
         } = window.opener.window;
 
-        const popupX = screenLeft + parentWidth / 2 - popupWidth / 2;
-        const popupY = screenTop + parentHeight / 2 - popupHeight / 2;
+        const popupX = screenLeft + (parentWidth - popupWidth) / 2;
+        const popupY = screenTop + (parentHeight - popupHeight) / 2;
 
         window.resizeTo(popupWidth, popupHeight);
         window.moveTo(popupX, popupY);
+
+        window.addEventListener("resize", this.root.classList.add("resized"), {
+            once: true,
+        });
     };
 
     constructor(root) {
@@ -38,11 +42,14 @@ const Popup = class {
         [...closeButtons].forEach((el) =>
             el.addEventListener("click", () => window.close())
         );
-
-        window.addEventListener("load", this.position);
-
         [...document.querySelectorAll(".popup-close")].forEach((x) =>
             x.addEventListener("click", () => window.close())
+        );
+
+        window.addEventListener("load", this.position);
+        window.addEventListener(
+            "unload",
+            () => (window.opener.__lastPopup = null)
         );
     }
 };

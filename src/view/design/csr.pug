@@ -15,11 +15,23 @@ block contents
                 h4.my-3.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2.justify-content-center
-                    +btn.btn-primary(disabled) 승인
-                    +btn.btn-primary(disabled) 배정
-                    +btn.btn-secondary(disabled) 회수
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-approve.pug"
+                    ) 승인
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-person.pug"
+                    ) 배정
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-withdraw.pug"
+                    ) 회수
                     +btn.btn-secondary(disabled) 반려
-                    +btn.btn-secondary(disabled) 제외
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-exclude.pug"
+                    ) 제외
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-action.pug"
+                    ) 조치 요청
+                    +btn.btn-secondary(disabled) 승인 요청
     .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
         section.d-flex.flex-column
             span.fs-4.fw-bold.mb-2 CSR 정보

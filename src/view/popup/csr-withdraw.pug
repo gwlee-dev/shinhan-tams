@@ -1,0 +1,62 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "회수";
+
+block contents
+    .popup.popup-md.flex-grow-1
+        +popup-title
+        section.popup-section.container-fluid.hstack.gap-2
+            .form-control.p-0.bg-light
+                .row.row-cols-2
+                    .col
+                        .form-floating
+                            input#csr_num.form-control-plaintext.pe-0.text-truncate(
+                                readonly="",
+                                value="C1668143461093"
+                            )
+                            label(for="csr_num") CSR 번호
+                    .col
+                        .form-floating
+                            input#requester.form-control-plaintext(
+                                readonly="",
+                                value="김신한"
+                            )
+                            label(for="requester") 요청자
+                    .col
+                        .form-floating
+                            input#requestAt.form-control-plaintext(
+                                readonly="",
+                                value="2022-11-09"
+                            )
+                            label(for="requestAt") 요청일
+                    .col
+                        .form-floating
+                            input#completeAt.form-control-plaintext(
+                                readonly="",
+                                value="2022-11-09"
+                            )
+                            label(for="completeAt") 완료 합의일
+                    .col-12
+                        .form-floating
+                            input#csr_name.text-truncate.form-control-plaintext(
+                                readonly="",
+                                value="테스트그룹 SDMS 절차 테스트"
+                            )
+                            label(for="csr_name") CSR 제목
+            .form-floating.w-100
+                textarea#comment.form-control
+                label(for="comment") 회수사유
+
+        +popup-footer
+            .hstack.gap-2.mx-auto
+                +btn.btn-primary.popup-close-btn 확인
+                +btn.btn-secondary.popup-close-btn 취소
+    +danger-modal

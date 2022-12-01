@@ -3,6 +3,9 @@ include button
 mixin caption(caption)
     if caption
         label.form-label= caption
+    else if block
+        label.form-label
+            block
 
 mixin caption-sm(caption)
     if caption
@@ -157,22 +160,6 @@ mixin radio(name, id, classes, caption)
             label.form-check-label(for=id)= caption
     else
         input.form-check-input(type="radio", value="", name=name, id=id)
-
-mixin floatingInput(caption)
-    .form-floating.mb-3
-        input#floatingInput.form-control(
-            type="email",
-            placeholder="name@example.com"
-        )
-        label(for="floatingInput") Email address
-
-mixin floatingTextarea(caption)
-    if caption
-        .form-floating
-            textarea.form-control(placeholder=caption)
-            label(for=id)= caption
-    else
-        textarea.form-control
 
 mixin textarea(caption)
     +caption(caption)

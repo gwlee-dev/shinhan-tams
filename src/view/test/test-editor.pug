@@ -10,56 +10,41 @@ block contents
     .container
         h3.mb-3 팝업목록
         .d-flex.gap-1.justify-content-center.flex-wrap
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case-connect.pug"
-            ) 테스트케이스 연결
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case-execute.pug"
-            ) 테스트케이스 실행
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case-result.pug"
-            ) 결과 입력
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case-schedule.pug"
-            ) 예약된 테스트케이스 목록
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case-simple.pug"
-            ) 간단 결과 입력
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/case.pug"
-            ) 테스트케이스 신규 등록
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/data.pug"
-            ) 테스트 데이터 관리
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/dataset-connect.pug"
-            ) 테스트 데이터셋 연결
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/dataset.pug"
-            ) 테스트 데이터셋 신규 등록
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/detail.pug"
-            ) 상세 내용
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/manual-connect.pug"
-            ) 수동 테스트 데이터셋 연결
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/progress-history.pug"
-            ) 진행상태 이력
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/result-history.pug"
-            ) 테스크케이스 실행 예약 편집
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/result-history.pug"
-            ) 결과 이력
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/schedule-history.pug"
-            ) 예약실행 결과 목록
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/script-connect.pug"
-            ) 스크립트 연결
-            +a-btn.btn-outline-primary.popup-link(
-                href="/src/view/popup/script.pug"
-            ) 스크립트 신규 등록
+            mixin linkButton(href)
+                +a-btn.btn-outline-primary.popup-link(
+                    data-pop-distinct,
+                    href=href
+                )
+                    block
+            +linkButton("/src/view/popup/case-connect.pug") 테스트케이스 연결
+            +linkButton("/src/view/popup/case-execute.pug") 테스트케이스 실행
+            +linkButton("/src/view/popup/case-result.pug") 결과 입력
+            +linkButton("/src/view/popup/case-schedule.pug") 예약된 테스트케이스 목록
+            +linkButton("/src/view/popup/case-simple.pug") 간단 결과 입력
+            +linkButton("/src/view/popup/case.pug") 테스트케이스 신규 등록
+            +linkButton("/src/view/popup/data.pug") 테스트 데이터 관리
+            +linkButton("/src/view/popup/dataset-connect.pug") 테스트 데이터셋 연결
+            +linkButton("/src/view/popup/dataset.pug") 테스트 데이터셋 신규 등록
+            +linkButton("/src/view/popup/detail.pug") 상세 내용
+            +linkButton("/src/view/popup/manual-connect.pug") 수동 테스트 데이터셋 연결
+            +linkButton("/src/view/popup/progress-history.pug") 진행상태 이력
+            +linkButton("/src/view/popup/reserv-edit.pug") 테스트케이스 실행 예약 편집
+            +linkButton("/src/view/popup/result-history.pug") 결과 이력
+            +linkButton("/src/view/popup/schedule-history.pug") 예약실행 결과 목록
+            +linkButton("/src/view/popup/script-connect.pug") 스크립트 연결
+            +linkButton("/src/view/popup/script.pug") 스크립트 신규 등록
+            +linkButton("/src/view/popup/csr-person.pug") 테스트 담당자 변경
+            +linkButton("/src/view/popup/csr-confirm.pug") 테스트결과 승인 요청
+            +linkButton("/src/view/popup/csr-exclude.pug") 제외
+            +linkButton("/src/view/popup/csr-action.pug") 조치 요청
+            +linkButton("/src/view/popup/csr-withdraw.pug") 회수
+            +linkButton("/src/view/popup/csr-approve.pug") 결재
+        form.input-group.mt-3(
+            data-pop-distinct,
+            onsubmit="pop(document.querySelector('input'))"
+        )
+            span#basic-addon1.input-group-text 수동실행
+            input.form-control(type="text", placeholder="경로", value="/popup/")
+            button#button-addon2.btn.btn-outline-secondary(type="submit") Button
 
     include ../modals/preview

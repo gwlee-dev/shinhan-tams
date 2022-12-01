@@ -1,0 +1,105 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+include ../mixins/modal
+
+block head
+    - var title = "결재";
+
+block contents
+    .popup.popup-md.flex-grow-1
+        +popup-title
+        section.popup-section.container-fluid.hstack.gap-2
+            .form-control.p-0.bg-light
+                .row
+                    .col-6
+                        .form-floating
+                            input#csr_num.form-control-plaintext.pe-0.text-truncate(
+                                readonly="",
+                                value="C1668143461093"
+                            )
+                            label(for="csr_num") CSR 번호
+                    .col-6
+                        .form-floating
+                            input#requester.form-control-plaintext(
+                                readonly="",
+                                value="김신한"
+                            )
+                            label(for="requester") 요청자
+                    .col-6
+                        .form-floating
+                            input#requestAt.form-control-plaintext(
+                                readonly="",
+                                value="2022-11-09"
+                            )
+                            label(for="requestAt") 요청일
+                    .col-6
+                        .form-floating
+                            input#completeAt.form-control-plaintext(
+                                readonly="",
+                                value="2022-11-09"
+                            )
+                            label(for="completeAt") 완료 합의일
+                    .col-3
+                        .form-floating
+                            input#completeAt.form-control-plaintext(
+                                readonly="",
+                                value="정상"
+                            )
+                            label(for="completeAt") 테스트 결과
+                    .col-9
+                        .form-floating
+                            input#csr_name.text-truncate.form-control-plaintext(
+                                readonly="",
+                                value="테스트그룹 SDMS 절차 테스트"
+                            )
+                            label(for="csr_name") CSR 제목
+            .w-100
+                .row.g-2
+                    .col-6
+                        .form-floating
+                            .form-control.d-flex.small
+                                .row.w-100.text-nowrap
+                                    .col-auto
+                                        .form-check-sm
+                                            input#accept.form-check-input(
+                                                type="radio",
+                                                name="approveType",
+                                                value="accept"
+                                            )
+                                            label.form-check-label(
+                                                for="accept"
+                                            ) 승인
+                                    .col-auto
+                                        .form-check-sm
+                                            input#decline.form-check-input(
+                                                type="radio",
+                                                name="approveType",
+                                                value="decline"
+                                            )
+                                            label.form-check-label(
+                                                for="decline"
+                                            ) 반려
+
+                            label 승인/반려
+                    .col-6
+                        .form-control.h-100.d-flex.align-items-center
+                            .form-check.text-nowrap.mb-0.mx-auto
+                                input#ckQA.form-check-input(
+                                    type="checkbox",
+                                    name="ckQA"
+                                )
+                                label.form-check-label(for="ckQA") 상위승인요청
+            .form-floating.w-100
+                textarea#comment.form-control
+                label(for="comment") 결재의견
+
+        +popup-footer
+            .hstack.gap-2.mx-auto
+                +btn.btn-primary.popup-close-btn 확인
+                +btn.btn-secondary.popup-close-btn 취소
+    +danger-modal

@@ -1,4 +1,7 @@
 .popup {
+    &:not(.resized) {
+        max-width: 0;
+    }
     min-width: var(--#{$prefix}popup-width);
     min-height: 18.125rem;
     &.loading {

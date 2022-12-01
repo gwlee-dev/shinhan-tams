@@ -1,3 +1,19 @@
+.form-check-sm {
+    $form-check-input-width: 1em;
+    $form-check-margin-bottom: 0.5rem;
+    $form-check-padding-start: $form-check-input-width + 0.5em;
+
+    margin-bottom: $form-check-margin-bottom;
+    padding-left: $form-check-padding-start;
+
+    .form-check-input {
+        width: $form-check-input-width;
+        height: $form-check-input-width;
+        margin-top: ($line-height-base - $form-check-input-width) * 0.25;
+        margin-left: $form-check-padding-start * -1;
+    }
+}
+
 .form-check-lg {
     $form-check-input-width: 1.625em;
     $form-check-margin-bottom: 0.5rem;
