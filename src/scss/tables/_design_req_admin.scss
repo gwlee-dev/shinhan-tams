@@ -1,0 +1,29 @@
+table#design_req_admin {
+    $design_req_admin: (
+        1: 13%,
+        2: 17%,
+        3: 8%,
+        4: 7%,
+        5: 7%,
+        6: 8%,
+        7: 5%,
+        8: 5%,
+        9: 10%,
+        10: 7%,
+        11: 8%,
+        12: 5%,
+    );
+    th,
+    td {
+        @each $i, $percent in $design_req_admin {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+    td {
+        &:nth-child(2) {
+            text-align: start;
+        }
+    }
+}

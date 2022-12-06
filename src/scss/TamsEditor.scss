@@ -21,3 +21,8 @@ $prefix: gr-;
 .ck-editor__editable_inline {
     min-height: 17rem;
 }
+
+.editor,
+.editor + .ck {
+    min-width: 343px;
+}

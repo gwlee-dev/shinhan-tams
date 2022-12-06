@@ -13,12 +13,11 @@
     "license": "ISC",
     "author": "Geonwoo Lee",
     "scripts": {
-        "build": "npm run clean && parcel build ./src/view/index.pug --no-optimize",
-        "clean": "rimraf dist && rimraf ./.parcel-cache",
+        "build": "rimraf build && parcel build ./src/view/index.pug --no-optimize --cache-dir ./.build-cache --dist-dir ./build && copy.cmd",
         "lint": "eslint ./**/*.js --fix && stylelint ./**/*.scss",
         "static-server": "node ./static-server.js",
         "server": "nodemon --watch ./server/**/*.js --exec babel-node ./server/server.js",
-        "dev": "npm run clean && parcel ./src/view/index.pug ",
+        "dev": "rimraf dist && rimraf ./.parcel-cache && parcel ./src/view/index.pug ",
         "start": "nodemon --watch ./package.json --exec npm run dev",
         "install": "./yarn.cmd install -offline"
     },
@@ -67,7 +66,8 @@
         ".png$": "image/[name].[type]",
         ".jpg$": "image/[name].[type]",
         ".gif$": "image/[name].[type]",
-        ".svg$": "image/[name].[type]"
+        ".svg$": "image/[name].[type]",
+        ".ico$": "image/[name].[type]"
     },
     "dependencies": {
         "@babel/node": "^7.19.1",

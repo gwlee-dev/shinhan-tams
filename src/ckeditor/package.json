@@ -29,6 +29,8 @@
         "@ckeditor/ckeditor5-theme-lark": "^35.1.0",
         "@ckeditor/ckeditor5-typing": "^35.1.0",
         "@ckeditor/ckeditor5-upload": "^35.1.0",
+        "@ckeditor/ckeditor5-utils": "^35.3.2",
+        "ckeditor5-image-remove-event-callback-plugin": "^1.2.0",
         "css-loader": "^5.2.7",
         "postcss": "^8.4.16",
         "postcss-loader": "^4.3.0",

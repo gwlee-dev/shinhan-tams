@@ -1,0 +1,44 @@
+extends ../layout/popupBase
+include ../mixins/form
+include ../mixins/button
+include ../mixins/badge
+include ../mixins/modal
+include ../mixins/pagination
+include ../mixins/popup
+
+block head
+    - var title = "문서등록/삭제";
+
+block contents
+    .popup.popup-lg
+        +popup-title
+        section.popup-section.container-fluid
+            .row.gx-2.gy-1
+                .col-4 #[+input-sm("CSR번호")(disabled)]
+                .col-8 #[+input-sm("데이터셋 명")(disabled)]
+                .col-12 #[+file-sm("파일명")]
+        section.popup-section.container-fluid
+            span.popup-section-title 산출물 목록
+            .table-responsive
+                table#document_list.small.table.table-sm.table-hover.table-bordered
+                    thead
+                        tr
+                            th(scope="col") 파일명
+                            th(scope="col") 파일크기
+                            th(scope="col") 등록일
+                            th(scope="col") 등록자
+                            th(scope="col") 삭제
+                    tbody
+                        - for (var i = 0; i < 10; i++)
+                            tr
+                                td homepage_conn.xml
+                                td 402 바이트
+                                td 2022-12-05 17:32:22
+                                td 김신한
+                                td 
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
+        +popup-footer
+            +btn.btn-secondary.popup-close-btn.mx-auto 확인

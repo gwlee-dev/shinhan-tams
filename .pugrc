@@ -54,25 +54,21 @@
                 ]
             },
             {
-                "title": "결함 관리",
+                "title": "테스트 결과 관리",
                 "dir": "fault",
                 "icon": "bi-flag-fill",
                 "nodes": [
                     {
-                        "title": "결함 관리",
-                        "id": "fault"
+                        "title": "케이스별 현황",
+                        "id": "case"
                     },
                     {
-                        "title": "부서별 결함 관리",
+                        "title": "부서별 현황",
                         "id": "depart"
                     },
                     {
-                        "title": "테스터별 결함 관리",
+                        "title": "테스터별 현황",
                         "id": "tester"
-                    },
-                    {
-                        "title": "결함 관리 실적",
-                        "id": "performance"
                     },
                     {
                         "title": "테스트 제외건 조회",

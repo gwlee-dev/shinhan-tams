@@ -1,0 +1,83 @@
+extends ../layout/base
+include ../mixins/form
+include ../mixins/pagination
+include ../mixins/button
+include ../mixins/modal
+include ../mixins/badge
+
+block head
+    - var title = "케이스별 현황";
+
+block contents
+    .container
+        .row.g-0
+            .col
+                h4.my-3.me-auto.text-truncate= title
+            .col-auto.d-flex.align-items-center
+                .hstack.gap-2
+                    +btn.btn-outline-success
+                        span.me-2 Excel 다운로드
+                        i.bi-file-earmark-excel
+    .bg-tone
+        .container.py-4
+            .row.gx-3
+                .col
+                    .row.g-2
+                        .col #[+select("개발부서")]
+                        .col #[+select("담당테스터")]
+                        .col #[+select("결함유형")]
+                        .col
+                            .d-flex
+                                +caption("테스트 결과")
+                                .d-flex.mb-2.ms-auto
+                                    label.form-label.me-2.mb-0.ms-auto.text-muted.small.lh-1.align-self-center(
+                                        for="exclude-success"
+                                    ) 정상건 제외
+                                    +check("exclude-success", "exclude-success").small.align-self-center
+                            +select
+                        .w-100
+                        .col-4 #[+range("테스트 완료일")]
+                        .col #[+input("결함 관리 번호")]
+                        .col #[+input("CSR 번호")]
+                        .col #[+input("조치자명")]
+                .col-auto
+                    .vstack.h-100.gap-2
+                        +btn.btn-primary.flex-grow-1 검색
+                        +btn.btn-secondary.flex-grow-1 초기화
+    .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
+        section.d-flex.flex-column
+            .table-responsive.small
+                table#fault_case.table-bordered.table.table-sm.table-hover.w-100.small
+                    thead
+                        tr
+                            th(scope="col") 결함관리번호
+                            th(scope="col") CSR번호
+                            th(scope="col") 케이스 구분
+                            th(scope="col") 결과 구분
+                            th(scope="col") 결과 요약
+                            th(scope="col") 조치상태
+                            th(scope="col") 결과 등록일
+                            th(scope="col") 테스트 완료일
+                            th(scope="col") 테스트 시스템
+                            th(scope="col") 검증 테스터
+                            th(scope="col") 테스트케이스
+                    tbody
+                        - for (var i = 1; i <= 10; i++)
+                            tr
+                                td #[+link(href="/src/view/fault/detail.pug")= `DF2019053100${i}`]
+                                td #[+link(href="/src/view/design/csr.pug")= `C2019053100${i}`]
+                                td 추가
+                                td #[+badge.bg-success 정상]
+                                td 즉시대출 신청 시 글자 겹처보임 (아이폰 한정)
+                                td #[+badge.bg-danger 미조치]
+                                td 2022-05-28 23:59:52
+                                td 2019-05-31 17:15:52
+                                td 모바일
+                                td 김신한
+                                td
+                                    .hstack.gap-1.justify-content-center
+                                        +a-table-btn.btn-outline-primary.popup-link(
+                                            href="/src/view/popup/case.pug"
+                                        ) 자세히
+            +pagination
+    +danger-modal

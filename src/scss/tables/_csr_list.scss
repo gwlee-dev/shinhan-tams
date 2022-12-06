@@ -1,0 +1,27 @@
+table#csr_list {
+    $csr_list: (
+        1: 14%,
+        2: 23%,
+        3: 9%,
+        4: 9%,
+        5: 6%,
+        6: 6%,
+        7: 12%,
+        8: 6%,
+        9: 8%,
+        10: 6%,
+    );
+    th,
+    td {
+        @each $i, $percent in $csr_list {
+            &:nth-child(#{$i}) {
+                width: $percent;
+            }
+        }
+    }
+    td {
+        &:nth-child(2) {
+            text-align: start;
+        }
+    }
+}

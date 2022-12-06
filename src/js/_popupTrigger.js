@@ -1,6 +1,6 @@
 import css from "bundle-text:/src/assets/popup.css";
 
-export const pop = async (that) => {
+export const pop = async (arg) => {
     const style = document.createElement("style");
     style.textContent = css;
     const div = document.createElement("div");
@@ -12,18 +12,12 @@ export const pop = async (that) => {
     const { screenLeft, screenTop, outerWidth, outerHeight } = window;
     const popupX = screenLeft + (outerWidth - popupWidth) / 2;
     const popupY = screenTop + (outerHeight - popupHeight) / 2;
-    const isOpened =
-        that.hasAttribute("data-pop-distinct") && window.__lastPopup;
-    const popup = isOpened
-        ? window.__lastPopup
-        : window.open(
-              "about:blank",
-              "_blank",
-              `toolbar=no,status=no,menubar=no,width=${popupWidth},height=${popupHeight},left=${popupX},top=${popupY}`
-          );
+    const isString = arg.constructor.name === "String";
+    const isOpened = !isString && arg.hasAttribute("data-pop-distinct") && window.__lastPopup;
+    const popup = isOpened ? window.__lastPopup : window.open("about:blank", "_blank", `toolbar=no,status=no,menubar=no,width=${popupWidth},height=${popupHeight},left=${popupX},top=${popupY}`);
     popup.document.write(style.outerHTML);
     popup.document.write(div.outerHTML);
-    popup.location.href = that.href || that.value;
+    popup.location.href = isString ? arg : arg.href || arg.value;
     popup.focus();
     window.__lastPopup = popup;
 };
@@ -37,13 +31,19 @@ const eventBinder = (x) => {
     x.setAttribute("target", "_blank");
     x.removeEventListener("click", preventAndPop);
     x.addEventListener("click", preventAndPop);
+    window.popups.push(x);
 };
 
 export const popupTrigger = (el) => {
-    const target = el || document;
-    const elements = target.querySelectorAll(".popup-link");
+    window.popups = [];
+    if (el && [...el.classList].includes("popup-link")) {
+        eventBinder(el);
+    } else {
+        const target = el || document;
+        const elements = target.querySelectorAll(".popup-link");
 
-    [...elements].forEach((x) => eventBinder(x));
+        [...elements].forEach((x) => eventBinder(x));
+    }
 };
 
 export default popupTrigger;

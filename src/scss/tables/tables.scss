@@ -1,4 +1,6 @@
+@import "csr_list";
 @import "design_req";
+@import "design_req_admin";
 @import "design_script";
 @import "function_detail";
 @import "requirement_case";
@@ -24,7 +26,7 @@
 @import "execute_history";
 @import "schedule_list";
 @import "case_schedule";
-@import "fault_list";
+@import "fault_case";
 @import "fault_depart";
 @import "fault_tester";
 @import "fault_performance";
@@ -40,6 +42,7 @@
 @import "dataset_connect";
 @import "schedule_history";
 @import "monitoring";
+@import "document_list";
 
 .contents {
     .table {
@@ -171,7 +174,7 @@ body:not(.popup-window) {
 }
 
 .cell-empty {
-    padding: $spacer * 3 0 !important;
+    padding: $spacer 0 !important;
     font-size: $h6-font-size;
     &::before {
         content: "\F567";

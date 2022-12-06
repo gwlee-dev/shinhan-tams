@@ -9,7 +9,7 @@ import emergencyModal from "./_emergencyModal";
 import { preloader, Loading } from "./_loader";
 import textDeliver from "./_textDeliver";
 import popupController from "./_popupController";
-import tableObserver from "./_tableObserver";
+import sectionObserver from "./_sectionObserver";
 import { Modal } from "bootstrap";
 import Toast from "./_toast";
 import makeExcel from "./_excel";
@@ -26,7 +26,7 @@ const initFuncs = {
     emergencyModal,
     textDeliver,
     popupController,
-    tableObserver,
+    sectionObserver,
 };
 
 const globals = {
@@ -34,7 +34,7 @@ const globals = {
     Toast,
     makeExcel,
     Loading,
-    pop,
+    popupOpen: pop,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,3 +43,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     Object.assign(window, globals);
 });
+
+console.log("tams.js / 221205 1352");

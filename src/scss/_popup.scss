@@ -21,9 +21,11 @@
         padding-bottom: $spacer;
     }
     .popup-section-title {
-        align-self: center;
+        width: 100%;
+        text-align: start;
         font-weight: $font-weight-bold;
         margin-top: -0.125em;
+        margin-bottom: 0.125em;
     }
     .popup-toolbar {
         padding-bottom: $spacer * 0.5;
