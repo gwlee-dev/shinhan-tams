@@ -54,13 +54,16 @@
 .popup,
 .modal {
     .table {
+        tr:first-child th {
+            box-shadow: inset 0px 2px 0px 0px rgba($dark, 0.5);
+        }
         th {
-            box-shadow: inset 0px 2px 0px 0px rgba($dark, 0.5),
-                inset 0px -1px 0px 0px rgba($secondary, 0.14);
+            background-color: #f9fbfd;
         }
         th,
         td {
             text-align: center;
+            vertical-align: middle;
             @include text-truncate;
             white-space: nowrap;
             max-width: 0;

@@ -6,7 +6,7 @@ include ../mixins/modal
 include ../mixins/badge
 
 block head
-    - var title = "테스터별 결함 관리";
+    - var title = "테스터별 현황";
 
 block contents
     .container
@@ -32,97 +32,68 @@ block contents
                 table#fault_tester.table-bordered.table.table-sm.table-hover.w-100.small
                     thead
                         tr
-                            th(scope="col") 테스터
-                            th(scope="col") 수행일자
-                            th(scope="col") CSR
-                            th(scope="col") 개발자 신규작성
-                            th(scope="col") 테스터 신규작성
-                            th(scope="col") 수행
-                            th(scope="col") 정상
-                            th(scope="col") 결합
-                            th(scope="col") 개선
-                            th(scope="col") 제안
+                            th(scope="col", rowspan="2") 테스터
+                            th(scope="col", rowspan="2") CSR
+                            th(scope="col", colspan="3") 테스트케이스
+                            th(scope="col", rowspan="2") 수행
+                            th(scope="col", rowspan="2") 정상
+                            th(scope="col", colspan="3") 결함
+                            th(scope="col", colspan="3") 개선
+                            th(scope="col", rowspan="2") 제안
+                            th(scope="col", colspan="2") 미수행
+                            th(scope="col", rowspan="2") 정상율
+                            th(scope="col", rowspan="2") 이슈#[br]보고율
+                        tr
+                            th(scope="col") 총건수
+                            th(scope="col") 원본
+                            th(scope="col") 추가
+                            th(scope="col") 총건수
+                            th(scope="col") 원본결함
+                            th(scope="col") 추가결함
+                            th(scope="col") 총건수
+                            th(scope="col") 즉시개선
+                            th(scope="col") 사후개선
                             th(scope="col") 불가
                             th(scope="col") 배치
                     tbody
-                        - for (var i = 1; i <= 5; i++)
+                        - for (var i = 1; i <= 15; i++)
                             tr
                                 td 고신한
-                                td 2022-10-11
-                                td 1
-                                td 1
-                                td 1
-                                td 0
-                                td 2
-                                td 0
-                                td 4
-                                td 11
-                                td 0
-                                td 7
-                            tr
-                                td 
-                                td 2022-10-12
-                                td 1
-                                td 1
-                                td 1
-                                td 0
-                                td 2
-                                td 0
-                                td 4
-                                td 11
-                                td 0
-                                td 7
-                            tr.table-light.row-divider
-                                td
-                                td 소계
-                                td 2
-                                td 2
-                                td 2
-                                td 0
-                                td 4
-                                td 0
-                                td 8
-                                td 22
-                                td 0
-                                td 14
-                            tr
-                                td 김신한
-                                td 2022-10-11
-                                td 1
-                                td 2
-                                td 0
-                                td 5
-                                td 0
-                                td 3
-                                td 4
-                                td 0
-                                td 2
-                                td 1
-                            tr
-                                td 
-                                td 2022-10-12
-                                td 1
-                                td 2
-                                td 0
-                                td 5
-                                td 0
-                                td 3
-                                td 4
-                                td 0
-                                td 2
-                                td 1
-                            tr.table-light.row-divider
-                                td
-                                td 소계
-                                td 2
-                                td 4
-                                td 0
-                                td 10
-                                td 0
-                                td 6
-                                td 8
-                                td 0
-                                td 4
-                                td 2
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 20
+                                td 100%
+                                td 100%
+                        tr.table-light.fw-bold
+                            td 합계
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 20
+                            td 100%
+                            td 100%
             +pagination
     +danger-modal
