@@ -15,12 +15,22 @@ block contents
                 h4.my-3.me-auto.text-truncate= title
             .col-auto.d-flex.align-items-center
                 .hstack.gap-2.justify-content-center
-                    +a-btn.btn-primary.popup-link(href="/src/view/popup/csr-approve.pug") 승인
-                    +a-btn.btn-primary.popup-link(href="/src/view/popup/csr-person.pug") 배정
-                    +a-btn.btn-primary.popup-link(href="/src/view/popup/csr-withdraw.pug") 회수
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-approve.pug"
+                    ) 승인
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-person.pug"
+                    ) 배정
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-withdraw.pug"
+                    ) 회수
                     +btn.btn-secondary(disabled) 반려
-                    +a-btn.btn-primary.popup-link(href="/src/view/popup/csr-exclude.pug") 제외
-                    +a-btn.btn-primary.popup-link(href="/src/view/popup/csr-action.pug") 조치 요청
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-exclude.pug"
+                    ) 제외
+                    +a-btn.btn-primary.popup-link(
+                        href="/src/view/popup/csr-action.pug"
+                    ) 조치 요청
                     +btn.btn-secondary(disabled) 승인 요청
     .contents.container.pt-4.flex-grow-1.d-flex.flex-column.gap-4
         section.d-flex.flex-column
@@ -58,10 +68,33 @@ block contents
         section.d-flex.flex-column
             .hstack.gap-2
                 span.fs-4.fw-bold.mb-2.me-auto 기능상세설명
-                +a-btn.btn-secondary.btn-sm.popup-link(href="/src/view/popup/case-simple.pug") 간단 결과 입력
-                +a-btn.btn-secondary.btn-sm.popup-link(href="/src/view/popup/case-connect.pug") 테스트케이스 연결
-                +btn.btn-secondary.btn-sm 결과문서
-                +a-btn.btn-secondary.btn-sm.popup-link(href="/src/view/popup/case-connect.pug") 회귀테스트 추가
+                +a-btn.btn-secondary.btn-sm.popup-link(
+                    href="/src/view/popup/case-simple.pug"
+                ) 간단 결과 입력
+                +a-btn.btn-secondary.btn-sm.popup-link(
+                    href="/src/view/popup/case-connect.pug"
+                ) 테스트케이스 연결
+                +a-btn.btn-secondary.btn-sm.popup-link(
+                    href="/src/view/popup/case-connect.pug"
+                ) 회귀테스트 추가
+                .btn-group.btn-group-sm(role="group")
+                    span.btn.btn-secondary.opacity-75.pe-none 결과문서
+                    +btn.btn-secondary(
+                        data-bs-toggle="tooltip",
+                        data-bs-placement="bottom",
+                        data-bs-title="파일명1.xlsx"
+                    ) #[i.bi.bi-download]
+                    +btn.btn-secondary(
+                        data-bs-toggle="tooltip",
+                        data-bs-placement="bottom",
+                        data-bs-title="파일명2.xlsx"
+                    ) #[i.bi.bi-download]
+                    +btn.btn-secondary(
+                        data-bs-toggle="tooltip",
+                        data-bs-placement="bottom",
+                        data-bs-title="파일명3.xlsx"
+                    ) #[i.bi.bi-download]
+
             .table-responsive
                 table#function_detail.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -79,7 +112,10 @@ block contents
         section.g-2.align-items-center
             .hstack
                 span.fs-4.fw-bold.mb-2.me-auto 요구사항별 테스트케이스
-                +btn.btn-secondary.btn-sm.btn-secondary(data-bs-toggle="modal", data-bs-target="#all-success") 일괄 정상
+                +btn.btn-secondary.btn-sm.btn-secondary(
+                    data-bs-toggle="modal",
+                    data-bs-target="#all-success"
+                ) 일괄 정상
             .table-responsive
                 table#requirement_case.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
@@ -100,7 +136,10 @@ block contents
                             td 시스템-6
                             td REQ-001
                             td
-                                +link.text-deliver(role="button", data-gr-target="#case-search") TC202010060063
+                                +link.text-deliver(
+                                    role="button",
+                                    data-gr-target="#case-search"
+                                ) TC202010060063
                             td testcase-1321056
                             td
                             td 정신한
@@ -108,18 +147,34 @@ block contents
                             td #[+badge.bg-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/case.pug") 자세히
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/case-execute.pug") 실행
-                                    +table-btn.btn-outline-secondary(disabled="true") (실행이력 없음)
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/case-result.pug") 결과입력
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/result-history.pug") 결과이력
-                                    +table-btn.btn-outline-danger(data-bs-toggle="modal", data-bs-target="#danger-modal") 삭제
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case.pug"
+                                    ) 자세히
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case-execute.pug"
+                                    ) 실행
+                                    +table-btn.btn-outline-secondary(
+                                        disabled="true"
+                                    ) (실행이력 없음)
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/case-result.pug"
+                                    ) 결과입력
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/result-history.pug"
+                                    ) 결과이력
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
                         tr
                             td 2
                             td 시스템-6
                             td 회귀테스트
                             td
-                                +link.text-deliver(role="button", data-gr-target="#case-search") grid1one-grid2two
+                                +link.text-deliver(
+                                    role="button",
+                                    data-gr-target="#case-search"
+                                ) grid1one-grid2two
                             td testcase-1321056
                             td
                             td 정신한
@@ -127,33 +182,63 @@ block contents
                             td #[+badge.bg-success 정상]
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn.btn-outline-primary.py-0.popup-link(href="/src/view/popup/case.pug") 자세히
-                                    +table-btn.btn-outline-primary(data-bs-toggle="modal", data-bs-target="#case-execute") 실행
-                                    +table-btn.btn-outline-secondary(disabled="true") (실행이력 없음)
-                                    +table-btn.btn-outline-primary(data-bs-toggle="modal", data-bs-target="#case-result") 결과입력
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/result-history.pug") 결과이력
-                                    +table-btn.btn-outline-danger(data-bs-toggle="modal", data-bs-target="#danger-modal") 삭제
+                                    +a-table-btn.btn-outline-primary.py-0.popup-link(
+                                        href="/src/view/popup/case.pug"
+                                    ) 자세히
+                                    +table-btn.btn-outline-primary(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-execute"
+                                    ) 실행
+                                    +table-btn.btn-outline-secondary(
+                                        disabled="true"
+                                    ) (실행이력 없음)
+                                    +table-btn.btn-outline-primary(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#case-result"
+                                    ) 결과입력
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/result-history.pug"
+                                    ) 결과이력
+                                    +table-btn.btn-outline-danger(
+                                        data-bs-toggle="modal",
+                                        data-bs-target="#danger-modal"
+                                    ) 삭제
         section#test-history.d-flex.flex-column.dynamic-table
             .row.mb-2.g-2.align-items-center
                 .col-auto
                     span.fs-4.fw-bold.mb-2 자동테스트 수행이력
                 .col-auto.me-auto
-                    button.row-locked.btn.btn-danger.btn-sm(data-bs-toggle="modal", data-bs-target="#danger-modal", disabled)
+                    button.row-locked.btn.btn-danger.btn-sm(
+                        data-bs-toggle="modal",
+                        data-bs-target="#danger-modal",
+                        disabled
+                    )
                         span 선택항목 (
                         span.row-counter 0
                         span 개) 삭제
                 .col-auto
                     .input-group.input-group-sm
                         span.input-group-text 케이스ID
-                        input#case-search.form-control(type="text", placeholder="검색어를 입력하세요")
-                        +btn.btn-secondary.opacity-50.input-reset(type="button") 초기화
-                        +btn.btn-secondary(type="button") 검색
+                        input#case-search.form-control(
+                            type="text",
+                            placeholder="검색어를 입력하세요"
+                        )
+                        +btn.btn-secondary.opacity-50.input-reset(
+                            type="button"
+                        ) 초기화
+                        +btn.btn-secondary(
+                            type="button"
+                        ) 검색
             .table-responsive
                 table#auto_history.small.table-bordered.table.table-sm.table-hover.w-100
                     thead
                         tr
                             th(scope="col")
-                                input#history-all.form-check-input(type="checkbox", value="", name="history") 
+                                input#history-all.form-check-input(
+                                    type="checkbox",
+                                    value="",
+                                    name="history"
+                                ) 
                             th(scope="col") 시스템
                             th(scope="col") 케이스 ID
                             th(scope="col") 케이스명
@@ -172,8 +257,12 @@ block contents
                             td 2022-08-18
                             td
                                 .hstack.gap-1.justify-content-center
-                                    +a-table-btn.btn-outline-primary.popup-link(href="/src/view/popup/detail.pug") 자세히
-                                    +table-btn.btn-outline-secondary(disabled) (실행이력 없음)
+                                    +a-table-btn.btn-outline-primary.popup-link(
+                                        href="/src/view/popup/detail.pug"
+                                    ) 자세히
+                                    +table-btn.btn-outline-secondary(
+                                        disabled
+                                    ) (실행이력 없음)
             +pagination
         section.d-flex.flex-column
             .row.mb-2.g-2.align-items-center
@@ -201,7 +290,10 @@ block contents
                             td 관리자
                             td 2022-06-14 09:54:35
                             td
-                                +table-btn.btn-outline-danger(data-bs-toggle="modal", data-bs-target="#danger-modal") 삭제
+                                +table-btn.btn-outline-danger(
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#danger-modal"
+                                ) 삭제
                         tr
                             td 2
                             td #[a(href="#") 첨부파일첨부파일.txt]
@@ -210,7 +302,10 @@ block contents
                             td 관리자
                             td 2022-06-14 09:54:35
                             td 
-                                +table-btn.btn-outline-danger(data-bs-toggle="modal", data-bs-target="#danger-modal") 삭제
+                                +table-btn.btn-outline-danger(
+                                    data-bs-toggle="modal",
+                                    data-bs-target="#danger-modal"
+                                ) 삭제
 
     +danger-modal
     +confirm-modal#all-success 

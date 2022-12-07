@@ -13,6 +13,7 @@ import sectionObserver from "./_sectionObserver";
 import { Modal } from "bootstrap";
 import Toast from "./_toast";
 import makeExcel from "./_excel";
+import { tooltipInit } from "./_tooltip";
 
 const initFuncs = {
     preloader,
@@ -27,6 +28,7 @@ const initFuncs = {
     textDeliver,
     popupController,
     sectionObserver,
+    tooltipInit,
 };
 
 const globals = {
