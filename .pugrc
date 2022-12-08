@@ -86,8 +86,16 @@
                 "icon": "bi-file-earmark-text",
                 "nodes": [
                     {
-                        "title": "보고서 생성",
-                        "id": "generate"
+                        "title": "부서별 개선 누계",
+                        "id": "team"
+                    },
+                    {
+                        "title": "월별 누계",
+                        "id": "monthly"
+                    },
+                    {
+                        "title": "개발자 단위테스트 누계",
+                        "id": "dev"
                     }
                 ]
             },

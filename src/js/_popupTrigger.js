@@ -13,8 +13,17 @@ export const pop = async (arg) => {
     const popupX = screenLeft + (outerWidth - popupWidth) / 2;
     const popupY = screenTop + (outerHeight - popupHeight) / 2;
     const isString = arg.constructor.name === "String";
-    const isOpened = !isString && arg.hasAttribute("data-pop-distinct") && window.__lastPopup;
-    const popup = isOpened ? window.__lastPopup : window.open("about:blank", "_blank", `toolbar=no,status=no,menubar=no,width=${popupWidth},height=${popupHeight},left=${popupX},top=${popupY}`);
+    const isOpened =
+        !isString &&
+        arg.hasAttribute("data-pop-distinct") &&
+        window.__lastPopup;
+    const popup = isOpened
+        ? window.__lastPopup
+        : window.open(
+              "about:blank",
+              "_blank",
+              `toolbar=no,status=no,menubar=no,width=${popupWidth},height=${popupHeight},left=${popupX},top=${popupY}`
+          );
     popup.document.write(style.outerHTML);
     popup.document.write(div.outerHTML);
     popup.location.href = isString ? arg : arg.href || arg.value;
@@ -31,18 +40,18 @@ const eventBinder = (x) => {
     x.setAttribute("target", "_blank");
     x.removeEventListener("click", preventAndPop);
     x.addEventListener("click", preventAndPop);
-    window.popups.push(x);
 };
 
 export const popupTrigger = (el) => {
-    window.popups = [];
     if (el && [...el.classList].includes("popup-link")) {
         eventBinder(el);
     } else {
         const target = el || document;
         const elements = target.querySelectorAll(".popup-link");
+        elements?.id === "devView" &&
+            console.log("trigger: popup-link 검색됨", elements);
 
-        [...elements].forEach((x) => eventBinder(x));
+        [...elements].forEach((x) => eventBinder(x) && console.log(x));
     }
 };
 

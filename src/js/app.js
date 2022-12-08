@@ -46,4 +46,4 @@ document.addEventListener("DOMContentLoaded", () => {
     Object.assign(window, globals);
 });
 
-console.log("tams.js / 221205 1352");
+console.log("tams.js / 221208 1541");
