@@ -10,10 +10,9 @@ import { preloader, Loading } from "./_loader";
 import textDeliver from "./_textDeliver";
 import popupController from "./_popupController";
 import sectionObserver from "./_sectionObserver";
-import { Modal } from "bootstrap";
+import { Modal, Tooltip } from "bootstrap";
 import Toast from "./_toast";
 import makeExcel from "./_excel";
-import { tooltipInit } from "./_tooltip";
 
 const initFuncs = {
     preloader,
@@ -28,7 +27,6 @@ const initFuncs = {
     textDeliver,
     popupController,
     sectionObserver,
-    tooltipInit,
 };
 
 const globals = {
@@ -37,6 +35,7 @@ const globals = {
     makeExcel,
     Loading,
     popupOpen: pop,
+    Tooltip,
 };
 
 document.addEventListener("DOMContentLoaded", () => {

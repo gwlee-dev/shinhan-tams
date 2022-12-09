@@ -54,7 +54,7 @@
 .popup,
 .modal {
     .table {
-        tr:first-child th {
+        thead tr:first-child > * {
             box-shadow: inset 0px 2px 0px 0px rgba($dark, 0.5);
         }
         th {
